@@ -28,9 +28,11 @@ public partial class AudioManager : Node
 
 		#region Signals
 		ui.settingsUI.micSelect.ItemSelected += MicSelected;
+		ui.settingsUI.OutputSelect.ItemSelected += OutputSelected;
 		ui.coreUI.Replay.Pressed += PlayAudio;
 		#endregion
 		GetMicList();
+		GetOutputList();
 
 
 	}
@@ -136,12 +138,12 @@ public partial class AudioManager : Node
 	/// </summary>
 	public void GetOutputList()
 	{
-		devices = AudioServer.GetInputDeviceList();
+		devices = AudioServer.GetOutputDeviceList();
 
-		ui.settingsUI.micSelect.Clear();
+		ui.settingsUI.OutputSelect.Clear();
 		foreach (string device in devices)
 		{
-			ui.settingsUI.micSelect.AddItem(device);
+			ui.settingsUI.OutputSelect.AddItem(device);
 		}
 
 	}
@@ -154,7 +156,7 @@ public partial class AudioManager : Node
 	/// <param name="index">Input index</param>
 	public void OutputSelected(long index)
 	{
-		AudioServer.InputDevice = devices[index];
+		AudioServer.OutputDevice = devices[index];
 	}
 
 
