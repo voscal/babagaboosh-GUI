@@ -6,7 +6,7 @@ public partial class MasterScript : Node
 {
 	[Export]
 	public Character character;
-	MasterUI masterUI;
+	UI ui;
 
 	Remotelibraries Libraries;
 
@@ -15,8 +15,8 @@ public partial class MasterScript : Node
 	{
 		Libraries = GetNode<Remotelibraries>("Remote Libraries");
 		audioManager = GetNode<AudioManager>("Audio Manager");
-		masterUI = GetNode<MasterUI>("MasterUI");
-		masterUI.coreUI.record.Pressed += askAI;
+		ui = GetNode<UI>("UI");
+		ui.coreUI.record.Pressed += askAI;
 		SetCharacter();
 	}
 
@@ -32,13 +32,13 @@ public partial class MasterScript : Node
 		if (DisplayServer.WindowIsFocused(0))
 		{
 			GetViewport().TransparentBg = false;
-			masterUI.Visible = true;
+			ui.Visible = true;
 		}
 
 		else
 		{
 			GetViewport().TransparentBg = true;
-			masterUI.Visible = false;
+			ui.Visible = false;
 		}
 
 	}

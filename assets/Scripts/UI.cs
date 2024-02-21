@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MasterUI : Control
+public partial class UI : CanvasLayer
 {
 	public CoreUI coreUI;
 	public override void _Ready()

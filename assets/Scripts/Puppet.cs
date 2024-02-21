@@ -11,7 +11,7 @@ public partial class Puppet : Node2D
 
 	public override void _Ready()
 	{
-		audioManager = GetParent().GetNode<AudioManager>("Audio Manager");
+		audioManager = GetParent().GetParent().GetNode<AudioManager>("Audio Manager");
 		headSprite = GetNode<Sprite2D>("Head");
 	}
 

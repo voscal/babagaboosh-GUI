@@ -12,7 +12,7 @@ public partial class AudioManager : Node
 
 	public AudioStreamWav recording;
 
-	MasterUI masterUI;
+	UI ui;
 
 
 	bool currentlyRecording = false;
@@ -21,14 +21,14 @@ public partial class AudioManager : Node
 	{
 
 
-		masterUI = GetParent().GetNode<MasterUI>("MasterUI");
+		ui = GetParent().GetNode<UI>("UI");
 		int idx = AudioServer.GetBusIndex("Recording");
 		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(idx, 0);
 		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(0, 0);
 
 		#region Signals
-		masterUI.coreUI.micList.ItemSelected += MicSelected;
-		masterUI.coreUI.Replay.Pressed += PlayAudio;
+		ui.coreUI.micList.ItemSelected += MicSelected;
+		ui.coreUI.Replay.Pressed += PlayAudio;
 		#endregion
 		GetMicList();
 
@@ -110,10 +110,10 @@ public partial class AudioManager : Node
 	{
 		devices = AudioServer.GetInputDeviceList();
 
-		masterUI.coreUI.micList.Clear();
+		ui.coreUI.micList.Clear();
 		foreach (string device in devices)
 		{
-			masterUI.coreUI.micList.AddItem(device);
+			ui.coreUI.micList.AddItem(device);
 		}
 
 	}
