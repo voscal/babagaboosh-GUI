@@ -393,7 +393,7 @@ texture = ExtResource("3_t1c5n")
 [node name="Puppet" type="CanvasLayer" parent="."]
 
 [node name="Character" parent="Puppet" instance=ExtResource("4_24sp8")]
-position = Vector2(576, 324)
+position = Vector2(840, 328)
 maxHeadHeight = 100.0
 
 [node name="UI" parent="." instance=ExtResource("3_xnwsb")]

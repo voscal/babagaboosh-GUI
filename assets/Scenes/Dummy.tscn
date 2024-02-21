@@ -17,5 +17,3 @@ region_rect = Rect2(0, 87, 128, 41)
 texture = ExtResource("2_yc8wy")
 region_enabled = true
 region_rect = Rect2(0, 1, 128, 86)
-
-[node name="Camera2D" type="Camera2D" parent="."]

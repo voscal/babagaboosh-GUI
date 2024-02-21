@@ -51,6 +51,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 400.0
+offset_right = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_3k362")
@@ -82,35 +84,37 @@ text = "Replay"
 
 [node name="settings" type="TextureButton" parent="CoreUI"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 71.0
-offset_bottom = 70.0
+offset_left = 61.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 69.0
+rotation = 1.57079
 texture_normal = ExtResource("6_3dkm3")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Charcters" type="TextureButton" parent="CoreUI"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 107.0
-offset_right = 70.0
-offset_bottom = 171.0
+offset_left = -2.0
+offset_top = 89.0
+offset_right = 62.0
+offset_bottom = 153.0
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="SettingsUI" type="Control" parent="."]
-layout_mode = 3
+[node name="SettingsUI" type="Control" parent="CoreUI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -768.0
+offset_left = -400.0
+offset_right = -1168.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_4ndqf")
 
-[node name="BackGround" type="Panel" parent="SettingsUI"]
+[node name="BackGround" type="Panel" parent="CoreUI/SettingsUI"]
 custom_minimum_size = Vector2(384, 256)
 layout_mode = 1
 anchors_preset = -1
@@ -120,98 +124,117 @@ offset_right = 319.872
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="Label" type="Label" parent="SettingsUI/BackGround"]
+[node name="Label" type="Label" parent="CoreUI/SettingsUI/BackGround"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 64.0
+offset_top = -1.0
+offset_bottom = 63.0
+grow_horizontal = 2
 text = "SETTINGS"
 label_settings = SubResource("LabelSettings_ipxov")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI"]
+[node name="TabBar" type="TabBar" parent="CoreUI/SettingsUI"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 384.0
+offset_bottom = 120.0
+theme = ExtResource("8_voyw1")
+tab_count = 3
+tab_alignment = 1
+clip_tabs = false
+scrolling_enabled = false
+scroll_to_selected = false
+select_with_rmb = true
+tab_0/title = "Audio"
+tab_1/title = "KeyBinds"
+tab_2/title = "API"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CoreUI/SettingsUI"]
 custom_minimum_size = Vector2(352, 176)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.167
 anchor_bottom = 1.0
 offset_left = 16.0
-offset_top = 64.0
+offset_top = 120.0
 offset_right = 303.872
 offset_bottom = -16.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yr5cc")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsUI/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CoreUI/SettingsUI/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Audio" type="Control" parent="SettingsUI/ScrollContainer/VBoxContainer"]
+[node name="Audio" type="Control" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 227.94)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="Title" type="Label" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_top = 24.0
 offset_right = 8.0
-offset_bottom = 47.0
+offset_bottom = 71.0
 grow_horizontal = 2
 text = "AUDIO"
 label_settings = SubResource("LabelSettings_alr8j")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InputLable" type="Label" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="InputLable" type="Label" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 56.0
+offset_top = 64.0
 offset_right = -8.0
-offset_bottom = 87.0
+offset_bottom = 95.0
 grow_horizontal = 2
 text = "INPUT"
 label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 
-[node name="MicList" type="OptionButton" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="MicList" type="OptionButton" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
 layout_mode = 2
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 88.0
+offset_top = 96.0
 offset_right = -8.0
-offset_bottom = 128.0
+offset_bottom = 136.0
 theme = ExtResource("8_voyw1")
 clip_text = true
 fit_to_longest_item = false
 allow_reselect = true
 
-[node name="OutputLable" type="Label" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="OutputLable" type="Label" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 152.0
+offset_top = 160.0
 offset_right = -8.0
-offset_bottom = 183.0
+offset_bottom = 191.0
 grow_horizontal = 2
 theme = ExtResource("8_voyw1")
 text = "OUTPUT"
 label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 
-[node name="OutputList" type="OptionButton" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="OutputList" type="OptionButton" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 184.0
+offset_top = 192.0
 offset_right = -8.0
-offset_bottom = 224.0
+offset_bottom = 232.0
 grow_horizontal = 2
 theme = ExtResource("8_voyw1")
 clip_text = true
