@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c32xv48m7eni7"]
+
+[ext_resource type="Script" path="res://assets/Scripts/Puppet.cs" id="1_ndnmw"]
+[ext_resource type="Texture2D" uid="uid://bywrsjsx15042" path="res://assets/Sprites/icon.svg" id="2_yc8wy"]
+
+[node name="Dummy" type="Node2D"]
+script = ExtResource("1_ndnmw")
+maxHeadHeight = 25.4
+
+[node name="Bottom" type="Sprite2D" parent="."]
+position = Vector2(0, 63)
+texture = ExtResource("2_yc8wy")
+region_enabled = true
+region_rect = Rect2(0, 87, 128, 41)
+
+[node name="Head" type="Sprite2D" parent="."]
+texture = ExtResource("2_yc8wy")
+region_enabled = true
+region_rect = Rect2(0, 1, 128, 86)
+
+[node name="Camera2D" type="Camera2D" parent="."]

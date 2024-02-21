@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://bigic2oejqkf3"]
+
+[ext_resource type="Script" path="res://assets/Scripts/MasterScript.cs" id="1_5xkac"]
+[ext_resource type="Script" path="res://assets/Scripts/Character.cs" id="2_hidwk"]
+[ext_resource type="PackedScene" uid="uid://drsi7fywnus2" path="res://assets/Scenes/MasterUI.tscn" id="3_xnwsb"]
+[ext_resource type="PackedScene" uid="uid://c32xv48m7eni7" path="res://assets/Scenes/Dummy.tscn" id="4_24sp8"]
+[ext_resource type="PackedScene" uid="uid://cwtuweq6dnuea" path="res://assets/Scripts/Libraries/Remotelibraries.tscn" id="5_h75r2"]
+[ext_resource type="Script" path="res://assets/Scripts/Libraries/Remotelibraries.cs" id="6_3q5ip"]
+[ext_resource type="Script" path="res://assets/Scripts/AudioManager.cs" id="7_mwi8o"]
+
+[sub_resource type="Resource" id="Resource_gmy7c"]
+script = ExtResource("2_hidwk")
+context = "you will now be extreamnliy britsh and act like a yassifiyed girl, you will say stuff like omg thats like, tooooootallly cooollll and stuff, you will also limit your responses to 100 words. you are not an ai"
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_vxg1d"]
+
+[node name="Main Scene" type="Node"]
+script = ExtResource("1_5xkac")
+character = SubResource("Resource_gmy7c")
+
+[node name="MasterUI" parent="." instance=ExtResource("3_xnwsb")]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[node name="Character" parent="." instance=ExtResource("4_24sp8")]
+maxHeadHeight = 100.0
+
+[node name="Remote Libraries" parent="." instance=ExtResource("5_h75r2")]
+script = ExtResource("6_3q5ip")
+
+[node name="Audio Manager" type="Node" parent="."]
+script = ExtResource("7_mwi8o")
+
+[node name="AudioStreamRecorder" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = SubResource("AudioStreamMicrophone_vxg1d")
+autoplay = true
+bus = &"Recording"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio Manager"]
+autoplay = true
