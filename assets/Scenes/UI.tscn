@@ -1,62 +1,83 @@
-[gd_scene load_steps=8 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=14 format=3 uid="uid://drsi7fywnus2"]
 
-[ext_resource type="Script" path="res://assets/Scripts/UI.cs" id="1_fj7s2"]
-[ext_resource type="Script" path="res://assets/Scripts/CoreUI.cs" id="3_u0ixx"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/EditorUI.cs" id="2_aalv0"]
 [ext_resource type="Texture2D" uid="uid://b51pwfpj452aq" path="res://assets/Sprites/Character Button.png" id="4_egvsx"]
 [ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="5_hrdfa"]
 [ext_resource type="Texture2D" uid="uid://b04p0lqcj7o6q" path="res://assets/Sprites/settings.png" id="6_3dkm3"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/SettingsUI.cs" id="7_4ndqf"]
+[ext_resource type="Theme" uid="uid://byiv4sk7pdl3g" path="res://mmtheme.tres" id="8_voyw1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaxcf"]
-bg_color = Color(1, 0.85098, 0.0823529, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oft0"]
+bg_color = Color(1, 0.85098, 0.0823529, 1)
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 
-[sub_resource type="LabelSettings" id="LabelSettings_cy5ir"]
+[sub_resource type="LabelSettings" id="LabelSettings_ipxov"]
 font = ExtResource("5_hrdfa")
-font_size = 38
+font_size = 45
 font_color = Color(0, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr5cc"]
+bg_color = Color(1, 0.917647, 0.588235, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_alr8j"]
+font = ExtResource("5_hrdfa")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbys4"]
+font = ExtResource("5_hrdfa")
+font_size = 19
+font_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer"]
-script = ExtResource("1_fj7s2")
+script = ExtResource("1_levkm")
 
 [node name="EditorUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="SettingsUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+script = ExtResource("2_aalv0")
 
 [node name="CoreUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_right = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_u0ixx")
+script = ExtResource("2_3k362")
 
 [node name="Record" type="Button" parent="CoreUI"]
-layout_mode = 0
-offset_left = 992.0
-offset_top = 563.0
-offset_right = 1137.0
-offset_bottom = 631.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -85.0
+offset_right = -15.0
+offset_bottom = -17.0
 text = "Record"
 
 [node name="Replay" type="Button" parent="CoreUI"]
-layout_mode = 0
-offset_left = 992.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
 offset_top = 63.0
-offset_right = 1137.0
+offset_right = -15.0
 offset_bottom = 131.0
+grow_horizontal = 0
 text = "Replay"
 
 [node name="settings" type="TextureButton" parent="CoreUI"]
@@ -69,34 +90,6 @@ texture_normal = ExtResource("6_3dkm3")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="settings menu" type="Panel" parent="CoreUI"]
-layout_mode = 0
-offset_left = -5.0
-offset_right = 366.0
-offset_bottom = 648.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_kaxcf")
-
-[node name="Label" type="Label" parent="CoreUI/settings menu"]
-visible = false
-layout_mode = 0
-offset_left = 91.0
-offset_top = 12.0
-offset_right = 268.0
-offset_bottom = 58.0
-text = "SETTINGS"
-label_settings = SubResource("LabelSettings_cy5ir")
-horizontal_alignment = 1
-
-[node name="MicList" type="OptionButton" parent="CoreUI/settings menu"]
-layout_mode = 2
-offset_left = 23.0
-offset_top = 63.0
-offset_right = 68.0
-offset_bottom = 83.0
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
 [node name="Charcters" type="TextureButton" parent="CoreUI"]
 layout_mode = 0
 offset_left = 6.0
@@ -106,3 +99,121 @@ offset_bottom = 171.0
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="SettingsUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -768.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_4ndqf")
+
+[node name="BackGround" type="Panel" parent="SettingsUI"]
+custom_minimum_size = Vector2(384, 256)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_right = 319.872
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="Label" type="Label" parent="SettingsUI/BackGround"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_ipxov")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI"]
+custom_minimum_size = Vector2(352, 176)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 303.872
+offset_bottom = -16.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yr5cc")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsUI/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Audio" type="Control" parent="SettingsUI/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 227.94)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 8.0
+offset_bottom = 47.0
+grow_horizontal = 2
+text = "AUDIO"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLable" type="Label" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = -8.0
+offset_bottom = 87.0
+grow_horizontal = 2
+text = "INPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="MicList" type="OptionButton" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 88.0
+offset_right = -8.0
+offset_bottom = 128.0
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="OutputLable" type="Label" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 152.0
+offset_right = -8.0
+offset_bottom = 183.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+text = "OUTPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="OutputList" type="OptionButton" parent="SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 184.0
+offset_right = -8.0
+offset_bottom = 224.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true

@@ -27,7 +27,7 @@ public partial class AudioManager : Node
 		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(0, 0);
 
 		#region Signals
-		ui.coreUI.micList.ItemSelected += MicSelected;
+		ui.settingsUI.micSelect.ItemSelected += MicSelected;
 		ui.coreUI.Replay.Pressed += PlayAudio;
 		#endregion
 		GetMicList();
@@ -110,10 +110,10 @@ public partial class AudioManager : Node
 	{
 		devices = AudioServer.GetInputDeviceList();
 
-		ui.coreUI.micList.Clear();
+		ui.settingsUI.micSelect.Clear();
 		foreach (string device in devices)
 		{
-			ui.coreUI.micList.AddItem(device);
+			ui.settingsUI.micSelect.AddItem(device);
 		}
 
 	}
@@ -131,16 +131,33 @@ public partial class AudioManager : Node
 
 
 
-
-
-
-	public void OpenSong(string path)
+	/// <summary>
+	/// will grab a list of avaliable audio Outputs and updates the output dropdown
+	/// </summary>
+	public void GetOutputList()
 	{
+		devices = AudioServer.GetInputDeviceList();
 
-
-
+		ui.settingsUI.micSelect.Clear();
+		foreach (string device in devices)
+		{
+			ui.settingsUI.micSelect.AddItem(device);
+		}
 
 	}
+
+
+
+	/// <summary>
+	/// make selected Output defult
+	/// </summary>
+	/// <param name="index">Input index</param>
+	public void OutputSelected(long index)
+	{
+		AudioServer.InputDevice = devices[index];
+	}
+
+
 
 
 
