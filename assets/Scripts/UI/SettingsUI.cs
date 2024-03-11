@@ -1,14 +1,70 @@
 using Godot;
-using System;
+using Godot.Collections;
+
 
 public partial class SettingsUI : Control
 {
 	public OptionButton micSelect;
 	public OptionButton OutputSelect;
+
+	bool settingsOpen = false;
+
+	//api keys
+	TextEdit ChatGPTtext;
+	TextEdit Azuretext;
+	TextEdit Labtext;
+	SaveManager saveManager;
+
+
+	[Export]
+	AnimationPlayer animationPlayer;
 	public override void _Ready()
 	{
-		micSelect = GetNode<OptionButton>("ScrollContainer/VBoxContainer/Audio/MicList");
-		OutputSelect = GetNode<OptionButton>("ScrollContainer/VBoxContainer/Audio/OutputList");
+		saveManager = GetNode<SaveManager>("/root/saveManager");
+
+		micSelect = GetNode<OptionButton>("Audio/MicList");
+		OutputSelect = GetNode<OptionButton>("Audio/OutputList");
+
+		ChatGPTtext = GetNode<TextEdit>("API keys/ChatAPI");
+		Azuretext = GetNode<TextEdit>("API keys/AzureAPI");
+		Labtext = GetNode<TextEdit>("API keys/11labAPI");
+
+
+		// api keys
+		ChatGPTtext.Text = saveManager.GetAPIKey("ChatGPT");
+		Azuretext.Text = saveManager.GetAPIKey("Azuir");
+		Labtext.Text = saveManager.GetAPIKey("11labs");
+
+
+
+	}
+
+	public void SettingPressed()
+	{
+		if (settingsOpen)
+		{
+			animationPlayer.Play("CloseSettings");
+			settingsOpen = !settingsOpen;
+		}
+		else
+		{
+			animationPlayer.Play("OpenSettings");
+			settingsOpen = !settingsOpen;
+		}
+
+	}
+
+
+	public void SaveKeys()
+	{
+		Dictionary data = new()
+		{
+			{ "ChatGPT", ChatGPTtext.Text },
+			{ "Azuir", Azuretext.Text },
+			{ "11labs", Labtext.Text }
+		};
+
+		saveManager.SaveAPIKeys(data);
 	}
 
 }

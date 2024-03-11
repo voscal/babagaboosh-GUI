@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=28 format=3 uid="uid://drsi7fywnus2"]
 
 [ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
@@ -7,57 +7,330 @@
 [ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="5_hrdfa"]
 [ext_resource type="Texture2D" uid="uid://b04p0lqcj7o6q" path="res://assets/Sprites/settings.png" id="6_3dkm3"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/SettingsUI.cs" id="7_4ndqf"]
+[ext_resource type="PackedScene" uid="uid://c6qu4fxp3w6ni" path="res://assets/nodes/voiceShelf.tscn" id="8_eokd3"]
 [ext_resource type="Theme" uid="uid://byiv4sk7pdl3g" path="res://mmtheme.tres" id="8_voyw1"]
+[ext_resource type="FontFile" uid="uid://dpm21lxchrs1o" path="res://assets/Fonts/FlowRounded-Regular.ttf" id="9_f7luj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oft0"]
-bg_color = Color(1, 0.85098, 0.0823529, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_ipxov"]
-font = ExtResource("5_hrdfa")
-font_size = 45
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr5cc"]
-bg_color = Color(1, 0.917647, 0.588235, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m438f"]
+bg_color = Color(1, 1, 1, 0.478431)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.996078, 0.807843, 0, 1)
 corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 5
+corner_radius_bottom_left = 15
+anti_aliasing = false
 
-[sub_resource type="LabelSettings" id="LabelSettings_alr8j"]
-font = ExtResource("5_hrdfa")
-font_size = 30
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpq2r"]
+bg_color = Color(0.501961, 0.501961, 0.505882, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.996078, 0.807843, 0, 1)
+corner_radius_top_left = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 2
+anti_aliasing = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_vbys4"]
 font = ExtResource("5_hrdfa")
 font_size = 19
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oft0"]
+bg_color = Color(0.631373, 0.631373, 0.631373, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.996078, 0.807843, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6k774"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.819608, 0.819608, 0.819608, 1)
+border_color = Color(0.819608, 0.819608, 0.819608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_offset = Vector2(0, -3.265)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hvrf"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.819608, 0.819608, 0.819608, 1)
+border_color = Color(0.819608, 0.819608, 0.819608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.227451)
+shadow_offset = Vector2(1.355, -15.475)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi6qn"]
+content_margin_left = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jm7e"]
+content_margin_left = 3.0
+content_margin_top = 6.0
+content_margin_bottom = 3.0
+bg_color = Color(0.968627, 0.784314, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id="Animation_p5t2u"]
+resource_name = "CloseUI"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112656, 0.112656),
+"update": 0,
+"values": [Vector2(402, 248), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112656, 0.112656),
+"update": 0,
+"values": [Vector2(-440, 31), Vector2(-38, 31)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Polygon2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0786164),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cp5yg"]
+resource_name = "OpenUI"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112656, 0.0915054),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(402, 248)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112656, 1),
+"update": 0,
+"values": [Vector2(-38, 31), Vector2(-440, 31)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Polygon2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1sw41"]
+_data = {
+"CloseUI": SubResource("Animation_p5t2u"),
+"OpenUI": SubResource("Animation_cp5yg")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_uodlu"]
+font = ExtResource("5_hrdfa")
+font_size = 45
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7knj"]
+bg_color = Color(1, 1, 1, 0.639216)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_alr8j"]
+font = ExtResource("5_hrdfa")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_121pn"]
+resource_name = "CloseSettings"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 6.9644),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-384, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 6.9644),
+"update": 0,
+"values": [Vector2(402, 4), Vector2(5, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 6.9644),
+"update": 0,
+"values": [1.57079, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.233259, 6.9644),
+"update": 0,
+"values": [Vector2(403, 78), Vector2(6, 78)]
+}
+
+[sub_resource type="Animation" id="Animation_75yui"]
+resource_name = "OpenSettings"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 2.54912),
+"update": 0,
+"values": [Vector2(-384, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(5, 4), Vector2(402, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [0.0, 1.57079]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(6, 78), Vector2(403, 78)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37bpx"]
+_data = {
+"CloseSettings": SubResource("Animation_121pn"),
+"OpenSettings": SubResource("Animation_75yui")
+}
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_levkm")
-
-[node name="EditorUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_aalv0")
 
 [node name="CoreUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 400.0
-offset_right = 400.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 7.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_3k362")
 
 [node name="Record" type="Button" parent="CoreUI"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -71,6 +344,7 @@ offset_bottom = -17.0
 text = "Record"
 
 [node name="Replay" type="Button" parent="CoreUI"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -84,37 +358,485 @@ text = "Replay"
 
 [node name="settings" type="TextureButton" parent="CoreUI"]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 5.0
-offset_right = 125.0
-offset_bottom = 69.0
-rotation = 1.57079
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 69.0001
+offset_bottom = 68.0
+pivot_offset = Vector2(32.13, 32.345)
 texture_normal = ExtResource("6_3dkm3")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Charcters" type="TextureButton" parent="CoreUI"]
 layout_mode = 0
-offset_left = -2.0
-offset_top = 89.0
-offset_right = 62.0
-offset_bottom = 153.0
+offset_left = 6.0
+offset_top = 78.0
+offset_right = 70.0003
+offset_bottom = 142.0
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="SettingsUI" type="Control" parent="CoreUI"]
+[node name="Edit" type="Button" parent="CoreUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1136.0
+offset_top = -85.0
+offset_right = -991.0
+offset_bottom = -17.0
+text = "Edit"
+
+[node name="EditorUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_aalv0")
+
+[node name="BG" type="Panel" parent="EditorUI"]
+layout_mode = 0
+offset_left = 1066.0
+offset_right = 1154.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m438f")
+
+[node name="About" type="TextureButton" parent="EditorUI"]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 31.0
+offset_right = 1139.0
+offset_bottom = 93.0
+texture_normal = ExtResource("4_egvsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/About"]
+visible = false
+layout_mode = 0
+offset_left = -440.0
+offset_top = 31.0
+offset_right = -37.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
+
+[node name="Name" type="TextEdit" parent="EditorUI/About/Background"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 40.0
+offset_right = 378.0
+offset_bottom = 73.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/line_spacing = -3
+text = "Zest mf"
+scroll_smooth = true
+
+[node name="Context" type="TextEdit" parent="EditorUI/About/Background"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 105.0
+offset_right = 380.0
+offset_bottom = 238.0
+theme = ExtResource("8_voyw1")
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="DesctionLabal" type="Label" parent="EditorUI/About/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 74.0
+offset_bottom = 105.0
+grow_horizontal = 2
+text = "DESCRIPTION"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabal" type="Label" parent="EditorUI/About/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/About"]
+visible = false
+position = Vector2(32.5953, 27)
+scale = Vector2(0.14, 0.0690001)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-35, 4, -35, 18, -24, 4)
+
+[node name="Sprites" type="TextureButton" parent="EditorUI"]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 109.0
+offset_right = 1139.0
+offset_bottom = 171.0
+texture_normal = ExtResource("4_egvsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/Sprites"]
+visible = false
+layout_mode = 0
+offset_left = -440.0
+offset_top = 31.0
+offset_right = -37.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
+
+[node name="Name" type="TextEdit" parent="EditorUI/Sprites/Background"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 40.0
+offset_right = 378.0
+offset_bottom = 73.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/line_spacing = -3
+text = "Zest mf"
+scroll_smooth = true
+
+[node name="Context" type="TextEdit" parent="EditorUI/Sprites/Background"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 105.0
+offset_right = 380.0
+offset_bottom = 238.0
+theme = ExtResource("8_voyw1")
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="DesctionLabal" type="Label" parent="EditorUI/Sprites/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 74.0
+offset_bottom = 105.0
+grow_horizontal = 2
+text = "DESCRIPTION"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabal" type="Label" parent="EditorUI/Sprites/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Sprites"]
+visible = false
+position = Vector2(32.5953, 27)
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-35, 4, -35, 18, -24, 4)
+
+[node name="Voices" type="TextureButton" parent="EditorUI"]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 187.0
+offset_right = 1139.0
+offset_bottom = 249.0
+texture_normal = ExtResource("4_egvsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/Voices"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.097
+anchor_top = 0.5
+anchor_right = -0.597
+anchor_bottom = 4.516
+offset_left = 0.0140076
+offset_right = -0.986
+offset_bottom = -0.991974
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="NameLabal" type="Label" parent="EditorUI/Voices/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -400.0
-offset_right = -1168.0
+offset_top = 10.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Voices"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorUI/Voices/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 36.0
+offset_right = -15.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_voyw1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6k774")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorUI/Voices/Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VoiceShelf3" parent="EditorUI/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_eokd3")]
+layout_mode = 2
+
+[node name="VoiceShelf4" parent="EditorUI/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_eokd3")]
+layout_mode = 2
+
+[node name="VoiceShelf5" parent="EditorUI/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_eokd3")]
+layout_mode = 2
+
+[node name="VoiceShelf6" parent="EditorUI/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_eokd3")]
+layout_mode = 2
+
+[node name="VoiceShelf7" parent="EditorUI/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_eokd3")]
+layout_mode = 2
+
+[node name="VoiceShelf8" parent="EditorUI/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_eokd3")]
+layout_mode = 2
+
+[node name="VoiceShelf9" parent="EditorUI/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_eokd3")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="EditorUI/Voices/Background"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 199.0
+offset_right = 388.0
+offset_bottom = 235.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="TextEdit" type="TextEdit" parent="EditorUI/Voices/Background/Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -109.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_voyw1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
+placeholder_text = "enter voice ID"
+
+[node name="Button" type="Button" parent="EditorUI/Voices/Background/Panel"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 3.0
+offset_right = 371.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "FIND VOICE"
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Voices"]
+position = Vector2(32.5953, 27)
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-44.249, 4, -38.8164, 10, -35.3593, 20, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Voices"]
+libraries = {
+"": SubResource("AnimationLibrary_1sw41")
+}
+
+[node name="Voice Tweeks" type="TextureButton" parent="EditorUI"]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 265.0
+offset_right = 1139.0
+offset_bottom = 327.0
+texture_normal = ExtResource("4_egvsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/Voice Tweeks"]
+visible = false
+layout_mode = 0
+offset_left = -440.0
+offset_top = 31.0
+offset_right = -37.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
+
+[node name="Name" type="TextEdit" parent="EditorUI/Voice Tweeks/Background"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 40.0
+offset_right = 378.0
+offset_bottom = 73.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/line_spacing = -3
+text = "Zest mf"
+scroll_smooth = true
+
+[node name="Context" type="TextEdit" parent="EditorUI/Voice Tweeks/Background"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 105.0
+offset_right = 380.0
+offset_bottom = 238.0
+theme = ExtResource("8_voyw1")
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="DesctionLabal" type="Label" parent="EditorUI/Voice Tweeks/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 74.0
+offset_bottom = 105.0
+grow_horizontal = 2
+text = "DESCRIPTION"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabal" type="Label" parent="EditorUI/Voice Tweeks/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Voice Tweeks"]
+visible = false
+position = Vector2(32.5953, 27)
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-35, 4, -35, 18, -24, 4)
+
+[node name="Head Movement" type="TextureButton" parent="EditorUI"]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 343.0
+offset_right = 1139.0
+offset_bottom = 405.0
+texture_normal = ExtResource("4_egvsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/Head Movement"]
+visible = false
+layout_mode = 0
+offset_left = -440.0
+offset_top = 31.0
+offset_right = -37.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
+
+[node name="Name" type="TextEdit" parent="EditorUI/Head Movement/Background"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 40.0
+offset_right = 378.0
+offset_bottom = 73.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/line_spacing = -3
+text = "Zest mf"
+scroll_smooth = true
+
+[node name="Context" type="TextEdit" parent="EditorUI/Head Movement/Background"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 105.0
+offset_right = 380.0
+offset_bottom = 238.0
+theme = ExtResource("8_voyw1")
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="DesctionLabal" type="Label" parent="EditorUI/Head Movement/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 74.0
+offset_bottom = 105.0
+grow_horizontal = 2
+text = "DESCRIPTION"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabal" type="Label" parent="EditorUI/Head Movement/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Head Movement"]
+visible = false
+position = Vector2(32.5953, 27)
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-35, 4, -35, 18, -24, 4)
+
+[node name="Undo" type="TextureButton" parent="EditorUI"]
+layout_mode = 0
+offset_left = 1076.0
+offset_top = 567.0
+offset_right = 1140.0
+offset_bottom = 631.0
+pivot_offset = Vector2(32.13, 32.345)
+texture_normal = ExtResource("6_3dkm3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SettingsUI" type="Control" parent="." node_paths=PackedStringArray("animationPlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_right = -1152.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_4ndqf")
+animationPlayer = NodePath("../AnimationPlayer")
 
-[node name="BackGround" type="Panel" parent="CoreUI/SettingsUI"]
+[node name="BackGround" type="Panel" parent="SettingsUI"]
 custom_minimum_size = Vector2(384, 256)
 layout_mode = 1
 anchors_preset = -1
@@ -122,60 +844,45 @@ anchor_right = 0.167
 anchor_bottom = 1.0
 offset_right = 319.872
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="Label" type="Label" parent="CoreUI/SettingsUI/BackGround"]
+[node name="Label" type="Label" parent="SettingsUI/BackGround"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = -1.0
-offset_bottom = 63.0
+offset_left = -1.0
+offset_top = 11.0
+offset_right = -1.0
+offset_bottom = 75.0
 grow_horizontal = 2
 text = "SETTINGS"
-label_settings = SubResource("LabelSettings_ipxov")
+label_settings = SubResource("LabelSettings_uodlu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TabBar" type="TabBar" parent="CoreUI/SettingsUI"]
-layout_mode = 0
-offset_top = 72.0
-offset_right = 384.0
-offset_bottom = 120.0
-theme = ExtResource("8_voyw1")
-tab_count = 3
-tab_alignment = 1
-clip_tabs = false
-scrolling_enabled = false
-scroll_to_selected = false
-select_with_rmb = true
-tab_0/title = "Audio"
-tab_1/title = "KeyBinds"
-tab_2/title = "API"
+[node name="Audio" type="Control" parent="SettingsUI"]
+custom_minimum_size = Vector2(0, 225.91)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 60.0
+offset_right = 364.0
+offset_bottom = 285.91
+size_flags_horizontal = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CoreUI/SettingsUI"]
-custom_minimum_size = Vector2(352, 176)
+[node name="PanelContainer" type="PanelContainer" parent="SettingsUI/Audio"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.167
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 120.0
-offset_right = 303.872
-offset_bottom = -16.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_yr5cc")
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.09
+offset_top = 20.0
+offset_right = 4.0
+offset_bottom = -26.4546
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CoreUI/SettingsUI/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Audio" type="Control" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 227.94)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="Title" type="Label" parent="SettingsUI/Audio"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -188,7 +895,7 @@ label_settings = SubResource("LabelSettings_alr8j")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InputLable" type="Label" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="InputLable" type="Label" parent="SettingsUI/Audio"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -201,42 +908,161 @@ text = "INPUT"
 label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 
-[node name="MicList" type="OptionButton" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="MicList" type="OptionButton" parent="SettingsUI/Audio"]
 layout_mode = 2
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 96.0
+offset_top = 90.0
 offset_right = -8.0
-offset_bottom = 136.0
+offset_bottom = 130.0
 theme = ExtResource("8_voyw1")
 clip_text = true
 fit_to_longest_item = false
 allow_reselect = true
 
-[node name="OutputLable" type="Label" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="OutputLable" type="Label" parent="SettingsUI/Audio"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 160.0
+offset_top = 135.0
 offset_right = -8.0
-offset_bottom = 191.0
+offset_bottom = 166.0
 grow_horizontal = 2
 theme = ExtResource("8_voyw1")
 text = "OUTPUT"
 label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 
-[node name="OutputList" type="OptionButton" parent="CoreUI/SettingsUI/ScrollContainer/VBoxContainer/Audio"]
+[node name="OutputList" type="OptionButton" parent="SettingsUI/Audio"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 192.0
+offset_top = 162.0
 offset_right = -8.0
-offset_bottom = 232.0
+offset_bottom = 202.0
 grow_horizontal = 2
 theme = ExtResource("8_voyw1")
 clip_text = true
 fit_to_longest_item = false
 allow_reselect = true
+
+[node name="API keys" type="Control" parent="SettingsUI"]
+custom_minimum_size = Vector2(0, 356.31)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 289.0
+offset_right = 365.0
+offset_bottom = 645.31
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsUI/API keys"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.09
+offset_top = 7.0
+offset_right = 3.0
+offset_bottom = -44.3779
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Title" type="Label" parent="SettingsUI/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -5.0
+offset_top = 12.0
+offset_right = 3.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "API KEYS"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="chat label" type="Label" parent="SettingsUI/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 54.0
+offset_right = -8.0
+offset_bottom = 85.0
+grow_horizontal = 2
+text = "CHAT GPT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="ChatAPI" type="TextEdit" parent="SettingsUI/API keys"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 82.0
+offset_right = 334.0
+offset_bottom = 125.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
+[node name="Azure label" type="Label" parent="SettingsUI/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 128.0
+offset_right = -8.0
+offset_bottom = 159.0
+grow_horizontal = 2
+text = "AZURE"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="AzureAPI" type="TextEdit" parent="SettingsUI/API keys"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 156.0
+offset_right = 334.0
+offset_bottom = 199.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
+[node name="11labs" type="Label" parent="SettingsUI/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 15.0
+offset_top = 203.0
+offset_right = -9.0
+offset_bottom = 234.0
+grow_horizontal = 2
+text = "11 Labs"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="11labAPI" type="TextEdit" parent="SettingsUI/API keys"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 233.0
+offset_right = 334.0
+offset_bottom = 276.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+scroll_smooth = true
+
+[node name="SaveKeys" type="Button" parent="SettingsUI/API keys"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 295.0
+offset_right = 240.0
+offset_bottom = 329.0
+theme = ExtResource("8_voyw1")
+text = "SAVE KEYS"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_37bpx")
+}
+
+[connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
+[connection signal="pressed" from="EditorUI/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
+[connection signal="pressed" from="SettingsUI/API keys/SaveKeys" to="SettingsUI" method="SaveKeys"]

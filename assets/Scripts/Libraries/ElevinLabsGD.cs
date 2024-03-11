@@ -9,10 +9,13 @@ public partial class ElevinLabsGD : Node
 {
 
 	ElevenLabsClient api;
+
+	SaveManager saveManager;
 	// Called when the node enters the scene tree for the first time.
 	public async override void _Ready()
 	{
-		api = new ElevenLabsClient("54ba7a10adf8b316a81c1f75e588f996");
+		saveManager = GetNode<SaveManager>("/root/saveManager");
+		api = new ElevenLabsClient(saveManager.GetAPIKey("11labs"));
 		var allVoices = await api.VoicesEndpoint.GetAllVoicesAsync();
 
 		foreach (var voice in allVoices)
@@ -26,7 +29,7 @@ public partial class ElevinLabsGD : Node
 
 	public async Task RenderVoice(string text)
 	{
-		Voice voice = await api.VoicesEndpoint.GetVoiceAsync("YkQj1ELIWuccJFycedDl", withSettings: true);
+		Voice voice = await api.VoicesEndpoint.GetVoiceAsync("d8denygOxqQud1nMqAw5", withSettings: true);
 		VoiceSettings voiceSettingsNew = new()
 		{
 			Stability = 0.5f,

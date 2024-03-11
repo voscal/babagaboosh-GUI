@@ -12,14 +12,21 @@ config_version=5
 
 config/name="Babagaboosh"
 run/main_scene="res://assets/Scenes/Main Scene.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Babagaboosh"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/fullsize=false
 config/icon="res://assets/Sprites/icon.svg"
 
 [audio]
 
 driver/output_latency=0
 driver/enable_input=true
+
+[autoload]
+
+saveManager="*res://assets/Scripts/SaveManager.cs"
 
 [display]
 
@@ -36,3 +43,4 @@ project/assembly_name="Babagaboosh"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.0470588, 0.0470588, 0.0509804, 1)

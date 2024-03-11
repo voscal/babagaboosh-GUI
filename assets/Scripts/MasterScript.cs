@@ -4,15 +4,29 @@ using Godot;
 
 public partial class MasterScript : Node
 {
+
+	string keyPath = "user://Keys.save";
+
+
+
+
+
+
+
+
 	[Export]
 	public Character character;
 	UI ui;
+
 
 	Remotelibraries Libraries;
 
 	AudioManager audioManager;
 	public override void _Ready()
 	{
+
+
+
 		Libraries = GetNode<Remotelibraries>("Remote Libraries");
 		audioManager = GetNode<AudioManager>("Audio Manager");
 		ui = GetNode<UI>("UI");
@@ -23,7 +37,7 @@ public partial class MasterScript : Node
 
 	public void SetCharacter()
 	{
-		Libraries.chatGPT.SetContext(character.context);
+		Libraries.chatGPT.SetContext("just respond and keep your messagess in between 10 to 20 words max");
 	}
 
 
@@ -57,6 +71,7 @@ public partial class MasterScript : Node
 		string recordedText = await Libraries.azuir.GetTextFromWav(ProjectSettings.GlobalizePath("res://Audio/record.wav"));
 		if (recordedText != null)
 		{
+
 			string aiResponse = await Libraries.chatGPT.SendMessage(recordedText);
 			GD.Print(aiResponse);
 			await Libraries.elevinLabs.RenderVoice(aiResponse);
@@ -64,6 +79,8 @@ public partial class MasterScript : Node
 			audioManager.PlayAudio();
 		}
 	}
+
+
 
 
 

@@ -5,13 +5,15 @@ using OpenAI_API.Chat;
 using System.Threading.Tasks;
 public partial class ChatGD : Node
 {
-	OpenAIAPI api = new OpenAIAPI("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");
+	OpenAIAPI api;
 
 	Conversation chat;
 
+	SaveManager saveManager;
 	public override void _Ready()
 	{
-
+		saveManager = GetNode<SaveManager>("/root/saveManager");
+		api = new OpenAIAPI(saveManager.GetAPIKey("ChatGPT"));
 		chat = api.Chat.CreateConversation();
 
 		chat.Model = Model.ChatGPTTurbo;

@@ -11,14 +11,19 @@ public partial class AzuirGD : Node
 {
     // Called when the node enters the scene tree for the first time.
 
-    static string speechKey = "cbce6af5b63b4941ba1ff998be87e637";
+
     static string speechRegion = "australiaeast";
 
     SpeechConfig speechConfig;
 
+    MasterScript master;
+
+    SaveManager saveManager;
+
     public override void _Ready()
     {
-        speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);
+        saveManager = GetNode<SaveManager>("/root/saveManager");
+        speechConfig = SpeechConfig.FromSubscription(saveManager.GetAPIKey("Azuir"), speechRegion);
         speechConfig.SpeechRecognitionLanguage = "en-US";
 
 
