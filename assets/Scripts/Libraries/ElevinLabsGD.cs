@@ -5,23 +5,21 @@ using System.IO;
 using System.Threading.Tasks;
 
 using NAudio.Wave;
+
+using System.Linq;
 public partial class ElevinLabsGD : Node
 {
-
+	public Voice currentVoice;
 	ElevenLabsClient api;
-
 	SaveManager saveManager;
+	VoiceData voiceData;
 	// Called when the node enters the scene tree for the first time.
-	public async override void _Ready()
+	public override void _Ready()
 	{
-		saveManager = GetNode<SaveManager>("/root/saveManager");
+		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
+		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
 		api = new ElevenLabsClient(saveManager.GetAPIKey("11labs"));
-		var allVoices = await api.VoicesEndpoint.GetAllVoicesAsync();
 
-		foreach (var voice in allVoices)
-		{
-			GD.Print($"{voice.Id} | {voice.Name} | similarity boost: {voice.Settings?.SimilarityBoost} | stability: {voice.Settings?.Stability}");
-		}
 
 	}
 
@@ -29,14 +27,13 @@ public partial class ElevinLabsGD : Node
 
 	public async Task RenderVoice(string text)
 	{
-		Voice voice = await api.VoicesEndpoint.GetVoiceAsync("d8denygOxqQud1nMqAw5", withSettings: true);
-		VoiceSettings voiceSettingsNew = new()
-		{
-			Stability = 0.5f,
-			SimilarityBoost = 0.75f,
-			Style = 0.5f
+		if (currentVoice == null)
+			return;
 
-		};
+
+		Voice voice = await api.VoicesEndpoint.GetVoiceAsync(currentVoice.Id, withSettings: true);
+		VoiceSettings voiceSettingsNew = GetNode<UI>("/root/Main Scene/UI").editorUI.GetVoiceSettings();
+
 		await api.VoicesEndpoint.EditVoiceSettingsAsync(voice, voiceSettingsNew);
 		GD.Print(await api.VoicesEndpoint.GetVoiceSettingsAsync(voice));
 
@@ -64,5 +61,20 @@ public partial class ElevinLabsGD : Node
 		}
 	}
 
+	public async Task<Voice[]> GetVoices()
+	{
 
+		var allVoices = await api.VoicesEndpoint.GetAllVoicesAsync();
+
+
+		foreach (var voice in allVoices)
+		{
+
+
+			GD.Print($"{voice.Id} | {voice.Name} | similarity boost: {voice.Settings?.SimilarityBoost} | stability: {voice.Settings?.Stability}");
+		}
+
+		return allVoices.ToArray(); //voiceList;
+
+	}
 }

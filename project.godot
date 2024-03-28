@@ -21,12 +21,14 @@ config/icon="res://assets/Sprites/icon.svg"
 
 [audio]
 
+general/text_to_speech=true
 driver/output_latency=0
 driver/enable_input=true
 
 [autoload]
 
 saveManager="*res://assets/Scripts/SaveManager.cs"
+Data="*res://assets/Scenes/data.tscn"
 
 [display]
 

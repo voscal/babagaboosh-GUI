@@ -25,6 +25,7 @@ public partial class AzuirGD : Node
         saveManager = GetNode<SaveManager>("/root/saveManager");
         speechConfig = SpeechConfig.FromSubscription(saveManager.GetAPIKey("Azuir"), speechRegion);
         speechConfig.SpeechRecognitionLanguage = "en-US";
+        speechConfig.SetProfanity(ProfanityOption.Raw);
 
 
     }

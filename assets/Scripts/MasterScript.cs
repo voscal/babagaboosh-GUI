@@ -7,24 +7,16 @@ public partial class MasterScript : Node
 
 	string keyPath = "user://Keys.save";
 
-
-
-
-
-
-
-
 	[Export]
 	public Character character;
 	UI ui;
-
-
-	Remotelibraries Libraries;
+	VoiceData voiceData;
+	public Remotelibraries Libraries;
 
 	AudioManager audioManager;
-	public override void _Ready()
+	public override async void _Ready()
 	{
-
+		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
 
 
 		Libraries = GetNode<Remotelibraries>("Remote Libraries");
@@ -32,12 +24,16 @@ public partial class MasterScript : Node
 		ui = GetNode<UI>("UI");
 		ui.coreUI.record.Pressed += askAI;
 		SetCharacter();
+		await voiceData.GetVoice();
+		ui.editorUI.UpdateVoiceList();
+
+
 	}
 
 
 	public void SetCharacter()
 	{
-		Libraries.chatGPT.SetContext("just respond and keep your messagess in between 10 to 20 words max");
+		Libraries.chatGPT.SetContext("you are Jibanyan you yo kai watch! you are fisty, short temporued and you say shit and fuck alot, be expressive with your capitalisation and your puncuation! keep your response to 20 words, roast alot aswell, scream alot as well");
 	}
 
 
@@ -48,12 +44,13 @@ public partial class MasterScript : Node
 			GetViewport().TransparentBg = false;
 			ui.Visible = true;
 		}
-
 		else
 		{
 			GetViewport().TransparentBg = true;
 			ui.Visible = false;
 		}
+
+
 
 	}
 
@@ -63,9 +60,6 @@ public partial class MasterScript : Node
 
 		if (recording)
 			return;
-
-
-
 
 		audioManager.recordEffect.SetRecordingActive(false);
 		string recordedText = await Libraries.azuir.GetTextFromWav(ProjectSettings.GlobalizePath("res://Audio/record.wav"));
@@ -77,6 +71,7 @@ public partial class MasterScript : Node
 			await Libraries.elevinLabs.RenderVoice(aiResponse);
 
 			audioManager.PlayAudio();
+
 		}
 	}
 

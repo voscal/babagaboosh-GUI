@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1diuybah6hmk"]
+
+[ext_resource type="Script" path="res://VoiceData.cs" id="1_ks1t7"]
+[ext_resource type="Script" path="res://assets/Scripts/SaveManager.cs" id="2_msk1q"]
+
+[node name="Data" type="Node"]
+
+[node name="VoiceData" type="Node" parent="."]
+script = ExtResource("1_ks1t7")
+
+[node name="CharacterData" type="Node" parent="."]
+
+[node name="SaveData" type="Node" parent="."]
+script = ExtResource("2_msk1q")

@@ -5,7 +5,8 @@ using Godot;
 
 public partial class AudioManager : Node
 {
-	string[] devices;
+	string[] inputDevices;
+	string[] outputDevices;
 	public AudioEffectRecord recordEffect;
 
 	public AudioEffectSpectrumAnalyzerInstance spectrum;
@@ -110,10 +111,10 @@ public partial class AudioManager : Node
 	/// </summary>
 	public void GetMicList()
 	{
-		devices = AudioServer.GetInputDeviceList();
+		inputDevices = AudioServer.GetInputDeviceList();
 
 		ui.settingsUI.micSelect.Clear();
-		foreach (string device in devices)
+		foreach (string device in inputDevices)
 		{
 			ui.settingsUI.micSelect.AddItem(device);
 		}
@@ -128,7 +129,8 @@ public partial class AudioManager : Node
 	/// <param name="index">Input index</param>
 	public void MicSelected(long index)
 	{
-		AudioServer.InputDevice = devices[index];
+		GD.Print($"Input set : {inputDevices[index]}");
+		AudioServer.InputDevice = inputDevices[index];
 	}
 
 
@@ -138,10 +140,10 @@ public partial class AudioManager : Node
 	/// </summary>
 	public void GetOutputList()
 	{
-		devices = AudioServer.GetOutputDeviceList();
+		outputDevices = AudioServer.GetOutputDeviceList();
 
 		ui.settingsUI.OutputSelect.Clear();
-		foreach (string device in devices)
+		foreach (string device in outputDevices)
 		{
 			ui.settingsUI.OutputSelect.AddItem(device);
 		}
@@ -156,7 +158,7 @@ public partial class AudioManager : Node
 	/// <param name="index">Input index</param>
 	public void OutputSelected(long index)
 	{
-		AudioServer.OutputDevice = devices[index];
+		AudioServer.OutputDevice = outputDevices[index];
 	}
 
 

@@ -14,35 +14,7 @@ public partial class SaveManager : Node
 
 
 	}
-	/*
 
-	#region genral data
-	void WriteSave(Dictionary content)
-	{
-		var file = FileAccess.Open(path, FileAccess.ModeFlags.Write);
-		file.StoreString(Json.Stringify(content));
-		file.Close();
-		file = null;
-	}
-
-	Dictionary ReadSave()
-	{
-		var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
-		var content = Json.ParseString(file.GetAsText());
-		return (Dictionary)content;
-	}
-
-	void CreateNewSaveFile()
-	{
-		var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
-		var content = Json.ParseString(file.GetAsText());
-		data = (Dictionary)content;
-		WriteSave((Dictionary)content);
-	}
-
-
-	#endregion
-*/
 	#region KEY data
 
 	public void SaveAPIKeys(Dictionary data)
