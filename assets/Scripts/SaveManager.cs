@@ -60,4 +60,18 @@ public partial class SaveManager : Node
 	#endregion
 
 
+
+
+	#region  Character Loading
+
+
+
+
+
+
+
+
+
+	#endregion
+
 }

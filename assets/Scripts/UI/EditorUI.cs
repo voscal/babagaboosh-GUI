@@ -7,10 +7,16 @@ public partial class EditorUI : Control
 	string openedUI;
 	public bool menuOpen = false;
 
+	bool editorOpen = false;
+
 	#region Voice Variables
 	VoiceData voiceData;
+	CharacterData characterData;
 
-	public Slider stablitliytySlider;
+
+	[Export]
+	AnimationPlayer coreAnimationPlayer;
+
 
 	#endregion
 
@@ -26,15 +32,15 @@ public partial class EditorUI : Control
 	public void EditButtonPressed(string nodePath)
 	{
 		GD.Print("CLICK");
-		TextureButton button = GetNode<TextureButton>(nodePath);
+		TextureButton button = GetNode<TextureButton>($"BG/{nodePath}");
 
 		if (openedUI != null)
 		{
-			GetNode<AnimationPlayer>($"{openedUI}/AnimationPlayer").Play("CloseUI");
+			GetNode<AnimationPlayer>($"BG/{openedUI}/AnimationPlayer").Play("CloseUI");
 		}
 		if (openedUI == nodePath)
 		{
-			GetNode<AnimationPlayer>($"{openedUI}/AnimationPlayer").Play("CloseUI");
+			GetNode<AnimationPlayer>($"BG/{openedUI}/AnimationPlayer").Play("CloseUI");
 			openedUI = null;
 			return;
 		}
@@ -49,10 +55,11 @@ public partial class EditorUI : Control
 
 	}
 
+	#region Voice Menus
 	public void UpdateVoiceList()
 	{
 
-		VBoxContainer vBox = GetNode<VBoxContainer>("Voices/Background/ScrollContainer/VBoxContainer");
+		VBoxContainer vBox = GetNode<VBoxContainer>("BG/Voices/Background/ScrollContainer/VBoxContainer");
 		foreach (voiceShelf voiceShelf in vBox.GetChildren())
 		{
 			voiceShelf.QueueFree();
@@ -73,13 +80,60 @@ public partial class EditorUI : Control
 	{
 		VoiceSettings voiceSettingsNew = new()
 		{
-			Stability = (float)GetNode<Slider>("Voice Tweeks/Background/Panel/Stability").Value,
-			SimilarityBoost = (float)GetNode<Slider>("Voice Tweeks/Background/Panel/Clarity").Value,
-			Style = (float)GetNode<Slider>("Voice Tweeks/Background/Panel/Exaggeration").Value,
+			Stability = (float)GetNode<Slider>("BG/Voice Tweeks/Background/Panel/Stability").Value,
+			SimilarityBoost = (float)GetNode<Slider>("BG/Voice Tweeks/Background/Panel/Clarity").Value,
+			Style = (float)GetNode<Slider>("BG/Voice Tweeks/Background/Panel/Exaggeration").Value,
 
 		};
 		return voiceSettingsNew;
 	}
+	#endregion
 
 
+
+	#region About Menus
+	public void OpenContextMenu()
+	{
+		GetNode<AnimationPlayer>("AIContext/AnimationPlayer").Play("OpenMenu");
+	}
+
+	public void CloseContextMenu()
+	{
+		GetNode<AnimationPlayer>("AIContext/AnimationPlayer").Play("CloseMenu");
+	}
+
+	public void OpenEditorPressed()
+	{
+		GD.Print("OPEN EDITOR");
+		if (editorOpen == false)
+			coreAnimationPlayer.Play("OpenEditor");
+		else
+			coreAnimationPlayer.Play("CloseEditor");
+
+		editorOpen = !editorOpen;
+
+	}
+
+
+
+	public void StartResize()
+	{
+
+		ProjectSettings.SetSetting("display/window/size/resizable", true);
+		coreAnimationPlayer.Play("ResizeWindow");
+	}
+	public void FinnishResize()
+	{
+		coreAnimationPlayer.Play("ResizeWindowFinnished");
+		DisplayServer.WindowSetSize(new Vector2I(1152, 648), 0);
+	}
+
+	public void LoadData()
+	{
+		//name
+		//description
+		//ai context
+	}
+
+	#endregion
 }

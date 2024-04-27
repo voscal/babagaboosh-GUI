@@ -10,20 +10,19 @@ public partial class ChatGD : Node
 	Conversation chat;
 
 	SaveManager saveManager;
+
 	public override void _Ready()
 	{
 		saveManager = GetNode<SaveManager>("/root/saveManager");
 		api = new OpenAIAPI(saveManager.GetAPIKey("ChatGPT"));
-		chat = api.Chat.CreateConversation();
 
-		chat.Model = Model.ChatGPTTurbo;
-		chat.RequestParameters.Temperature = 0;
-
-		//TestMessage();
 	}
 
 	public void SetContext(string context)
 	{
+		chat = api.Chat.CreateConversation();
+		chat.Model = Model.ChatGPTTurbo;
+		chat.RequestParameters.Temperature = 0;
 		chat.AppendSystemMessage(context);
 	}
 
@@ -35,6 +34,11 @@ public partial class ChatGD : Node
 		string response = await chat.GetResponseFromChatbotAsync();
 		return response;
 
+	}
+
+	public void ClearConvo()
+	{
+		chat = api.Chat.CreateConversation();
 	}
 
 

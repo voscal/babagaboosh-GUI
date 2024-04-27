@@ -4,13 +4,13 @@ using Godot;
 public partial class CoreUI : Control
 {
 
-	public Button record;
-	public Button Replay;
+	public TextureButton record;
+	public TextureButton Replay;
 
 	public override void _Ready()
 	{
-		record = GetNode<Button>("Record");
-		Replay = GetNode<Button>("Replay");
+		record = GetNode<TextureButton>("Record");
+		Replay = GetNode<TextureButton>("Replay");
 
 	}
 }

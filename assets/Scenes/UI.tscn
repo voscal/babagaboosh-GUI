@@ -1,17 +1,34 @@
-[gd_scene load_steps=35 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=53 format=3 uid="uid://drsi7fywnus2"]
 
 [ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/EditorUI.cs" id="2_aalv0"]
+[ext_resource type="Shader" path="res://assets/Shaders/gridScroll.gdshader" id="2_pqofg"]
+[ext_resource type="Texture2D" uid="uid://b7vttsxaesumd" path="res://assets/Sprites/grid.png" id="3_mt2ng"]
 [ext_resource type="Texture2D" uid="uid://b51pwfpj452aq" path="res://assets/Sprites/Character Button.png" id="4_egvsx"]
+[ext_resource type="Texture2D" uid="uid://chcdxiga4i7vj" path="res://assets/Sprites/record.png" id="5_6ulm7"]
+[ext_resource type="Texture2D" uid="uid://b4qt3uh77icwa" path="res://assets/Sprites/clapper board.png" id="5_7aqlc"]
 [ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="5_hrdfa"]
 [ext_resource type="Texture2D" uid="uid://b04p0lqcj7o6q" path="res://assets/Sprites/settings.png" id="6_3dkm3"]
+[ext_resource type="Texture2D" uid="uid://5atjbnn66ny7" path="res://assets/Sprites/replay.png" id="6_hc2lt"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/SettingsUI.cs" id="7_4ndqf"]
 [ext_resource type="PackedScene" uid="uid://c6qu4fxp3w6ni" path="res://assets/Scenes/voiceShelf.tscn" id="8_o8ng1"]
 [ext_resource type="Theme" uid="uid://byiv4sk7pdl3g" path="res://mmtheme.tres" id="8_voyw1"]
 [ext_resource type="FontFile" uid="uid://dpm21lxchrs1o" path="res://assets/Fonts/FlowRounded-Regular.ttf" id="9_f7luj"]
 [ext_resource type="Texture2D" uid="uid://bkouiyx3ams1l" path="res://assets/Sprites/handle.png" id="9_nx8f0"]
 [ext_resource type="Texture2D" uid="uid://b0rdwu1lwb7db" path="res://assets/Sprites/VoicesButton.png" id="10_cfjio"]
+[ext_resource type="Texture2D" uid="uid://bw5vcbak24tix" path="res://assets/Sprites/SpritesButton.png" id="10_kxevj"]
+[ext_resource type="Texture2D" uid="uid://dernq1eb7caa2" path="res://assets/Sprites/WindowButton.png" id="19_8nlrx"]
+[ext_resource type="Texture2D" uid="uid://slcjnttyxyxe" path="res://assets/Sprites/save.png" id="20_o57wp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rd3qc"]
+shader = ExtResource("2_pqofg")
+shader_parameter/motion = Vector2(20.795, 10.285)
+shader_parameter/scale = 0.415
+shader_parameter/offset = Vector2(0.3, 0.085)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u17o"]
+bg_color = Color(0.639216, 0.639216, 0.639216, 0.109804)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oft0"]
 bg_color = Color(0.631373, 0.631373, 0.631373, 1)
@@ -118,9 +135,9 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.112656, 0.112656),
+"transitions": PackedFloat32Array(0.116629, 1),
 "update": 0,
-"values": [Vector2(-440, 31), Vector2(-38, 31)]
+"values": [Vector2(-99.0019, -299), Vector2(30.9973, 30.9999)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -129,7 +146,7 @@ tracks/2/path = NodePath("Polygon2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.0786164),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -137,6 +154,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_cp5yg"]
 resource_name = "OpenUI"
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -145,7 +163,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.112656, 0.0915054),
+"transitions": PackedFloat32Array(0.112656, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(402, 248)]
 }
@@ -159,7 +177,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.112656, 1),
 "update": 0,
-"values": [Vector2(-38, 31), Vector2(-440, 31)]
+"values": [Vector2(-38, 31), Vector2(-99.0019, -299)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -168,7 +186,7 @@ tracks/2/path = NodePath("Polygon2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.05),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -179,19 +197,6 @@ _data = {
 "CloseUI": SubResource("Animation_p5t2u"),
 "OpenUI": SubResource("Animation_cp5yg")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpq2r"]
-bg_color = Color(0.501961, 0.501961, 0.505882, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.996078, 0.807843, 0, 1)
-corner_radius_top_left = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-corner_detail = 2
-anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6k774"]
 content_margin_left = 6.0
@@ -237,9 +242,169 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpq2r"]
+bg_color = Color(0.501961, 0.501961, 0.505882, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.996078, 0.807843, 0, 1)
+corner_radius_top_left = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 2
+anti_aliasing = false
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abatg"]
 bg_color = Color(0, 0, 0, 0.639216)
 anti_aliasing = false
+
+[sub_resource type="Animation" id="Animation_6sxxs"]
+resource_name = "CloseMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pannle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.138696, 0.108819),
+"update": 0,
+"values": [Vector2(388, 14), Vector2(388, 662)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BG:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_36s1f"]
+resource_name = "OpenMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pannle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.108819, 8),
+"update": 0,
+"values": [Vector2(388, 662), Vector2(388, 14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BG:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqesp"]
+_data = {
+"CloseMenu": SubResource("Animation_6sxxs"),
+"OpenMenu": SubResource("Animation_36s1f")
+}
+
+[sub_resource type="Animation" id="Animation_all1i"]
+resource_name = "CloseEditor"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EditorUI/BG:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.07966, 0.267943),
+"update": 0,
+"values": [Vector2(559.999, 246.004), Vector2(651.999, 246.004)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI/Charcters:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.217638, 1),
+"update": 0,
+"values": [Vector2(-72, 78), Vector2(6, 78)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoreUI/settings:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.267944, 1),
+"update": 0,
+"values": [Vector2(-70, 4), Vector2(5, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background/TextureRect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Color(0.0313726, 0.0313726, 0.0313726, 1), Color(0.0313726, 0.0313726, 0.0313726, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/XY Guides:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 0.225313),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_121pn"]
 resource_name = "CloseSettings"
@@ -290,6 +455,69 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(0.233259, 6.9644),
 "update": 0,
 "values": [Vector2(403, 78), Vector2(6, 78)]
+}
+
+[sub_resource type="Animation" id="Animation_5cp6s"]
+resource_name = "OpenEditor"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EditorUI/BG:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.267943, 1),
+"update": 0,
+"values": [Vector2(651.999, 246.004), Vector2(559.999, 246.004)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI/Charcters:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112657, 1),
+"update": 0,
+"values": [Vector2(6, 78), Vector2(-70, 78)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoreUI/settings:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.120742, 1),
+"update": 0,
+"values": [Vector2(5, 4), Vector2(-70, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background/TextureRect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.267943, 1),
+"update": 0,
+"values": [Color(0.0313726, 0.0313726, 0.0313726, 0), Color(0.0313726, 0.0313726, 0.0313726, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/XY Guides:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_75yui"]
@@ -343,57 +571,291 @@ tracks/3/keys = {
 "values": [Vector2(6, 78), Vector2(403, 78)]
 }
 
+[sub_resource type="Animation" id="Animation_oijws"]
+resource_name = "ResizeWindow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/XY Guides:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsUI:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EditorUI:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ResizeUI/Button:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.427451)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ResizeUI:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ResizeUI/Button:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_efkky"]
+resource_name = "ResizeWindowFinnished"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/XY Guides:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsUI:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EditorUI:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ResizeUI/Button:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.443137), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ResizeUI:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ResizeUI/Button:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lof6d"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37bpx"]
 _data = {
+"CloseEditor": SubResource("Animation_all1i"),
 "CloseSettings": SubResource("Animation_121pn"),
-"OpenSettings": SubResource("Animation_75yui")
+"OpenEditor": SubResource("Animation_5cp6s"),
+"OpenSettings": SubResource("Animation_75yui"),
+"RESET": SubResource("Animation_lof6d"),
+"ResizeWindow": SubResource("Animation_oijws"),
+"ResizeWindowFinnished": SubResource("Animation_efkky")
 }
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_levkm")
 
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+self_modulate = Color(0.0313726, 0.0313726, 0.0313726, 0)
+z_index = -421
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rd3qc")
+anchors_preset = -1
+anchor_right = 1.002
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = -0.304077
+texture = ExtResource("3_mt2ng")
+stretch_mode = 1
+
+[node name="XY Guides" type="Control" parent="Background"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Y" type="PanelContainer" parent="Background/XY Guides"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_right = 0.503
+anchor_bottom = 1.0
+offset_left = -6.45605
+offset_right = -0.456055
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2u17o")
+
+[node name="X" type="PanelContainer" parent="Background/XY Guides"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.495
+anchor_right = 1.0
+anchor_bottom = 0.495
+offset_left = 1291.0
+offset_top = 0.23999
+offset_right = 145.0
+offset_bottom = 1366.24
+grow_horizontal = 2
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_2u17o")
+
 [node name="CoreUI" type="Control" parent="."]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1.0
 offset_right = 76.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_3k362")
 
-[node name="Record" type="Button" parent="CoreUI"]
+[node name="Record" type="TextureButton" parent="CoreUI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -568.0
-offset_top = -84.0
-offset_right = -423.0
-offset_bottom = -16.0
-text = "Record"
+offset_left = -197.0
+offset_top = -164.0
+offset_right = -76.0
+offset_bottom = -26.0
+texture_normal = ExtResource("5_6ulm7")
+ignore_texture_size = true
+stretch_mode = 6
 
-[node name="Replay" type="Button" parent="CoreUI"]
+[node name="Replay" type="TextureButton" parent="CoreUI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -339.0
-offset_top = 36.0
-offset_right = -194.0
-offset_bottom = 104.0
+offset_left = -245.0
+offset_top = 555.0
+offset_right = -183.0
+offset_bottom = 617.0
 grow_horizontal = 0
-text = "Replay"
+texture_normal = ExtResource("6_hc2lt")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="settings" type="TextureButton" parent="CoreUI"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
-offset_right = 69.0001
+offset_right = 69.0
 offset_bottom = 68.0
 pivot_offset = Vector2(32.13, 32.345)
 texture_normal = ExtResource("6_3dkm3")
@@ -404,7 +866,7 @@ stretch_mode = 0
 layout_mode = 0
 offset_left = 6.0
 offset_top = 78.0
-offset_right = 70.0003
+offset_right = 70.0
 offset_bottom = 142.0
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
@@ -417,11 +879,19 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1136.0
-offset_top = -85.0
-offset_right = -991.0
-offset_bottom = -17.0
-text = "Edit"
+offset_left = -1228.0
+offset_top = -159.0
+offset_right = -1050.0
+offset_bottom = 5.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_font_sizes/font_size = 27
+text = "
+EDIT"
+icon = ExtResource("5_7aqlc")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="SettingsUI" type="Control" parent="." node_paths=PackedStringArray("animationPlayer")]
 layout_mode = 3
@@ -653,35 +1123,41 @@ offset_bottom = 329.0
 theme = ExtResource("8_voyw1")
 text = "SAVE KEYS"
 
-[node name="EditorUI" type="Control" parent="."]
+[node name="EditorUI" type="Control" parent="." node_paths=PackedStringArray("coreAnimationPlayer")]
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
+anchor_left = 0.002
 anchor_right = 1.0
-offset_left = -1152.0
-offset_right = -1152.0
+anchor_bottom = 0.998
+offset_left = 1146.7
+offset_right = 645.0
+offset_bottom = 502.296
 grow_horizontal = 0
+rotation = 1.57079
+mouse_filter = 2
 script = ExtResource("2_aalv0")
+coreAnimationPlayer = NodePath("../AnimationPlayer")
 
 [node name="BG" type="Panel" parent="EditorUI"]
 layout_mode = 0
-offset_left = 1066.0
-offset_right = 1154.0
-offset_bottom = 648.0
+offset_left = 651.999
+offset_top = 246.004
+offset_right = 739.999
+offset_bottom = 894.004
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_m438f")
 
-[node name="About" type="TextureButton" parent="EditorUI"]
+[node name="About" type="TextureButton" parent="EditorUI/BG"]
 layout_mode = 0
-offset_left = 1077.0
-offset_top = 31.0
-offset_right = 1139.0
-offset_bottom = 93.0
+offset_left = 11.9999
+offset_top = 75.0
+offset_right = 73.9999
+offset_bottom = 137.0
+rotation = 4.71239
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/About"]
+[node name="Background" type="Panel" parent="EditorUI/BG/About"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -689,12 +1165,12 @@ anchor_left = -7.097
 anchor_top = 0.5
 anchor_right = -0.597
 anchor_bottom = 4.516
-offset_left = 0.0140076
+offset_left = 402.014
 offset_right = -0.986
-offset_bottom = -0.991974
+offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="NameLabal" type="Label" parent="EditorUI/About/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/BG/About/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -709,7 +1185,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Panel" type="Panel" parent="EditorUI/About/Background"]
+[node name="Panel" type="Panel" parent="EditorUI/BG/About/Background"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 33.0
@@ -717,7 +1193,7 @@ offset_right = 388.0
 offset_bottom = 235.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="TextEdit" type="TextEdit" parent="EditorUI/About/Background/Panel"]
+[node name="TextEdit" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -733,7 +1209,7 @@ theme = ExtResource("8_voyw1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
 placeholder_text = "Enter AI Name"
 
-[node name="Button" type="Button" parent="EditorUI/About/Background/Panel"]
+[node name="Button" type="Button" parent="EditorUI/BG/About/Background/Panel"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 162.0
@@ -744,7 +1220,7 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "ADD AI CONTEXT"
 
-[node name="TextEdit2" type="TextEdit" parent="EditorUI/About/Background/Panel"]
+[node name="TextEdit2" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 60.0
@@ -755,100 +1231,31 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
 placeholder_text = "quick description of character to tell people who it is"
 wrap_mode = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/About"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/About"]
 visible = false
-position = Vector2(32.5953, 27)
+position = Vector2(35.5953, 27)
+rotation = 1.57079
 scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
-polygon = PackedVector2Array(-44.249, 4, -38.8164, 10, -35.3593, 20, -24, 4)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/About"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/About"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="Sprites" type="TextureButton" parent="EditorUI"]
+[node name="Sprites" type="TextureButton" parent="EditorUI/BG"]
 layout_mode = 0
-offset_left = 1077.0
-offset_top = 109.0
-offset_right = 1139.0
-offset_bottom = 171.0
-texture_normal = ExtResource("4_egvsx")
+offset_left = 12.9999
+offset_top = 153.0
+offset_right = 74.9999
+offset_bottom = 215.0
+rotation = 4.71239
+texture_normal = ExtResource("10_kxevj")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/Sprites"]
-visible = false
-layout_mode = 0
-offset_left = -440.0
-offset_top = 31.0
-offset_right = -37.0
-offset_bottom = 286.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
-
-[node name="Name" type="TextEdit" parent="EditorUI/Sprites/Background"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 40.0
-offset_right = 378.0
-offset_bottom = 73.0
-theme = ExtResource("8_voyw1")
-theme_override_constants/line_spacing = -3
-text = "Zest mf"
-scroll_smooth = true
-
-[node name="Context" type="TextEdit" parent="EditorUI/Sprites/Background"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 105.0
-offset_right = 380.0
-offset_bottom = 238.0
-theme = ExtResource("8_voyw1")
-wrap_mode = 1
-scroll_smooth = true
-
-[node name="DesctionLabal" type="Label" parent="EditorUI/Sprites/Background"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 74.0
-offset_bottom = 105.0
-grow_horizontal = 2
-text = "DESCRIPTION"
-label_settings = SubResource("LabelSettings_vbys4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="NameLabal" type="Label" parent="EditorUI/Sprites/Background"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 10.0
-offset_bottom = 41.0
-grow_horizontal = 2
-text = "NAME"
-label_settings = SubResource("LabelSettings_vbys4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Sprites"]
-visible = false
-position = Vector2(32.5953, 27)
-scale = Vector2(2.0248, 1)
-color = Color(0.996078, 0.807843, 0, 1)
-polygon = PackedVector2Array(-35, 4, -35, 18, -24, 4)
-
-[node name="Voices" type="TextureButton" parent="EditorUI"]
-layout_mode = 0
-offset_left = 1077.0
-offset_top = 187.0
-offset_right = 1139.0
-offset_bottom = 249.0
-texture_normal = ExtResource("10_cfjio")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Background" type="Panel" parent="EditorUI/Voices"]
+[node name="Background" type="Panel" parent="EditorUI/BG/Sprites"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -861,7 +1268,91 @@ offset_right = -0.986
 offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="NameLabal" type="Label" parent="EditorUI/Voices/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sprites"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Preview" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 40.0
+offset_right = 173.0
+offset_bottom = 228.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Pannle" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 108.0
+offset_right = 383.0
+offset_bottom = 158.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Pannle2" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 49.0
+offset_right = 382.0
+offset_bottom = 99.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Pannle3" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 168.0
+offset_right = 383.0
+offset_bottom = 218.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Sprites"]
+visible = false
+position = Vector2(35.5953, 27)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Sprites"]
+libraries = {
+"": SubResource("AnimationLibrary_1sw41")
+}
+
+[node name="Voices" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 10.9995
+offset_top = 234.003
+offset_right = 72.9995
+offset_bottom = 296.003
+rotation = 4.71239
+texture_normal = ExtResource("10_cfjio")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/Voices"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.097
+anchor_top = 0.5
+anchor_right = -0.597
+anchor_bottom = 4.516
+offset_left = 402.014
+offset_right = -0.986
+offset_bottom = -248.992
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voices/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -876,7 +1367,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="EditorUI/Voices/Background"]
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorUI/BG/Voices/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -891,15 +1382,15 @@ theme = ExtResource("8_voyw1")
 theme_override_styles/panel = SubResource("StyleBoxFlat_6k774")
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EditorUI/Voices/Background/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorUI/BG/Voices/Background/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="VoiceShelf3" parent="EditorUI/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_o8ng1")]
+[node name="VoiceShelf3" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_o8ng1")]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="EditorUI/Voices/Background"]
+[node name="Panel" type="Panel" parent="EditorUI/BG/Voices/Background"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 199.0
@@ -907,7 +1398,7 @@ offset_right = 388.0
 offset_bottom = 235.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="TextEdit" type="TextEdit" parent="EditorUI/Voices/Background/Panel"]
+[node name="TextEdit" type="TextEdit" parent="EditorUI/BG/Voices/Background/Panel"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -923,7 +1414,7 @@ theme = ExtResource("8_voyw1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
 placeholder_text = "enter voice ID"
 
-[node name="Button" type="Button" parent="EditorUI/Voices/Background/Panel"]
+[node name="Button" type="Button" parent="EditorUI/BG/Voices/Background/Panel"]
 layout_mode = 0
 offset_left = 269.0
 offset_top = 3.0
@@ -934,30 +1425,32 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "FIND VOICE"
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Voices"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Voices"]
 visible = false
-position = Vector2(32.5953, 27)
+position = Vector2(34.5953, 27)
+rotation = 1.57079
 scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
-polygon = PackedVector2Array(-44.249, 4, -38.8164, 10, -35.3593, 20, -24, 4)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Voices"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Voices"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="Voice Tweeks" type="TextureButton" parent="EditorUI"]
+[node name="Voice Tweeks" type="TextureButton" parent="EditorUI/BG"]
 layout_mode = 0
-offset_left = 1077.0
-offset_top = 265.0
-offset_right = 1139.0
-offset_bottom = 327.0
+offset_left = 12.9999
+offset_top = 309.0
+offset_right = 74.9999
+offset_bottom = 371.0
+rotation = 4.71239
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/Voice Tweeks"]
+[node name="Background" type="Panel" parent="EditorUI/BG/Voice Tweeks"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -970,7 +1463,7 @@ offset_right = -0.986
 offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="Panel" type="Panel" parent="EditorUI/Voice Tweeks/Background"]
+[node name="Panel" type="Panel" parent="EditorUI/BG/Voice Tweeks/Background"]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 41.0
@@ -978,7 +1471,7 @@ offset_right = 385.0
 offset_bottom = 232.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rc2sl")
 
-[node name="Stability" type="HSlider" parent="EditorUI/Voice Tweeks/Background/Panel"]
+[node name="Stability" type="HSlider" parent="EditorUI/BG/Voice Tweeks/Background/Panel"]
 texture_filter = 3
 layout_mode = 0
 offset_left = 25.0
@@ -998,7 +1491,7 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="NameLabal" type="Label" parent="EditorUI/Voice Tweeks/Background/Panel/Stability"]
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Tweeks/Background/Panel/Stability"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1012,7 +1505,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
-[node name="Clarity" type="HSlider" parent="EditorUI/Voice Tweeks/Background/Panel"]
+[node name="Clarity" type="HSlider" parent="EditorUI/BG/Voice Tweeks/Background/Panel"]
 texture_filter = 3
 layout_mode = 0
 offset_left = 25.0
@@ -1032,7 +1525,7 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="NameLabal" type="Label" parent="EditorUI/Voice Tweeks/Background/Panel/Clarity"]
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Tweeks/Background/Panel/Clarity"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1046,7 +1539,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
-[node name="Exaggeration" type="HSlider" parent="EditorUI/Voice Tweeks/Background/Panel"]
+[node name="Exaggeration" type="HSlider" parent="EditorUI/BG/Voice Tweeks/Background/Panel"]
 texture_filter = 3
 layout_mode = 0
 offset_left = 25.0
@@ -1066,13 +1559,15 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="NameLabal" type="Label" parent="EditorUI/Voice Tweeks/Background/Panel/Exaggeration"]
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Tweeks/Background/Panel/Exaggeration"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -28.0
-offset_bottom = -22.0
+offset_left = 16.0
+offset_top = -29.0
+offset_right = 16.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "EXAGGERATION"
@@ -1080,7 +1575,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
-[node name="NameLabal" type="Label" parent="EditorUI/Voice Tweeks/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Tweeks/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1095,29 +1590,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Voice Tweeks"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Voice Tweeks"]
 visible = false
-position = Vector2(32.5953, 27)
+position = Vector2(34.5953, 27)
+rotation = 1.57079
 scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
-polygon = PackedVector2Array(-44.249, 4, -38.8164, 10, -35.3593, 20, -24, 4)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Voice Tweeks"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Voice Tweeks"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="Head Movement" type="TextureButton" parent="EditorUI"]
+[node name="Head Movement" type="TextureButton" parent="EditorUI/BG"]
 layout_mode = 0
-offset_left = 1077.0
-offset_top = 343.0
-offset_right = 1139.0
-offset_bottom = 405.0
+offset_left = 12.9999
+offset_top = 387.0
+offset_right = 74.9999
+offset_bottom = 449.0
+rotation = 4.71239
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/Head Movement"]
+[node name="Background" type="Panel" parent="EditorUI/BG/Head Movement"]
 visible = false
 layout_mode = 0
 offset_left = -440.0
@@ -1126,7 +1623,7 @@ offset_right = -37.0
 offset_bottom = 286.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
 
-[node name="Name" type="TextEdit" parent="EditorUI/Head Movement/Background"]
+[node name="Name" type="TextEdit" parent="EditorUI/BG/Head Movement/Background"]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 40.0
@@ -1137,7 +1634,7 @@ theme_override_constants/line_spacing = -3
 text = "Zest mf"
 scroll_smooth = true
 
-[node name="Context" type="TextEdit" parent="EditorUI/Head Movement/Background"]
+[node name="Context" type="TextEdit" parent="EditorUI/BG/Head Movement/Background"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 105.0
@@ -1147,7 +1644,7 @@ theme = ExtResource("8_voyw1")
 wrap_mode = 1
 scroll_smooth = true
 
-[node name="DesctionLabal" type="Label" parent="EditorUI/Head Movement/Background"]
+[node name="DesctionLabal" type="Label" parent="EditorUI/BG/Head Movement/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1159,7 +1656,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NameLabal" type="Label" parent="EditorUI/Head Movement/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Head Movement/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1171,35 +1668,116 @@ label_settings = SubResource("LabelSettings_vbys4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Head Movement"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Head Movement"]
 visible = false
-position = Vector2(32.5953, 27)
+position = Vector2(34.9974, 27.9993)
+rotation = 1.57079
 scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
-polygon = PackedVector2Array(-35, 4, -35, 18, -24, 4)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="Save" type="TextureButton" parent="EditorUI"]
+[node name="ResizeWindow" type="TextureButton" parent="EditorUI/BG"]
 layout_mode = 0
-offset_left = 1076.0
-offset_top = 567.0
-offset_right = 1140.0
-offset_bottom = 631.0
+offset_left = 12.9971
+offset_top = 465.007
+offset_right = 74.9971
+offset_bottom = 527.007
+rotation = 4.71239
+texture_normal = ExtResource("19_8nlrx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/ResizeWindow"]
+visible = false
+layout_mode = 0
+offset_left = -440.0
+offset_top = 31.0
+offset_right = -37.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
+
+[node name="Name" type="TextEdit" parent="EditorUI/BG/ResizeWindow/Background"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 40.0
+offset_right = 378.0
+offset_bottom = 73.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/line_spacing = -3
+text = "Zest mf"
+scroll_smooth = true
+
+[node name="Context" type="TextEdit" parent="EditorUI/BG/ResizeWindow/Background"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 105.0
+offset_right = 380.0
+offset_bottom = 238.0
+theme = ExtResource("8_voyw1")
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="DesctionLabal" type="Label" parent="EditorUI/BG/ResizeWindow/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 74.0
+offset_bottom = 105.0
+grow_horizontal = 2
+text = "DESCRIPTION"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/ResizeWindow/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/ResizeWindow"]
+visible = false
+position = Vector2(34.9974, 27.9993)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="Save" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 10.7853
+offset_top = 567.475
+offset_right = 74.7853
+offset_bottom = 631.475
+rotation = 4.71239
 pivot_offset = Vector2(32.13, 32.345)
-texture_normal = ExtResource("6_3dkm3")
+texture_normal = ExtResource("20_o57wp")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="AIContext" type="Control" parent="EditorUI"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 503.998
+offset_top = 902.001
+offset_right = 543.998
+offset_bottom = 942.001
+rotation = -1.57079
 
 [node name="BG" type="Panel" parent="EditorUI/AIContext"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 28.8
 anchor_bottom = 16.2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_abatg")
+metadata/_edit_lock_ = true
 
 [node name="Pannle" type="Panel" parent="EditorUI/AIContext"]
 custom_minimum_size = Vector2(384, 256)
@@ -1208,11 +1786,10 @@ anchors_preset = -1
 anchor_right = 0.167
 anchor_bottom = 1.0
 offset_left = 388.0
-offset_top = 14.0
+offset_top = 662.0
 offset_right = 805.32
-offset_bottom = 592.0
+offset_bottom = 1240.0
 grow_vertical = 2
-mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="Label" type="Label" parent="EditorUI/AIContext/Pannle"]
@@ -1230,24 +1807,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="EditorUI/AIContext/Pannle"]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 66.0
 offset_right = 400.0
 offset_bottom = 600.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="Button" type="Button" parent="EditorUI/AIContext/Pannle/Panel"]
+[node name="Close" type="Button" parent="EditorUI/AIContext/Pannle/Panel"]
 layout_mode = 0
-offset_left = 18.0
+offset_left = 201.0
 offset_top = 496.0
-offset_right = 366.0
+offset_right = 368.0
 offset_bottom = 528.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
-text = "DONE!"
+text = "CLOSE"
 
-[node name="TextEdit2" type="TextEdit" parent="EditorUI/AIContext/Pannle/Panel"]
+[node name="Save" type="Button" parent="EditorUI/AIContext/Pannle/Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 496.0
+offset_right = 182.0
+offset_bottom = 528.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "SAVE"
+
+[node name="TextEdit" type="TextEdit" parent="EditorUI/AIContext/Pannle/Panel"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -1255,8 +1844,169 @@ offset_right = 377.0
 offset_bottom = 490.0
 theme = ExtResource("8_voyw1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
-placeholder_text = "quick description of character to tell people who it is"
+placeholder_text = "describe to chatGPT how it should act!
+
+e.g: your are now bald youtuber doug doug, scream TWICH CHAT when ever you feel like it, keep your response under 20 words."
 wrap_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/AIContext"]
+libraries = {
+"": SubResource("AnimationLibrary_kqesp")
+}
+
+[node name="FileDialog" type="FileDialog" parent="EditorUI"]
+title = "Open a File"
+position = Vector2i(65, 65)
+size = Vector2i(1042, 529)
+theme = ExtResource("8_voyw1")
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray(".chr", ".zip")
+
+[node name="ResizeUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 19.0
+offset_right = -19.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="ResizeUI"]
+modulate = Color(0, 0, 0, 0.443137)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.015
+anchor_top = -0.031
+anchor_right = 1.017
+anchor_bottom = 1.032
+offset_left = 0.755001
+offset_top = -0.0899982
+offset_right = 1.01086
+offset_bottom = -0.52002
+
+[node name="Top Left" type="Control" parent="ResizeUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.52588e-05
+offset_top = -1.52588e-05
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+mouse_default_cursor_shape = 12
+
+[node name="Line2D" type="Line2D" parent="ResizeUI/Top Left"]
+position = Vector2(1.00002, -1.99998)
+points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
+width = 16.87
+default_color = Color(0.333333, 0.333333, 0.333333, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Top Right" type="Control" parent="ResizeUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 0.00012207
+offset_top = -0.999939
+offset_right = 40.0001
+offset_bottom = 39.0001
+grow_horizontal = 0
+rotation = 1.57079
+mouse_filter = 1
+mouse_default_cursor_shape = 11
+
+[node name="Line2D" type="Line2D" parent="ResizeUI/Top Right"]
+position = Vector2(0.999933, 1.00001)
+points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
+width = 20.19
+default_color = Color(0.333333, 0.333333, 0.333333, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Bottom Left" type="Control" parent="ResizeUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 39.0
+grow_vertical = 0
+rotation = -1.57079
+mouse_filter = 1
+mouse_default_cursor_shape = 11
+
+[node name="Line2D" type="Line2D" parent="ResizeUI/Bottom Left"]
+position = Vector2(1.88351e-05, 3)
+points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
+width = 20.19
+default_color = Color(0.333333, 0.333333, 0.333333, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Bottom Right" type="Control" parent="ResizeUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.00012207
+offset_right = 40.0001
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 3.14159
+mouse_filter = 1
+mouse_default_cursor_shape = 12
+
+[node name="Line2D" type="Line2D" parent="ResizeUI/Bottom Right"]
+position = Vector2(1.00012, 2.53549e-06)
+points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
+width = 20.19
+default_color = Color(0.333333, 0.333333, 0.333333, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ResizeUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.016
+anchor_right = 0.5
+anchor_bottom = 1.016
+offset_left = -112.5
+offset_top = -28.76
+offset_right = 114.5
+offset_bottom = 29.24
+text = "Click on the window to finish"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResizeUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -11.0
+offset_right = 84.5
+offset_bottom = 18.0
+text = "Resize The Window
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1264,7 +2014,13 @@ libraries = {
 }
 
 [connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
+[connection signal="pressed" from="CoreUI/Edit" to="EditorUI" method="OpenEditorPressed"]
 [connection signal="pressed" from="SettingsUI/API keys/SaveKeys" to="SettingsUI" method="SaveKeys"]
-[connection signal="pressed" from="EditorUI/About" to="EditorUI" method="EditButtonPressed" binds= ["About"]]
-[connection signal="pressed" from="EditorUI/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
-[connection signal="pressed" from="EditorUI/Voice Tweeks" to="EditorUI" method="EditButtonPressed" binds= ["Voice Tweeks"]]
+[connection signal="pressed" from="EditorUI/BG/About" to="EditorUI" method="EditButtonPressed" binds= ["About"]]
+[connection signal="pressed" from="EditorUI/BG/About/Background/Panel/Button" to="EditorUI" method="OpenContextMenu"]
+[connection signal="pressed" from="EditorUI/BG/Sprites" to="EditorUI" method="EditButtonPressed" binds= ["Sprites"]]
+[connection signal="pressed" from="EditorUI/BG/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
+[connection signal="pressed" from="EditorUI/BG/Voice Tweeks" to="EditorUI" method="EditButtonPressed" binds= ["Voice Tweeks"]]
+[connection signal="pressed" from="EditorUI/BG/ResizeWindow" to="EditorUI" method="StartResize"]
+[connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Close" to="EditorUI" method="CloseContextMenu"]
+[connection signal="pressed" from="ResizeUI/Button" to="EditorUI" method="FinnishResize"]

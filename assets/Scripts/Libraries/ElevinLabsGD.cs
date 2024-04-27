@@ -28,7 +28,11 @@ public partial class ElevinLabsGD : Node
 	public async Task RenderVoice(string text)
 	{
 		if (currentVoice == null)
+		{
+			GD.PrintErr("Please select a voice!");
 			return;
+		}
+
 
 
 		Voice voice = await api.VoicesEndpoint.GetVoiceAsync(currentVoice.Id, withSettings: true);
