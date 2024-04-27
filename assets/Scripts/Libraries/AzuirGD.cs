@@ -22,7 +22,7 @@ public partial class AzuirGD : Node
 
     public override void _Ready()
     {
-        saveManager = GetNode<SaveManager>("/root/saveManager");
+        saveManager = GetNode<SaveManager>("/root/Data/SaveData");
         speechConfig = SpeechConfig.FromSubscription(saveManager.GetAPIKey("Azuir"), speechRegion);
         speechConfig.SpeechRecognitionLanguage = "en-US";
         speechConfig.SetProfanity(ProfanityOption.Raw);

@@ -1,3 +1,4 @@
+using System.IO;
 using ElevenLabs.Voices;
 using Godot;
 
@@ -6,6 +7,8 @@ public partial class EditorUI : Control
 {
 	string openedUI;
 	public bool menuOpen = false;
+
+
 
 	bool editorOpen = false;
 
@@ -127,6 +130,11 @@ public partial class EditorUI : Control
 		coreAnimationPlayer.Play("ResizeWindowFinnished");
 		DisplayServer.WindowSetSize(new Vector2I(1152, 648), 0);
 	}
+	public void FileSelected(string path)
+	{
+		GetNode<SaveManager>("/root/Data/SaveData").SaveCharacter(path);
+	}
+
 
 	public void LoadData()
 	{

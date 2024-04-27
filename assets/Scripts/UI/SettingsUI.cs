@@ -20,7 +20,7 @@ public partial class SettingsUI : Control
 	AnimationPlayer animationPlayer;
 	public override void _Ready()
 	{
-		saveManager = GetNode<SaveManager>("/root/saveManager");
+		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
 
 		micSelect = GetNode<OptionButton>("Audio/MicList");
 		OutputSelect = GetNode<OptionButton>("Audio/OutputList");

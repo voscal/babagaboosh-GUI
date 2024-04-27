@@ -41,13 +41,14 @@ public partial class MasterScript : Node
 
 	public void SetCharacter()
 	{
-		Libraries.chatGPT.SetContext("you are now dianne peterson, you are old and fucking stupid, tell your students to get an A but say it like EYyyyyy, keep your response between 20 words, act like your are about to be sold bilbords but you dont want any, go along with every joke, say fuck alot, and negative");
+		Libraries.chatGPT.SetContext("");
+
 	}
 
 
 	public override void _Process(double delta)
 	{
-		GD.Print(DisplayServer.WindowGetSize(0));
+
 		if (DisplayServer.WindowIsFocused(0))
 		{
 			GetViewport().TransparentBg = false;

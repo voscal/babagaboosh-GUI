@@ -9,9 +9,11 @@ public partial class SaveManager : Node
 	string KeysPath = "user://APIKEYS.json";
 
 
+
 	public override void _Ready()
 	{
-
+		GD.Print(GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Head/Sprite").Name);
+		SaveCharacter("");
 
 	}
 
@@ -66,6 +68,26 @@ public partial class SaveManager : Node
 
 
 
+	public void SaveCharacter(string path)
+	{
+		ZipPacker zipPacker = new();
+		Error error = zipPacker.Open(path + ".chr");
+		if (error != Error.Ok)
+		{
+			GD.PushError($"Couldn't open path for saving ZIP archive." + error.ToString());
+			return;
+		}
+
+
+		zipPacker.StartFile("headSpr.png");
+		zipPacker.WriteFile(GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Head/Sprite").TextureNormal.GetImage().SavePngToBuffer());
+		zipPacker.CloseFile();
+		zipPacker.StartFile("BodySpr.png");
+		zipPacker.WriteFile(GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Body/Sprite").TextureNormal.GetImage().SavePngToBuffer());
+		zipPacker.CloseFile();
+		zipPacker.StartFile("data.xml");
+		zipPacker.CloseFile();
+	}
 
 
 

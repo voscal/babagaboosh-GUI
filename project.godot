@@ -27,7 +27,6 @@ driver/enable_input=true
 
 [autoload]
 
-saveManager="*res://assets/Scripts/SaveManager.cs"
 Data="*res://assets/Scenes/data.tscn"
 GlobalInput="*res://addons/global_input/autoloads/global_input_gdscript/GlobalInputGDScript.tscn"
 
@@ -43,7 +42,7 @@ project/assembly_name="Babagaboosh"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/global_input/plugin.cfg")
+enabled=PackedStringArray("res://addons/global_input/plugin.cfg", "res://addons/native_dialogs/plugin.cfg")
 
 [input]
 

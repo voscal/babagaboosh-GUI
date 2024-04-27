@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=54 format=3 uid="uid://drsi7fywnus2"]
 
 [ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bw5vcbak24tix" path="res://assets/Sprites/SpritesButton.png" id="10_kxevj"]
 [ext_resource type="Texture2D" uid="uid://dernq1eb7caa2" path="res://assets/Sprites/WindowButton.png" id="19_8nlrx"]
 [ext_resource type="Texture2D" uid="uid://slcjnttyxyxe" path="res://assets/Sprites/save.png" id="20_o57wp"]
+[ext_resource type="Script" path="res://assets/Scripts/FileDialog.gd" id="21_lveft"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rd3qc"]
 shader = ExtResource("2_pqofg")
@@ -571,6 +572,9 @@ tracks/3/keys = {
 "values": [Vector2(6, 78), Vector2(403, 78)]
 }
 
+[sub_resource type="Animation" id="Animation_lof6d"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_oijws"]
 resource_name = "ResizeWindow"
 tracks/0/type = "value"
@@ -744,9 +748,6 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
-
-[sub_resource type="Animation" id="Animation_lof6d"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37bpx"]
 _data = {
@@ -1193,7 +1194,8 @@ offset_right = 388.0
 offset_bottom = 235.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="TextEdit" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
+[node name="AIname" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -1220,7 +1222,7 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "ADD AI CONTEXT"
 
-[node name="TextEdit2" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
+[node name="AIabout" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 60.0
@@ -1398,7 +1400,8 @@ offset_right = 388.0
 offset_bottom = 235.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="TextEdit" type="TextEdit" parent="EditorUI/BG/Voices/Background/Panel"]
+[node name="AIVoiceID" type="TextEdit" parent="EditorUI/BG/Voices/Background/Panel"]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -1836,7 +1839,8 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "SAVE"
 
-[node name="TextEdit" type="TextEdit" parent="EditorUI/AIContext/Pannle/Panel"]
+[node name="AIcontext" type="TextEdit" parent="EditorUI/AIContext/Pannle/Panel"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -1853,16 +1857,6 @@ wrap_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_kqesp")
 }
-
-[node name="FileDialog" type="FileDialog" parent="EditorUI"]
-title = "Open a File"
-position = Vector2i(65, 65)
-size = Vector2i(1042, 529)
-theme = ExtResource("8_voyw1")
-ok_button_text = "Open"
-file_mode = 0
-access = 2
-filters = PackedStringArray(".chr", ".zip")
 
 [node name="ResizeUI" type="Control" parent="."]
 visible = false
@@ -2013,6 +2007,12 @@ libraries = {
 "": SubResource("AnimationLibrary_37bpx")
 }
 
+[node name="FileDialog" type="NativeFileDialog" parent="."]
+title = "Save your Character"
+access = 2
+filters = PackedStringArray("*.chr ; Character \'.chr\'")
+script = ExtResource("21_lveft")
+
 [connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
 [connection signal="pressed" from="CoreUI/Edit" to="EditorUI" method="OpenEditorPressed"]
 [connection signal="pressed" from="SettingsUI/API keys/SaveKeys" to="SettingsUI" method="SaveKeys"]
@@ -2022,5 +2022,8 @@ libraries = {
 [connection signal="pressed" from="EditorUI/BG/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
 [connection signal="pressed" from="EditorUI/BG/Voice Tweeks" to="EditorUI" method="EditButtonPressed" binds= ["Voice Tweeks"]]
 [connection signal="pressed" from="EditorUI/BG/ResizeWindow" to="EditorUI" method="StartResize"]
+[connection signal="pressed" from="EditorUI/BG/Save" to="FileDialog" method="show"]
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Close" to="EditorUI" method="CloseContextMenu"]
 [connection signal="pressed" from="ResizeUI/Button" to="EditorUI" method="FinnishResize"]
+[connection signal="file_selected" from="FileDialog" to="EditorUI" method="FileSelected"]
+[connection signal="file_selected" from="FileDialog" to="FileDialog" method="_on_file_selected"]

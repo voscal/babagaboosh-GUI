@@ -13,7 +13,7 @@ public partial class ChatGD : Node
 
 	public override void _Ready()
 	{
-		saveManager = GetNode<SaveManager>("/root/saveManager");
+		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
 		api = new OpenAIAPI(saveManager.GetAPIKey("ChatGPT"));
 
 	}
