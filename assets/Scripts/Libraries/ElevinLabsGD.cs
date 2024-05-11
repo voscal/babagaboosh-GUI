@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 using NAudio.Wave;
 
 using System.Linq;
+
 public partial class ElevinLabsGD : Node
 {
-	public Voice currentVoice;
+	public string currentVoice;
 	ElevenLabsClient api;
 	SaveManager saveManager;
 	VoiceData voiceData;
@@ -35,7 +36,7 @@ public partial class ElevinLabsGD : Node
 
 
 
-		Voice voice = await api.VoicesEndpoint.GetVoiceAsync(currentVoice.Id, withSettings: true);
+		Voice voice = await api.VoicesEndpoint.GetVoiceAsync(currentVoice, withSettings: true);
 		VoiceSettings voiceSettingsNew = GetNode<UI>("/root/Main Scene/UI").editorUI.GetVoiceSettings();
 
 		await api.VoicesEndpoint.EditVoiceSettingsAsync(voice, voiceSettingsNew);
@@ -64,6 +65,16 @@ public partial class ElevinLabsGD : Node
 			}
 		}
 	}
+
+
+	public void ChangeVoice(string voiceId)
+	{
+
+
+
+	}
+
+
 
 	public async Task<Voice[]> GetVoices()
 	{

@@ -107,7 +107,14 @@ public partial class EditorUI : Control
 
 	public void OpenEditorPressed()
 	{
+
 		GD.Print("OPEN EDITOR");
+		if (openedUI != null)
+		{
+			GetNode<AnimationPlayer>($"BG/{openedUI}/AnimationPlayer").Play("CloseUI");
+			openedUI = null;
+		}
+
 		if (editorOpen == false)
 			coreAnimationPlayer.Play("OpenEditor");
 		else
@@ -130,9 +137,15 @@ public partial class EditorUI : Control
 		coreAnimationPlayer.Play("ResizeWindowFinnished");
 		DisplayServer.WindowSetSize(new Vector2I(1152, 648), 0);
 	}
-	public void FileSelected(string path)
+	public void FileSelectedSave(string path)
 	{
 		GetNode<SaveManager>("/root/Data/SaveData").SaveCharacter(path);
+	}
+
+	public void FileSelectedLoad(string path)
+	{
+		GetNode<SaveManager>("/root/Data/SaveData").LoadCharacter(path);
+		coreAnimationPlayer.Play("ImportCharacter");
 	}
 
 
@@ -142,6 +155,8 @@ public partial class EditorUI : Control
 		//description
 		//ai context
 	}
+
+
 
 	#endregion
 }

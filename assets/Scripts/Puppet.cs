@@ -7,7 +7,7 @@ public partial class Puppet : Node2D
 	public float maxHeadHeight;
 
 	[Export]
-	bool editorMode = false;
+	bool editorMode = true;
 
 	bool mouseHoverd;
 
@@ -30,20 +30,15 @@ public partial class Puppet : Node2D
 
 		// Calculate the scale factor for head movement based on volume
 		magnitude = Mathf.Clamp(magnitude, 0f, 1f);
-
-
-
 		headSprite.Position = new Vector2(0, Mathf.Lerp(headSprite.Position.Y, magnitude * -300, 0.15f));
 
-		if (!editorMode)
+
+
+		if (editorMode == true)
 		{
-			EditorPupet();
+			CameraControlles();
 		}
 
-	}
-
-	public void EditorPupet()
-	{
 
 	}
 
@@ -63,39 +58,56 @@ public partial class Puppet : Node2D
 
 	public void CameraControlles()
 	{
-		if (Input.IsMouseButtonPressed(MouseButton.Middle))
+		if (Input.IsActionJustPressed("ZoomIn"))
+		{
+			GetNode<Camera2D>("Camera").Zoom -= new Vector2(0.1f, 0.1f);
+		}
+		else if (Input.IsActionJustPressed("ZoomOut"))
+		{
+			GetNode<Camera2D>("Camera").Zoom += new Vector2(0.1f, 0.1f);
+		}
+
+		if (Input.IsActionPressed("MoveCam"))
 		{
 
+			InputEventMouseMotion mousemotion = new();
+			GetNode<Camera2D>("Camera").Position -= mousemotion.Relative;
 		}
+
 	}
 
-	/*
-
-		[Export]
-		float min_zoom = 0.5F;
-		[Export]
-		float max_zoom = 2.0F;
-		[Export]
-		float zoom_factor = 0.1f;
-		[Export]
-		float zoom_duration = 0.2f;
-
-		float _zoom_level = 1.0f;
 
 
-		Tween tween = new();
+	public override void _Input(InputEvent @event)
+	{
+		// Mouse in viewport coordinates.
+		if (Input.IsActionPressed("MoveCam"))
+			if (@event is InputEventMouseMotion eventMouseMotion)
+				GetNode<Camera2D>("Camera").Position -= eventMouseMotion.Relative / GetNode<Camera2D>("Camera").Zoom;
 
 
-		void _set_zoom_level(float value)
-		{
 
-			_zoom_level = Mathf.Clamp(value, min_zoom, max_zoom);
-			tween.SetTrans(Tween.TransitionType.Sine);
-			tween.SetEase(Tween.EaseType.Out);
-			tween.TweenProperty(GetNode<Camera2D>("Camera"), "zoom", new Vector2(_zoom_level, _zoom_level), zoom_duration);
-			tween.Play();
-		}
 
-		*/
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
+
+
+
+
+
+
+

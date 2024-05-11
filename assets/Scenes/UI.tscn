@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=76 format=3 uid="uid://drsi7fywnus2"]
 
 [ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://bw5vcbak24tix" path="res://assets/Sprites/SpritesButton.png" id="10_kxevj"]
 [ext_resource type="Texture2D" uid="uid://dernq1eb7caa2" path="res://assets/Sprites/WindowButton.png" id="19_8nlrx"]
 [ext_resource type="Texture2D" uid="uid://slcjnttyxyxe" path="res://assets/Sprites/save.png" id="20_o57wp"]
-[ext_resource type="Script" path="res://assets/Scripts/FileDialog.gd" id="21_lveft"]
+[ext_resource type="Texture2D" uid="uid://bhb3jegcpwkmg" path="res://assets/Sprites/explosion.png" id="21_q2ann"]
+[ext_resource type="AudioStream" uid="uid://b120o2nras8hd" path="res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3" id="21_vwfcv"]
+[ext_resource type="AudioStream" uid="uid://b1fn2i6t4dchp" path="res://assets/sfx/explosion.ogg" id="22_4ak46"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rd3qc"]
 shader = ExtResource("2_pqofg")
@@ -298,6 +300,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fancy Song:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -80.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fancy Song:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_36s1f"]
 resource_name = "OpenMenu"
@@ -336,6 +362,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fancy Song:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(-0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqesp"]
@@ -456,6 +494,46 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(0.233259, 6.9644),
 "update": 0,
 "values": [Vector2(403, 78), Vector2(6, 78)]
+}
+
+[sub_resource type="Animation" id="Animation_3yveu"]
+resource_name = "ImportCharacter"
+length = 2.031
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Funnyshit/AnimatedSprite2D/sfx:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Funnyshit/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"expload"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Funnyshit/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 }
 
 [sub_resource type="Animation" id="Animation_5cp6s"]
@@ -753,12 +831,152 @@ tracks/6/keys = {
 _data = {
 "CloseEditor": SubResource("Animation_all1i"),
 "CloseSettings": SubResource("Animation_121pn"),
+"ImportCharacter": SubResource("Animation_3yveu"),
 "OpenEditor": SubResource("Animation_5cp6s"),
 "OpenSettings": SubResource("Animation_75yui"),
 "RESET": SubResource("Animation_lof6d"),
 "ResizeWindow": SubResource("Animation_oijws"),
 "ResizeWindowFinnished": SubResource("Animation_efkky")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3v5s"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(1, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22kfd"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(73, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuht5"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(145, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eblwo"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(217, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3588"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(289, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf87y"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(361, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0d4h"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(1, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np0c7"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(73, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ymok"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(145, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgeba"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(217, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we2uy"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(289, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cejac"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(361, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l6l6"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(1, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lroh6"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(73, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44s1d"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(145, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poy4s"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(217, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n047q"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(289, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vb3k"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(324, 228, 108, 76)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0hsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3v5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22kfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuht5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eblwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3588")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf87y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0d4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np0c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ymok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgeba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we2uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cejac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l6l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lroh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44s1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poy4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n047q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vb3k")
+}],
+"loop": false,
+"name": &"expload",
+"speed": 24.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_levkm")
@@ -767,7 +985,7 @@ script = ExtResource("1_levkm")
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
-self_modulate = Color(0.0313726, 0.0313726, 0.0313726, 0)
+self_modulate = Color(0.0313726, 0.0313726, 0.0313726, 1)
 z_index = -421
 texture_repeat = 2
 material = SubResource("ShaderMaterial_rd3qc")
@@ -780,7 +998,6 @@ texture = ExtResource("3_mt2ng")
 stretch_mode = 1
 
 [node name="XY Guides" type="Control" parent="Background"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -854,9 +1071,9 @@ stretch_mode = 4
 
 [node name="settings" type="TextureButton" parent="CoreUI"]
 layout_mode = 0
-offset_left = 5.0
+offset_left = -70.0
 offset_top = 4.0
-offset_right = 69.0
+offset_right = -6.0
 offset_bottom = 68.0
 pivot_offset = Vector2(32.13, 32.345)
 texture_normal = ExtResource("6_3dkm3")
@@ -865,9 +1082,9 @@ stretch_mode = 0
 
 [node name="Charcters" type="TextureButton" parent="CoreUI"]
 layout_mode = 0
-offset_left = 6.0
+offset_left = -72.0
 offset_top = 78.0
-offset_right = 70.0
+offset_right = -8.0
 offset_bottom = 142.0
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
@@ -1140,9 +1357,9 @@ coreAnimationPlayer = NodePath("../AnimationPlayer")
 
 [node name="BG" type="Panel" parent="EditorUI"]
 layout_mode = 0
-offset_left = 651.999
+offset_left = 559.999
 offset_top = 246.004
-offset_right = 739.999
+offset_right = 647.999
 offset_bottom = 894.004
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_m438f")
@@ -1764,13 +1981,26 @@ texture_normal = ExtResource("20_o57wp")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Import" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 10.7859
+offset_top = 482.475
+offset_right = 74.7859
+offset_bottom = 546.475
+rotation = 7.85397
+pivot_offset = Vector2(32.13, 32.345)
+texture_normal = ExtResource("20_o57wp")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="AIContext" type="Control" parent="EditorUI"]
 anchors_preset = 0
-offset_left = 503.998
-offset_top = 902.001
-offset_right = 543.998
-offset_bottom = 942.001
+offset_left = -0.0072093
+offset_top = 1149.0
+offset_right = 39.9928
+offset_bottom = 1189.0
 rotation = -1.57079
+mouse_filter = 2
 
 [node name="BG" type="Panel" parent="EditorUI/AIContext"]
 self_modulate = Color(1, 1, 1, 0)
@@ -1840,7 +2070,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "SAVE"
 
 [node name="AIcontext" type="TextEdit" parent="EditorUI/AIContext/Pannle/Panel"]
-unique_name_in_owner = true
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -1857,6 +2086,10 @@ wrap_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_kqesp")
 }
+
+[node name="Fancy Song" type="AudioStreamPlayer2D" parent="EditorUI/AIContext"]
+stream = ExtResource("21_vwfcv")
+bus = &"BGMusic"
 
 [node name="ResizeUI" type="Control" parent="."]
 visible = false
@@ -2007,11 +2240,37 @@ libraries = {
 "": SubResource("AnimationLibrary_37bpx")
 }
 
-[node name="FileDialog" type="NativeFileDialog" parent="."]
+[node name="SaveFileDialog" type="NativeFileDialog" parent="."]
 title = "Save your Character"
 access = 2
 filters = PackedStringArray("*.chr ; Character \'.chr\'")
-script = ExtResource("21_lveft")
+
+[node name="Import" type="NativeFileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.chr ; Character \'.chr\'")
+
+[node name="Funnyshit" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Funnyshit"]
+texture_filter = 1
+position = Vector2(583, 310)
+scale = Vector2(3.505, 3.505)
+sprite_frames = SubResource("SpriteFrames_e0hsr")
+animation = &"expload"
+frame = 17
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="Funnyshit/AnimatedSprite2D"]
+position = Vector2(-166.334, -88.4451)
+scale = Vector2(0.285307, 0.285307)
+stream = ExtResource("22_4ak46")
+bus = &"SFX"
 
 [connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
 [connection signal="pressed" from="CoreUI/Edit" to="EditorUI" method="OpenEditorPressed"]
@@ -2022,8 +2281,9 @@ script = ExtResource("21_lveft")
 [connection signal="pressed" from="EditorUI/BG/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
 [connection signal="pressed" from="EditorUI/BG/Voice Tweeks" to="EditorUI" method="EditButtonPressed" binds= ["Voice Tweeks"]]
 [connection signal="pressed" from="EditorUI/BG/ResizeWindow" to="EditorUI" method="StartResize"]
-[connection signal="pressed" from="EditorUI/BG/Save" to="FileDialog" method="show"]
+[connection signal="pressed" from="EditorUI/BG/Save" to="SaveFileDialog" method="show"]
+[connection signal="pressed" from="EditorUI/BG/Import" to="Import" method="show"]
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Close" to="EditorUI" method="CloseContextMenu"]
 [connection signal="pressed" from="ResizeUI/Button" to="EditorUI" method="FinnishResize"]
-[connection signal="file_selected" from="FileDialog" to="EditorUI" method="FileSelected"]
-[connection signal="file_selected" from="FileDialog" to="FileDialog" method="_on_file_selected"]
+[connection signal="file_selected" from="SaveFileDialog" to="EditorUI" method="FileSelectedSave"]
+[connection signal="file_selected" from="Import" to="EditorUI" method="FileSelectedLoad"]

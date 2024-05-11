@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c32xv48m7eni7"]
+[gd_scene load_steps=7 format=3 uid="uid://c32xv48m7eni7"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Puppet.cs" id="1_ndnmw"]
-[ext_resource type="Texture2D" uid="uid://bywrsjsx15042" path="res://assets/Sprites/icon.svg" id="2_gfxo4"]
+[ext_resource type="Texture2D" uid="uid://dvlojxdgh3bcy" path="res://assets/Sprites/temp char/bottom.png" id="2_4q6h6"]
+[ext_resource type="Texture2D" uid="uid://bj0owew0wufyl" path="res://assets/Sprites/temp char/top.png" id="3_5ii62"]
 
 [sub_resource type="Animation" id="Animation_q1ukm"]
 resource_name = "Hover"
@@ -118,13 +119,13 @@ maxHeadHeight = 25.4
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="Head" type="Node2D" parent="."]
-position = Vector2(-74, -87)
+position = Vector2(-96, -104)
 
 [node name="Sprite" type="TextureButton" parent="Head"]
-offset_right = 745.0
-offset_bottom = 435.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("2_gfxo4")
+offset_right = 209.0
+offset_bottom = 104.0
+texture_normal = ExtResource("2_4q6h6")
+ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Top Left" type="Control" parent="Head/Sprite"]
@@ -139,8 +140,8 @@ mouse_default_cursor_shape = 12
 
 [node name="Line2D" type="Line2D" parent="Head/Sprite/Top Left"]
 position = Vector2(-7.62939e-05, -7.62939e-05)
-points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
-width = 20.19
+points = PackedVector2Array(20.0001, 9.15527e-05, 0, 0, 0, 20)
+width = 5.0
 default_color = Color(1, 0.85098, 0.0823529, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -161,8 +162,8 @@ mouse_filter = 1
 mouse_default_cursor_shape = 11
 
 [node name="Line2D" type="Line2D" parent="Head/Sprite/Top Right"]
-points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
-width = 20.19
+points = PackedVector2Array(20.0001, 9.15527e-05, 0, 0, 0, 20)
+width = 5.0
 default_color = Color(1, 0.85098, 0.0823529, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -183,8 +184,9 @@ mouse_filter = 1
 mouse_default_cursor_shape = 11
 
 [node name="Line2D" type="Line2D" parent="Head/Sprite/Bottom Left"]
-points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
-width = 20.19
+position = Vector2(-3.09944e-05, -5)
+points = PackedVector2Array(20.0001, 9.15527e-05, 0, 0, 0, 20)
+width = 5.0
 default_color = Color(1, 0.85098, 0.0823529, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -208,8 +210,8 @@ mouse_filter = 1
 mouse_default_cursor_shape = 12
 
 [node name="Line2D" type="Line2D" parent="Head/Sprite/Bottom Right"]
-points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
-width = 20.19
+points = PackedVector2Array(20.0001, 9.15527e-05, 0, 0, 0, 20)
+width = 5.0
 default_color = Color(1, 0.85098, 0.0823529, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -221,13 +223,13 @@ libraries = {
 }
 
 [node name="Body" type="Node2D" parent="."]
+position = Vector2(-96, 0)
 
 [node name="Sprite" type="TextureButton" parent="Body"]
-offset_left = -33.0
-offset_right = 297.0
-offset_bottom = 600.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("2_gfxo4")
+offset_right = 209.0
+offset_bottom = 104.0
+texture_normal = ExtResource("3_5ii62")
+ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Top Left" type="Control" parent="Body/Sprite"]
@@ -241,8 +243,8 @@ offset_bottom = 40.0001
 mouse_filter = 1
 
 [node name="Line2D" type="Line2D" parent="Body/Sprite/Top Left"]
-points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
-width = 20.19
+points = PackedVector2Array(20.0001, 9.15527e-05, 0, 0, 0, 20)
+width = 5.0
 default_color = Color(1, 0.85098, 0.0823529, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -262,8 +264,8 @@ rotation = 1.57079
 mouse_filter = 1
 
 [node name="Line2D" type="Line2D" parent="Body/Sprite/Top Right"]
-points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
-width = 20.19
+points = PackedVector2Array(20.0001, 9.15527e-05, 0, 0, 0, 20)
+width = 5.0
 default_color = Color(1, 0.85098, 0.0823529, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -283,8 +285,9 @@ rotation = -1.57079
 mouse_filter = 1
 
 [node name="Line2D" type="Line2D" parent="Body/Sprite/Bottom Left"]
-points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
-width = 20.19
+position = Vector2(-3.05176e-05, -5)
+points = PackedVector2Array(20.0001, 9.15527e-05, 0, 0, 0, 20)
+width = 5.0
 default_color = Color(1, 0.85098, 0.0823529, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -307,8 +310,8 @@ rotation = 3.14159
 mouse_filter = 1
 
 [node name="Line2D" type="Line2D" parent="Body/Sprite/Bottom Right"]
-points = PackedVector2Array(61.45, 0, 0, 0, 0, 56.99)
-width = 20.19
+points = PackedVector2Array(20.0001, 9.15527e-05, 0, 0, 0, 20)
+width = 5.0
 default_color = Color(1, 0.85098, 0.0823529, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -319,6 +322,7 @@ libraries = {
 "": SubResource("AnimationLibrary_6isd4")
 }
 
+[connection signal="button_down" from="Head/Sprite" to="." method="HeadDown"]
 [connection signal="mouse_entered" from="Head/Sprite" to="." method="MouseOverDummy" binds= ["Head"]]
 [connection signal="mouse_exited" from="Head/Sprite" to="." method="MouseExitDummy" binds= ["Head"]]
 [connection signal="mouse_entered" from="Body/Sprite" to="." method="MouseOverDummy" binds= ["Body"]]

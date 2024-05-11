@@ -16,8 +16,8 @@ public partial class voiceShelf : Node
 
     public void ButtonPressed()
     {
-        GetNode<MasterScript>("/root/Main Scene").Libraries.elevinLabs.currentVoice = voice;
-        GD.Print($"Voice set to {GetNode<MasterScript>("/root/Main Scene").Libraries.elevinLabs.currentVoice.Name}");
+        GetNode<MasterScript>("/root/Main Scene").Libraries.elevinLabs.currentVoice = voice.Id;
+
     }
 
 }
