@@ -1,0 +1,2571 @@
+[gd_scene load_steps=82 format=3 uid="uid://drsi7fywnus2"]
+
+[ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/EditorUI.cs" id="2_aalv0"]
+[ext_resource type="Shader" path="res://assets/Shaders/gridScroll.gdshader" id="2_pqofg"]
+[ext_resource type="Texture2D" uid="uid://b7vttsxaesumd" path="res://assets/Sprites/grid.png" id="3_mt2ng"]
+[ext_resource type="Texture2D" uid="uid://b51pwfpj452aq" path="res://assets/Sprites/Character Button.png" id="4_egvsx"]
+[ext_resource type="Texture2D" uid="uid://chcdxiga4i7vj" path="res://assets/Sprites/record.png" id="5_6ulm7"]
+[ext_resource type="Texture2D" uid="uid://b4qt3uh77icwa" path="res://assets/Sprites/clapper board.png" id="5_7aqlc"]
+[ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="5_hrdfa"]
+[ext_resource type="Texture2D" uid="uid://b04p0lqcj7o6q" path="res://assets/Sprites/settings.png" id="6_3dkm3"]
+[ext_resource type="Texture2D" uid="uid://5atjbnn66ny7" path="res://assets/Sprites/replay.png" id="6_hc2lt"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/SettingsUI.cs" id="7_4ndqf"]
+[ext_resource type="PackedScene" uid="uid://c6qu4fxp3w6ni" path="res://assets/Scenes/voiceShelf.tscn" id="8_o8ng1"]
+[ext_resource type="Theme" uid="uid://byiv4sk7pdl3g" path="res://mmtheme.tres" id="8_voyw1"]
+[ext_resource type="FontFile" uid="uid://dpm21lxchrs1o" path="res://assets/Fonts/FlowRounded-Regular.ttf" id="9_f7luj"]
+[ext_resource type="Texture2D" uid="uid://bkouiyx3ams1l" path="res://assets/Sprites/handle.png" id="9_nx8f0"]
+[ext_resource type="Texture2D" uid="uid://b0rdwu1lwb7db" path="res://assets/Sprites/VoicesButton.png" id="10_cfjio"]
+[ext_resource type="Texture2D" uid="uid://bw5vcbak24tix" path="res://assets/Sprites/SpritesButton.png" id="10_kxevj"]
+[ext_resource type="AudioStream" uid="uid://b4ad3qe62w8kk" path="res://assets/sfx/settingOpen.mp3" id="14_vvqqn"]
+[ext_resource type="AudioStream" uid="uid://djyf884p6vs2c" path="res://assets/sfx/settingsClose.mp3" id="15_sgklh"]
+[ext_resource type="Texture2D" uid="uid://xse5c3xsv7il" path="res://assets/Sprites/Error.png" id="18_qmyss"]
+[ext_resource type="Texture2D" uid="uid://slcjnttyxyxe" path="res://assets/Sprites/save.png" id="20_o57wp"]
+[ext_resource type="Texture2D" uid="uid://bhb3jegcpwkmg" path="res://assets/Sprites/explosion.png" id="21_q2ann"]
+[ext_resource type="AudioStream" uid="uid://b120o2nras8hd" path="res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3" id="21_vwfcv"]
+[ext_resource type="AudioStream" uid="uid://b1fn2i6t4dchp" path="res://assets/sfx/explosion.ogg" id="22_4ak46"]
+[ext_resource type="AudioStream" uid="uid://b87gs5ybiatlt" path="res://assets/music/[OST] Super Mario Maker - Create_ New Super Mario Bros. U - Ground Theme - NintendoViewer.mp3" id="22_lsx75"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rd3qc"]
+shader = ExtResource("2_pqofg")
+shader_parameter/motion = Vector2(20.795, 10.285)
+shader_parameter/scale = 0.415
+shader_parameter/offset = Vector2(0.3, 0.085)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u17o"]
+bg_color = Color(0.639216, 0.639216, 0.639216, 0.109804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oft0"]
+bg_color = Color(0.631373, 0.631373, 0.631373, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.996078, 0.807843, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_uodlu"]
+font = ExtResource("5_hrdfa")
+font_size = 45
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7knj"]
+bg_color = Color(0.819608, 0.819608, 0.819608, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_alr8j"]
+font = ExtResource("5_hrdfa")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbys4"]
+font = ExtResource("5_hrdfa")
+font_size = 19
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbsp6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m438f"]
+bg_color = Color(1, 1, 1, 0.478431)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.996078, 0.807843, 0, 1)
+corner_radius_top_left = 15
+corner_radius_bottom_left = 15
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hvrf"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.819608, 0.819608, 0.819608, 1)
+border_color = Color(0.819608, 0.819608, 0.819608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.227451)
+shadow_offset = Vector2(1.355, -15.475)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi6qn"]
+content_margin_left = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jm7e"]
+content_margin_left = 3.0
+content_margin_top = 6.0
+content_margin_bottom = 3.0
+bg_color = Color(0.968627, 0.784314, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id="Animation_p5t2u"]
+resource_name = "CloseUI"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112656, 0.112656),
+"update": 0,
+"values": [Vector2(402, 248), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.116629, 1),
+"update": 0,
+"values": [Vector2(-99.0019, -299), Vector2(30.9973, 30.9999)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Polygon2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cp5yg"]
+resource_name = "OpenUI"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112656, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(402, 248)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112656, 1),
+"update": 0,
+"values": [Vector2(-38, 31), Vector2(-99.0019, -299)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Polygon2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1sw41"]
+_data = {
+"CloseUI": SubResource("Animation_p5t2u"),
+"OpenUI": SubResource("Animation_cp5yg")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpq2r"]
+bg_color = Color(0.501961, 0.501961, 0.505882, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.996078, 0.807843, 0, 1)
+corner_radius_top_left = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6k774"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.819608, 0.819608, 0.819608, 1)
+border_color = Color(0.819608, 0.819608, 0.819608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.219608)
+shadow_offset = Vector2(0, -3.265)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc2sl"]
+bg_color = Color(0.866667, 0.866667, 0.866667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4nhi"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.721569, 0.721569, 0.721569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbqh8"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37ybt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abatg"]
+bg_color = Color(0, 0, 0, 0.639216)
+anti_aliasing = false
+
+[sub_resource type="Animation" id="Animation_6sxxs"]
+resource_name = "CloseMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pannle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.138696, 0.108819),
+"update": 0,
+"values": [Vector2(388, 14), Vector2(388, 662)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BG:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fancy Song:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -80.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fancy Song:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_36s1f"]
+resource_name = "OpenMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pannle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.108819, 8),
+"update": 0,
+"values": [Vector2(388, 662), Vector2(388, 14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BG:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fancy Song:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(-0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqesp"]
+_data = {
+"CloseMenu": SubResource("Animation_6sxxs"),
+"OpenMenu": SubResource("Animation_36s1f")
+}
+
+[sub_resource type="Animation" id="Animation_all1i"]
+resource_name = "CloseEditor"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EditorUI/BG:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.07966, 0.267943),
+"update": 0,
+"values": [Vector2(559.999, 246.004), Vector2(651.999, 246.004)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI/Charcters:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.217638, 1),
+"update": 0,
+"values": [Vector2(-72, 78), Vector2(6, 78)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoreUI/settings:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.267944, 1),
+"update": 0,
+"values": [Vector2(-70, 4), Vector2(5, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background/TextureRect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Color(0.0313726, 0.0313726, 0.0313726, 1), Color(0.0313726, 0.0313726, 0.0313726, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/XY Guides:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 0.225313),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EditorUI/editor Music:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(2, 0.217638),
+"update": 0,
+"values": [-3.714, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_121pn"]
+resource_name = "CloseSettings"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 6.9644),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-384, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 6.9644),
+"update": 0,
+"values": [Vector2(402, 4), Vector2(5, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 6.9644),
+"update": 0,
+"values": [1.57079, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.233259, 6.9644),
+"update": 0,
+"values": [Vector2(403, 78), Vector2(6, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SettingsUI/CloseSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5cp6s"]
+resource_name = "OpenEditor"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EditorUI/BG:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.267943, 1),
+"update": 0,
+"values": [Vector2(651.999, 246.004), Vector2(559.999, 246.004)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI/Charcters:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.112657, 1),
+"update": 0,
+"values": [Vector2(6, 78), Vector2(-70, 78)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoreUI/settings:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.120742, 1),
+"update": 0,
+"values": [Vector2(5, 4), Vector2(-70, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background/TextureRect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.267943, 1),
+"update": 0,
+"values": [Color(0.0313726, 0.0313726, 0.0313726, 0), Color(0.0313726, 0.0313726, 0.0313726, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/XY Guides:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EditorUI/editor Music:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [-80.0, -3.714]
+}
+
+[sub_resource type="Animation" id="Animation_75yui"]
+resource_name = "OpenSettings"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 2.54912),
+"update": 0,
+"values": [Vector2(-384, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(5, 4), Vector2(402, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [0.0, 1.57079]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(6, 78), Vector2(403, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SettingsUI/OpenSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lof6d"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_oijws"]
+resource_name = "ResizeWindow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/XY Guides:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsUI:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EditorUI:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_efkky"]
+resource_name = "ResizeWindowFinnished"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/XY Guides:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoreUI:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsUI:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EditorUI:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37bpx"]
+_data = {
+"CloseEditor": SubResource("Animation_all1i"),
+"CloseSettings": SubResource("Animation_121pn"),
+"OpenEditor": SubResource("Animation_5cp6s"),
+"OpenSettings": SubResource("Animation_75yui"),
+"RESET": SubResource("Animation_lof6d"),
+"ResizeWindow": SubResource("Animation_oijws"),
+"ResizeWindowFinnished": SubResource("Animation_efkky")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3v5s"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(1, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22kfd"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(73, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuht5"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(145, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eblwo"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(217, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3588"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(289, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf87y"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(361, 1, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0d4h"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(1, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np0c7"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(73, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ymok"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(145, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgeba"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(217, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we2uy"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(289, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cejac"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(361, 102, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l6l6"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(1, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lroh6"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(73, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44s1d"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(145, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poy4s"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(217, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n047q"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(289, 203, 71, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vb3k"]
+atlas = ExtResource("21_q2ann")
+region = Rect2(324, 228, 108, 76)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0hsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3v5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22kfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuht5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eblwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3588")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf87y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0d4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np0c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ymok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgeba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we2uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cejac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l6l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lroh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44s1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poy4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n047q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vb3k")
+}],
+"loop": false,
+"name": &"expload",
+"speed": 24.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_up63u"]
+resource_name = "Explosion"
+length = 10.017
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/sfx:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vb2el"]
+_data = {
+"Explosion": SubResource("Animation_up63u")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy6ph"]
+bg_color = Color(0.760784, 0.760784, 0.760784, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_levkm")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+self_modulate = Color(0.0313726, 0.0313726, 0.0313726, 0)
+z_index = -421
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rd3qc")
+anchors_preset = -1
+anchor_right = 1.002
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = -0.304077
+texture = ExtResource("3_mt2ng")
+stretch_mode = 1
+
+[node name="XY Guides" type="Control" parent="Background"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Y" type="PanelContainer" parent="Background/XY Guides"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_right = 0.503
+anchor_bottom = 1.0
+offset_left = -6.45605
+offset_right = -0.456055
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2u17o")
+
+[node name="X" type="PanelContainer" parent="Background/XY Guides"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.495
+anchor_right = 1.0
+anchor_bottom = 0.495
+offset_left = 1291.0
+offset_top = 0.23999
+offset_right = 145.0
+offset_bottom = 1366.24
+grow_horizontal = 2
+rotation = 1.57079
+theme_override_styles/panel = SubResource("StyleBoxFlat_2u17o")
+
+[node name="CoreUI" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_3k362")
+
+[node name="Record" type="TextureButton" parent="CoreUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -164.0
+offset_right = -76.0
+offset_bottom = -26.0
+texture_normal = ExtResource("5_6ulm7")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="Replay" type="TextureButton" parent="CoreUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -245.0
+offset_top = 555.0
+offset_right = -183.0
+offset_bottom = 617.0
+grow_horizontal = 0
+texture_normal = ExtResource("6_hc2lt")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="settings" type="TextureButton" parent="CoreUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 68.0
+pivot_offset = Vector2(32.13, 32.345)
+texture_normal = ExtResource("6_3dkm3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Charcters" type="TextureButton" parent="CoreUI"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 78.0
+offset_right = 70.0
+offset_bottom = 142.0
+texture_normal = ExtResource("4_egvsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Edit" type="Button" parent="CoreUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1228.0
+offset_top = -159.0
+offset_right = -1050.0
+offset_bottom = 5.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_font_sizes/font_size = 27
+text = "
+EDIT"
+icon = ExtResource("5_7aqlc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SettingsUI" type="Control" parent="." node_paths=PackedStringArray("animationPlayer")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -384.0
+offset_bottom = 648.0
+script = ExtResource("7_4ndqf")
+animationPlayer = NodePath("../AnimationPlayer")
+
+[node name="BackGround" type="Panel" parent="SettingsUI"]
+custom_minimum_size = Vector2(384, 256)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_right = 319.872
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="Label" type="Label" parent="SettingsUI/BackGround"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 11.0
+offset_right = -1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_uodlu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsSelect" type="PanelContainer" parent="SettingsUI"]
+clip_children = 2
+layout_mode = 1
+offset_left = 16.0
+offset_top = 70.0
+offset_right = 369.0
+offset_bottom = 633.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI/SettingsSelect"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsUI/SettingsSelect/ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_stretch_ratio = 20.0
+
+[node name="Audio" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_right = 8.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "AUDIO "
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 14.0
+offset_top = 71.0
+offset_right = -10.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "INPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 13.0
+offset_top = 97.0
+offset_right = -11.0
+offset_bottom = 141.0
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 14.0
+offset_top = 148.0
+offset_right = -10.0
+offset_bottom = 179.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+text = "OUTPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 13.0
+offset_top = 175.0
+offset_right = -11.0
+offset_bottom = 218.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="API keys" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 356.31)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = 12.0
+offset_right = 6.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "API KEYS"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="chat label" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 69.0
+offset_right = -8.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "CHAT GPT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="ChatAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 97.0
+offset_right = 343.0
+offset_bottom = 141.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
+[node name="Azure label" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 143.0
+offset_right = -8.0
+offset_bottom = 174.0
+grow_horizontal = 2
+text = "AZURE"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="AzureAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 171.0
+offset_right = 344.0
+offset_bottom = 215.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
+[node name="11labs" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 15.0
+offset_top = 218.0
+offset_right = -9.0
+offset_bottom = 249.0
+grow_horizontal = 2
+text = "11 Labs"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="11labAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 248.0
+offset_right = 344.0
+offset_bottom = 292.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+scroll_smooth = true
+
+[node name="SaveKeys" type="Button" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 310.0
+offset_right = 240.0
+offset_bottom = 344.0
+theme = ExtResource("8_voyw1")
+text = "SAVE KEYS"
+
+[node name="Misc" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_right = 8.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "MISC"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 71.0
+offset_right = -8.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "INPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 97.0
+offset_right = -8.0
+offset_bottom = 137.0
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 142.0
+offset_right = -8.0
+offset_bottom = 173.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+text = "OUTPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 169.0
+offset_right = -8.0
+offset_bottom = 209.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="rightSelect" type="Button" parent="SettingsUI"]
+layout_mode = 2
+offset_left = 310.0
+offset_top = 81.0
+offset_right = 361.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_fbsp6")
+text = ">"
+
+[node name="leftSelect" type="Button" parent="SettingsUI"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 81.0
+offset_right = 75.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_fbsp6")
+text = "<"
+
+[node name="OpenSFX" type="AudioStreamPlayer2D" parent="SettingsUI"]
+stream = ExtResource("14_vvqqn")
+
+[node name="CloseSFX" type="AudioStreamPlayer2D" parent="SettingsUI"]
+stream = ExtResource("15_sgklh")
+
+[node name="EditorUI" type="Control" parent="." node_paths=PackedStringArray("coreAnimationPlayer")]
+layout_mode = 3
+anchor_left = 0.002
+anchor_right = 1.0
+anchor_bottom = 0.998
+offset_left = 1146.7
+offset_right = 645.0
+offset_bottom = 502.296
+grow_horizontal = 0
+rotation = 1.57079
+mouse_filter = 2
+script = ExtResource("2_aalv0")
+coreAnimationPlayer = NodePath("../AnimationPlayer")
+
+[node name="BG" type="Panel" parent="EditorUI"]
+layout_mode = 0
+offset_left = 651.999
+offset_top = 246.004
+offset_right = 739.999
+offset_bottom = 894.004
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_m438f")
+
+[node name="About" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 11.9999
+offset_top = 81.0
+offset_right = 73.9999
+offset_bottom = 143.0
+rotation = 4.71239
+texture_normal = ExtResource("4_egvsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/About"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.097
+anchor_top = 0.5
+anchor_right = -0.597
+anchor_bottom = 4.516
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/About/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ABOUT"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Panel" type="Panel" parent="EditorUI/BG/About/Background"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 33.0
+offset_right = 388.0
+offset_bottom = 235.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="AIname" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 17.0
+offset_right = -13.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_voyw1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
+placeholder_text = "Enter AI Name"
+
+[node name="Button" type="Button" parent="EditorUI/BG/About/Background/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 162.0
+offset_right = 361.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "ADD AI CONTEXT"
+
+[node name="AIabout" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 60.0
+offset_right = 361.0
+offset_bottom = 157.0
+theme = ExtResource("8_voyw1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
+placeholder_text = "quick description of character to tell people who it is"
+wrap_mode = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/About"]
+visible = false
+position = Vector2(35.5953, 27)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/About"]
+libraries = {
+"": SubResource("AnimationLibrary_1sw41")
+}
+
+[node name="Sprites" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 12.9999
+offset_top = 160.0
+offset_right = 74.9999
+offset_bottom = 222.0
+rotation = 4.71239
+texture_normal = ExtResource("10_kxevj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/Sprites"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.097
+anchor_top = 0.5
+anchor_right = -0.597
+anchor_bottom = 4.516
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sprites"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="UploadHeadPannle" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 183.0
+offset_right = 188.0
+offset_bottom = 228.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="ImportHeadImage" type="NativeFileDialog" parent="EditorUI/BG/Sprites/Background/UploadHeadPannle"]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png , *jpg , *.svg , *.webp ; Image (*.png , *jpg , *.svg , *.webp)", "* ; All Files")
+
+[node name="Button" type="Button" parent="EditorUI/BG/Sprites/Background/UploadHeadPannle"]
+layout_mode = 0
+offset_left = 8.99854
+offset_top = 2.99823
+offset_right = 151.999
+offset_bottom = 39.9982
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "UPLOAD"
+
+[node name="UploadBodyPannle" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 0
+offset_left = 213.998
+offset_top = 182.999
+offset_right = 377.998
+offset_bottom = 227.999
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Button" type="Button" parent="EditorUI/BG/Sprites/Background/UploadBodyPannle"]
+layout_mode = 0
+offset_left = 8.99854
+offset_top = 2.99823
+offset_right = 151.999
+offset_bottom = 39.9982
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "UPLOAD"
+
+[node name="ImportBodyImage" type="NativeFileDialog" parent="EditorUI/BG/Sprites/Background/UploadBodyPannle"]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png , *jpg , *.svg , *.webp ; Image (*.png , *jpg , *.svg , *.webp)", "* ; All Files")
+
+[node name="Preview3" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 39.0
+offset_right = 188.0
+offset_bottom = 174.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Preview4" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 39.0009
+offset_right = 378.0
+offset_bottom = 174.001
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Sprites"]
+visible = false
+position = Vector2(35.5953, 27)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Sprites"]
+libraries = {
+"": SubResource("AnimationLibrary_1sw41")
+}
+
+[node name="Hinges" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 11.998
+offset_top = 236.003
+offset_right = 73.998
+offset_bottom = 298.004
+rotation = 4.71239
+texture_normal = ExtResource("18_qmyss")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/Hinges"]
+visible = false
+layout_mode = 0
+offset_left = -440.0
+offset_top = 31.0
+offset_right = -37.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
+
+[node name="Name" type="TextEdit" parent="EditorUI/BG/Hinges/Background"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 40.0
+offset_right = 378.0
+offset_bottom = 73.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/line_spacing = -3
+text = "Zest mf"
+scroll_smooth = true
+
+[node name="Context" type="TextEdit" parent="EditorUI/BG/Hinges/Background"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 105.0
+offset_right = 380.0
+offset_bottom = 238.0
+theme = ExtResource("8_voyw1")
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="DesctionLabal" type="Label" parent="EditorUI/BG/Hinges/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 74.0
+offset_bottom = 105.0
+grow_horizontal = 2
+text = "DESCRIPTION"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Hinges/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Hinges"]
+visible = false
+position = Vector2(34.9974, 27.9993)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="Trantions" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 14.9974
+offset_top = 316.003
+offset_right = 76.9974
+offset_bottom = 378.003
+rotation = 4.71239
+texture_normal = ExtResource("18_qmyss")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/Trantions"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.097
+anchor_top = 0.5
+anchor_right = -0.597
+anchor_bottom = 4.516
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Trantions/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Camera
+"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Panel" type="Panel" parent="EditorUI/BG/Trantions/Background"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 33.0
+offset_right = 388.0
+offset_bottom = 235.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Center camera" type="Button" parent="EditorUI/BG/Trantions/Background/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 162.0
+offset_right = 361.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "RESET CAMERA"
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Trantions"]
+visible = false
+position = Vector2(35.5953, 27)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Trantions"]
+libraries = {
+"": SubResource("AnimationLibrary_1sw41")
+}
+
+[node name="Camera" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 12.9998
+offset_top = 396.0
+offset_right = 74.9998
+offset_bottom = 458.0
+rotation = 4.71239
+texture_normal = ExtResource("18_qmyss")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/Camera"]
+visible = false
+layout_mode = 0
+offset_left = -440.0
+offset_top = 31.0
+offset_right = -37.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
+
+[node name="Name" type="TextEdit" parent="EditorUI/BG/Camera/Background"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 40.0
+offset_right = 378.0
+offset_bottom = 73.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/line_spacing = -3
+text = "Zest mf"
+scroll_smooth = true
+
+[node name="Context" type="TextEdit" parent="EditorUI/BG/Camera/Background"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 105.0
+offset_right = 380.0
+offset_bottom = 238.0
+theme = ExtResource("8_voyw1")
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="DesctionLabal" type="Label" parent="EditorUI/BG/Camera/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 74.0
+offset_bottom = 105.0
+grow_horizontal = 2
+text = "DESCRIPTION"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Camera/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Camera"]
+visible = false
+position = Vector2(34.9974, 27.9993)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="Voices" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 14.9965
+offset_top = 472.003
+offset_right = 76.9965
+offset_bottom = 534.003
+rotation = 4.71239
+texture_normal = ExtResource("10_cfjio")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/Voices"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.097
+anchor_top = 0.5
+anchor_right = -0.597
+anchor_bottom = 4.516
+offset_left = 471.011
+offset_top = -9.15527e-05
+offset_right = 68.0113
+offset_bottom = -248.992
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voices/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Voices"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorUI/BG/Voices/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 36.0
+offset_right = -15.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_voyw1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6k774")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorUI/BG/Voices/Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VoiceShelf3" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_o8ng1")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="EditorUI/BG/Voices/Background"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 199.0
+offset_right = 388.0
+offset_bottom = 235.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="AIVoiceID" type="TextEdit" parent="EditorUI/BG/Voices/Background/Panel"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -109.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_voyw1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
+placeholder_text = "enter voice ID"
+
+[node name="Button" type="Button" parent="EditorUI/BG/Voices/Background/Panel"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 3.0
+offset_right = 371.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "FIND VOICE"
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Voices"]
+visible = false
+position = Vector2(34.5953, 27)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Voices"]
+libraries = {
+"": SubResource("AnimationLibrary_1sw41")
+}
+
+[node name="Voice Config" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 12.996
+offset_top = 550.003
+offset_right = 74.996
+offset_bottom = 612.003
+rotation = 4.71239
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_egvsx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/Voice Config"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.097
+anchor_top = 0.5
+anchor_right = -0.597
+anchor_bottom = 4.516
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="Panel" type="Panel" parent="EditorUI/BG/Voice Config/Background"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 41.0
+offset_right = 385.0
+offset_bottom = 232.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rc2sl")
+
+[node name="Stability" type="HSlider" parent="EditorUI/BG/Voice Config/Background/Panel"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 25.0
+offset_top = 36.0
+offset_right = 342.0
+offset_bottom = 64.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("9_nx8f0")
+theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
+theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
+theme_override_icons/tick = ExtResource("9_nx8f0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Config/Background/Panel/Stability"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "STABILITY"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
+
+[node name="Clarity" type="HSlider" parent="EditorUI/BG/Voice Config/Background/Panel"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 25.0
+offset_top = 94.0
+offset_right = 342.0
+offset_bottom = 122.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("9_nx8f0")
+theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
+theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
+theme_override_icons/tick = ExtResource("9_nx8f0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Config/Background/Panel/Clarity"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CLARITY"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
+
+[node name="Exaggeration" type="HSlider" parent="EditorUI/BG/Voice Config/Background/Panel"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 25.0
+offset_top = 150.0
+offset_right = 342.0
+offset_bottom = 178.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("9_nx8f0")
+theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
+theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
+theme_override_icons/tick = ExtResource("9_nx8f0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Config/Background/Panel/Exaggeration"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -29.0
+offset_right = 16.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXAGGERATION"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Config/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "VOICE CONFIG"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Voice Config"]
+visible = false
+position = Vector2(34.5953, 27)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Voice Config"]
+libraries = {
+"": SubResource("AnimationLibrary_1sw41")
+}
+
+[node name="Chatgpt" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = 12.9964
+offset_top = 630.0
+offset_right = 74.9964
+offset_bottom = 692.0
+rotation = 4.71239
+texture_normal = ExtResource("18_qmyss")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Panel" parent="EditorUI/BG/Chatgpt"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.097
+anchor_top = 0.5
+anchor_right = -0.597
+anchor_bottom = 4.516
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Camera
+"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Panel" type="Panel" parent="EditorUI/BG/Chatgpt/Background"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 33.0
+offset_right = 388.0
+offset_bottom = 235.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Center camera" type="Button" parent="EditorUI/BG/Chatgpt/Background/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 162.0
+offset_right = 361.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "RESET CAMERA"
+
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Chatgpt"]
+visible = false
+position = Vector2(35.5953, 27)
+rotation = 1.57079
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Chatgpt"]
+libraries = {
+"": SubResource("AnimationLibrary_1sw41")
+}
+
+[node name="Save" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = -333.006
+offset_top = 836.001
+offset_right = -269.006
+offset_bottom = 900.001
+rotation = 4.71239
+pivot_offset = Vector2(32.13, 32.345)
+texture_normal = ExtResource("20_o57wp")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="Import" type="TextureButton" parent="EditorUI/BG"]
+layout_mode = 0
+offset_left = -258.006
+offset_top = 836.002
+offset_right = -194.006
+offset_bottom = 900.002
+rotation = 7.85397
+pivot_offset = Vector2(32.13, 32.345)
+texture_normal = ExtResource("20_o57wp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AIContext" type="Control" parent="EditorUI"]
+anchors_preset = 0
+offset_left = -0.0072093
+offset_top = 1149.0
+offset_right = 39.9928
+offset_bottom = 1189.0
+rotation = -1.57079
+mouse_filter = 2
+
+[node name="BG" type="Panel" parent="EditorUI/AIContext"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.8
+anchor_bottom = 16.2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abatg")
+metadata/_edit_lock_ = true
+
+[node name="Pannle" type="Panel" parent="EditorUI/AIContext"]
+custom_minimum_size = Vector2(384, 256)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_left = 389.996
+offset_top = 754.0
+offset_right = 807.316
+offset_bottom = 1332.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="Label" type="Label" parent="EditorUI/AIContext/Pannle"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 11.0
+offset_right = -1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "AI CONTEXT"
+label_settings = SubResource("LabelSettings_uodlu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="EditorUI/AIContext/Pannle"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 66.0
+offset_right = 400.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="Close" type="Button" parent="EditorUI/AIContext/Pannle/Panel"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 496.0
+offset_right = 368.0
+offset_bottom = 528.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "CLOSE"
+
+[node name="Save" type="Button" parent="EditorUI/AIContext/Pannle/Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 496.0
+offset_right = 182.0
+offset_bottom = 528.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "SAVE"
+
+[node name="AIcontext" type="TextEdit" parent="EditorUI/AIContext/Pannle/Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 377.0
+offset_bottom = 490.0
+theme = ExtResource("8_voyw1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
+placeholder_text = "describe to chatGPT how it should act!
+
+e.g: your are now bald youtuber doug doug, scream TWICH CHAT when ever you feel like it, keep your response under 20 words."
+wrap_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/AIContext"]
+libraries = {
+"": SubResource("AnimationLibrary_kqesp")
+}
+
+[node name="Fancy Song" type="AudioStreamPlayer2D" parent="EditorUI/AIContext"]
+visible = false
+stream = ExtResource("21_vwfcv")
+bus = &"BGMusic"
+
+[node name="editor Music" type="AudioStreamPlayer2D" parent="EditorUI"]
+visible = false
+stream = ExtResource("22_lsx75")
+volume_db = -80.0
+max_distance = 90450.0
+attenuation = 1.03526e-05
+panning_strength = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_37bpx")
+}
+
+[node name="SaveFileDialog" type="NativeFileDialog" parent="."]
+title = "Save your Character"
+access = 2
+filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
+
+[node name="ImportChracter" type="NativeFileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
+
+[node name="Funnyshit" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Funnyshit"]
+texture_filter = 1
+position = Vector2(583, 310)
+scale = Vector2(3.505, 3.505)
+sprite_frames = SubResource("SpriteFrames_e0hsr")
+animation = &"expload"
+frame = 17
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Funnyshit/AnimatedSprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_vb2el")
+}
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="Funnyshit/AnimatedSprite2D"]
+position = Vector2(-166.334, -88.4451)
+scale = Vector2(0.285307, 0.285307)
+stream = ExtResource("22_4ak46")
+attenuation = 0.0053361
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="Character Select" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -768.0
+offset_right = -384.0
+offset_bottom = 648.0
+
+[node name="BackGround" type="Panel" parent="Character Select"]
+custom_minimum_size = Vector2(384, 256)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_right = 319.872
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="Label" type="Label" parent="Character Select/BackGround"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 9.0
+offset_right = 1.0
+offset_bottom = 73.0
+grow_horizontal = 2
+text = "CHARACTERS"
+label_settings = SubResource("LabelSettings_uodlu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Character2" type="Panel" parent="Character Select/BackGround"]
+clip_children = 2
+layout_mode = 0
+offset_left = 197.0
+offset_top = 134.0
+offset_right = 369.0
+offset_bottom = 297.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/Character2"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 122.0
+offset_right = 164.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/Character2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/Character2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 122.0
+offset_right = 41.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Save_Import" type="Panel" parent="Character Select/BackGround"]
+clip_children = 2
+layout_mode = 0
+offset_left = 16.0
+offset_top = 70.0
+offset_right = 369.0
+offset_bottom = 124.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Close" type="Button" parent="Character Select/BackGround/Save_Import"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 11.0
+offset_right = 343.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "IMPORT"
+
+[node name="Save" type="Button" parent="Character Select/BackGround/Save_Import"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 167.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "SAVE"
+
+[node name="Notifications" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 1.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Notifications"]
+layout_mode = 2
+offset_left = 765.0
+offset_right = 1151.0
+offset_bottom = 463.0
+horizontal_scroll_mode = 0
+scroll_deadzone = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Notifications/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(434.255, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
+[connection signal="pressed" from="CoreUI/Edit" to="EditorUI" method="OpenEditorPressed"]
+[connection signal="pressed" from="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys/SaveKeys" to="SettingsUI" method="SaveKeys"]
+[connection signal="pressed" from="SettingsUI/rightSelect" to="SettingsUI" method="ScrollNextSettings"]
+[connection signal="pressed" from="SettingsUI/leftSelect" to="SettingsUI" method="ScrollPreviousSettings"]
+[connection signal="pressed" from="EditorUI/BG/About" to="EditorUI" method="EditButtonPressed" binds= ["About"]]
+[connection signal="pressed" from="EditorUI/BG/About/Background/Panel/Button" to="EditorUI" method="OpenContextMenu"]
+[connection signal="pressed" from="EditorUI/BG/Sprites" to="EditorUI" method="EditButtonPressed" binds= ["Sprites"]]
+[connection signal="file_selected" from="EditorUI/BG/Sprites/Background/UploadHeadPannle/ImportHeadImage" to="EditorUI" method="ImportHead"]
+[connection signal="pressed" from="EditorUI/BG/Sprites/Background/UploadHeadPannle/Button" to="EditorUI/BG/Sprites/Background/UploadHeadPannle/ImportHeadImage" method="show"]
+[connection signal="pressed" from="EditorUI/BG/Sprites/Background/UploadBodyPannle/Button" to="EditorUI/BG/Sprites/Background/UploadBodyPannle/ImportBodyImage" method="show"]
+[connection signal="file_selected" from="EditorUI/BG/Sprites/Background/UploadBodyPannle/ImportBodyImage" to="EditorUI" method="ImportBodyImage"]
+[connection signal="pressed" from="EditorUI/BG/Trantions" to="EditorUI" method="EditButtonPressed" binds= ["Camera"]]
+[connection signal="pressed" from="EditorUI/BG/Trantions/Background/Panel/Center camera" to="EditorUI" method="CenterCamera"]
+[connection signal="pressed" from="EditorUI/BG/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
+[connection signal="pressed" from="EditorUI/BG/Voice Config" to="EditorUI" method="EditButtonPressed" binds= ["Voice Config"]]
+[connection signal="pressed" from="EditorUI/BG/Chatgpt" to="EditorUI" method="EditButtonPressed" binds= ["Camera"]]
+[connection signal="pressed" from="EditorUI/BG/Chatgpt/Background/Panel/Center camera" to="EditorUI" method="CenterCamera"]
+[connection signal="pressed" from="EditorUI/BG/Save" to="SaveFileDialog" method="show"]
+[connection signal="pressed" from="EditorUI/BG/Import" to="ImportChracter" method="show"]
+[connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Close" to="EditorUI" method="CloseContextMenu"]
+[connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Save" to="EditorUI" method="UpdateContext"]
+[connection signal="file_selected" from="SaveFileDialog" to="EditorUI" method="FileSelectedSave"]
+[connection signal="file_selected" from="ImportChracter" to="EditorUI" method="FileSelectedLoad"]
+[connection signal="pressed" from="Character Select/BackGround/Save_Import/Close" to="ImportChracter" method="show"]
+[connection signal="pressed" from="Character Select/BackGround/Save_Import/Save" to="SaveFileDialog" method="show"]

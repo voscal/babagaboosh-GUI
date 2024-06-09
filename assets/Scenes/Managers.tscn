@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn46jmt6uglv6"]
+
+[ext_resource type="Script" path="res://assets/Scripts/AudioManager.cs" id="1_54art"]
+[ext_resource type="Script" path="res://assets/Scripts/NotificationsManager.cs" id="1_xte7s"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o5r0u"]
+
+[node name="Managers" type="Node"]
+
+[node name="Notifications" type="Node" parent="."]
+script = ExtResource("1_xte7s")
+
+[node name="Audio" type="Node" parent="."]
+script = ExtResource("1_54art")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="Audio"]
+volume_db = 8.359
+autoplay = true
+bus = &"BGMusic"
+
+[node name="SFX" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[node name="AudioStreamRecorder" type="AudioStreamPlayer" parent="Audio"]
+stream = SubResource("AudioStreamMicrophone_o5r0u")
+autoplay = true
+bus = &"Recording"
+
+[node name="AIVoice" type="AudioStreamPlayer" parent="Audio"]
+autoplay = true
+bus = &"AI"
