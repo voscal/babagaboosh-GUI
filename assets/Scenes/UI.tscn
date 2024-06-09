@@ -1474,8 +1474,9 @@ anchor_left = -7.097
 anchor_top = 0.5
 anchor_right = -0.597
 anchor_bottom = 4.516
-offset_left = 402.014
-offset_right = -0.986
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
 offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
@@ -2244,7 +2245,6 @@ libraries = {
 }
 
 [node name="Save" type="TextureButton" parent="EditorUI/BG"]
-visible = false
 layout_mode = 0
 offset_left = -333.006
 offset_top = 836.001
@@ -2424,10 +2424,9 @@ bus = &"SFX"
 [node name="Character Select" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 499.0
-offset_top = 508.0
-offset_right = 883.0
-offset_bottom = 1156.0
+offset_left = -768.0
+offset_right = -384.0
+offset_bottom = 648.0
 
 [node name="BackGround" type="Panel" parent="Character Select"]
 custom_minimum_size = Vector2(384, 256)
@@ -2435,10 +2434,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.167
 anchor_bottom = 1.0
-offset_left = -1275.0
-offset_top = -507.0
-offset_right = -955.128
-offset_bottom = -507.0
+offset_right = 319.872
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
