@@ -22,15 +22,15 @@ public partial class AudioManager : Node
 	{
 
 
-		ui = GetParent().GetNode<UI>("UI");
+		ui = GetNode<UI>("/root/Main Scene/UI");
 		int idx = AudioServer.GetBusIndex("Recording");
 		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(idx, 0);
-		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(0, 0);
+		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(5, 0);
 
 		#region Signals
-		ui.settingsUI.micSelect.ItemSelected += MicSelected;
-		ui.settingsUI.OutputSelect.ItemSelected += OutputSelected;
-		ui.coreUI.Replay.Pressed += PlayAudio;
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").ItemSelected += MicSelected;
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").ItemSelected += OutputSelected;
+		ui.GetNode<TextureButton>("CoreUI/Replay").Pressed += PlayAudio;
 		#endregion
 		GetMicList();
 		GetOutputList();
@@ -84,7 +84,7 @@ public partial class AudioManager : Node
 	public void PlayAudio()
 	{
 		GD.Print("Play");
-		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>("AIVoice");
 
 		byte[] wavData = File.ReadAllBytes(ProjectSettings.GlobalizePath("res://Audio/AIresponse.wav"));
 
@@ -113,10 +113,10 @@ public partial class AudioManager : Node
 	{
 		inputDevices = AudioServer.GetInputDeviceList();
 
-		ui.settingsUI.micSelect.Clear();
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").Clear();
 		foreach (string device in inputDevices)
 		{
-			ui.settingsUI.micSelect.AddItem(device);
+			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").AddItem(device);
 		}
 
 	}
@@ -142,10 +142,10 @@ public partial class AudioManager : Node
 	{
 		outputDevices = AudioServer.GetOutputDeviceList();
 
-		ui.settingsUI.OutputSelect.Clear();
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").Clear();
 		foreach (string device in outputDevices)
 		{
-			ui.settingsUI.OutputSelect.AddItem(device);
+			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").AddItem(device);
 		}
 
 	}

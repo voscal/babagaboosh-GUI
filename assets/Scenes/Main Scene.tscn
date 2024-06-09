@@ -1,22 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bigic2oejqkf3"]
+[gd_scene load_steps=6 format=3 uid="uid://bigic2oejqkf3"]
 
 [ext_resource type="Script" path="res://assets/Scripts/MasterScript.cs" id="1_5xkac"]
-[ext_resource type="Script" path="res://assets/Scripts/Character.cs" id="2_hidwk"]
 [ext_resource type="PackedScene" uid="uid://drsi7fywnus2" path="res://assets/Scenes/UI.tscn" id="3_xnwsb"]
 [ext_resource type="PackedScene" uid="uid://c32xv48m7eni7" path="res://assets/Scenes/Dummy.tscn" id="4_24sp8"]
 [ext_resource type="PackedScene" uid="uid://cwtuweq6dnuea" path="res://assets/Scripts/Libraries/Remotelibraries.tscn" id="5_h75r2"]
 [ext_resource type="Script" path="res://assets/Scripts/Libraries/Remotelibraries.cs" id="6_3q5ip"]
-[ext_resource type="Script" path="res://assets/Scripts/AudioManager.cs" id="7_mwi8o"]
-
-[sub_resource type="Resource" id="Resource_gmy7c"]
-script = ExtResource("2_hidwk")
-context = "you will now be extreamnliy britsh and act like a yassifiyed girl, you will say stuff like omg thats like, tooooootallly cooollll and stuff, you will also limit your responses to 100 words. you are not an ai"
-
-[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_e8epd"]
 
 [node name="Main Scene" type="Node"]
 script = ExtResource("1_5xkac")
-character = SubResource("Resource_gmy7c")
 
 [node name="Puppet" type="CanvasLayer" parent="."]
 layer = 0
@@ -30,22 +21,3 @@ maxHeadHeight = 100.0
 script = ExtResource("6_3q5ip")
 
 [node name="UI" parent="." instance=ExtResource("3_xnwsb")]
-
-[node name="Audio Manager" type="Node" parent="."]
-script = ExtResource("7_mwi8o")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio Manager"]
-autoplay = true
-
-[node name="BGMusic" type="AudioStreamPlayer" parent="Audio Manager"]
-volume_db = 8.359
-autoplay = true
-bus = &"BGMusic"
-
-[node name="SFX" type="AudioStreamPlayer" parent="Audio Manager"]
-bus = &"SFX"
-
-[node name="AudioStreamRecorder" type="AudioStreamPlayer" parent="Audio Manager"]
-stream = SubResource("AudioStreamMicrophone_e8epd")
-autoplay = true
-bus = &"Recording"

@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using Godot;
 using Godot.Collections;
 
@@ -22,12 +23,12 @@ public partial class SettingsUI : Control
 	{
 		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
 
-		micSelect = GetNode<OptionButton>("Audio/MicList");
-		OutputSelect = GetNode<OptionButton>("Audio/OutputList");
+		micSelect = GetNode<OptionButton>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList");
+		OutputSelect = GetNode<OptionButton>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList");
 
-		ChatGPTtext = GetNode<TextEdit>("API keys/ChatAPI");
-		Azuretext = GetNode<TextEdit>("API keys/AzureAPI");
-		Labtext = GetNode<TextEdit>("API keys/11labAPI");
+		ChatGPTtext = GetNode<TextEdit>("SettingsSelect/ScrollContainer/HBoxContainer/API keys/ChatAPI");
+		Azuretext = GetNode<TextEdit>("SettingsSelect/ScrollContainer/HBoxContainer/API keys/AzureAPI");
+		Labtext = GetNode<TextEdit>("SettingsSelect/ScrollContainer/HBoxContainer/API keys/11labAPI");
 
 
 		// api keys
@@ -66,5 +67,22 @@ public partial class SettingsUI : Control
 
 		saveManager.SaveAPIKeys(data);
 	}
+
+	void ScrollNextSettings()
+	{
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(GetNode<ScrollContainer>("SettingsSelect/ScrollContainer"), "scroll_horizontal", GetNode<ScrollContainer>("SettingsSelect/ScrollContainer").ScrollHorizontal + 357, 0.1f).SetTrans(Tween.TransitionType.Cubic);
+		//GetNode<ScrollContainer>("SettingsSelect/ScrollContainer").ScrollHorizontal += 357;
+	}
+	void ScrollPreviousSettings()
+	{
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(GetNode<ScrollContainer>("SettingsSelect/ScrollContainer"), "scroll_horizontal", GetNode<ScrollContainer>("SettingsSelect/ScrollContainer").ScrollHorizontal - 357, 0.1f).SetTrans(Tween.TransitionType.Cubic);
+	}
+
+
+
+
+
 
 }

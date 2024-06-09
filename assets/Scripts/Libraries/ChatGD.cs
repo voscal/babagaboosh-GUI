@@ -22,7 +22,7 @@ public partial class ChatGD : Node
 	{
 		chat = api.Chat.CreateConversation();
 		chat.Model = Model.ChatGPTTurbo;
-		chat.RequestParameters.Temperature = 0;
+		chat.RequestParameters.Temperature = 1;
 		chat.AppendSystemMessage(context);
 	}
 

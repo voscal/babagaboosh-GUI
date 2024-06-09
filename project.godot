@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/fullsize=false
 config/icon="res://assets/Sprites/Character Button.png"
+config/windows_native_icon="res://favicon.ico"
 
 [audio]
 
@@ -29,11 +30,14 @@ driver/enable_input=true
 
 Data="*res://assets/Scenes/data.tscn"
 GlobalInput="*res://addons/global_input/autoloads/global_input_gdscript/GlobalInputGDScript.tscn"
+Managers="*res://assets/Scenes/Managers.tscn"
 
 [display]
 
+window/size/resizable=false
 window/size/transparent=true
 window/energy_saving/keep_screen_on=false
+window/stretch/mode="canvas_items"
 window/per_pixel_transparency/allowed=true
 
 [dotnet]

@@ -67,12 +67,6 @@ public partial class ElevinLabsGD : Node
 	}
 
 
-	public void ChangeVoice(string voiceId)
-	{
-
-
-
-	}
 
 
 
@@ -88,7 +82,7 @@ public partial class ElevinLabsGD : Node
 
 			GD.Print($"{voice.Id} | {voice.Name} | similarity boost: {voice.Settings?.SimilarityBoost} | stability: {voice.Settings?.Stability}");
 		}
-
+		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Voices Loaded", "[center]all voicebanks have successfully loaded", 6);
 		return allVoices.ToArray(); //voiceList;
 
 	}

@@ -26,9 +26,9 @@ public partial class CharacterData : Node
 		GetNode<Node2D>("/root/Main Scene/Puppet/Character/Body").Position = StringToVector2((string)data["BodyPosition"]);
 		GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Body/Sprite").Size = StringToVector2((string)data["BodySize"]);
 		GetNode<MasterScript>("/root/Main Scene").Libraries.elevinLabs.currentVoice = (string)data["VoiceID"];
-		ui.GetNode<Slider>("EditorUI/BG/Voice Tweeks/Background/Panel/Stability").Value = (float)data["Stability"];
-		ui.GetNode<Slider>("EditorUI/BG/Voice Tweeks/Background/Panel/Clarity").Value = (float)data["Clarity"];
-		ui.GetNode<Slider>("EditorUI/BG/Voice Tweeks/Background/Panel/Exaggeration").Value = (float)data["Exaggeration"];
+		ui.GetNode<Slider>("EditorUI/BG/Voice Config/Background/Panel/Stability").Value = (float)data["Stability"];
+		ui.GetNode<Slider>("EditorUI/BG/Voice Config/Background/Panel/Clarity").Value = (float)data["Clarity"];
+		ui.GetNode<Slider>("EditorUI/BG/Voice Config/Background/Panel/Exaggeration").Value = (float)data["Exaggeration"];
 	}
 
 	Vector2 StringToVector2(string VectString)

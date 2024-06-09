@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxyrv8o8w5yd6"]
+
+[ext_resource type="Script" path="res://assets/Scripts/Resize.cs" id="2_tavuu"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hewgn"]
+width = 1
+height = 1
+
+[node name="ResizeTest" type="Node2D"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+modulate = Color(0.85098, 0.85098, 0.85098, 1)
+offset_right = 131.0
+offset_bottom = 115.0
+texture_normal = SubResource("NoiseTexture2D_hewgn")
+stretch_mode = 0
+script = ExtResource("2_tavuu")

@@ -12,9 +12,6 @@ public partial class MasterScript : Node
 
 	Vector2 WindowSize;
 
-
-	[Export]
-	public Character character;
 	UI ui;
 	VoiceData voiceData;
 	CharacterData characterData;
@@ -29,7 +26,7 @@ public partial class MasterScript : Node
 
 
 		Libraries = GetNode<Remotelibraries>("Remote Libraries");
-		audioManager = GetNode<AudioManager>("Audio Manager");
+		audioManager = GetNode<AudioManager>("/root/Managers/Audio");
 		ui = GetNode<UI>("UI");
 		ui.coreUI.record.Pressed += askAI;
 		SetCharacter();
@@ -53,13 +50,14 @@ public partial class MasterScript : Node
 		{
 			GetViewport().TransparentBg = false;
 			ui.Visible = true;
-			DisplayServer.WindowSetSize(new Vector2I(1152, 648), 0);
+			ui.background.Visible = true;
+
 		}
 		else
 		{
 			GetViewport().TransparentBg = true;
 			ui.Visible = false;
-			DisplayServer.WindowSetSize(new Vector2I(242, 377), 0);
+			ui.background.Visible = false;
 		}
 
 
@@ -68,6 +66,7 @@ public partial class MasterScript : Node
 
 		if (GlobalInput.IsActionJustPressed("Record"))
 		{
+
 			askAI();
 		}
 
@@ -80,9 +79,14 @@ public partial class MasterScript : Node
 		var recording = audioManager.RecordBttnPressed();
 
 		if (recording)
+		{
+			GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
 			return;
+		}
+
 
 		audioManager.recordEffect.SetRecordingActive(false);
+		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
 		string recordedText = await Libraries.azuir.GetTextFromWav(ProjectSettings.GlobalizePath("res://Audio/record.wav"));
 		if (recordedText != null)
 		{

@@ -3,6 +3,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 using Godot;
 using System.Threading.Tasks;
 using System;
+using System.Runtime.CompilerServices;
 
 
 
@@ -43,6 +44,7 @@ public partial class AzuirGD : Node
         var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
         if (OutputSpeechRecognitionResult(speechRecognitionResult))
         {
+
             return speechRecognitionResult.Text;
         }
 
@@ -53,8 +55,9 @@ public partial class AzuirGD : Node
 
 
 
-    static bool OutputSpeechRecognitionResult(SpeechRecognitionResult speechRecognitionResult)
+    bool OutputSpeechRecognitionResult(SpeechRecognitionResult speechRecognitionResult)
     {
+
         switch (speechRecognitionResult.Reason)
         {
             case ResultReason.RecognizedSpeech:
@@ -62,6 +65,7 @@ public partial class AzuirGD : Node
                 return true;
             case ResultReason.NoMatch:
                 GD.Print($"NOMATCH: Speech could not be recognized.");
+                GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("error", $"[center]AZURE ERROR", $"[center]No speech could not be recognized", 10);
                 return false;
 
             case ResultReason.Canceled:
@@ -78,5 +82,8 @@ public partial class AzuirGD : Node
         }
         return false;
     }
+
+
+
 
 }

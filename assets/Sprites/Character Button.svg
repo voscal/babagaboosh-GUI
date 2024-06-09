@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(2.14804,0,0,2.14804,-619.943,-619.943)">
+        <circle cx="540" cy="540" r="231.599" style="fill:rgb(255,217,21);"/>
+        <clipPath id="_clip1">
+            <circle cx="540" cy="540" r="231.599"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g id="robot" transform="matrix(0.497272,0,0,0.497272,271.473,254.338)">
+                <g id="Body" transform="matrix(0.866079,0,0,0.866079,72.3175,144.635)">
+                    <g transform="matrix(7.03102,0,0,7.35726,-3256.75,-3756.33)">
+                        <rect x="524.176" y="583.906" width="31.647" height="73.448" style="fill:rgb(61,222,81);"/>
+                    </g>
+                    <g transform="matrix(2.48019,0,0,2.48019,-799.304,-882.804)">
+                        <path d="M495.142,669.33L470.735,791.392L495.142,791.392" style="fill:rgb(61,222,81);"/>
+                    </g>
+                    <g transform="matrix(2.48019,0,0,2.48019,-799.304,-882.804)">
+                        <path d="M584.858,669.33C588.738,679.538 609.265,791.392 609.265,791.392L584.858,791.392" style="fill:rgb(61,222,81);"/>
+                    </g>
+                </g>
+                <g id="head" transform="matrix(2.14804,0,0,2.14804,-619.943,-619.943)">
+                    <circle cx="540" cy="578.344" r="100.575" style="fill:rgb(61,222,81);"/>
+                    <clipPath id="_clip2">
+                        <circle cx="540" cy="578.344" r="100.575"/>
+                    </clipPath>
+                    <g clip-path="url(#_clip2)">
+                        <g transform="matrix(1.36988,0,0,1.36988,-189.57,-199.948)">
+                            <circle cx="499.834" cy="568.147" r="28.147" style="fill:white;"/>
+                            <clipPath id="_clip3">
+                                <circle cx="499.834" cy="568.147" r="28.147"/>
+                            </clipPath>
+                            <g clip-path="url(#_clip3)">
+                                <g transform="matrix(0.855511,0,0,0.855511,70.9135,65.4486)">
+                                    <circle cx="501.362" cy="587.6" r="20.826" style="fill:rgb(24,24,24);"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1.36988,0,0,1.36988,-99.8533,-199.734)">
+                            <circle cx="499.834" cy="568.147" r="28.147" style="fill:white;"/>
+                            <clipPath id="_clip4">
+                                <circle cx="499.834" cy="568.147" r="28.147"/>
+                            </clipPath>
+                            <g clip-path="url(#_clip4)">
+                                <g transform="matrix(0.855511,0,0,0.855511,70.9135,65.4486)">
+                                    <circle cx="501.362" cy="587.6" r="20.826" style="fill:rgb(24,24,24);"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="antenna" transform="matrix(0.866079,0,0,0.866079,72.3175,144.635)">
+                    <rect x="518.142" y="205.174" width="43.716" height="193.965" style="fill:rgb(61,222,81);"/>
+                    <g transform="matrix(1.46827,0,0,1.46827,-252.864,-108.076)">
+                        <circle cx="540" cy="205.174" r="48.987" style="fill:rgb(238,89,93);"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <circle cx="540" cy="540" r="231.599" style="fill:none;stroke:white;stroke-width:39.33px;"/>
+    </g>
+</svg>
