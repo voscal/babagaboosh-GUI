@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=87 format=3 uid="uid://drsi7fywnus2"]
 
 [ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://b120o2nras8hd" path="res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3" id="21_vwfcv"]
 [ext_resource type="AudioStream" uid="uid://b1fn2i6t4dchp" path="res://assets/sfx/explosion.ogg" id="22_4ak46"]
 [ext_resource type="AudioStream" uid="uid://b87gs5ybiatlt" path="res://assets/music/[OST] Super Mario Maker - Create_ New Super Mario Bros. U - Ground Theme - NintendoViewer.mp3" id="22_lsx75"]
+[ext_resource type="Script" path="res://assets/Scripts/CharacterSelect.cs" id="27_xm04s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rd3qc"]
 shader = ExtResource("2_pqofg")
@@ -73,6 +74,228 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbsp6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_lof6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGround:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-384, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CoreUI/settings:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CoreUI/settings:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CoreUI/Charcters:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 78)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OpenSFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CloseSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_121pn"]
+resource_name = "CloseSideMenu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-384, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 1),
+"update": 0,
+"values": [Vector2(402, 4), Vector2(5, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 1),
+"update": 0,
+"values": [1.57079, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.233259, 1),
+"update": 0,
+"values": [Vector2(403, 78), Vector2(6, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloseSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_75yui"]
+resource_name = "OpenSideMenu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(-384, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(5, 4), Vector2(402, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [0.0, 1.57079]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(6, 78), Vector2(403, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OpenSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayjtn"]
+_data = {
+"CloseSideMenu": SubResource("Animation_121pn"),
+"OpenSideMenu": SubResource("Animation_75yui"),
+"RESET": SubResource("Animation_lof6d")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m438f"]
 bg_color = Color(1, 1, 1, 0.478431)
@@ -388,397 +611,200 @@ _data = {
 "OpenMenu": SubResource("Animation_36s1f")
 }
 
-[sub_resource type="Animation" id="Animation_all1i"]
-resource_name = "CloseEditor"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EditorUI/BG:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.07966, 0.267943),
-"update": 0,
-"values": [Vector2(559.999, 246.004), Vector2(651.999, 246.004)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CoreUI/Charcters:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.217638, 1),
-"update": 0,
-"values": [Vector2(-72, 78), Vector2(6, 78)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CoreUI/settings:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.267944, 1),
-"update": 0,
-"values": [Vector2(-70, 4), Vector2(5, 4)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Background/TextureRect:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.297302, 1),
-"update": 0,
-"values": [Color(0.0313726, 0.0313726, 0.0313726, 1), Color(0.0313726, 0.0313726, 0.0313726, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Background/XY Guides:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 0.225313),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("EditorUI/editor Music:volume_db")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(2, 0.217638),
-"update": 0,
-"values": [-3.714, -80.0]
-}
-
-[sub_resource type="Animation" id="Animation_121pn"]
-resource_name = "CloseSettings"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SettingsUI:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 6.9644),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-384, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CoreUI/settings:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.277393, 6.9644),
-"update": 0,
-"values": [Vector2(402, 4), Vector2(5, 4)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CoreUI/settings:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.277393, 6.9644),
-"update": 0,
-"values": [1.57079, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CoreUI/Charcters:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.233259, 6.9644),
-"update": 0,
-"values": [Vector2(403, 78), Vector2(6, 78)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SettingsUI/CloseSFX:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_5cp6s"]
+[sub_resource type="Animation" id="Animation_ukbya"]
 resource_name = "OpenEditor"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EditorUI/BG:position")
+tracks/0/path = NodePath("BG:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.267943, 1),
+"transitions": PackedFloat32Array(0.183011, 1),
 "update": 0,
-"values": [Vector2(651.999, 246.004), Vector2(559.999, 246.004)]
+"values": [Vector2(651.999, 246.004), Vector2(559.999, 246.003)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CoreUI/Charcters:position")
+tracks/1/path = NodePath("../Background/TextureRect:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.112657, 1),
-"update": 0,
-"values": [Vector2(6, 78), Vector2(-70, 78)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CoreUI/settings:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.120742, 1),
-"update": 0,
-"values": [Vector2(5, 4), Vector2(-70, 4)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Background/TextureRect:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.267943, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.0313726, 0.0313726, 0.0313726, 0), Color(0.0313726, 0.0313726, 0.0313726, 1)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Background/XY Guides:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Background/XY Guides:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.25, 1),
+"transitions": PackedFloat32Array(2.54912, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("EditorUI/editor Music:volume_db")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.34151, 1),
-"update": 0,
-"values": [-80.0, -3.714]
-}
-
-[sub_resource type="Animation" id="Animation_75yui"]
-resource_name = "OpenSettings"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SettingsUI:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 2.54912),
-"update": 0,
-"values": [Vector2(-384, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CoreUI/settings:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 1),
-"update": 0,
-"values": [Vector2(5, 4), Vector2(402, 4)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CoreUI/settings:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 1),
-"update": 0,
-"values": [0.0, 1.57079]
-}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CoreUI/Charcters:position")
+tracks/3/path = NodePath("../CoreUI/Charcters:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 1),
+"transitions": PackedFloat32Array(0.258817, 0.258817),
 "update": 0,
-"values": [Vector2(6, 78), Vector2(403, 78)]
+"values": [Vector2(6, 78), Vector2(-70, 78)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SettingsUI/OpenSFX:playing")
+tracks/4/path = NodePath("../CoreUI/settings:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.258817, 1),
+"update": 0,
+"values": [Vector2(5, 4), Vector2(-70, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_fjkii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(651.999, 246.004)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Background/TextureRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0313726, 0.0313726, 0.0313726, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Background/XY Guides:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CoreUI/settings:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CoreUI/Charcters:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(6, 78)]
 }
 
-[sub_resource type="Animation" id="Animation_lof6d"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_oijws"]
-resource_name = "ResizeWindow"
+[sub_resource type="Animation" id="Animation_nktrc"]
+resource_name = "CloseEditor"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background/XY Guides:visible")
+tracks/0/path = NodePath("BG:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.176777, 0.183011),
+"update": 0,
+"values": [Vector2(559.999, 246.003), Vector2(651.999, 246.004)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CoreUI:visible")
+tracks/1/path = NodePath("../Background/TextureRect:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.15932, 1),
+"update": 0,
+"values": [Color(0.0313726, 0.0313726, 0.0313726, 1), Color(0.0313726, 0.0313726, 0.0313726, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SettingsUI:visible")
+tracks/2/path = NodePath("../Background/XY Guides:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.233259, 2.54912),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("EditorUI:visible")
+tracks/3/path = NodePath("../CoreUI/settings:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.258817, 1),
+"update": 0,
+"values": [Vector2(-70, 4), Vector2(5, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CoreUI/Charcters:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.258817, 1),
+"update": 0,
+"values": [Vector2(-70, 78), Vector2(6, 78)]
 }
 
-[sub_resource type="Animation" id="Animation_efkky"]
-resource_name = "ResizeWindowFinnished"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Background/XY Guides:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CoreUI:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SettingsUI:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("EditorUI:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_37bpx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2l1r"]
 _data = {
-"CloseEditor": SubResource("Animation_all1i"),
-"CloseSettings": SubResource("Animation_121pn"),
-"OpenEditor": SubResource("Animation_5cp6s"),
-"OpenSettings": SubResource("Animation_75yui"),
-"RESET": SubResource("Animation_lof6d"),
-"ResizeWindow": SubResource("Animation_oijws"),
-"ResizeWindowFinnished": SubResource("Animation_efkky")
+"CloseEditor": SubResource("Animation_nktrc"),
+"OpenEditor": SubResource("Animation_ukbya"),
+"RESET": SubResource("Animation_fjkii")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3v5s"]
@@ -960,6 +986,228 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="Animation" id="Animation_fin82"]
+resource_name = "CloseSideMenu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-384, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 1),
+"update": 0,
+"values": [Vector2(402, 4), Vector2(5, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("../CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 1),
+"update": 0,
+"values": [1.57079, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.233259, 1),
+"update": 0,
+"values": [Vector2(403, 78), Vector2(6, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloseSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dcq2v"]
+resource_name = "OpenSideMenu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(-384, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(5, 4), Vector2(402, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("../CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [0.0, 1.57079]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(6, 78), Vector2(403, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OpenSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2wmfa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGround:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-384, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CoreUI/settings:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CoreUI/settings:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CoreUI/Charcters:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 78)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloseSFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OpenSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_liy2b"]
+_data = {
+"CloseSideMenu": SubResource("Animation_fin82"),
+"OpenSideMenu": SubResource("Animation_dcq2v"),
+"RESET": SubResource("Animation_2wmfa")
+}
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_levkm")
 
@@ -1056,7 +1304,7 @@ stretch_mode = 4
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
-offset_right = 69.0
+offset_right = 68.9996
 offset_bottom = 68.0
 pivot_offset = Vector2(32.13, 32.345)
 texture_normal = ExtResource("6_3dkm3")
@@ -1067,7 +1315,7 @@ stretch_mode = 0
 layout_mode = 0
 offset_left = 6.0
 offset_top = 78.0
-offset_right = 70.0
+offset_right = 69.9998
 offset_bottom = 142.0
 texture_normal = ExtResource("4_egvsx")
 ignore_texture_size = true
@@ -1100,7 +1348,7 @@ anchors_preset = 0
 offset_left = -384.0
 offset_bottom = 648.0
 script = ExtResource("7_4ndqf")
-animationPlayer = NodePath("../AnimationPlayer")
+animationPlayer = NodePath("AnimationPlayer")
 
 [node name="BackGround" type="Panel" parent="SettingsUI"]
 custom_minimum_size = Vector2(384, 256)
@@ -1138,7 +1386,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI/SettingsSelect"]
 layout_mode = 2
-follow_focus = true
+scroll_horizontal_custom_step = 357.0
+scroll_vertical_custom_step = 357.0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
@@ -1426,13 +1675,18 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_fbsp6")
 text = "<"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SettingsUI"]
+libraries = {
+"": SubResource("AnimationLibrary_ayjtn")
+}
+
 [node name="OpenSFX" type="AudioStreamPlayer2D" parent="SettingsUI"]
 stream = ExtResource("14_vvqqn")
 
 [node name="CloseSFX" type="AudioStreamPlayer2D" parent="SettingsUI"]
 stream = ExtResource("15_sgklh")
 
-[node name="EditorUI" type="Control" parent="." node_paths=PackedStringArray("coreAnimationPlayer")]
+[node name="EditorUI" type="Control" parent="." node_paths=PackedStringArray("AnimationPlayer")]
 layout_mode = 3
 anchor_left = 0.002
 anchor_right = 1.0
@@ -1444,7 +1698,7 @@ grow_horizontal = 0
 rotation = 1.57079
 mouse_filter = 2
 script = ExtResource("2_aalv0")
-coreAnimationPlayer = NodePath("../AnimationPlayer")
+AnimationPlayer = NodePath("AnimationPlayer")
 
 [node name="BG" type="Panel" parent="EditorUI"]
 layout_mode = 0
@@ -2245,6 +2499,7 @@ libraries = {
 }
 
 [node name="Save" type="TextureButton" parent="EditorUI/BG"]
+visible = false
 layout_mode = 0
 offset_left = -333.006
 offset_top = 836.001
@@ -2258,6 +2513,7 @@ stretch_mode = 0
 flip_h = true
 
 [node name="Import" type="TextureButton" parent="EditorUI/BG"]
+visible = false
 layout_mode = 0
 offset_left = -258.006
 offset_top = 836.002
@@ -2376,21 +2632,10 @@ max_distance = 90450.0
 attenuation = 1.03526e-05
 panning_strength = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI"]
 libraries = {
-"": SubResource("AnimationLibrary_37bpx")
+"": SubResource("AnimationLibrary_g2l1r")
 }
-
-[node name="SaveFileDialog" type="NativeFileDialog" parent="."]
-title = "Save your Character"
-access = 2
-filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
-
-[node name="ImportChracter" type="NativeFileDialog" parent="."]
-title = "Open a File"
-file_mode = 0
-access = 2
-filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
 
 [node name="Funnyshit" type="Control" parent="."]
 layout_mode = 3
@@ -2417,16 +2662,18 @@ libraries = {
 position = Vector2(-166.334, -88.4451)
 scale = Vector2(0.285307, 0.285307)
 stream = ExtResource("22_4ak46")
+volume_db = -13.745
 attenuation = 0.0053361
 panning_strength = 0.0
 bus = &"SFX"
 
-[node name="Character Select" type="Control" parent="."]
+[node name="Character Select" type="Control" parent="." node_paths=PackedStringArray("animationPlayer")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -768.0
-offset_right = -384.0
+offset_left = -384.0
 offset_bottom = 648.0
+script = ExtResource("27_xm04s")
+animationPlayer = NodePath("AnimationPlayer")
 
 [node name="BackGround" type="Panel" parent="Character Select"]
 custom_minimum_size = Vector2(384, 256)
@@ -2452,44 +2699,6 @@ text = "CHARACTERS"
 label_settings = SubResource("LabelSettings_uodlu")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Character2" type="Panel" parent="Character Select/BackGround"]
-clip_children = 2
-layout_mode = 0
-offset_left = 197.0
-offset_top = 134.0
-offset_right = 369.0
-offset_bottom = 297.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
-
-[node name="Load" type="Button" parent="Character Select/BackGround/Character2"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 122.0
-offset_right = 164.0
-offset_bottom = 154.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hrdfa")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
-text = "LOAD"
-
-[node name="Panel" type="Panel" parent="Character Select/BackGround/Character2"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 164.0
-offset_bottom = 113.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
-
-[node name="More" type="Button" parent="Character Select/BackGround/Character2"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 122.0
-offset_right = 41.0
-offset_bottom = 154.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hrdfa")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 
 [node name="Save_Import" type="Panel" parent="Character Select/BackGround"]
 clip_children = 2
@@ -2522,6 +2731,532 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "SAVE"
 
+[node name="ScrollContainer" type="ScrollContainer" parent="Character Select/BackGround"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 129.0
+offset_right = 369.0
+offset_bottom = 620.0
+
+[node name="BoxContainer" type="GridContainer" parent="Character Select/BackGround/ScrollContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Character" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character2" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character2"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character3" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character3"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character4" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character4"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character4"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character4"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character5" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character5"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character5"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character5"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character6" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character6"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character6"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character6"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character7" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character7"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character7"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character7"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character8" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character8"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character8"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character8"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character9" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character9"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character9"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character9"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character10" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character10"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character10"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character10"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character11" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character11"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character11"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character11"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character12" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character12"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character12"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character12"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character13" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character13"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character13"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character13"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Character14" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character14"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character14"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character14"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Character Select"]
+libraries = {
+"": SubResource("AnimationLibrary_liy2b")
+}
+
+[node name="OpenSFX" type="AudioStreamPlayer2D" parent="Character Select"]
+stream = ExtResource("14_vvqqn")
+
+[node name="CloseSFX" type="AudioStreamPlayer2D" parent="Character Select"]
+stream = ExtResource("15_sgklh")
+
 [node name="Notifications" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -2543,7 +3278,19 @@ custom_minimum_size = Vector2(434.255, 0)
 layout_mode = 2
 mouse_filter = 2
 
+[node name="SaveFileDialog" type="NativeFileDialog" parent="."]
+title = "Save your Character"
+access = 2
+filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
+
+[node name="ImportChracter" type="NativeFileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
+
 [connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
+[connection signal="pressed" from="CoreUI/Charcters" to="Character Select" method="CharactersPressed"]
 [connection signal="pressed" from="CoreUI/Edit" to="EditorUI" method="OpenEditorPressed"]
 [connection signal="pressed" from="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys/SaveKeys" to="SettingsUI" method="SaveKeys"]
 [connection signal="pressed" from="SettingsUI/rightSelect" to="SettingsUI" method="ScrollNextSettings"]
@@ -2565,7 +3312,7 @@ mouse_filter = 2
 [connection signal="pressed" from="EditorUI/BG/Import" to="ImportChracter" method="show"]
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Close" to="EditorUI" method="CloseContextMenu"]
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Save" to="EditorUI" method="UpdateContext"]
-[connection signal="file_selected" from="SaveFileDialog" to="EditorUI" method="FileSelectedSave"]
-[connection signal="file_selected" from="ImportChracter" to="EditorUI" method="FileSelectedLoad"]
 [connection signal="pressed" from="Character Select/BackGround/Save_Import/Close" to="ImportChracter" method="show"]
 [connection signal="pressed" from="Character Select/BackGround/Save_Import/Save" to="SaveFileDialog" method="show"]
+[connection signal="file_selected" from="SaveFileDialog" to="EditorUI" method="FileSelectedSave"]
+[connection signal="file_selected" from="ImportChracter" to="EditorUI" method="FileSelectedLoad"]

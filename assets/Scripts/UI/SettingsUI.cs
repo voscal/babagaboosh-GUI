@@ -44,12 +44,12 @@ public partial class SettingsUI : Control
 	{
 		if (settingsOpen)
 		{
-			animationPlayer.Play("CloseSettings");
+			animationPlayer.Play("CloseSideMenu");
 			settingsOpen = !settingsOpen;
 		}
 		else
 		{
-			animationPlayer.Play("OpenSettings");
+			animationPlayer.Play("OpenSideMenu");
 			settingsOpen = !settingsOpen;
 		}
 
