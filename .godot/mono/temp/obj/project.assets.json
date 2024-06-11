@@ -1975,11 +1975,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Games\\Godot\\Projects\\Babagaboosh\\Babagaboosh.csproj",
+      "projectUniqueName": "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj",
       "projectName": "Babagaboosh",
-      "projectPath": "D:\\Games\\Godot\\Projects\\Babagaboosh\\Babagaboosh.csproj",
+      "projectPath": "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj",
       "packagesPath": "C:\\Users\\Thomas\\.nuget\\packages\\",
-      "outputPath": "D:\\Games\\Godot\\Projects\\Babagaboosh\\.godot\\mono\\temp\\obj\\",
+      "outputPath": "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Users\\Thomas\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9IZIlwKR4qsR+B6kazmoYFwOQ6crOSRnpnbYd1Ja3nn+lsfuupCxmTqgW2Vyc4fxXn4JATqjXrbCnRXZIyeZGA==",
+  "dgSpecHash": "XzXJcpmjryQ4KUkwenOZJxmVbEmF8pdkNWuJEwvSKZVfTe9sav3lzxTMsyo1zSylTEENwpDvGHPfJfzRIdQQYA==",
   "success": true,
-  "projectFilePath": "D:\\Games\\Godot\\Projects\\Babagaboosh\\Babagaboosh.csproj",
+  "projectFilePath": "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thomas\\.nuget\\packages\\azure.core\\1.37.0\\azure.core.1.37.0.nupkg.sha512",
     "C:\\Users\\Thomas\\.nuget\\packages\\elevenlabs-dotnet\\2.1.0\\elevenlabs-dotnet.2.1.0.nupkg.sha512",
