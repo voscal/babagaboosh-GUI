@@ -18,7 +18,7 @@ public partial class EditorUI : Control
 
 
 	[Export]
-	AnimationPlayer coreAnimationPlayer;
+	AnimationPlayer AnimationPlayer;
 
 
 	#endregion
@@ -118,9 +118,9 @@ public partial class EditorUI : Control
 		}
 
 		if (editorOpen == false)
-			coreAnimationPlayer.Play("OpenEditor");
+			AnimationPlayer.Play("OpenEditor");
 		else
-			coreAnimationPlayer.Play("CloseEditor");
+			AnimationPlayer.Play("CloseEditor");
 
 		editorOpen = !editorOpen;
 
@@ -128,17 +128,6 @@ public partial class EditorUI : Control
 
 
 
-	public void StartResize()
-	{
-
-		ProjectSettings.SetSetting("display/window/size/resizable", true);
-		coreAnimationPlayer.Play("ResizeWindow");
-	}
-	public void FinnishResize()
-	{
-		coreAnimationPlayer.Play("ResizeWindowFinnished");
-		DisplayServer.WindowSetSize(new Vector2I(1152, 648), 0);
-	}
 	public void FileSelectedSave(string path)
 	{
 		GetNode<SaveManager>("/root/Data/SaveData").SaveCharacter(path);
