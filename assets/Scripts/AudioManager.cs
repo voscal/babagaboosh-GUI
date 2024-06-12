@@ -21,7 +21,7 @@ public partial class AudioManager : Node
 	public override void _Ready()
 	{
 
-
+		// ADD Check to see if audio folder exists in the users folder
 		ui = GetNode<UI>("/root/Main Scene/UI");
 		int idx = AudioServer.GetBusIndex("Recording");
 		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(idx, 0);
@@ -74,7 +74,7 @@ public partial class AudioManager : Node
 		recording = recordEffect.GetRecording();
 		recordEffect.SetRecordingActive(false);
 		GD.Print("Stopped");
-		recording.SaveToWav("Audio/record.wav");
+		recording.SaveToWav("user://Audio/record.wav");
 		currentlyRecording = false;
 
 
@@ -86,7 +86,7 @@ public partial class AudioManager : Node
 		GD.Print("Play");
 		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>("AIVoice");
 
-		byte[] wavData = File.ReadAllBytes(ProjectSettings.GlobalizePath("res://Audio/AIresponse.wav"));
+		byte[] wavData = File.ReadAllBytes(ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
 
 
 		AudioStreamWav audioStreamSample = new AudioStreamWav()
