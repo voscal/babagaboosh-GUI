@@ -9,7 +9,7 @@ public partial class SaveManager : Node
 
 	string path = "user://data.json";
 	string KeysPath = "user://APIKEYS.json";
- 	string CharactersPath = "user://Characters";
+ 	string CharactersPath = "user://Characters/";
 
 	UI ui;
 
