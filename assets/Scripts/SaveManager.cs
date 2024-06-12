@@ -9,6 +9,7 @@ public partial class SaveManager : Node
 
 	string path = "user://data.json";
 	string KeysPath = "user://APIKEYS.json";
+ 	string CharactersPath = "user://Characters";
 
 	UI ui;
 
@@ -73,7 +74,7 @@ public partial class SaveManager : Node
 	public void SaveCharacter(string path)
 	{
 		ZipPacker zipPacker = new();
-		Error error = zipPacker.Open(path + ".chr");
+		Error error = zipPacker.Open(CharactersPath + ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text + ".chr");
 		if (error != Error.Ok)
 		{
 			GD.PushError($"Couldn't open path for saving ZIP archive." + error.ToString());
