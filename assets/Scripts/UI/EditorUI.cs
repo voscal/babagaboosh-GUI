@@ -128,13 +128,13 @@ public partial class EditorUI : Control
 
 
 
-	public void FileSelectedSave(string path)
+	public void SaveButtonClicked()
 	{
-		GetNode<SaveManager>("/root/Data/SaveData").SaveCharacter(path);
+		GetNode<SaveManager>("/root/Data/SaveData").SaveCharacter();
 
 	}
 
-	public void FileSelectedLoad(string path)
+	public void SaveButtonClicked(string path)
 	{
 		GetNode<SaveManager>("/root/Data/SaveData").LoadCharacter(path);
 		GetParent().GetNode<AnimationPlayer>("Funnyshit/AnimatedSprite2D/AnimationPlayer").Play("Explosion");

@@ -32,3 +32,5 @@ res://assets/Scripts/UI/EditorUI.cs
 res://assets/Scripts/UI/SettingsUI.cs
 res://assets/Scripts/UI/UI.cs
 res://VoiceData.cs
+res://assets/Scenes/CharacterSelect.cs
+res://assets/Scripts/CharacterBox.cs
