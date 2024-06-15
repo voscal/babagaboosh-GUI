@@ -26,8 +26,9 @@
 [ext_resource type="AudioStream" uid="uid://b120o2nras8hd" path="res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3" id="21_vwfcv"]
 [ext_resource type="AudioStream" uid="uid://b1fn2i6t4dchp" path="res://assets/sfx/explosion.ogg" id="22_4ak46"]
 [ext_resource type="AudioStream" uid="uid://b87gs5ybiatlt" path="res://assets/music/[OST] Super Mario Maker - Create_ New Super Mario Bros. U - Ground Theme - NintendoViewer.mp3" id="22_lsx75"]
+[ext_resource type="AudioStream" uid="uid://5n0roo7vmo41" path="res://assets/sfx/openEditor.ogg" id="25_t6cg8"]
+[ext_resource type="AudioStream" uid="uid://c7s4xc663ntit" path="res://assets/sfx/closeEditor.ogg" id="26_wpbdu"]
 [ext_resource type="Script" path="res://assets/Scripts/CharacterSelect.cs" id="27_xm04s"]
-[ext_resource type="Script" path="res://assets/Scripts/CharacterBox.cs" id="28_5xshg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rd3qc"]
 shader = ExtResource("2_pqofg")
@@ -675,6 +676,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-70, 78), Vector2(6, 78)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("closeEditorSFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ukbya"]
 resource_name = "OpenEditor"
@@ -738,6 +751,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(0.258817, 1),
 "update": 0,
 "values": [Vector2(5, 4), Vector2(-70, 4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("openEditorSFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_fjkii"]
@@ -981,13 +1006,6 @@ tracks/1/keys = {
 _data = {
 "Explosion": SubResource("Animation_up63u")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy6ph"]
-bg_color = Color(0.760784, 0.760784, 0.760784, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
 
 [sub_resource type="Animation" id="Animation_fin82"]
 resource_name = "CloseSideMenu"
@@ -1261,6 +1279,28 @@ offset_bottom = 1366.24
 grow_horizontal = 2
 rotation = 1.57079
 theme_override_styles/panel = SubResource("StyleBoxFlat_2u17o")
+
+[node name="Notifications" type="Control" parent="."]
+z_index = -9
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 1.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Notifications"]
+layout_mode = 2
+offset_left = 765.0
+offset_right = 1151.0
+offset_bottom = 463.0
+horizontal_scroll_mode = 0
+scroll_deadzone = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Notifications/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(434.255, 0)
+layout_mode = 2
+mouse_filter = 2
 
 [node name="CoreUI" type="Control" parent="."]
 clip_contents = true
@@ -1694,9 +1734,9 @@ layout_mode = 3
 anchor_left = 0.002
 anchor_right = 1.0
 anchor_bottom = 0.998
-offset_left = 1146.7
-offset_right = 645.0
-offset_bottom = 502.296
+offset_left = 1149.7
+offset_right = 648.0
+offset_bottom = 505.296
 grow_horizontal = 0
 rotation = 1.57079
 mouse_filter = 2
@@ -2628,9 +2668,9 @@ stream = ExtResource("21_vwfcv")
 bus = &"BGMusic"
 
 [node name="editor Music" type="AudioStreamPlayer2D" parent="EditorUI"]
-visible = false
 stream = ExtResource("22_lsx75")
-volume_db = -80.0
+volume_db = -9.422
+autoplay = true
 max_distance = 90450.0
 attenuation = 1.03526e-05
 panning_strength = 0.0
@@ -2639,6 +2679,14 @@ panning_strength = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_g2l1r")
 }
+
+[node name="openEditorSFX" type="AudioStreamPlayer" parent="EditorUI"]
+stream = ExtResource("25_t6cg8")
+volume_db = -10.708
+
+[node name="closeEditorSFX" type="AudioStreamPlayer" parent="EditorUI"]
+stream = ExtResource("26_wpbdu")
+volume_db = -10.0
 
 [node name="Funnyshit" type="Control" parent="."]
 layout_mode = 3
@@ -2652,8 +2700,7 @@ texture_filter = 1
 position = Vector2(583, 310)
 scale = Vector2(3.505, 3.505)
 sprite_frames = SubResource("SpriteFrames_e0hsr")
-animation = &"expload"
-frame = 17
+animation = &"idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Funnyshit/AnimatedSprite2D"]
 root_node = NodePath("../..")
@@ -2745,43 +2792,6 @@ offset_bottom = 620.0
 layout_mode = 2
 columns = 2
 
-[node name="Character" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer"]
-clip_children = 2
-custom_minimum_size = Vector2(171, 157.45)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
-script = ExtResource("28_5xshg")
-
-[node name="Load" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 119.0
-offset_right = 164.0
-offset_bottom = 151.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hrdfa")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
-text = "LOAD"
-
-[node name="Panel" type="Panel" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 164.0
-offset_bottom = 113.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
-
-[node name="More" type="Button" parent="Character Select/BackGround/ScrollContainer/BoxContainer/Character"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 119.0
-offset_right = 41.0
-offset_bottom = 151.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hrdfa")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character Select"]
 libraries = {
 "": SubResource("AnimationLibrary_liy2b")
@@ -2792,27 +2802,6 @@ stream = ExtResource("14_vvqqn")
 
 [node name="CloseSFX" type="AudioStreamPlayer2D" parent="Character Select"]
 stream = ExtResource("15_sgklh")
-
-[node name="Notifications" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_right = 1.0
-mouse_filter = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Notifications"]
-layout_mode = 2
-offset_left = 765.0
-offset_right = 1151.0
-offset_bottom = 463.0
-horizontal_scroll_mode = 0
-scroll_deadzone = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Notifications/ScrollContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(434.255, 0)
-layout_mode = 2
-mouse_filter = 2
 
 [node name="SaveFileDialog" type="NativeFileDialog" parent="."]
 title = "Save your Character"

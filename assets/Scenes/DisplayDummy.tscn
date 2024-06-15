@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxi6grsp81c43"]
+
+[ext_resource type="Texture2D" uid="uid://dvlojxdgh3bcy" path="res://assets/Sprites/temp char/bottom.png" id="2_rx47k"]
+[ext_resource type="Texture2D" uid="uid://bj0owew0wufyl" path="res://assets/Sprites/temp char/Top.png" id="4_g5kw7"]
+
+[node name="Dummy" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+top_level = true
+offset = Vector2(167.33, 0)
+ignore_rotation = false
+
+[node name="Head" type="Node2D" parent="."]
+position = Vector2(-96, -104)
+
+[node name="Sprite" type="TextureButton" parent="Head"]
+offset_right = 209.0
+offset_bottom = 104.0
+pivot_offset = Vector2(104.5, 52)
+texture_normal = ExtResource("2_rx47k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Body" type="Node2D" parent="."]
+position = Vector2(-96, 0)
+
+[node name="Sprite" type="TextureButton" parent="Body"]
+offset_right = 209.0
+offset_bottom = 104.0
+texture_normal = ExtResource("4_g5kw7")
+ignore_texture_size = true
+stretch_mode = 0

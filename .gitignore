@@ -14,3 +14,7 @@ data_*/
 .godot/
 .env
 *.env
+
+.vscode/
+.env
+*.env

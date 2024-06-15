@@ -9,6 +9,8 @@ public partial class SaveManager : Node
 	string KeysPath = "user://APIKEYS.json";
 	string CharactersPath = "user://Characters/";
 
+
+
 	UI ui;
 
 	public override void _Ready()
@@ -121,6 +123,8 @@ public partial class SaveManager : Node
 		zipPacker.CloseFile();
 
 		zipPacker.Close();
+		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Character Saved", "[center]" + ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text + " has successfully saved!", 6);
+
 	}
 
 	private bool DirExists(string path)
@@ -159,14 +163,14 @@ public partial class SaveManager : Node
 		return Json.Stringify(data);
 	}
 
-	public void LoadCharacter(string path)
+	public void LoadCharacter(string chrName)
 	{
 		ZipReader zipReader = new();
-		Error error = zipReader.Open(path);
+		Error error = zipReader.Open("user://Characters/" + chrName);
 
 		if (error != Error.Ok)
 		{
-			GD.PrintErr("Failed to open ZIP archive: " + path);
+			GD.PrintErr("Failed to open ZIP archive: " + "user://Characters/" + chrName);
 			return;
 		}
 
@@ -230,6 +234,26 @@ public partial class SaveManager : Node
 		Dictionary jsonDataDict = (Dictionary)json.Data;
 		GetNode<CharacterData>("/root/Data/CharacterData").AutoPopulateData(jsonDataDict);
 	}
+
+
+	public string[] LoadAllCharacters()
+	{
+		// Ensure the directory exists
+		if (!DirExists(CharactersPath))
+		{
+			GD.Print("Creating directory: " + CharactersPath);
+			DirCreate(CharactersPath);
+		}
+
+		string[] characters = DirAccess.GetFilesAt(CharactersPath);
+		foreach (string character in characters)
+		{
+			GD.Print(character);
+
+		}
+		return characters;
+	}
+
 
 	#endregion
 }

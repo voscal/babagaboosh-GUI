@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctn1yrv4kb105"]
+
+[ext_resource type="Script" path="res://assets/Scripts/CharacterBox.cs" id="1_lw72u"]
+[ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="2_ju155"]
+[ext_resource type="PackedScene" uid="uid://cxi6grsp81c43" path="res://assets/Scenes/DisplayDummy.tscn" id="3_jcutw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7knj"]
+bg_color = Color(0.819608, 0.819608, 0.819608, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jm7e"]
+content_margin_left = 3.0
+content_margin_top = 6.0
+content_margin_bottom = 3.0
+bg_color = Color(0.968627, 0.784314, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy6ph"]
+bg_color = Color(0.760784, 0.760784, 0.760784, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Character" type="Panel"]
+clip_children = 2
+custom_minimum_size = Vector2(171, 157.45)
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+script = ExtResource("1_lw72u")
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ju155")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+text = "LOAD"
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy6ph")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Panel"]
+layout_mode = 2
+offset_right = 156.0
+offset_bottom = 105.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Panel/SubViewportContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(156, 105)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Dummy" parent="Panel/SubViewportContainer/SubViewport" instance=ExtResource("3_jcutw")]
+position = Vector2(86, 60)
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 2
+offset_right = 156.0
+offset_bottom = 105.0
+use_top_left = true
+
+[node name="More" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 119.0
+offset_right = 41.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ju155")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[connection signal="pressed" from="Load" to="." method="LoadBttnClicked"]

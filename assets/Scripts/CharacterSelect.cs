@@ -5,7 +5,16 @@ public partial class CharacterSelect : Control
 {
 	[Export]
 	AnimationPlayer animationPlayer;
+
+	SaveManager saveManager;
 	bool CharactersOpen = false;
+
+	public override void _Ready()
+	{
+		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
+		RefreshCharactersList(saveManager.LoadAllCharacters());
+
+	}
 	public void CharactersPressed()
 	{
 		if (CharactersOpen)
@@ -20,4 +29,23 @@ public partial class CharacterSelect : Control
 		}
 
 	}
+
+	public void RefreshCharactersList(string[] characters)
+	{
+		GridContainer vBox = GetNode<GridContainer>("BackGround/ScrollContainer/BoxContainer");
+		foreach (CharacterBox characterBox in vBox.GetChildren())
+		{
+			characterBox.QueueFree();
+		}
+		var scene = GD.Load<PackedScene>("res://assets/Scenes/characterbox.tscn");
+		foreach (string character in characters)
+		{
+			var sceneInstance = scene.Instantiate<CharacterBox>();
+			sceneInstance.Name = character;
+			sceneInstance.chrName = character;
+			vBox.AddChild(sceneInstance);
+		}
+	}
+
+
 }
