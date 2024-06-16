@@ -1,3 +1,12 @@
+res://default_bus_layout.tres
+res://assets/Scenes/UI.tscn
+res://assets/Shaders/gridScroll.gdshader
+res://assets/Scripts/voiceShelf.cs
+res://mmtheme.tres
+res://assets/Scenes/Main Scene.tscn
+res://assets/Scenes/Managers.tscn
+res://assets/Scenes/characterBox.tscn
+res://assets/Scenes/DisplayDummy.tscn
 res://addons/global_input/autoloads/global_input_csharp/GlobalInputCSharp.cs
 res://addons/global_input/examples/csharp_example/CharacterBody2D.cs
 res://addons/global_input/examples/csharp_example/World.cs
@@ -17,25 +26,10 @@ res://assets/Scripts/NotificationsManager.cs
 res://assets/Scripts/Puppet.cs
 res://assets/Scripts/Resize.cs
 res://assets/Scripts/SaveManager.cs
+res://assets/Scripts/TEST/FileManager.cs
+res://assets/Scripts/TEST/SaveFiles.cs
 res://assets/Scripts/UI/CoreUI.cs
 res://assets/Scripts/UI/EditorUI.cs
 res://assets/Scripts/UI/SettingsUI.cs
 res://assets/Scripts/UI/UI.cs
-res://assets/Scripts/voiceShelf.cs
 res://VoiceData.cs
-res://default_bus_layout.tres
-res://assets/Scenes/UI.tscn
-res://assets/Shaders/gridScroll.gdshader
-res://mmtheme.tres
-res://assets/Scenes/Main Scene.tscn
-res://assets/Scenes/notifications/Info.tscn
-res://assets/Scenes/notifications/Error.tscn
-res://assets/Scenes/data.tscn
-res://assets/Scenes/Managers.tscn
-res://assets/Scenes/Dummy.tscn
-res://assets/Scripts/TEST/FileManager.cs
-res://assets/Scripts/TEST/SaveFiles.cs
-res://assets/Scenes/voiceShelf.tscn
-res://assets/Scenes/resize test.tscn
-res://assets/Scenes/DisplayDummy.tscn
-res://assets/Scenes/characterBox.tscn
