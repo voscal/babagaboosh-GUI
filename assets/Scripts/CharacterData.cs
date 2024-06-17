@@ -30,7 +30,6 @@ public partial class CharacterData : Node
 		ui.GetNode<Slider>("EditorUI/BG/Voice Config/Background/Panel/Clarity").Value = (float)data["Clarity"];
 		ui.GetNode<Slider>("EditorUI/BG/Voice Config/Background/Panel/Exaggeration").Value = (float)data["Exaggeration"];
 		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Character Loaded", "[center]Your character have successfully been loaded", 6);
-
 	}
 
 	Vector2 StringToVector2(string VectString)

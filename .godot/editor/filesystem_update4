@@ -33,3 +33,5 @@ res://assets/Scripts/UI/EditorUI.cs
 res://assets/Scripts/UI/SettingsUI.cs
 res://assets/Scripts/UI/UI.cs
 res://VoiceData.cs
+res://assets/Scenes/Dummy.tscn
+res://assets/VoiceData.cs
