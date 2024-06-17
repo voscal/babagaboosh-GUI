@@ -127,13 +127,13 @@ public partial class SaveManager : Node
 
 	}
 
-	private bool DirExists(string path)
+	public bool DirExists(string path)
 	{
 		var dir = DirAccess.Open(path);
 		return dir != null;
 	}
 
-	private void DirCreate(string path)
+	public void DirCreate(string path)
 	{
 		var dir = DirAccess.Open("user://");
 		if (dir != null)

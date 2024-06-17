@@ -27,6 +27,11 @@ public partial class AudioManager : Node
 		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(idx, 0);
 		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(5, 0);
 
+		if (GetNode<SaveManager>("/root/Data/SaveData").DirExists("user://Audio") == false)
+		{
+			GetNode<SaveManager>("/root/Data/SaveData").DirCreate("user://Audio");
+		}
+
 		#region Signals
 		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").ItemSelected += MicSelected;
 		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").ItemSelected += OutputSelected;
