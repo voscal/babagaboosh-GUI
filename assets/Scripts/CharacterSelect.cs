@@ -37,7 +37,7 @@ public partial class CharacterSelect : Control
 		{
 			characterBox.QueueFree();
 		}
-		var scene = GD.Load<PackedScene>("res://assets/Scenes/characterbox.tscn");
+		var scene = GD.Load<PackedScene>("res://assets/Scenes/characterBox.tscn");
 		foreach (string character in characters)
 		{
 			var sceneInstance = scene.Instantiate<CharacterBox>();

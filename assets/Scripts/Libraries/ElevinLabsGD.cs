@@ -44,8 +44,8 @@ public partial class ElevinLabsGD : Node
 
 
 		VoiceClip voiceClip = await api.TextToSpeechEndpoint.TextToSpeechAsync(text, voice, voiceSettings: voiceSettingsNew);
-		await File.WriteAllBytesAsync(ProjectSettings.GlobalizePath("res://Audio/AIresponse.mp3"), voiceClip.ClipData.ToArray());
-		ConvertMp3ToWav(ProjectSettings.GlobalizePath("res://Audio/AIresponse.mp3"), ProjectSettings.GlobalizePath("res://Audio/AIresponse.wav"));
+		await File.WriteAllBytesAsync(ProjectSettings.GlobalizePath("user://Audio/AIresponse.mp3"), voiceClip.ClipData.ToArray());
+		ConvertMp3ToWav(ProjectSettings.GlobalizePath("user://Audio/AIresponse.mp3"), ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
 		GD.Print("Finnished result");
 
 

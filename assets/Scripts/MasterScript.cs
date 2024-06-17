@@ -87,7 +87,7 @@ public partial class MasterScript : Node
 
 		audioManager.recordEffect.SetRecordingActive(false);
 		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
-		string recordedText = await Libraries.azuir.GetTextFromWav(ProjectSettings.GlobalizePath("res://Audio/record.wav"));
+		string recordedText = await Libraries.azuir.GetTextFromWav(ProjectSettings.GlobalizePath("user://Audio/record.wav"));
 		if (recordedText != null)
 		{
 
