@@ -13,6 +13,7 @@ offset_right = -914.0
 offset_bottom = -616.925
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_s7c6u")
 
 [node name="Button" type="Button" parent="."]
@@ -22,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.004
 offset_top = 2.0
 offset_bottom = -4.19931
+mouse_filter = 1
 theme = ExtResource("2_286n7")
 text = "Loading..."
 alignment = 0

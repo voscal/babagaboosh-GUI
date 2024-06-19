@@ -2993,7 +2993,6 @@ bus = &"BGMusic"
 
 [node name="editor Music" type="AudioStreamPlayer" parent="EditorUI"]
 stream = ExtResource("22_lsx75")
-volume_db = -9.422
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI"]
 libraries = {
@@ -3020,7 +3019,8 @@ texture_filter = 1
 position = Vector2(583, 310)
 scale = Vector2(3.505, 3.505)
 sprite_frames = SubResource("SpriteFrames_e0hsr")
-animation = &"idle"
+animation = &"expload"
+frame = 17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Funnyshit/AnimatedSprite2D"]
 root_node = NodePath("../..")
@@ -3151,6 +3151,7 @@ filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
 [connection signal="pressed" from="EditorUI/BG/Trantions/Background/Panel/Center camera" to="EditorUI" method="CenterCamera"]
 [connection signal="pressed" from="EditorUI/BG/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
 [connection signal="pressed" from="EditorUI/BG/Voice Config" to="EditorUI" method="EditButtonPressed" binds= ["Voice Config"]]
+[connection signal="mouse_entered" from="EditorUI/BG/Voice Config/Background" to="." method="mouseenterlol"]
 [connection signal="pressed" from="EditorUI/BG/Chatgpt" to="EditorUI" method="EditButtonPressed" binds= ["Camera"]]
 [connection signal="pressed" from="EditorUI/BG/Chatgpt/Background/Panel/Center camera" to="EditorUI" method="CenterCamera"]
 [connection signal="pressed" from="EditorUI/BG/Save" to="SaveFileDialog" method="show"]

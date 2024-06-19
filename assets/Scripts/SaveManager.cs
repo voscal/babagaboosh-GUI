@@ -234,6 +234,8 @@ public partial class SaveManager : Node
 		Dictionary jsonDataDict = (Dictionary)json.Data;
 		GetNode<CharacterData>("/root/Data/CharacterData").AutoPopulateData(jsonDataDict);
 		ui.editorUI.UpdateContext();
+		ui.GetNode<AnimationPlayer>("Funnyshit/AnimatedSprite2D/AnimationPlayer").Stop();
+		ui.GetNode<AnimationPlayer>("Funnyshit/AnimatedSprite2D/AnimationPlayer").Play("Explosion");
 
 	}
 

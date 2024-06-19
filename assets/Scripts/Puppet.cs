@@ -19,10 +19,13 @@ public partial class Puppet : Node2D
 	private AudioManager audioManager;
 	private TextureButton headSprite;
 
+	bool canZoom = true;
 	public override void _Ready()
 	{
 		audioManager = GetParent().GetParent().GetNode<AudioManager>("/root/Managers/Audio");
 		headSprite = GetNode<TextureButton>("Head/Sprite");
+		GetNode<Panel>("/root/Main Scene/UI/EditorUI/BG/Voices/Background").MouseEntered += UIMouseEntered;
+		GetNode<Panel>("/root/Main Scene/UI/EditorUI/BG/Voices/Background").MouseExited += UIMouseExit;
 	}
 
 	public override void _Process(Double delta)
@@ -72,16 +75,16 @@ public partial class Puppet : Node2D
 
 	public void CameraControlles()
 	{
-		if (Input.IsActionJustPressed("ZoomIn"))
+		if (Input.IsActionJustPressed("ZoomIn") && canZoom)
 		{
 			GetNode<Camera2D>("Camera").Zoom -= new Vector2(0.1f, 0.1f);
 		}
-		else if (Input.IsActionJustPressed("ZoomOut"))
+		else if (Input.IsActionJustPressed("ZoomOut") && canZoom)
 		{
 			GetNode<Camera2D>("Camera").Zoom += new Vector2(0.1f, 0.1f);
 		}
 
-		if (Input.IsActionPressed("MoveCam"))
+		if (Input.IsActionPressed("MoveCam") && canZoom)
 		{
 
 			InputEventMouseMotion mousemotion = new();
@@ -99,6 +102,17 @@ public partial class Puppet : Node2D
 			if (@event is InputEventMouseMotion eventMouseMotion)
 				GetNode<Camera2D>("Camera").Position -= eventMouseMotion.Relative / GetNode<Camera2D>("Camera").Zoom;
 	}
+
+	private void UIMouseEntered()
+	{
+		canZoom = false;
+
+	}
+	private void UIMouseExit()
+	{
+		canZoom = true;
+	}
+
 
 
 
