@@ -28,3 +28,7 @@ res://assets/Scripts/UI/EditorUI.cs
 res://assets/Scripts/UI/SettingsUI.cs
 res://assets/Scripts/UI/UI.cs
 res://assets/VoiceData.cs
+res://assets/Scenes/DisplayDummy.tscn
+res://assets/Scenes/characterBox.tscn
+res://assets/Scenes/Dummy.tscn
+res://assets/Scripts/Libraries/Remotelibraries.tscn

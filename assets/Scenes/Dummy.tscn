@@ -192,7 +192,6 @@ stretch_mode = 0
 script = ExtResource("3_vksee")
 
 [node name="Top Left" type="Control" parent="Head/Sprite"]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_left = -1.52588e-05
 offset_top = -1.52588e-05
@@ -210,7 +209,6 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Top Right" type="Control" parent="Head/Sprite"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -231,7 +229,6 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Bottom Left" type="Control" parent="Head/Sprite"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -253,7 +250,6 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Bottom Right" type="Control" parent="Head/Sprite"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

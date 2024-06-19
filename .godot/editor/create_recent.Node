@@ -1,4 +1,5 @@
 AudioStreamPlayer
+Label
 Camera2D
 SubViewportContainer
 SubViewport
@@ -11,4 +12,3 @@ Timer
 ScrollContainer
 Node
 TextureButton
-TextureRect

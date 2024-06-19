@@ -28,4 +28,4 @@ bus = &"Recording"
 
 [node name="AIVoice" type="AudioStreamPlayer" parent="Audio"]
 autoplay = true
-bus = &"AI"
+bus = &"Voices"

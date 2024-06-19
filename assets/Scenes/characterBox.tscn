@@ -75,13 +75,26 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Dummy" parent="Panel/SubViewportContainer/SubViewport" instance=ExtResource("3_jcutw")]
+visible = false
 position = Vector2(86, 60)
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
+visible = false
 layout_mode = 2
 offset_right = 156.0
 offset_bottom = 105.0
 use_top_left = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("2_ju155")
+theme_override_font_sizes/font_size = 20
+text = "DOUG DOUG"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="More" type="Button" parent="."]
 layout_mode = 0

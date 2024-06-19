@@ -1,6 +1,7 @@
 
 using System.IO;
 using Godot;
+using NAudio.Wasapi.CoreAudioApi;
 
 
 public partial class AudioManager : Node
@@ -36,6 +37,8 @@ public partial class AudioManager : Node
 		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").ItemSelected += MicSelected;
 		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").ItemSelected += OutputSelected;
 		ui.GetNode<TextureButton>("CoreUI/Replay").Pressed += PlayAudio;
+
+
 		#endregion
 		GetMicList();
 		GetOutputList();
@@ -43,7 +46,21 @@ public partial class AudioManager : Node
 
 	}
 
+	public override void _Process(double delta)
+	{
 
+
+		int voiceChannle = AudioServer.GetBusIndex("Voices");
+		AudioServer.SetBusVolumeDb(voiceChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/VoicesLevel").Value);
+
+
+		int SFXChannle = AudioServer.GetBusIndex("SFX");
+		AudioServer.SetBusVolumeDb(SFXChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/SFX Level").Value);
+
+		int BGmusic = AudioServer.GetBusIndex("BGMusic");
+		AudioServer.SetBusVolumeDb(BGmusic, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/MusicLevel").Value);
+
+	}
 
 	public bool RecordBttnPressed()
 	{
@@ -165,6 +182,8 @@ public partial class AudioManager : Node
 	{
 		AudioServer.OutputDevice = outputDevices[index];
 	}
+
+
 
 
 

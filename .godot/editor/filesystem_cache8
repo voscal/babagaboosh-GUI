@@ -1,8 +1,8 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1718696715
-default_bus_layout.tres::AudioBusLayout::5089585494889196966::1718679717::0::1::::<><>::
+::res://::1718797248
+default_bus_layout.tres::AudioBusLayout::5089585494889196966::1718796073::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1718676809::0::1::::<><>::
-mmtheme.tres::Theme::4088795760252151154::1718679718::0::1::::<><>::uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf
+mmtheme.tres::Theme::4088795760252151154::1718790651::0::1::::<><>::uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf
 README.md::TextFile::-1::1718188245::0::1::::<><>::
 ::res://addons/::1718098471
 ::res://addons/global_input/::1718098471
@@ -28,7 +28,7 @@ World.tscn::PackedScene::917056071429777612::1718098471::0::1::::<><>::res://add
 native_dialogs.gdextension::GDExtension::-1::1718098471::0::1::::<><>::
 plugin.cfg::TextFile::-1::1718098471::0::1::::<><>::
 plugin.gd::GDScript::-1::1718098471::0::1::::<>EditorPlugin<>::
-::res://addons/native_dialogs/bin/::1718696710
+::res://addons/native_dialogs/bin/::1718790506
 ::res://addons/native_dialogs/icons/::1718098471
 native_accept_dialog.svg::CompressedTexture2D::4118541303092869972::1718098471::1718098471::1::::<><>::
 native_confirmation_dialog.svg::CompressedTexture2D::3515145095636932164::1718098471::1718098471::1::::<><>::
@@ -44,31 +44,31 @@ Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3::AudioStreamMP3::4268613182561446501
 [OST] Super Mario Maker - Create_ New Super Mario Bros. U - Ground Theme - NintendoViewer.mp3::AudioStreamMP3::4769110670956928245::1718098471::1718098471::1::::<><>::
 ::res://assets/Resource/::1718098471
 APiTemplate.json::JSON::-1::1718098471::0::1::::<><>::
-::res://assets/Scenes/::1718679718
-characterBox.tscn::PackedScene::6134888734846146144::1718676251::0::1::::<><>::res://assets/Scripts/CharacterBox.cs<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://cxi6grsp81c43::::res://assets/Scenes/DisplayDummy.tscn
+::res://assets/Scenes/::1718795288
+characterBox.tscn::PackedScene::6134888734846146144::1718795288::0::1::::<><>::res://assets/Scripts/CharacterBox.cs<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://cxi6grsp81c43::::res://assets/Scenes/DisplayDummy.tscn
 data.tscn::PackedScene::4218046465480141158::1718616665::0::1::::<><>::res://assets/VoiceData.cs<>res://assets/Scripts/SaveManager.cs<>res://assets/Scripts/CharacterData.cs
-DisplayDummy.tscn::PackedScene::6405593656062702526::1718676251::0::1::::<><>::uid://dvlojxdgh3bcy::::res://assets/Sprites/temp char/bottom.png<>uid://bj0owew0wufyl::::res://assets/Sprites/temp char/Top.png
+DisplayDummy.tscn::PackedScene::6405593656062702526::1718795288::0::1::::<><>::uid://dvlojxdgh3bcy::::res://assets/Sprites/temp char/bottom.png<>uid://bj0owew0wufyl::::res://assets/Sprites/temp char/Top.png
 Dummy.tscn::PackedScene::6795302755860214596::1718676251::0::1::::<><>::res://assets/Scripts/Puppet.cs<>uid://dvlojxdgh3bcy::::res://assets/Sprites/temp char/bottom.png<>uid://bj0owew0wufyl::::res://assets/Sprites/temp char/Top.png<>res://assets/Scripts/Resize.cs
-Main Scene.tscn::PackedScene::2960808446803785342::1718679718::0::1::::<><>::res://assets/Scripts/MasterScript.cs<>uid://drsi7fywnus2::::res://assets/Scenes/UI.tscn<>uid://c32xv48m7eni7::::res://assets/Scenes/Dummy.tscn<>uid://cwtuweq6dnuea::::res://assets/Scripts/Libraries/Remotelibraries.tscn<>res://assets/Scripts/Libraries/Remotelibraries.cs
-Managers.tscn::PackedScene::8133482933229321893::1718679718::0::1::::<><>::res://assets/Scripts/AudioManager.cs<>res://assets/Scripts/NotificationsManager.cs
+Main Scene.tscn::PackedScene::2960808446803785342::1718795287::0::1::::<><>::res://assets/Scripts/MasterScript.cs<>uid://drsi7fywnus2::::res://assets/Scenes/UI.tscn<>uid://c32xv48m7eni7::::res://assets/Scenes/Dummy.tscn<>uid://cwtuweq6dnuea::::res://assets/Scripts/Libraries/Remotelibraries.tscn<>res://assets/Scripts/Libraries/Remotelibraries.cs
+Managers.tscn::PackedScene::8133482933229321893::1718795288::0::1::::<><>::res://assets/Scripts/AudioManager.cs<>res://assets/Scripts/NotificationsManager.cs
 resize test.tscn::PackedScene::8824221967828307285::1718444407::0::1::::<><>::res://assets/Scripts/Resize.cs
-UI.tscn::PackedScene::246769834545759831::1718679718::0::1::::<><>::res://assets/Scripts/UI/UI.cs<>res://assets/Scripts/UI/CoreUI.cs<>res://assets/Scripts/UI/EditorUI.cs<>res://assets/Shaders/gridScroll.gdshader<>uid://b7vttsxaesumd::::res://assets/Sprites/grid.png<>uid://b51pwfpj452aq::::res://assets/Sprites/Character Button.png<>uid://chcdxiga4i7vj::::res://assets/Sprites/record.png<>uid://b4qt3uh77icwa::::res://assets/Sprites/clapper board.png<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://b04p0lqcj7o6q::::res://assets/Sprites/settings.png<>uid://5atjbnn66ny7::::res://assets/Sprites/replay.png<>res://assets/Scripts/UI/SettingsUI.cs<>uid://c6qu4fxp3w6ni::::res://assets/Scenes/voiceShelf.tscn<>uid://byiv4sk7pdl3g::::res://mmtheme.tres<>uid://dpm21lxchrs1o::::res://assets/Fonts/FlowRounded-Regular.ttf<>uid://bkouiyx3ams1l::::res://assets/Sprites/handle.png<>uid://b0rdwu1lwb7db::::res://assets/Sprites/VoicesButton.png<>uid://bw5vcbak24tix::::res://assets/Sprites/SpritesButton.png<>uid://b4ad3qe62w8kk::::res://assets/sfx/settingOpen.mp3<>uid://djyf884p6vs2c::::res://assets/sfx/settingsClose.mp3<>uid://xse5c3xsv7il::::res://assets/Sprites/Error.png<>uid://slcjnttyxyxe::::res://assets/Sprites/save.png<>uid://bhb3jegcpwkmg::::res://assets/Sprites/explosion.png<>uid://b120o2nras8hd::::res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3<>uid://b1fn2i6t4dchp::::res://assets/sfx/explosion.ogg<>uid://ixs6b5e4sear::::res://assets/sfx/openbox.ogg<>uid://b87gs5ybiatlt::::res://assets/music/[OST] Super Mario Maker - Create_ New Super Mario Bros. U - Ground Theme - NintendoViewer.mp3<>uid://kk8g07dyk4ew::::res://assets/sfx/closebox.ogg<>uid://5n0roo7vmo41::::res://assets/sfx/openEditor.ogg<>uid://c7s4xc663ntit::::res://assets/sfx/closeEditor.ogg<>res://assets/Scripts/CharacterSelect.cs
+UI.tscn::PackedScene::246769834545759831::1718795288::0::1::::<><>::res://assets/Scripts/UI/UI.cs<>res://assets/Scripts/UI/CoreUI.cs<>res://assets/Scripts/UI/EditorUI.cs<>res://assets/Shaders/gridScroll.gdshader<>uid://b7vttsxaesumd::::res://assets/Sprites/grid.png<>uid://b51pwfpj452aq::::res://assets/Sprites/Character Button.png<>uid://chcdxiga4i7vj::::res://assets/Sprites/record.png<>uid://b4qt3uh77icwa::::res://assets/Sprites/clapper board.png<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://b04p0lqcj7o6q::::res://assets/Sprites/settings.png<>uid://5atjbnn66ny7::::res://assets/Sprites/replay.png<>res://assets/Scripts/UI/SettingsUI.cs<>uid://c6qu4fxp3w6ni::::res://assets/Scenes/voiceShelf.tscn<>uid://byiv4sk7pdl3g::::res://mmtheme.tres<>uid://dpm21lxchrs1o::::res://assets/Fonts/FlowRounded-Regular.ttf<>uid://bkouiyx3ams1l::::res://assets/Sprites/handle.png<>uid://b0rdwu1lwb7db::::res://assets/Sprites/VoicesButton.png<>uid://bw5vcbak24tix::::res://assets/Sprites/SpritesButton.png<>uid://b4ad3qe62w8kk::::res://assets/sfx/settingOpen.mp3<>uid://djyf884p6vs2c::::res://assets/sfx/settingsClose.mp3<>uid://xse5c3xsv7il::::res://assets/Sprites/Error.png<>uid://slcjnttyxyxe::::res://assets/Sprites/save.png<>uid://bhb3jegcpwkmg::::res://assets/Sprites/explosion.png<>uid://b120o2nras8hd::::res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3<>uid://b1fn2i6t4dchp::::res://assets/sfx/explosion.ogg<>uid://ixs6b5e4sear::::res://assets/sfx/openbox.ogg<>uid://b87gs5ybiatlt::::res://assets/music/[OST] Super Mario Maker - Create_ New Super Mario Bros. U - Ground Theme - NintendoViewer.mp3<>uid://kk8g07dyk4ew::::res://assets/sfx/closebox.ogg<>uid://5n0roo7vmo41::::res://assets/sfx/openEditor.ogg<>uid://c7s4xc663ntit::::res://assets/sfx/closeEditor.ogg<>res://assets/Scripts/CharacterSelect.cs
 voiceShelf.tscn::PackedScene::6982991990975835726::1718676251::0::1::::<><>::res://assets/Scripts/voiceShelf.cs<>uid://byiv4sk7pdl3g::::res://mmtheme.tres
 ::res://assets/Scenes/notifications/::1718444407
 Error.tscn::PackedScene::2916524491608335165::1718444407::0::1::::<><>::uid://dhvdoc00pbgio::::res://assets/Sprites/Cross.png<>res://assets/Scripts/Notification.cs<>uid://ce3sa7s200hyt::::res://assets/Sprites/exit.png
 Info.tscn::PackedScene::3182065030215047907::1718444407::0::1::::<><>::res://assets/Scripts/Notification.cs<>uid://tg5camoy8ef4::::res://assets/Sprites/Info.png<>uid://ce3sa7s200hyt::::res://assets/Sprites/exit.png
-::res://assets/Scripts/::1718679718
-AudioManager.cs::CSharpScript::-1::1718614907::0::1::::<>Node<>::
+::res://assets/Scripts/::1718790651
+AudioManager.cs::CSharpScript::-1::1718797241::0::1::::<>Node<>::
 CharacterBox.cs::CSharpScript::-1::1718444780::0::1::::<>Panel<>::
 CharacterData.cs::CSharpScript::-1::1718617744::0::1::::<>Node<>::
-CharacterSelect.cs::CSharpScript::-1::1718615845::0::1::::<>Control<>::
+CharacterSelect.cs::CSharpScript::-1::1718792164::0::1::::<>Control<>::
 MasterScript.cs::CSharpScript::-1::1718615118::0::1::::<>Node<>::
 Notification.cs::CSharpScript::-1::1718098471::0::1::::<>Control<>::
 NotificationsManager.cs::CSharpScript::-1::1718098471::0::1::::<>Node<>::
 Puppet.cs::CSharpScript::-1::1718675287::0::1::::<>Node2D<>::
 Resize.cs::CSharpScript::-1::1718098471::0::1::::<>TextureButton<>::
-SaveManager.cs::CSharpScript::-1::1718617835::0::1::::<>Node<>::
-voiceShelf.cs::CSharpScript::-1::1718679718::0::1::::<>Node<>::
+SaveManager.cs::CSharpScript::-1::1718698403::0::1::::<>Node<>::
+voiceShelf.cs::CSharpScript::-1::1718790651::0::1::::<>Node<>::
 ::res://assets/Scripts/Libraries/::1718098471
 AzuirGD.cs::CSharpScript::-1::1718098471::0::1::::<>Node<>::
 ChatGD.cs::CSharpScript::-1::1718098471::0::1::::<>Node<>::
@@ -88,8 +88,8 @@ openbox.ogg::AudioStreamOggVorbis::610139802017172225::1718595701::1718595701::1
 openEditor.ogg::AudioStreamOggVorbis::2134051261695942748::1718447983::1718447989::1::::<><>::
 settingOpen.mp3::AudioStreamMP3::4422130150401979042::1718098471::1718098471::1::::<><>::
 settingsClose.mp3::AudioStreamMP3::7840871004875410840::1718098471::1718098471::1::::<><>::
-::res://assets/Shaders/::1718679733
-gridScroll.gdshader::Shader::-1::1718679733::0::1::::<><>::
+::res://assets/Shaders/::1718795288
+gridScroll.gdshader::Shader::-1::1718795288::0::1::::<><>::
 ::res://assets/Sprites/::1718098471
 Character Button.png::CompressedTexture2D::4546710143034731292::1718098471::1718098471::1::::<><>::
 Character Button.svg::CompressedTexture2D::7689903868983402983::1718098471::1718098471::1::::<><>::

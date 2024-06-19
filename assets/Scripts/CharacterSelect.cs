@@ -43,6 +43,8 @@ public partial class CharacterSelect : Control
 			var sceneInstance = scene.Instantiate<CharacterBox>();
 			sceneInstance.Name = character;
 			sceneInstance.chrName = character;
+			int amountOfLetters = character.Length;
+			sceneInstance.GetNode<Label>("Panel/Label").Text = character.Remove(character.Length - 4);
 			vBox.AddChild(sceneInstance);
 		}
 	}
