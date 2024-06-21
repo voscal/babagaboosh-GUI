@@ -41,6 +41,17 @@ shader_parameter/offset = Vector2(0.3, 0.085)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u17o"]
 bg_color = Color(0.639216, 0.639216, 0.639216, 0.109804)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m438f"]
+bg_color = Color(1, 1, 1, 0.478431)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.996078, 0.807843, 0, 1)
+corner_radius_top_left = 15
+corner_radius_bottom_left = 15
+anti_aliasing = false
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oft0"]
 bg_color = Color(0.631373, 0.631373, 0.631373, 1)
 border_width_left = 5
@@ -54,292 +65,10 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 corner_detail = 2
 
-[sub_resource type="LabelSettings" id="LabelSettings_uodlu"]
-font = ExtResource("5_hrdfa")
-font_size = 45
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7knj"]
-bg_color = Color(0.819608, 0.819608, 0.819608, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_alr8j"]
-font = ExtResource("5_hrdfa")
-font_size = 30
-font_color = Color(0, 0, 0, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_vbys4"]
 font = ExtResource("5_hrdfa")
 font_size = 19
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4nhi"]
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.721569, 0.721569, 0.721569, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_top = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbqh8"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_top = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37ybt"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_top = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbsp6"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Animation" id="Animation_121pn"]
-resource_name = "CloseSideMenu"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-384, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../CoreUI/settings:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.277393, 1),
-"update": 0,
-"values": [Vector2(402, 4), Vector2(5, 4)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../CoreUI/settings:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.277393, 1),
-"update": 0,
-"values": [1.57079, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("../CoreUI/Charcters:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.233259, 1),
-"update": 0,
-"values": [Vector2(403, 78), Vector2(6, 78)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CloseSFX:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_75yui"]
-resource_name = "OpenSideMenu"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 1),
-"update": 0,
-"values": [Vector2(-384, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../CoreUI/settings:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 1),
-"update": 0,
-"values": [Vector2(5, 4), Vector2(402, 4)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../CoreUI/settings:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 1),
-"update": 0,
-"values": [0.0, 1.57079]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("../CoreUI/Charcters:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.138697, 1),
-"update": 0,
-"values": [Vector2(6, 78), Vector2(403, 78)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("OpenSFX:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_lof6d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BackGround:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-384, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../CoreUI/settings:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5, 4)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../CoreUI/settings:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../CoreUI/Charcters:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6, 78)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("OpenSFX:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CloseSFX:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayjtn"]
-_data = {
-"CloseSideMenu": SubResource("Animation_121pn"),
-"OpenSideMenu": SubResource("Animation_75yui"),
-"RESET": SubResource("Animation_lof6d")
-}
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m438f"]
-bg_color = Color(1, 1, 1, 0.478431)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.996078, 0.807843, 0, 1)
-corner_radius_top_left = 15
-corner_radius_bottom_left = 15
-anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hvrf"]
 content_margin_left = 6.0
@@ -549,9 +278,43 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4nhi"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.721569, 0.721569, 0.721569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbqh8"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37ybt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abatg"]
 bg_color = Color(0, 0, 0, 0.639216)
 anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_uodlu"]
+font = ExtResource("5_hrdfa")
+font_size = 45
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_6sxxs"]
 resource_name = "CloseMenu"
@@ -1067,6 +830,13 @@ _data = {
 "Explosion": SubResource("Animation_up63u")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7knj"]
+bg_color = Color(0.819608, 0.819608, 0.819608, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="Animation" id="Animation_fin82"]
 resource_name = "CloseSideMenu"
 length = 0.3
@@ -1289,6 +1059,236 @@ _data = {
 "RESET": SubResource("Animation_2wmfa")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_alr8j"]
+font = ExtResource("5_hrdfa")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbsp6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_121pn"]
+resource_name = "CloseSideMenu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-384, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 1),
+"update": 0,
+"values": [Vector2(402, 4), Vector2(5, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.277393, 1),
+"update": 0,
+"values": [1.57079, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.233259, 1),
+"update": 0,
+"values": [Vector2(403, 78), Vector2(6, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloseSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_75yui"]
+resource_name = "OpenSideMenu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(-384, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CoreUI/settings:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(5, 4), Vector2(402, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CoreUI/settings:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [0.0, 1.57079]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../CoreUI/Charcters:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.138697, 1),
+"update": 0,
+"values": [Vector2(6, 78), Vector2(403, 78)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OpenSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lof6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGround:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-384, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CoreUI/settings:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CoreUI/settings:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CoreUI/Charcters:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 78)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OpenSFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CloseSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayjtn"]
+_data = {
+"CloseSideMenu": SubResource("Animation_121pn"),
+"OpenSideMenu": SubResource("Animation_75yui"),
+"RESET": SubResource("Animation_lof6d")
+}
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_levkm")
 
@@ -1443,546 +1443,6 @@ icon = ExtResource("5_7aqlc")
 flat = true
 icon_alignment = 1
 expand_icon = true
-
-[node name="SettingsUI" type="Control" parent="." node_paths=PackedStringArray("animationPlayer")]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -384.0
-offset_bottom = 648.0
-script = ExtResource("7_4ndqf")
-animationPlayer = NodePath("AnimationPlayer")
-
-[node name="BackGround" type="Panel" parent="SettingsUI"]
-custom_minimum_size = Vector2(384, 256)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.167
-anchor_bottom = 1.0
-offset_right = 319.872
-grow_vertical = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
-
-[node name="Label" type="Label" parent="SettingsUI/BackGround"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -1.0
-offset_top = 11.0
-offset_right = -1.0
-offset_bottom = 75.0
-grow_horizontal = 2
-text = "SETTINGS"
-label_settings = SubResource("LabelSettings_uodlu")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SettingsSelect" type="PanelContainer" parent="SettingsUI"]
-clip_children = 2
-layout_mode = 1
-offset_left = 16.0
-offset_top = 70.0
-offset_right = 369.0
-offset_bottom = 633.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI/SettingsSelect"]
-layout_mode = 2
-scroll_horizontal_custom_step = 357.0
-scroll_vertical_custom_step = 357.0
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsUI/SettingsSelect/ScrollContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(0, 563)
-layout_mode = 2
-size_flags_stretch_ratio = 20.0
-
-[node name="Audio" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(353, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 12.0
-offset_right = 8.0
-offset_bottom = 59.0
-grow_horizontal = 2
-text = "AUDIO "
-label_settings = SubResource("LabelSettings_alr8j")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 14.0
-offset_top = 71.0
-offset_right = -10.0
-offset_bottom = 102.0
-grow_horizontal = 2
-text = "INPUT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-layout_mode = 2
-anchor_right = 1.0
-offset_left = 13.0
-offset_top = 97.0
-offset_right = -11.0
-offset_bottom = 141.0
-theme = ExtResource("8_voyw1")
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
-[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 14.0
-offset_top = 148.0
-offset_right = -10.0
-offset_bottom = 179.0
-grow_horizontal = 2
-theme = ExtResource("8_voyw1")
-text = "OUTPUT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 13.0
-offset_top = 175.0
-offset_right = -11.0
-offset_bottom = 218.0
-grow_horizontal = 2
-theme = ExtResource("8_voyw1")
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
-[node name="Title2" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -4.0
-offset_top = 249.0
-offset_right = 4.0
-offset_bottom = 296.0
-grow_horizontal = 2
-text = "VOLUME"
-label_settings = SubResource("LabelSettings_alr8j")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VoicesLevel" type="HSlider" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-texture_filter = 3
-layout_mode = 0
-offset_left = 18.0
-offset_top = 317.0
-offset_right = 335.0
-offset_bottom = 345.0
-theme = ExtResource("8_voyw1")
-theme_override_constants/center_grabber = 1
-theme_override_icons/grabber = ExtResource("9_nx8f0")
-theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
-theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
-theme_override_icons/tick = ExtResource("9_nx8f0")
-theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
-min_value = -80.0
-max_value = 8.0
-step = 0.1
-value = 0.5
-
-[node name="NameLabal" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/VoicesLevel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = -159.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "VOICES"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-clip_text = true
-
-[node name="MusicLevel" type="HSlider" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-texture_filter = 3
-layout_mode = 0
-offset_left = 18.0
-offset_top = 381.0
-offset_right = 335.0
-offset_bottom = 409.0
-theme = ExtResource("8_voyw1")
-theme_override_constants/center_grabber = 1
-theme_override_icons/grabber = ExtResource("9_nx8f0")
-theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
-theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
-theme_override_icons/tick = ExtResource("9_nx8f0")
-theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
-min_value = -80.0
-max_value = 8.0
-step = 0.1
-value = 0.5
-
-[node name="NameLabal" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MusicLevel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = -159.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "MUSIC"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-clip_text = true
-
-[node name="SFX Level" type="HSlider" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
-texture_filter = 3
-layout_mode = 0
-offset_left = 18.0
-offset_top = 445.0
-offset_right = 335.0
-offset_bottom = 473.0
-theme = ExtResource("8_voyw1")
-theme_override_constants/center_grabber = 1
-theme_override_icons/grabber = ExtResource("9_nx8f0")
-theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
-theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
-theme_override_icons/tick = ExtResource("9_nx8f0")
-theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
-min_value = -80.0
-max_value = 8.0
-step = 0.1
-value = 0.5
-
-[node name="NameLabal" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/SFX Level"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = -159.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "SFX"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-clip_text = true
-
-[node name="API keys" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(353, 356.31)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -2.0
-offset_top = 12.0
-offset_right = 6.0
-offset_bottom = 59.0
-grow_horizontal = 2
-text = "API KEYS"
-label_settings = SubResource("LabelSettings_alr8j")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="chat label" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 69.0
-offset_right = -8.0
-offset_bottom = 100.0
-grow_horizontal = 2
-text = "CHAT GPT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="ChatAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
-layout_mode = 1
-offset_left = 14.0
-offset_top = 97.0
-offset_right = 343.0
-offset_bottom = 141.0
-theme = ExtResource("8_voyw1")
-theme_override_fonts/font = ExtResource("9_f7luj")
-
-[node name="Azure label" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 143.0
-offset_right = -8.0
-offset_bottom = 174.0
-grow_horizontal = 2
-text = "AZURE"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="AzureAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 171.0
-offset_right = 344.0
-offset_bottom = 215.0
-theme = ExtResource("8_voyw1")
-theme_override_fonts/font = ExtResource("9_f7luj")
-
-[node name="11labs" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 15.0
-offset_top = 218.0
-offset_right = -9.0
-offset_bottom = 249.0
-grow_horizontal = 2
-text = "11 Labs"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="11labAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 248.0
-offset_right = 344.0
-offset_bottom = 292.0
-theme = ExtResource("8_voyw1")
-theme_override_fonts/font = ExtResource("9_f7luj")
-scroll_smooth = true
-
-[node name="SaveKeys" type="Button" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 310.0
-offset_right = 240.0
-offset_bottom = 344.0
-theme = ExtResource("8_voyw1")
-text = "SAVE KEYS"
-
-[node name="KeyBinds" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(353, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 12.0
-offset_right = 8.0
-offset_bottom = 59.0
-grow_horizontal = 2
-text = "KEYBINDS"
-label_settings = SubResource("LabelSettings_alr8j")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 71.0
-offset_right = -8.0
-offset_bottom = 102.0
-grow_horizontal = 2
-text = "INPUT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 2
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 97.0
-offset_right = -8.0
-offset_bottom = 137.0
-theme = ExtResource("8_voyw1")
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
-[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 142.0
-offset_right = -8.0
-offset_bottom = 173.0
-grow_horizontal = 2
-theme = ExtResource("8_voyw1")
-text = "OUTPUT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 169.0
-offset_right = -8.0
-offset_bottom = 209.0
-grow_horizontal = 2
-theme = ExtResource("8_voyw1")
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
-[node name="Misc" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(353, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 12.0
-offset_right = 8.0
-offset_bottom = 59.0
-grow_horizontal = 2
-text = "MISC"
-label_settings = SubResource("LabelSettings_alr8j")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 71.0
-offset_right = -8.0
-offset_bottom = 102.0
-grow_horizontal = 2
-text = "INPUT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
-layout_mode = 2
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 97.0
-offset_right = -8.0
-offset_bottom = 137.0
-theme = ExtResource("8_voyw1")
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
-[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 142.0
-offset_right = -8.0
-offset_bottom = 173.0
-grow_horizontal = 2
-theme = ExtResource("8_voyw1")
-text = "OUTPUT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 169.0
-offset_right = -8.0
-offset_bottom = 209.0
-grow_horizontal = 2
-theme = ExtResource("8_voyw1")
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
-[node name="rightSelect" type="Button" parent="SettingsUI"]
-layout_mode = 2
-offset_left = 310.0
-offset_top = 81.0
-offset_right = 361.0
-offset_bottom = 129.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_hrdfa")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_fbsp6")
-text = ">"
-
-[node name="leftSelect" type="Button" parent="SettingsUI"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 81.0
-offset_right = 75.0
-offset_bottom = 129.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_hrdfa")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_fbsp6")
-text = "<"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SettingsUI"]
-libraries = {
-"": SubResource("AnimationLibrary_ayjtn")
-}
-
-[node name="OpenSFX" type="AudioStreamPlayer" parent="SettingsUI"]
-stream = ExtResource("14_vvqqn")
-bus = &"SFX"
-
-[node name="CloseSFX" type="AudioStreamPlayer" parent="SettingsUI"]
-stream = ExtResource("15_sgklh")
-bus = &"SFX"
 
 [node name="EditorUI" type="Control" parent="." node_paths=PackedStringArray("AnimationPlayer")]
 layout_mode = 3
@@ -3138,6 +2598,546 @@ bus = &"SFX"
 stream = ExtResource("15_sgklh")
 bus = &"SFX"
 
+[node name="SettingsUI" type="Control" parent="." node_paths=PackedStringArray("animationPlayer")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -384.0
+offset_bottom = 648.0
+script = ExtResource("7_4ndqf")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="BackGround" type="Panel" parent="SettingsUI"]
+custom_minimum_size = Vector2(384, 256)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_right = 319.872
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="Label" type="Label" parent="SettingsUI/BackGround"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 11.0
+offset_right = -1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_uodlu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsSelect" type="PanelContainer" parent="SettingsUI"]
+clip_children = 2
+layout_mode = 1
+offset_left = 16.0
+offset_top = 70.0
+offset_right = 369.0
+offset_bottom = 633.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI/SettingsSelect"]
+layout_mode = 2
+scroll_horizontal_custom_step = 357.0
+scroll_vertical_custom_step = 357.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsUI/SettingsSelect/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 563)
+layout_mode = 2
+size_flags_stretch_ratio = 20.0
+
+[node name="Audio" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_right = 8.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "AUDIO "
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 14.0
+offset_top = 71.0
+offset_right = -10.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "INPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 13.0
+offset_top = 97.0
+offset_right = -11.0
+offset_bottom = 141.0
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 14.0
+offset_top = 148.0
+offset_right = -10.0
+offset_bottom = 179.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+text = "OUTPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 13.0
+offset_top = 175.0
+offset_right = -11.0
+offset_bottom = 218.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="Title2" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -4.0
+offset_top = 249.0
+offset_right = 4.0
+offset_bottom = 296.0
+grow_horizontal = 2
+text = "VOLUME"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VoicesLevel" type="HSlider" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 18.0
+offset_top = 317.0
+offset_right = 335.0
+offset_bottom = 345.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("9_nx8f0")
+theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
+theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
+theme_override_icons/tick = ExtResource("9_nx8f0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
+min_value = -80.0
+max_value = 8.0
+step = 0.1
+value = 0.5
+
+[node name="NameLabal" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/VoicesLevel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = -159.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "VOICES"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
+
+[node name="MusicLevel" type="HSlider" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 18.0
+offset_top = 381.0
+offset_right = 335.0
+offset_bottom = 409.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("9_nx8f0")
+theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
+theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
+theme_override_icons/tick = ExtResource("9_nx8f0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
+min_value = -80.0
+max_value = 8.0
+step = 0.1
+value = 0.5
+
+[node name="NameLabal" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MusicLevel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = -159.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MUSIC"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
+
+[node name="SFX Level" type="HSlider" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 18.0
+offset_top = 445.0
+offset_right = 335.0
+offset_bottom = 473.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("9_nx8f0")
+theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
+theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
+theme_override_icons/tick = ExtResource("9_nx8f0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
+min_value = -80.0
+max_value = 8.0
+step = 0.1
+value = 0.5
+
+[node name="NameLabal" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/SFX Level"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = -159.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
+
+[node name="API keys" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 356.31)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = 12.0
+offset_right = 6.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "API KEYS"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="chat label" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 69.0
+offset_right = -8.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "CHAT GPT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="ChatAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 97.0
+offset_right = 343.0
+offset_bottom = 141.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
+[node name="Azure label" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 143.0
+offset_right = -8.0
+offset_bottom = 174.0
+grow_horizontal = 2
+text = "AZURE"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="AzureAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 171.0
+offset_right = 344.0
+offset_bottom = 215.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
+[node name="11labs" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 15.0
+offset_top = 218.0
+offset_right = -9.0
+offset_bottom = 249.0
+grow_horizontal = 2
+text = "11 Labs"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="11labAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 248.0
+offset_right = 344.0
+offset_bottom = 292.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+scroll_smooth = true
+
+[node name="SaveKeys" type="Button" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 310.0
+offset_right = 240.0
+offset_bottom = 344.0
+theme = ExtResource("8_voyw1")
+text = "SAVE KEYS"
+
+[node name="KeyBinds" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_right = 8.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "KEYBINDS"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 71.0
+offset_right = -8.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "INPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 97.0
+offset_right = -8.0
+offset_bottom = 137.0
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 142.0
+offset_right = -8.0
+offset_bottom = 173.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+text = "OUTPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 169.0
+offset_right = -8.0
+offset_bottom = 209.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="Misc" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_right = 8.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "MISC"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 71.0
+offset_right = -8.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "INPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 97.0
+offset_right = -8.0
+offset_bottom = 137.0
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 142.0
+offset_right = -8.0
+offset_bottom = 173.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+text = "OUTPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Misc"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 169.0
+offset_right = -8.0
+offset_bottom = 209.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="rightSelect" type="Button" parent="SettingsUI"]
+layout_mode = 2
+offset_left = 310.0
+offset_top = 81.0
+offset_right = 361.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_fbsp6")
+text = ">"
+
+[node name="leftSelect" type="Button" parent="SettingsUI"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 81.0
+offset_right = 75.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_hrdfa")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_fbsp6")
+text = "<"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SettingsUI"]
+libraries = {
+"": SubResource("AnimationLibrary_ayjtn")
+}
+
+[node name="OpenSFX" type="AudioStreamPlayer" parent="SettingsUI"]
+stream = ExtResource("14_vvqqn")
+bus = &"SFX"
+
+[node name="CloseSFX" type="AudioStreamPlayer" parent="SettingsUI"]
+stream = ExtResource("15_sgklh")
+bus = &"SFX"
+
 [node name="SaveFileDialog" type="NativeFileDialog" parent="."]
 title = "Save your Character"
 access = 2
@@ -3152,9 +3152,6 @@ filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
 [connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
 [connection signal="pressed" from="CoreUI/Charcters" to="Character Select" method="CharactersPressed"]
 [connection signal="pressed" from="CoreUI/Edit" to="EditorUI" method="OpenEditorPressed"]
-[connection signal="pressed" from="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys/SaveKeys" to="SettingsUI" method="SaveKeys"]
-[connection signal="pressed" from="SettingsUI/rightSelect" to="SettingsUI" method="ScrollNextSettings"]
-[connection signal="pressed" from="SettingsUI/leftSelect" to="SettingsUI" method="ScrollPreviousSettings"]
 [connection signal="pressed" from="EditorUI/BG/About" to="EditorUI" method="EditButtonPressed" binds= ["About"]]
 [connection signal="pressed" from="EditorUI/BG/About/Background/Panel/Button" to="EditorUI" method="OpenContextMenu"]
 [connection signal="pressed" from="EditorUI/BG/Sprites" to="EditorUI" method="EditButtonPressed" binds= ["Sprites"]]
@@ -3175,5 +3172,8 @@ filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Save" to="EditorUI" method="UpdateContext"]
 [connection signal="pressed" from="Character Select/BackGround/Save_Import/Save" to="EditorUI" method="SaveButtonClicked"]
 [connection signal="pressed" from="Character Select/BackGround/Save_Import/Close" to="ImportChracter" method="show"]
+[connection signal="pressed" from="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys/SaveKeys" to="SettingsUI" method="SaveKeys"]
+[connection signal="pressed" from="SettingsUI/rightSelect" to="SettingsUI" method="ScrollNextSettings"]
+[connection signal="pressed" from="SettingsUI/leftSelect" to="SettingsUI" method="ScrollPreviousSettings"]
 [connection signal="file_selected" from="SaveFileDialog" to="EditorUI" method="FileSelectedSave"]
 [connection signal="file_selected" from="ImportChracter" to="EditorUI" method="FileSelectedLoad"]
