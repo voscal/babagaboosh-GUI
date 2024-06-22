@@ -1,3 +1,6 @@
+HTTPRequest
+OptionButton
+MenuBar
 AudioStreamPlayer
 Label
 Camera2D
@@ -10,5 +13,3 @@ Panel
 TextureProgressBar
 Timer
 ScrollContainer
-Node
-TextureButton

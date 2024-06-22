@@ -62,7 +62,8 @@ public partial class SaveManager : Node
 		{
 			{ "ChatGPT", "" },
 			{ "Azuir", "" },
-			{ "11labs", "" }
+			{ "11labs", "" },
+			{"AZReigon", ""}
 		};
 		var dataStr = Json.Stringify(data);
 		using (var file = FileAccess.Open(KeysPath, FileAccess.ModeFlags.Write))

@@ -1,4 +1,5 @@
 using System.ComponentModel.Design;
+using Azure.Core;
 using Godot;
 using Godot.Collections;
 
@@ -14,6 +15,8 @@ public partial class SettingsUI : Control
 	TextEdit ChatGPTtext;
 	TextEdit Azuretext;
 	TextEdit Labtext;
+
+	TextEdit regionText;
 	SaveManager saveManager;
 
 
@@ -21,6 +24,7 @@ public partial class SettingsUI : Control
 	AnimationPlayer animationPlayer;
 	public override void _Ready()
 	{
+
 		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
 
 		micSelect = GetNode<OptionButton>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList");
@@ -29,14 +33,13 @@ public partial class SettingsUI : Control
 		ChatGPTtext = GetNode<TextEdit>("SettingsSelect/ScrollContainer/HBoxContainer/API keys/ChatAPI");
 		Azuretext = GetNode<TextEdit>("SettingsSelect/ScrollContainer/HBoxContainer/API keys/AzureAPI");
 		Labtext = GetNode<TextEdit>("SettingsSelect/ScrollContainer/HBoxContainer/API keys/11labAPI");
-
+		regionText = GetNode<TextEdit>("SettingsSelect/ScrollContainer/HBoxContainer/API keys/Region Input");
 
 		// api keys
 		ChatGPTtext.Text = saveManager.GetAPIKey("ChatGPT");
 		Azuretext.Text = saveManager.GetAPIKey("Azuir");
 		Labtext.Text = saveManager.GetAPIKey("11labs");
-
-
+		regionText.Text = saveManager.GetAPIKey("AZReigon");
 
 	}
 
@@ -62,7 +65,8 @@ public partial class SettingsUI : Control
 		{
 			{ "ChatGPT", ChatGPTtext.Text },
 			{ "Azuir", Azuretext.Text },
-			{ "11labs", Labtext.Text }
+			{ "11labs", Labtext.Text },
+			{ "AZReigon", regionText.Text}
 		};
 
 		saveManager.SaveAPIKeys(data);
@@ -72,7 +76,7 @@ public partial class SettingsUI : Control
 	{
 		Tween tween = GetTree().CreateTween();
 		tween.TweenProperty(GetNode<ScrollContainer>("SettingsSelect/ScrollContainer"), "scroll_horizontal", GetNode<ScrollContainer>("SettingsSelect/ScrollContainer").ScrollHorizontal + 357, 0.1f).SetTrans(Tween.TransitionType.Cubic);
-		//GetNode<ScrollContainer>("SettingsSelect/ScrollContainer").ScrollHorizontal += 357;
+
 	}
 	void ScrollPreviousSettings()
 	{

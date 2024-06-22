@@ -17,7 +17,7 @@ public partial class CharacterData : Node
 
 	public void AutoPopulateData(Dictionary data)
 	{
-		GD.Print("Load");
+		GD.Print("Load Data");
 		ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text = (string)data["Name"];
 		ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIabout").Text = (string)data["Description"];
 		ui.GetNode<TextEdit>("EditorUI/AIContext/Pannle/Panel/AIcontext").Text = (string)data["AIContext"];

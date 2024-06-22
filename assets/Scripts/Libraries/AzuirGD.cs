@@ -4,6 +4,8 @@ using Godot;
 using System.Threading.Tasks;
 using System;
 using System.Runtime.CompilerServices;
+using Azure.Core;
+using System.Text;
 
 
 
@@ -13,7 +15,7 @@ public partial class AzuirGD : Node
     // Called when the node enters the scene tree for the first time.
 
 
-    static string speechRegion = "australiaeast";
+
 
     SpeechConfig speechConfig;
 
@@ -23,13 +25,15 @@ public partial class AzuirGD : Node
 
     public override void _Ready()
     {
+
         saveManager = GetNode<SaveManager>("/root/Data/SaveData");
-        speechConfig = SpeechConfig.FromSubscription(saveManager.GetAPIKey("Azuir"), speechRegion);
+        speechConfig = SpeechConfig.FromSubscription(saveManager.GetAPIKey("Azuir"), saveManager.GetAPIKey("AZReigon"));
         speechConfig.SpeechRecognitionLanguage = "en-US";
         speechConfig.SetProfanity(ProfanityOption.Raw);
 
 
     }
+
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public async Task<string> GetTextFromWav(string recordingPath)

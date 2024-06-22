@@ -1486,10 +1486,10 @@ anchor_left = -7.097
 anchor_top = 0.5
 anchor_right = -0.597
 anchor_bottom = 4.516
-offset_left = -409.017
-offset_top = 61.9999
-offset_right = -6.0167
-offset_bottom = 310.992
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/About/Background"]
@@ -1596,10 +1596,10 @@ anchor_left = -7.097
 anchor_top = 0.5
 anchor_right = -0.597
 anchor_bottom = 4.516
-offset_left = -409.017
-offset_top = 61.9999
-offset_right = -6.0167
-offset_bottom = 310.992
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Sprites/Background"]
@@ -1808,10 +1808,10 @@ anchor_left = -7.097
 anchor_top = 0.5
 anchor_right = -0.597
 anchor_bottom = 4.516
-offset_left = -409.017
-offset_top = 61.9999
-offset_right = -6.0167
-offset_bottom = 310.992
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Trantions/Background"]
@@ -1974,10 +1974,10 @@ anchor_left = -7.097
 anchor_top = 0.5
 anchor_right = -0.597
 anchor_bottom = 4.516
-offset_left = -409.017
-offset_top = 61.9999
-offset_right = -6.0167
-offset_bottom = 310.992
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Voices/Background"]
@@ -2097,10 +2097,10 @@ anchor_left = -7.097
 anchor_top = 0.5
 anchor_right = -0.597
 anchor_bottom = 4.516
-offset_left = -409.017
-offset_top = 61.9999
-offset_right = -6.0167
-offset_bottom = 310.992
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="Panel" type="Panel" parent="EditorUI/BG/Voice Config/Background"]
@@ -2272,10 +2272,10 @@ anchor_left = -7.097
 anchor_top = 0.5
 anchor_right = -0.597
 anchor_bottom = 4.516
-offset_left = -409.017
-offset_top = 61.9999
-offset_right = -6.0167
-offset_bottom = 310.992
+offset_left = 471.011
+offset_top = -9.91821e-05
+offset_right = 68.0113
+offset_bottom = -248.992
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background"]
@@ -2388,10 +2388,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.167
 anchor_bottom = 1.0
-offset_left = 389.996
-offset_top = 754.0
-offset_right = 807.316
-offset_bottom = 1332.0
+offset_left = 388.0
+offset_top = 662.0
+offset_right = 805.32
+offset_bottom = 1240.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
@@ -2525,6 +2525,7 @@ anchors_preset = -1
 anchor_right = 0.167
 anchor_bottom = 1.0
 offset_right = 319.872
+offset_bottom = -1.0
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
@@ -2642,6 +2643,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI/SettingsSelect"]
 layout_mode = 2
+scroll_horizontal = 359
 scroll_horizontal_custom_step = 357.0
 scroll_vertical_custom_step = 357.0
 horizontal_scroll_mode = 3
@@ -2870,9 +2872,9 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 69.0
+offset_top = 77.0
 offset_right = -8.0
-offset_bottom = 100.0
+offset_bottom = 108.0
 grow_horizontal = 2
 text = "CHAT GPT"
 label_settings = SubResource("LabelSettings_vbys4")
@@ -2881,9 +2883,9 @@ vertical_alignment = 1
 [node name="ChatAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
 layout_mode = 1
 offset_left = 14.0
-offset_top = 97.0
+offset_top = 105.0
 offset_right = 343.0
-offset_bottom = 141.0
+offset_bottom = 149.0
 theme = ExtResource("8_voyw1")
 theme_override_fonts/font = ExtResource("9_f7luj")
 
@@ -2892,9 +2894,9 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 143.0
+offset_top = 167.0
 offset_right = -8.0
-offset_bottom = 174.0
+offset_bottom = 198.0
 grow_horizontal = 2
 text = "AZURE"
 label_settings = SubResource("LabelSettings_vbys4")
@@ -2903,9 +2905,9 @@ vertical_alignment = 1
 [node name="AzureAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 171.0
+offset_top = 195.0
 offset_right = 344.0
-offset_bottom = 215.0
+offset_bottom = 239.0
 theme = ExtResource("8_voyw1")
 theme_override_fonts/font = ExtResource("9_f7luj")
 
@@ -2914,20 +2916,20 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 15.0
-offset_top = 218.0
+offset_top = 258.0
 offset_right = -9.0
-offset_bottom = 249.0
+offset_bottom = 289.0
 grow_horizontal = 2
-text = "11 Labs"
+text = "11 LABS"
 label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 
 [node name="11labAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 248.0
+offset_top = 288.0
 offset_right = 344.0
-offset_bottom = 292.0
+offset_bottom = 332.0
 theme = ExtResource("8_voyw1")
 theme_override_fonts/font = ExtResource("9_f7luj")
 scroll_smooth = true
@@ -2935,11 +2937,32 @@ scroll_smooth = true
 [node name="SaveKeys" type="Button" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
 layout_mode = 0
 offset_left = 112.0
-offset_top = 310.0
+offset_top = 502.0
 offset_right = 240.0
-offset_bottom = 344.0
+offset_bottom = 536.0
 theme = ExtResource("8_voyw1")
 text = "SAVE KEYS"
+
+[node name="Azure label2" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 351.0
+offset_right = -8.0
+offset_bottom = 382.0
+grow_horizontal = 2
+text = "REGION"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="Region Input" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+offset_left = 14.0
+offset_top = 385.0
+offset_right = 343.0
+offset_bottom = 429.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
 
 [node name="KeyBinds" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(353, 0)
