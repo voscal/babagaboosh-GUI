@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctn1yrv4kb105"]
+[gd_scene load_steps=14 format=3 uid="uid://ctn1yrv4kb105"]
 
 [ext_resource type="Script" path="res://assets/Scripts/CharacterBox.cs" id="1_lw72u"]
 [ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="2_ju155"]
 [ext_resource type="PackedScene" uid="uid://cxi6grsp81c43" path="res://assets/Scenes/DisplayDummy.tscn" id="3_jcutw"]
+[ext_resource type="Theme" uid="uid://byiv4sk7pdl3g" path="res://mmtheme.tres" id="4_feiat"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7knj"]
 bg_color = Color(0.819608, 0.819608, 0.819608, 1)
@@ -36,6 +37,176 @@ corner_radius_bottom_left = 12
 [sub_resource type="Curve" id="Curve_xb3tf"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.17847, 0), 0.0, 0.0, 0, 0, Vector2(0.498584, 1), 0.0, 0.0, 0, 0, Vector2(0.770538, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7nqb"]
+bg_color = Color(0.968627, 0.784314, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.027451)
+shadow_size = 1
+shadow_offset = Vector2(0, -1.57)
+
+[sub_resource type="Animation" id="Animation_uwfk4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(156, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 113)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("More/Line2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, 17)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("More/Line2D3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 17)]
+}
+
+[sub_resource type="Animation" id="Animation_a1u5b"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 0.307786),
+"update": 0,
+"values": [Vector2(156, 79), Vector2(156, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 0.307786),
+"update": 0,
+"values": [Vector2(8, 34), Vector2(8, 113)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("More/Line2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 0.307786),
+"update": 0,
+"values": [Vector2(6.5, 24), Vector2(-1, 17)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("More/Line2D3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 0.307786),
+"update": 0,
+"values": [Vector2(6.5, 10), Vector2(14, 17)]
+}
+
+[sub_resource type="Animation" id="Animation_v6o0q"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 0.307786),
+"update": 0,
+"values": [Vector2(156, 0), Vector2(156, 79)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 0.307786),
+"update": 0,
+"values": [Vector2(8, 113), Vector2(8, 34)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("More/Line2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 0.307786),
+"update": 0,
+"values": [Vector2(14, 17), Vector2(6.5, 24)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("More/Line2D3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 0.307786),
+"update": 0,
+"values": [Vector2(-1, 17), Vector2(6.5, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1qyy"]
+_data = {
+"RESET": SubResource("Animation_uwfk4"),
+"close": SubResource("Animation_a1u5b"),
+"open": SubResource("Animation_v6o0q")
+}
 
 [node name="Character" type="Panel"]
 clip_children = 2
@@ -142,4 +313,36 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
+[node name="Panel2" type="Panel" parent="."]
+clip_contents = true
+offset_left = 8.0
+offset_top = 113.0
+offset_right = 164.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m7nqb")
+
+[node name="Export" type="Button" parent="Panel2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 148.0
+offset_bottom = 36.0
+theme = ExtResource("4_feiat")
+text = "EXPORT"
+
+[node name="Delete" type="Button" parent="Panel2"]
+offset_left = 8.0
+offset_top = 43.0
+offset_right = 148.0
+offset_bottom = 74.0
+theme = ExtResource("4_feiat")
+text = "DELETE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r1qyy")
+}
+
 [connection signal="pressed" from="Load" to="." method="LoadBttnClicked"]
+[connection signal="pressed" from="More" to="." method="moreBttnclicked"]
+[connection signal="pressed" from="Panel2/Delete" to="." method="deletepressed"]

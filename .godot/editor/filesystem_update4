@@ -1,5 +1,5 @@
 res://default_bus_layout.tres
-res://assets/Scenes/UI.tscn
+res://assets/Scenes/characterBox.tscn
 res://assets/Shaders/gridScroll.gdshader
 res://assets/Scripts/voiceShelf.cs
 res://mmtheme.tres
@@ -30,4 +30,4 @@ res://assets/Scripts/UI/EditorUI.cs
 res://assets/Scripts/UI/SettingsUI.cs
 res://assets/Scripts/UI/UI.cs
 res://assets/VoiceData.cs
-res://assets/Scenes/characterBox.tscn
+res://assets/Scenes/UI.tscn

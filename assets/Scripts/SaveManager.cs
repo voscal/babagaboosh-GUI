@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using System;
 using System.Linq;
 using System.Text;
 
@@ -259,6 +260,47 @@ public partial class SaveManager : Node
 		}
 		return characters;
 	}
+
+	public void DeleteCharacter(string chrName)
+	{
+		string characterPath = $"user://Characters/{chrName}";
+
+		if (!FileExists(characterPath))
+		{
+			GD.PrintErr("Character file does not exist: " + characterPath);
+			return;
+		}
+
+		var dir = DirAccess.Open("user://Characters/");
+		if (dir == null)
+		{
+			GD.PrintErr("Failed to open directory: user://Characters/");
+			return;
+		}
+
+		Error error = dir.Remove(characterPath);
+		if (error != Error.Ok)
+		{
+			GD.PrintErr("Failed to delete character file: " + characterPath + " Error: " + error.ToString());
+			return;
+		}
+
+		GD.Print("Successfully deleted character: " + chrName);
+		ui.GetNode<CharacterSelect>("Character Select").RefreshCharactersList(LoadAllCharacters());
+	}
+
+	public bool FileExists(string path)
+	{
+		var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
+		if (file != null)
+		{
+			file.Close();
+			return true;
+		}
+		return false;
+	}
+
+
 
 
 	#endregion

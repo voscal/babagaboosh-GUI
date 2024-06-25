@@ -8,7 +8,7 @@ public partial class CharacterSelect : Control
 
 	SaveManager saveManager;
 	bool CharactersOpen = false;
-
+	string openedUI;
 	public override void _Ready()
 	{
 		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
@@ -46,6 +46,43 @@ public partial class CharacterSelect : Control
 			sceneInstance.GetNode<Label>("Panel/Label").Text = character.Remove(character.Length - 4);
 			vBox.AddChild(sceneInstance);
 		}
+	}
+
+
+
+	public void MoreButtonPressed(string nodePath)
+	{
+
+		GD.Print("CLICK");
+
+
+		if (openedUI != null)
+		{
+			try
+			{
+				GetNode<AnimationPlayer>($"BackGround/ScrollContainer/BoxContainer/{openedUI}/AnimationPlayer").Play("close");
+			}
+			catch
+			{
+				openedUI = null;
+			}
+
+		}
+		if (openedUI == nodePath)
+		{
+			GetNode<AnimationPlayer>($"BackGround/ScrollContainer/BoxContainer/{openedUI}/AnimationPlayer").Play("close");
+			openedUI = null;
+			return;
+		}
+
+		GetNode<AnimationPlayer>($"BackGround/ScrollContainer/BoxContainer/{nodePath}/AnimationPlayer").Play("open");
+
+		openedUI = nodePath;
+
+
+
+
+
 	}
 
 

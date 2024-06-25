@@ -1,3 +1,6 @@
+AnimationPlayer
+Button
+Panel
 Line2D
 Control
 HTTPRequest
@@ -10,6 +13,3 @@ SubViewportContainer
 SubViewport
 Container
 CenterContainer
-AnimationPlayer
-Panel
-TextureProgressBar
