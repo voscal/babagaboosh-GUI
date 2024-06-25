@@ -80,6 +80,7 @@ public partial class AzuirGD : Node
                 {
                     GD.Print($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                     GD.Print($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                    GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("error", $"[center]AZURE ERROR", $"[center]Did you set the speech resource key and region values?", 10);
                     GD.Print($"CANCELED: Did you set the speech resource key and region values?");
                 }
                 return false;

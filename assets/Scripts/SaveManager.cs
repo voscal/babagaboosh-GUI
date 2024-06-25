@@ -85,7 +85,7 @@ public partial class SaveManager : Node
 	{
 		if (ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text == string.Empty)
 		{
-			GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("Error", "[center]Error", "[center]Please give your character a name", 6);
+			GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("Error", "[center]Error", "[center]Please give your character a name", 5);
 			return;
 		}
 
@@ -125,6 +125,7 @@ public partial class SaveManager : Node
 
 		zipPacker.Close();
 		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Character Saved", "[center]" + ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text + " has successfully saved!", 6);
+		ui.GetNode<CharacterSelect>("Character Select").RefreshCharactersList(LoadAllCharacters());
 
 	}
 

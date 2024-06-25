@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=93 format=3 uid="uid://drsi7fywnus2"]
 
 [ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
@@ -244,6 +244,11 @@ _data = {
 "RESET": SubResource("Animation_vljxn")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_iqoie"]
+font = ExtResource("5_hrdfa")
+font_size = 19
+font_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpq2r"]
 bg_color = Color(0.501961, 0.501961, 0.505882, 1)
 border_width_left = 5
@@ -354,30 +359,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [2]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Fancy Song:volume_db")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -80.0, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Fancy Song:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.9),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_36s1f"]
 resource_name = "OpenMenu"
@@ -416,18 +397,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Fancy Song:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(-0.7),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqesp"]
@@ -1289,6 +1258,11 @@ _data = {
 "RESET": SubResource("Animation_lof6d")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_m60xx"]
+font = ExtResource("5_hrdfa")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_levkm")
 
@@ -1675,6 +1649,23 @@ offset_right = 188.0
 offset_bottom = 174.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
+[node name="NameLabal2" type="Label" parent="EditorUI/BG/Sprites/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0006
+offset_top = -9.00251
+offset_right = -99.0006
+offset_bottom = -30.0025
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEAD SPRITE"
+label_settings = SubResource("LabelSettings_iqoie")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
 [node name="Preview4" type="Panel" parent="EditorUI/BG/Sprites/Background"]
 layout_mode = 0
 offset_left = 214.0
@@ -1682,6 +1673,23 @@ offset_top = 39.0009
 offset_right = 378.0
 offset_bottom = 174.001
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Sprites/Background/Preview4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.00112264
+offset_top = 49.9983
+offset_right = -0.00112915
+offset_bottom = -61.0019
+grow_horizontal = 2
+grow_vertical = 2
+text = "BODY SPRITE"
+label_settings = SubResource("LabelSettings_vbys4")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
 
 [node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Sprites"]
 visible = false
@@ -2489,7 +2497,7 @@ mouse_filter = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Funnyshit"]
 texture_filter = 1
-position = Vector2(583, 310)
+position = Vector2(575, 287)
 scale = Vector2(3.505, 3.505)
 sprite_frames = SubResource("SpriteFrames_e0hsr")
 animation = &"expload"
@@ -2525,7 +2533,6 @@ anchors_preset = -1
 anchor_right = 0.167
 anchor_bottom = 1.0
 offset_right = 319.872
-offset_bottom = -1.0
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
@@ -2643,7 +2650,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI/SettingsSelect"]
 layout_mode = 2
-scroll_horizontal = 359
 scroll_horizontal_custom_step = 357.0
 scroll_vertical_custom_step = 357.0
 horizontal_scroll_mode = 3
@@ -2957,6 +2963,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 
 [node name="Region Input" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 385.0
 offset_right = 343.0
@@ -2965,6 +2972,7 @@ theme = ExtResource("8_voyw1")
 theme_override_fonts/font = ExtResource("9_f7luj")
 
 [node name="KeyBinds" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(353, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -3036,6 +3044,7 @@ fit_to_longest_item = false
 allow_reselect = true
 
 [node name="Misc" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(353, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -3171,6 +3180,69 @@ title = "Open a File"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
+
+[node name="Popup" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="BG" type="Panel" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.8
+anchor_bottom = 16.2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abatg")
+
+[node name="Pannle" type="Panel" parent="Popup"]
+custom_minimum_size = Vector2(384, 256)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_left = 388.0
+offset_top = 14.0
+offset_right = 765.32
+offset_bottom = 230.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
+
+[node name="Label" type="Label" parent="Popup/Pannle"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 19.0
+offset_right = -1.0
+offset_bottom = 83.0
+grow_horizontal = 2
+text = "RESTART APP"
+label_settings = SubResource("LabelSettings_uodlu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Popup/Pannle/Label"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 52.0
+offset_right = -20.0
+offset_bottom = 159.0
+grow_horizontal = 2
+text = "would you like to restart the app to apply changes"
+label_settings = SubResource("LabelSettings_m60xx")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Popup"]
+libraries = {
+"": SubResource("AnimationLibrary_kqesp")
+}
 
 [connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
 [connection signal="pressed" from="CoreUI/Charcters" to="Character Select" method="CharactersPressed"]

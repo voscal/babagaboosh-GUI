@@ -1,3 +1,5 @@
+Line2D
+Control
 HTTPRequest
 OptionButton
 MenuBar
@@ -11,5 +13,3 @@ CenterContainer
 AnimationPlayer
 Panel
 TextureProgressBar
-Timer
-ScrollContainer
