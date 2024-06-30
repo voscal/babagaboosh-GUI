@@ -14,6 +14,12 @@ public partial class CharacterBox : Panel
 		GetParent().GetParent().GetParent().GetParent<CharacterSelect>().MoreButtonPressed(Name);
 	}
 
+	public void ExportPressed(string path)
+	{
+		GetNode<SaveManager>("/root/Data/SaveData").ExportCharacter(path, chrName);
+	}
+
+
 	public void deletepressed()
 	{
 		GetNode<SaveManager>("/root/Data/SaveData").DeleteCharacter(chrName);

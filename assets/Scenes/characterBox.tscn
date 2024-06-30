@@ -315,6 +315,7 @@ end_cap_mode = 2
 
 [node name="Panel2" type="Panel" parent="."]
 clip_contents = true
+layout_mode = 0
 offset_left = 8.0
 offset_top = 113.0
 offset_right = 164.0
@@ -331,6 +332,7 @@ theme = ExtResource("4_feiat")
 text = "EXPORT"
 
 [node name="Delete" type="Button" parent="Panel2"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 43.0
 offset_right = 148.0
@@ -343,6 +345,12 @@ libraries = {
 "": SubResource("AnimationLibrary_r1qyy")
 }
 
+[node name="ExportFileDialog" type="NativeFileDialog" parent="."]
+title = "Export Character"
+
 [connection signal="pressed" from="Load" to="." method="LoadBttnClicked"]
 [connection signal="pressed" from="More" to="." method="moreBttnclicked"]
+[connection signal="pressed" from="Panel2/Export" to="ExportFileDialog" method="show"]
 [connection signal="pressed" from="Panel2/Delete" to="." method="deletepressed"]
+[connection signal="dir_selected" from="ExportFileDialog" to="." method="ExportPressed"]
+[connection signal="file_selected" from="ExportFileDialog" to="." method="ExportPressed"]

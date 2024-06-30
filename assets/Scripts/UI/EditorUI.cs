@@ -133,13 +133,11 @@ public partial class EditorUI : Control
 		GetNode<SaveManager>("/root/Data/SaveData").SaveCharacter();
 
 	}
-
 	public void SaveButtonClicked(string path)
 	{
 		GetNode<SaveManager>("/root/Data/SaveData").LoadCharacter(path);
 		GetParent().GetNode<AnimationPlayer>("Funnyshit/AnimatedSprite2D/AnimationPlayer").Play("Explosion");
 	}
-
 	public void ImportHead(string path)
 	{
 		Image image = Image.LoadFromFile(path);
@@ -154,8 +152,10 @@ public partial class EditorUI : Control
 		texture.SetImage(image);
 		GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Body/Sprite").TextureNormal = texture;
 	}
-
-
+	public void FileSelectedLoad(string path)
+	{
+		GetNode<SaveManager>("/root/Data/SaveData").ImportCharacter(path);
+	}
 	public void UpdateContext()
 	{
 		remotelibraries.chatGPT.SetContext(GetNode<TextEdit>("AIContext/Pannle/Panel/AIcontext").Text);

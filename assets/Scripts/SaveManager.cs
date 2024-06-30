@@ -1,7 +1,5 @@
 using Godot;
 using Godot.Collections;
-using System;
-using System.Linq;
 using System.Text;
 
 public partial class SaveManager : Node
@@ -130,6 +128,49 @@ public partial class SaveManager : Node
 
 	}
 
+	public void ExportCharacter(string exportPath, string charName)
+	{
+		// Ensure the exported file has a .chr extension
+		if (!exportPath.EndsWith(".chr"))
+		{
+			exportPath += ".chr";
+		}
+
+		string characterPath = $"user://Characters/{charName}";
+
+		if (!FileExists(characterPath))
+		{
+			GD.PrintErr("Character file does not exist: " + characterPath);
+			return;
+		}
+
+		// Copy character file to export path
+		using (var sourceFile = FileAccess.Open(characterPath, FileAccess.ModeFlags.Read))
+		{
+			if (sourceFile == null)
+			{
+				GD.PrintErr("Failed to open character file for reading: " + characterPath);
+				return;
+			}
+
+			using (var destFile = FileAccess.Open(exportPath, FileAccess.ModeFlags.Write))
+			{
+				if (destFile == null)
+				{
+					GD.PrintErr("Failed to open export file for writing: " + exportPath);
+					return;
+				}
+
+				destFile.StoreBuffer(sourceFile.GetBuffer((int)sourceFile.GetLength()));
+			}
+		}
+
+		GD.Print("Character exported to: " + exportPath);
+		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Character Exported", "[center]" + charName + " has been successfully exported!", 6);
+	}
+
+
+
 	public bool DirExists(string path)
 	{
 		var dir = DirAccess.Open(path);
@@ -174,6 +215,82 @@ public partial class SaveManager : Node
 		if (error != Error.Ok)
 		{
 			GD.PrintErr("Failed to open ZIP archive: " + "user://Characters/" + chrName);
+			return;
+		}
+
+		// Load Body Sprite
+		byte[] data = zipReader.ReadFile("BodySpr.png");
+		if (data == null)
+		{
+			GD.PrintErr("Failed to read BodySpr.png from ZIP archive.");
+		}
+		else
+		{
+			Image image = new();
+			error = image.LoadPngFromBuffer(data);
+			if (error != Error.Ok)
+			{
+				GD.PrintErr("Unable to load Body");
+			}
+			else
+			{
+				GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Body/Sprite").TextureNormal = ImageTexture.CreateFromImage(image);
+			}
+		}
+
+		// Load Head Sprite
+		data = zipReader.ReadFile("HeadSpr.png");
+		if (data == null)
+		{
+			GD.PrintErr("Failed to read HeadSpr.png from ZIP archive.");
+		}
+		else
+		{
+			Image image = new();
+			error = image.LoadPngFromBuffer(data);
+			if (error != Error.Ok)
+			{
+				GD.PrintErr("Unable to load Head");
+			}
+			else
+			{
+				GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Head/Sprite").TextureNormal = ImageTexture.CreateFromImage(image);
+			}
+		}
+
+		// Load Data
+		data = zipReader.ReadFile("Data.json");
+		if (data == null)
+		{
+			GD.PrintErr("Failed to read Data.json from ZIP archive.");
+			return;
+		}
+
+		string jsonData = Encoding.UTF8.GetString(data);
+		Json json = new();
+		error = json.Parse(jsonData);
+		if (error != Error.Ok)
+		{
+			GD.PrintErr("Failed to parse JSON data.");
+			return;
+		}
+
+		Dictionary jsonDataDict = (Dictionary)json.Data;
+		GetNode<CharacterData>("/root/Data/CharacterData").AutoPopulateData(jsonDataDict);
+		ui.editorUI.UpdateContext();
+		ui.GetNode<AnimationPlayer>("Funnyshit/AnimatedSprite2D/AnimationPlayer").Stop();
+		ui.GetNode<AnimationPlayer>("Funnyshit/AnimatedSprite2D/AnimationPlayer").Play("Explosion");
+
+	}
+
+	public void ImportCharacter(string path)
+	{
+		ZipReader zipReader = new();
+		Error error = zipReader.Open(path);
+
+		if (error != Error.Ok)
+		{
+			GD.PrintErr("Failed to open ZIP archive: " + path);
 			return;
 		}
 
