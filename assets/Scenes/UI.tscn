@@ -1456,16 +1456,7 @@ stretch_mode = 0
 
 [node name="Background" type="Panel" parent="EditorUI/BG/About"]
 clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -7.097
-anchor_top = 0.5
-anchor_right = -0.597
-anchor_bottom = 4.516
-offset_left = 471.011
-offset_top = -9.91821e-05
-offset_right = 68.0113
-offset_bottom = -248.992
+layout_mode = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/About/Background"]
@@ -1566,16 +1557,7 @@ stretch_mode = 0
 
 [node name="Background" type="Panel" parent="EditorUI/BG/Sprites"]
 clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -7.097
-anchor_top = 0.5
-anchor_right = -0.597
-anchor_bottom = 4.516
-offset_left = 471.011
-offset_top = -9.91821e-05
-offset_right = 68.0113
-offset_bottom = -248.992
+layout_mode = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Sprites/Background"]
@@ -1812,16 +1794,11 @@ stretch_mode = 0
 
 [node name="Background" type="Panel" parent="EditorUI/BG/Trantions"]
 clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -7.097
-anchor_top = 0.5
-anchor_right = -0.597
-anchor_bottom = 4.516
-offset_left = 471.011
-offset_top = -9.91821e-05
-offset_right = 68.0113
-offset_bottom = -248.992
+layout_mode = 0
+offset_left = 30.9973
+offset_top = 30.9999
+offset_right = 30.9973
+offset_bottom = 30.9999
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Trantions/Background"]
@@ -1978,16 +1955,7 @@ stretch_mode = 0
 
 [node name="Background" type="Panel" parent="EditorUI/BG/Voices"]
 clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -7.097
-anchor_top = 0.5
-anchor_right = -0.597
-anchor_bottom = 4.516
-offset_left = 471.011
-offset_top = -9.91821e-05
-offset_right = 68.0113
-offset_bottom = -248.992
+layout_mode = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Voices/Background"]
@@ -2101,16 +2069,7 @@ stretch_mode = 0
 
 [node name="Background" type="Panel" parent="EditorUI/BG/Voice Config"]
 clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -7.097
-anchor_top = 0.5
-anchor_right = -0.597
-anchor_bottom = 4.516
-offset_left = 471.011
-offset_top = -9.91821e-05
-offset_right = 68.0113
-offset_bottom = -248.992
+layout_mode = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="Panel" type="Panel" parent="EditorUI/BG/Voice Config/Background"]
@@ -2276,16 +2235,7 @@ stretch_mode = 0
 
 [node name="Background" type="Panel" parent="EditorUI/BG/Chatgpt"]
 clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -7.097
-anchor_top = 0.5
-anchor_right = -0.597
-anchor_bottom = 4.516
-offset_left = 471.011
-offset_top = -9.91821e-05
-offset_right = 68.0113
-offset_bottom = -248.992
+layout_mode = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background"]
@@ -2530,12 +2480,9 @@ animationPlayer = NodePath("AnimationPlayer")
 
 [node name="BackGround" type="Panel" parent="Character Select"]
 custom_minimum_size = Vector2(384, 256)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.167
-anchor_bottom = 1.0
-offset_right = 319.872
-grow_vertical = 2
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 648.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
@@ -2618,12 +2565,9 @@ animationPlayer = NodePath("AnimationPlayer")
 
 [node name="BackGround" type="Panel" parent="SettingsUI"]
 custom_minimum_size = Vector2(384, 256)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.167
-anchor_bottom = 1.0
-offset_right = 319.872
-grow_vertical = 2
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 648.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
