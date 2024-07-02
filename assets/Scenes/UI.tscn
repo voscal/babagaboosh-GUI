@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=95 format=3 uid="uid://drsi7fywnus2"]
 
 [ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
@@ -18,9 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://bkouiyx3ams1l" path="res://assets/Sprites/handle.png" id="9_nx8f0"]
 [ext_resource type="Texture2D" uid="uid://b0rdwu1lwb7db" path="res://assets/Sprites/VoicesButton.png" id="10_cfjio"]
 [ext_resource type="Texture2D" uid="uid://bw5vcbak24tix" path="res://assets/Sprites/SpritesButton.png" id="10_kxevj"]
+[ext_resource type="Texture2D" uid="uid://d2i74kvptfvhf" path="res://assets/Sprites/about Button.png" id="12_0a2vi"]
 [ext_resource type="AudioStream" uid="uid://b4ad3qe62w8kk" path="res://assets/sfx/settingOpen.mp3" id="14_vvqqn"]
 [ext_resource type="AudioStream" uid="uid://djyf884p6vs2c" path="res://assets/sfx/settingsClose.mp3" id="15_sgklh"]
 [ext_resource type="Texture2D" uid="uid://xse5c3xsv7il" path="res://assets/Sprites/Error.png" id="18_qmyss"]
+[ext_resource type="Texture2D" uid="uid://c27wtb3iyfyw4" path="res://assets/Sprites/voice tweeks.png" id="19_rmxil"]
 [ext_resource type="Texture2D" uid="uid://slcjnttyxyxe" path="res://assets/Sprites/save.png" id="20_o57wp"]
 [ext_resource type="Texture2D" uid="uid://bhb3jegcpwkmg" path="res://assets/Sprites/explosion.png" id="21_q2ann"]
 [ext_resource type="AudioStream" uid="uid://b120o2nras8hd" path="res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3" id="21_vwfcv"]
@@ -1448,7 +1450,7 @@ offset_top = 81.0
 offset_right = 73.9999
 offset_bottom = 143.0
 rotation = 4.71239
-texture_normal = ExtResource("4_egvsx")
+texture_normal = ExtResource("12_0a2vi")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -2093,7 +2095,7 @@ offset_right = 74.996
 offset_bottom = 612.003
 rotation = 4.71239
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_egvsx")
+texture_normal = ExtResource("19_rmxil")
 ignore_texture_size = true
 stretch_mode = 0
 
