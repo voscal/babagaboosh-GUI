@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 public partial class VoiceData : Node
 {
-	Remotelibraries Libraries;
+	Services Libraries;
 	public Voice[] voices;
 
 	// Voice settings
@@ -14,7 +14,7 @@ public partial class VoiceData : Node
 
 	public override void _Ready()
 	{
-		Libraries = GetNodeOrNull<Remotelibraries>("/root/Main Scene/Remote Libraries");
+		Libraries = GetNodeOrNull<Services>("/root/Services");
 
 	}
 

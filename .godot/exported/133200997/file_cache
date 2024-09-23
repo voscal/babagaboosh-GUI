@@ -1,11 +1,11 @@
-res://assets/Scenes/data.tscn::1c87c247b1c83398362f321faa2c8ef6::1720172589::res://.godot/exported/133200997/export-c82576174aa2bcc1543c1c168e31e9f3-data.scn
+res://assets/Scenes/data.tscn::1c87c247b1c83398362f321faa2c8ef6::1722332316::res://.godot/exported/133200997/export-c82576174aa2bcc1543c1c168e31e9f3-data.scn
 res://assets/Scenes/Dummy.tscn::54a90efde8e0ed6f0a605d9a579ae43f::1719048297::res://.godot/exported/133200997/export-649bf7040f382a62856dc50640ae7d95-Dummy.scn
-res://assets/Scenes/Main Scene.tscn::ca0b91d70e434f7e7dbeefe123f65855::1720172589::res://.godot/exported/133200997/export-9d4f95fd9dbedaa016238220b2d4a4cc-Main Scene.scn
-res://assets/Scenes/UI.tscn::af1db57bef22b96d6941f18bdce869b1::1720172590::res://.godot/exported/133200997/export-a940384861cde9d6ed81d1bf1fe9c52a-UI.scn
+res://assets/Scenes/Main Scene.tscn::ca0b91d70e434f7e7dbeefe123f65855::1722332316::res://.godot/exported/133200997/export-9d4f95fd9dbedaa016238220b2d4a4cc-Main Scene.scn
+res://assets/Scenes/UI.tscn::a86cf82477c8a74796d02a45f5f326b7::1722332317::res://.godot/exported/133200997/export-a940384861cde9d6ed81d1bf1fe9c52a-UI.scn
 res://assets/Scenes/voiceShelf.tscn::758ef5b9991e24c0252039843427cbdb::1718676251::res://.godot/exported/133200997/export-3d0470128048ec82e7b5a610fce0215c-voiceShelf.scn
-res://assets/Scripts/Libraries/Remotelibraries.tscn::2bd6f500795b4d6dc817c077f7323ce8::1720172589::res://.godot/exported/133200997/export-ab7a16ac33f7d0a30a4e2bcb2b48ed87-Remotelibraries.scn
-res://default_bus_layout.tres::8431c4f1bb1ee26ef6e4017ad848d126::1720172586::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
-res://mmtheme.tres::633ab8b4cafead6b8790f20add975e64::1720172589::res://.godot/exported/133200997/export-a07dfec0f83b154888a8e16cfe945c48-mmtheme.res
+res://assets/Scripts/Libraries/Remotelibraries.tscn::772390359731fb6f97762891b3973345::1722332316::res://.godot/exported/133200997/export-ab7a16ac33f7d0a30a4e2bcb2b48ed87-Remotelibraries.scn
+res://default_bus_layout.tres::27d75f53c631ffc9a236e1064bc0c3aa::1722332010::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
+res://mmtheme.tres::9beda48056670a2e77d95d4bedab9923::1722323969::res://.godot/exported/133200997/export-a07dfec0f83b154888a8e16cfe945c48-mmtheme.res
 res://addons/global_input/autoloads/global_input_csharp/GlobalInputCSharp.tscn::f4cdb13bc33ebd7fd338dce314ea1a1a::1718098471::res://.godot/exported/133200997/export-c6b8854e0deede07c31d12de865dd86e-GlobalInputCSharp.scn
 res://addons/global_input/autoloads/global_input_gdscript/GlobalInputGDScript.tscn::064d933e8ddbe9130b459473d17d496f::1718098471::res://.godot/exported/133200997/export-635e2e0cdafd0321e1ea6a0971c962f8-GlobalInputGDScript.scn
 res://addons/global_input/examples/csharp_example/World.tscn::4566a444a9a862f4a60d9264a98d71ab::1718098471::res://.godot/exported/133200997/export-3d1719856a3b5b1279e48b647f558f0d-World.scn
@@ -13,6 +13,6 @@ res://addons/global_input/examples/gd_example/World.tscn::5c50038a886581acb6ce8b
 res://assets/Scenes/resize test.tscn::7b91e75e3a1ddd8b400a7c7c73fd421a::1718444407::res://.godot/exported/133200997/export-2391e5f6135aa89346f597bccd4ec72e-resize test.scn
 res://assets/Scenes/notifications/Error.tscn::af03e5eaa4b94359cb5723446814175e::1718444407::res://.godot/exported/133200997/export-8836de9628eeecc3ac4c000c0bb3aaf3-Error.scn
 res://assets/Scenes/notifications/Info.tscn::3d587c831c289842ca733ea8ea40ec5b::1718444407::res://.godot/exported/133200997/export-47156f27cb6d405b4c108d1fe6169bbd-Info.scn
-res://assets/Scenes/Managers.tscn::b531c0c7344c18e4d18dfd77bb9facca::1720172589::res://.godot/exported/133200997/export-1d34b8df98ee019d4b15e665be4231e3-Managers.scn
-res://assets/Scenes/characterBox.tscn::17eeebdf04aeee6c9147be9939d9c63a::1720172590::res://.godot/exported/133200997/export-3d1cc52510a9f397bf844968182626ef-characterBox.scn
+res://assets/Scenes/Managers.tscn::826ebada88463f765b59a7ed2f386357::1722332316::res://.godot/exported/133200997/export-1d34b8df98ee019d4b15e665be4231e3-Managers.scn
+res://assets/Scenes/characterBox.tscn::17eeebdf04aeee6c9147be9939d9c63a::1722332317::res://.godot/exported/133200997/export-3d1cc52510a9f397bf844968182626ef-characterBox.scn
 res://assets/Scenes/DisplayDummy.tscn::9f1fd7465b0acfb78b1e1c77c300762e::1719048242::res://.godot/exported/133200997/export-41a93b626d84c9d68545813728b99d06-DisplayDummy.scn

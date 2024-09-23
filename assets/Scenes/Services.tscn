@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwtuweq6dnuea"]
+
+[ext_resource type="Script" path="res://assets/Scripts/Services/Services.cs" id="1_psn1d"]
+[ext_resource type="Script" path="res://assets/Scripts/Services/ChatGD.cs" id="1_rmf3p"]
+[ext_resource type="Script" path="res://assets/Scripts/Services/ElevinLabsGD.cs" id="2_4euul"]
+[ext_resource type="Script" path="res://assets/Scripts/Services/AzuirGD.cs" id="3_4rb2f"]
+[ext_resource type="Script" path="res://assets/Scripts/Services/VoskGD.cs" id="4_pgwa6"]
+[ext_resource type="Script" path="res://assets/Scripts/Services/WhisperGD.cs" id="6_q1ewq"]
+[ext_resource type="WhisperResource" path="res://addons/godot_whisper/models/gglm-tiny.en.bin" id="7_ehdlh"]
+[ext_resource type="Script" path="res://addons/godot_whisper/audio_stream_to_text.gd" id="8_wtjtd"]
+[ext_resource type="AudioStream" uid="uid://cuybt83bwegoq" path="res://samples/godot_whisper/jfk.wav" id="9_yj4xt"]
+
+[node name="Services" type="Node"]
+script = ExtResource("1_psn1d")
+
+[node name="ChatGPT" type="Node" parent="."]
+script = ExtResource("1_rmf3p")
+
+[node name="ElevinLabs" type="Node" parent="."]
+script = ExtResource("2_4euul")
+
+[node name="Azuir" type="Node" parent="."]
+script = ExtResource("3_4rb2f")
+
+[node name="Vosk" type="Node" parent="."]
+script = ExtResource("4_pgwa6")
+modelPath = "res://addons/vosk/Models/en_us_small"
+recordBusName = "Recording"
+
+[node name="Whisper" type="Node" parent="."]
+script = ExtResource("6_q1ewq")
+
+[node name="AudioStreamToText" type="SpeechToText" parent="Whisper"]
+language_model = ExtResource("7_ehdlh")
+script = ExtResource("8_wtjtd")
+audio_stream = ExtResource("9_yj4xt")
+text = " And so my fellow Americans ask not what your country can do for you"

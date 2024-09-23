@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://ceroy2knhwul7"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://ceroy2knhwul7"]
 
 [sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_g8l11"]
 resource_name = "SpectrumAnalyzer"
@@ -17,11 +17,14 @@ resource_name = "HighPassFilter"
 resource_name = "HighShelfFilter"
 cutoff_hz = 50.0
 
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_bcjn6"]
+resource_name = "SpectrumAnalyzer"
+
 [resource]
 bus/0/volume_db = 6.02
 bus/0/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_g8l11")
 bus/0/effect/0/enabled = false
-bus/1/name = &"mute"
+bus/1/name = &"Mute"
 bus/1/solo = false
 bus/1/mute = true
 bus/1/bypass_fx = false
@@ -31,8 +34,8 @@ bus/2/name = &"Recording"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = 6.02
-bus/2/send = &"mute"
+bus/2/volume_db = 1.85375
+bus/2/send = &"Mute"
 bus/2/effect/0/effect = SubResource("AudioEffectRecord_av0qs")
 bus/2/effect/0/enabled = true
 bus/3/name = &"BGMusic"
@@ -58,4 +61,12 @@ bus/5/effect/0/enabled = true
 bus/5/effect/1/effect = SubResource("AudioEffectHighPassFilter_edbjt")
 bus/5/effect/1/enabled = false
 bus/5/effect/2/effect = SubResource("AudioEffectHighShelfFilter_sttvq")
-bus/5/effect/2/enabled = true
+bus/5/effect/2/enabled = false
+bus/6/name = &"Character1"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"Voices"
+bus/6/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_bcjn6")
+bus/6/effect/0/enabled = false

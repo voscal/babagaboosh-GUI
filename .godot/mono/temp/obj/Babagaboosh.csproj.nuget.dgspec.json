@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj": {}
+    "D:\\Development\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj": {}
   },
   "projects": {
-    "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj": {
+    "D:\\Development\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj",
+        "projectUniqueName": "D:\\Development\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj",
         "projectName": "Babagaboosh",
-        "projectPath": "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj",
+        "projectPath": "D:\\Development\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj",
         "packagesPath": "C:\\Users\\Thomas\\.nuget\\packages\\",
-        "outputPath": "D:\\Games\\Godot\\Projects\\babagaboosh-GUI\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "D:\\Development\\Godot\\Projects\\babagaboosh-GUI\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\Thomas\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
@@ -24,7 +24,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -32,8 +32,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -44,8 +44,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Azure.Core": {
               "target": "Package",
@@ -63,6 +63,10 @@
               "target": "Package",
               "version": "[4.2.1, )"
             },
+            "GodotSharpEditor": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
             "Microsoft.CognitiveServices.Speech": {
               "target": "Package",
               "version": "[1.35.0, )"
@@ -74,6 +78,10 @@
             "OpenAI": {
               "target": "Package",
               "version": "[1.10.0, )"
+            },
+            "Vosk": {
+              "target": "Package",
+              "version": "[0.3.38, )"
             }
           },
           "imports": [
@@ -87,27 +95,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
-              "version": "[7.0.5, 7.0.5]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
-              "version": "[7.0.5, 7.0.5]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "linux-x64": {
-          "#import": []
         }
       }
     }

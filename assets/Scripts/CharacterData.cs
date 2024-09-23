@@ -25,11 +25,11 @@ public partial class CharacterData : Node
 		GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Head/Sprite").Size = StringToVector2((string)data["HeadSize"]);
 		GetNode<Node2D>("/root/Main Scene/Puppet/Character/Body").Position = StringToVector2((string)data["BodyPosition"]);
 		GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Body/Sprite").Size = StringToVector2((string)data["BodySize"]);
-		GetNode<MasterScript>("/root/Main Scene").Libraries.elevinLabs.currentVoice = (string)data["VoiceID"];
+		GetNode<MasterScript>("/root/Main Scene").services.elevinLabs.currentVoice = (string)data["VoiceID"];
 		ui.GetNode<Slider>("EditorUI/BG/Voice Config/Background/Panel/Stability").Value = (float)data["Stability"];
 		ui.GetNode<Slider>("EditorUI/BG/Voice Config/Background/Panel/Clarity").Value = (float)data["Clarity"];
 		ui.GetNode<Slider>("EditorUI/BG/Voice Config/Background/Panel/Exaggeration").Value = (float)data["Exaggeration"];
-		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Character Loaded", "[center]Your character have successfully been loaded", 6);
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Character Loaded", "[center]Your character have successfully been loaded", 6);
 	}
 
 	Vector2 StringToVector2(string VectString)

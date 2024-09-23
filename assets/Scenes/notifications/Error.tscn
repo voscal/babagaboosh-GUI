@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bhs1y5rbb87u4"]
 
 [ext_resource type="Texture2D" uid="uid://dhvdoc00pbgio" path="res://assets/Sprites/Cross.png" id="1_15sf5"]
-[ext_resource type="Script" path="res://assets/Scripts/Notification.cs" id="1_itmtm"]
+[ext_resource type="Script" path="res://assets/Notification.cs" id="1_itmtm"]
 [ext_resource type="Texture2D" uid="uid://ce3sa7s200hyt" path="res://assets/Sprites/exit.png" id="3_8ibaj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3whoj"]

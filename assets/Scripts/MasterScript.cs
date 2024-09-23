@@ -15,7 +15,9 @@ public partial class MasterScript : Node
 	UI ui;
 	VoiceData voiceData;
 	CharacterData characterData;
-	public Remotelibraries Libraries;
+	public Services services;
+
+	Manager manager;
 
 	AudioManager audioManager;
 	public override async void _Ready()
@@ -23,11 +25,12 @@ public partial class MasterScript : Node
 		GlobalInput = GetNode<GlobalInputCSharp>("/root/GlobalInput/GlobalInputCSharp");
 		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
 		characterData = GetNode<CharacterData>("/root/Data/CharacterData");
+		manager = GetNode<Manager>("/root/Managers");
 
-
-		Libraries = GetNode<Remotelibraries>("Remote Libraries");
+		services = GetNode<Services>("/root/Services");
 		audioManager = GetNode<AudioManager>("/root/Managers/Audio");
 		ui = GetNode<UI>("UI");
+		GD.Print(ui.Name);
 		ui.coreUI.record.Pressed += askAI;
 		SetCharacter();
 		await voiceData.GetVoice();
@@ -38,7 +41,7 @@ public partial class MasterScript : Node
 
 	public void SetCharacter()
 	{
-		Libraries.chatGPT.SetContext("");
+		services.chatGPT.SetContext("");
 
 	}
 
@@ -80,20 +83,18 @@ public partial class MasterScript : Node
 
 		if (recording)
 		{
-			GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
+			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
 			return;
 		}
 
-
-		audioManager.recordEffect.SetRecordingActive(false);
-		GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
-		string recordedText = await Libraries.azuir.GetTextFromWav(ProjectSettings.GlobalizePath("user://Audio/record.wav"));
+		string recordedText = await manager.sTT.GetText();
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
+		GD.Print(recordedText);
 		if (recordedText != null)
 		{
-
-			string aiResponse = await Libraries.chatGPT.SendMessage(recordedText);
+			string aiResponse = await services.chatGPT.SendMessage(recordedText);
 			GD.Print(aiResponse);
-			await Libraries.elevinLabs.RenderVoice(aiResponse);
+			await services.elevinLabs.RenderVoice(aiResponse);
 
 			audioManager.PlayAudio();
 

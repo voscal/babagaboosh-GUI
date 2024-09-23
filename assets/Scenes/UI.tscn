@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://drsi7fywnus2"]
+[gd_scene load_steps=94 format=3 uid="uid://drsi7fywnus2"]
 
 [ext_resource type="Script" path="res://assets/Scripts/UI/UI.cs" id="1_levkm"]
 [ext_resource type="Script" path="res://assets/Scripts/UI/CoreUI.cs" id="2_3k362"]
@@ -23,7 +23,6 @@
 [ext_resource type="AudioStream" uid="uid://djyf884p6vs2c" path="res://assets/sfx/settingsClose.mp3" id="15_sgklh"]
 [ext_resource type="Texture2D" uid="uid://xse5c3xsv7il" path="res://assets/Sprites/Error.png" id="18_qmyss"]
 [ext_resource type="Texture2D" uid="uid://c27wtb3iyfyw4" path="res://assets/Sprites/voice tweeks.png" id="19_rmxil"]
-[ext_resource type="Texture2D" uid="uid://slcjnttyxyxe" path="res://assets/Sprites/save.png" id="20_o57wp"]
 [ext_resource type="Texture2D" uid="uid://bhb3jegcpwkmg" path="res://assets/Sprites/explosion.png" id="21_q2ann"]
 [ext_resource type="AudioStream" uid="uid://b120o2nras8hd" path="res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3" id="21_vwfcv"]
 [ext_resource type="AudioStream" uid="uid://b1fn2i6t4dchp" path="res://assets/sfx/explosion.ogg" id="22_4ak46"]
@@ -1032,7 +1031,7 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_alr8j"]
 font = ExtResource("5_hrdfa")
-font_size = 30
+font_size = 27
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbsp6"]
@@ -1956,6 +1955,10 @@ stretch_mode = 0
 [node name="Background" type="Panel" parent="EditorUI/BG/Voices"]
 clip_contents = true
 layout_mode = 0
+offset_left = 30.9973
+offset_top = 30.9999
+offset_right = 30.9973
+offset_bottom = 30.9999
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Voices/Background"]
@@ -1981,7 +1984,7 @@ anchor_bottom = 1.0
 offset_left = 14.0
 offset_top = 36.0
 offset_right = -15.0
-offset_bottom = -56.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_voyw1")
@@ -1993,44 +1996,29 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="VoiceShelf3" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer" instance=ExtResource("8_o8ng1")]
+[node name="CustomVoices" type="VBoxContainer" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices"]
+layout_mode = 2
+text = "CUSTOM"
+
+[node name="VoiceShelf3" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices" instance=ExtResource("8_o8ng1")]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="EditorUI/BG/Voices/Background"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 199.0
-offset_right = 388.0
-offset_bottom = 235.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
+[node name="PreMade" type="VBoxContainer" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="AIVoiceID" type="TextEdit" parent="EditorUI/BG/Voices/Background/Panel"]
-unique_name_in_owner = true
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -109.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("8_voyw1")
-theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
-placeholder_text = "enter voice ID"
+[node name="Label" type="Label" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer/PreMade"]
+layout_mode = 2
+text = "PRE-MADE"
 
-[node name="Button" type="Button" parent="EditorUI/BG/Voices/Background/Panel"]
-layout_mode = 0
-offset_left = 269.0
-offset_top = 3.0
-offset_right = 371.0
-offset_bottom = 32.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hrdfa")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
-text = "FIND VOICE"
+[node name="VoiceShelf3" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer/PreMade" instance=ExtResource("8_o8ng1")]
+layout_mode = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Voices"]
 visible = false
@@ -2070,6 +2058,10 @@ stretch_mode = 0
 [node name="Background" type="Panel" parent="EditorUI/BG/Voice Config"]
 clip_contents = true
 layout_mode = 0
+offset_left = 30.9973
+offset_top = 30.9999
+offset_right = 30.9973
+offset_bottom = 30.9999
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="Panel" type="Panel" parent="EditorUI/BG/Voice Config/Background"]
@@ -2236,6 +2228,10 @@ stretch_mode = 0
 [node name="Background" type="Panel" parent="EditorUI/BG/Chatgpt"]
 clip_contents = true
 layout_mode = 0
+offset_left = -99.0019
+offset_top = -299.0
+offset_right = 302.998
+offset_bottom = -51.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
 [node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background"]
@@ -2247,7 +2243,7 @@ offset_top = 10.0
 offset_bottom = -214.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Camera
+text = "CHAT GPT
 "
 label_settings = SubResource("LabelSettings_vbys4")
 horizontal_alignment = 1
@@ -2262,19 +2258,72 @@ offset_right = 388.0
 offset_bottom = 235.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="Center camera" type="Button" parent="EditorUI/BG/Chatgpt/Background/Panel"]
+[node name="Stability" type="HSlider" parent="EditorUI/BG/Chatgpt/Background/Panel"]
+texture_filter = 3
 layout_mode = 0
-offset_left = 13.0
-offset_top = 162.0
-offset_right = 361.0
-offset_bottom = 194.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_hrdfa")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
-text = "RESET CAMERA"
+offset_left = 25.0
+offset_top = 164.0
+offset_right = 348.0
+offset_bottom = 192.0
+theme = ExtResource("8_voyw1")
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("9_nx8f0")
+theme_override_icons/grabber_highlight = ExtResource("9_nx8f0")
+theme_override_icons/grabber_disabled = ExtResource("9_nx8f0")
+theme_override_icons/tick = ExtResource("9_nx8f0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r4nhi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bbqh8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_37ybt")
+max_value = 2.0
+step = 0.01
+value = 0.5
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background/Panel/Stability"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEMPERATURE"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
+
+[node name="MicList" type="OptionButton" parent="EditorUI/BG/Chatgpt/Background/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 25.0006
+offset_top = 33.0
+offset_right = -26.9994
+offset_bottom = 68.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+clip_text = true
+item_count = 1
+fit_to_longest_item = false
+allow_reselect = true
+popup/item_0/text = ""
+popup/item_0/id = 0
+
+[node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background/Panel/MicList"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GPT MODEL"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
 
 [node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Chatgpt"]
-visible = false
 position = Vector2(35.5953, 27)
 rotation = 1.57079
 scale = Vector2(2.0248, 1)
@@ -2296,33 +2345,6 @@ stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="Save" type="TextureButton" parent="EditorUI/BG"]
-visible = false
-layout_mode = 0
-offset_left = -333.006
-offset_top = 836.001
-offset_right = -269.006
-offset_bottom = 900.001
-rotation = 4.71239
-pivot_offset = Vector2(32.13, 32.345)
-texture_normal = ExtResource("20_o57wp")
-ignore_texture_size = true
-stretch_mode = 0
-flip_h = true
-
-[node name="Import" type="TextureButton" parent="EditorUI/BG"]
-visible = false
-layout_mode = 0
-offset_left = -258.006
-offset_top = 836.002
-offset_right = -194.006
-offset_bottom = 900.002
-rotation = 7.85397
-pivot_offset = Vector2(32.13, 32.345)
-texture_normal = ExtResource("20_o57wp")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="AIContext" type="Control" parent="EditorUI"]
 anchors_preset = 0
 offset_left = -0.0072093
@@ -2333,7 +2355,6 @@ rotation = -1.57079
 mouse_filter = 2
 
 [node name="BG" type="Panel" parent="EditorUI/AIContext"]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 28.8
@@ -2349,9 +2370,9 @@ anchors_preset = -1
 anchor_right = 0.167
 anchor_bottom = 1.0
 offset_left = 388.0
-offset_top = 662.0
+offset_top = 14.0
 offset_right = 805.32
-offset_bottom = 1240.0
+offset_bottom = 592.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
@@ -2800,6 +2821,227 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
+[node name="KeyBinds" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_right = 8.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "KEYBINDS"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 71.0
+offset_right = -8.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "INPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 97.0
+offset_right = -8.0
+offset_bottom = 137.0
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 142.0
+offset_right = -8.0
+offset_bottom = 173.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+text = "OUTPUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 169.0
+offset_right = -8.0
+offset_bottom = 209.0
+grow_horizontal = 2
+theme = ExtResource("8_voyw1")
+clip_text = true
+fit_to_longest_item = false
+allow_reselect = true
+
+[node name="SpeechToText" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(353, 356.31)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = 16.0
+offset_right = 6.0
+offset_bottom = 53.0
+grow_horizontal = 2
+text = "SPEECH TO TEXT"
+label_settings = SubResource("LabelSettings_alr8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+uppercase = true
+
+[node name="chat label" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 77.0
+offset_right = -8.0
+offset_bottom = 108.0
+grow_horizontal = 2
+text = "SERVICE"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="ChatAPI" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 105.0
+offset_right = 343.0
+offset_bottom = 149.0
+theme = ExtResource("8_voyw1")
+item_count = 3
+selected = 0
+popup/item_0/text = "VOSK"
+popup/item_0/id = 0
+popup/item_1/text = "AZURE"
+popup/item_1/id = 1
+popup/item_2/text = "WHISPER"
+popup/item_2/id = 2
+
+[node name="11labs" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 15.0
+offset_top = 258.0
+offset_right = 43.0
+offset_bottom = 289.0
+grow_horizontal = 2
+text = "TIME OUT"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="11labAPI" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 288.0
+offset_right = 344.0
+offset_bottom = 332.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+scroll_smooth = true
+
+[node name="Azure label2" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 351.0
+offset_right = 48.0
+offset_bottom = 382.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="Region Input" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 385.0
+offset_right = 343.0
+offset_bottom = 429.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
+[node name="Vosk" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText/Vosk"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 15.0
+offset_top = 167.0
+offset_right = 305.0
+offset_bottom = 198.0
+grow_horizontal = 2
+text = "MODDLE"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="VoskModdle" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText/Vosk"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 195.0
+offset_right = 344.0
+offset_bottom = 239.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
+[node name="Azure" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Region" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText/Azure"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 15.0
+offset_top = 167.0
+offset_right = 305.0
+offset_bottom = 198.0
+grow_horizontal = 2
+text = "REGION"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+
+[node name="AzureRegion" type="TextEdit" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/SpeechToText/Azure"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 195.0
+offset_right = 344.0
+offset_bottom = 239.0
+theme = ExtResource("8_voyw1")
+theme_override_fonts/font = ExtResource("9_f7luj")
+
 [node name="API keys" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(353, 356.31)
 layout_mode = 2
@@ -2917,80 +3159,7 @@ offset_bottom = 429.0
 theme = ExtResource("8_voyw1")
 theme_override_fonts/font = ExtResource("9_f7luj")
 
-[node name="KeyBinds" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(353, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 12.0
-offset_right = 8.0
-offset_bottom = 59.0
-grow_horizontal = 2
-text = "KEYBINDS"
-label_settings = SubResource("LabelSettings_alr8j")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="InputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 71.0
-offset_right = -8.0
-offset_bottom = 102.0
-grow_horizontal = 2
-text = "INPUT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="MicList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 2
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 97.0
-offset_right = -8.0
-offset_bottom = 137.0
-theme = ExtResource("8_voyw1")
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
-[node name="OutputLable" type="Label" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 142.0
-offset_right = -8.0
-offset_bottom = 173.0
-grow_horizontal = 2
-theme = ExtResource("8_voyw1")
-text = "OUTPUT"
-label_settings = SubResource("LabelSettings_vbys4")
-vertical_alignment = 1
-
-[node name="OutputList" type="OptionButton" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/KeyBinds"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 16.0
-offset_top = 169.0
-offset_right = -8.0
-offset_bottom = 209.0
-grow_horizontal = 2
-theme = ExtResource("8_voyw1")
-clip_text = true
-fit_to_longest_item = false
-allow_reselect = true
-
 [node name="Misc" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(353, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -3205,10 +3374,7 @@ libraries = {
 [connection signal="pressed" from="EditorUI/BG/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
 [connection signal="pressed" from="EditorUI/BG/Voice Config" to="EditorUI" method="EditButtonPressed" binds= ["Voice Config"]]
 [connection signal="mouse_entered" from="EditorUI/BG/Voice Config/Background" to="." method="mouseenterlol"]
-[connection signal="pressed" from="EditorUI/BG/Chatgpt" to="EditorUI" method="EditButtonPressed" binds= ["Camera"]]
-[connection signal="pressed" from="EditorUI/BG/Chatgpt/Background/Panel/Center camera" to="EditorUI" method="CenterCamera"]
-[connection signal="pressed" from="EditorUI/BG/Save" to="SaveFileDialog" method="show"]
-[connection signal="pressed" from="EditorUI/BG/Import" to="ImportChracter" method="show"]
+[connection signal="pressed" from="EditorUI/BG/Chatgpt" to="EditorUI" method="EditButtonPressed" binds= ["Chatgpt"]]
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Close" to="EditorUI" method="CloseContextMenu"]
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Save" to="EditorUI" method="UpdateContext"]
 [connection signal="pressed" from="Character Select/BackGround/Save_Import/Save" to="EditorUI" method="SaveButtonClicked"]

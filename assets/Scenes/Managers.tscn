@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn46jmt6uglv6"]
+[gd_scene load_steps=7 format=3 uid="uid://dn46jmt6uglv6"]
 
-[ext_resource type="Script" path="res://assets/Scripts/AudioManager.cs" id="1_54art"]
-[ext_resource type="Script" path="res://assets/Scripts/NotificationsManager.cs" id="1_xte7s"]
+[ext_resource type="Script" path="res://assets/Scripts/Managers/AudioManager.cs" id="1_54art"]
+[ext_resource type="Script" path="res://assets/Scripts/Managers/Manager.cs" id="1_n7at2"]
+[ext_resource type="Script" path="res://assets/Scripts/Managers/NotificationsManager.cs" id="1_xte7s"]
+[ext_resource type="Script" path="res://assets/Scripts/Managers/STT.cs" id="3_q6hsk"]
+[ext_resource type="Script" path="res://assets/Scripts/Managers/VoiceManager.cs" id="4_lckk4"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o5r0u"]
 
 [node name="Managers" type="Node"]
+script = ExtResource("1_n7at2")
 
-[node name="Notifications" type="Node" parent="."]
+[node name="Notification" type="Node" parent="."]
 script = ExtResource("1_xte7s")
 
 [node name="Audio" type="Node" parent="."]
@@ -29,3 +33,15 @@ bus = &"Recording"
 [node name="AIVoice" type="AudioStreamPlayer" parent="Audio"]
 autoplay = true
 bus = &"Voices"
+
+[node name="Window" type="Node" parent="."]
+
+[node name="Group" type="Node" parent="."]
+
+[node name="Data" type="Node" parent="."]
+
+[node name="STT" type="Node" parent="."]
+script = ExtResource("3_q6hsk")
+
+[node name="Voices" type="Node" parent="."]
+script = ExtResource("4_lckk4")

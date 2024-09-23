@@ -1,8 +1,8 @@
-G:/godot/linux 64
-G:/godot/x32
-G:/godot
-res://assets
+res://addons/vosk/Models/en_us_small
 res://assets/Scenes
+G:/godot
+res://addons/vosk/Models
+res://assets
 D:/Tools
 res://
 res://assets/Sprites

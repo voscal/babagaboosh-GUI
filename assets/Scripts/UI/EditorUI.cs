@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using ElevenLabs.Models;
 using ElevenLabs.Voices;
 using Godot;
 
@@ -8,7 +11,7 @@ public partial class EditorUI : Control
 	string openedUI;
 	public bool menuOpen = false;
 
-	public Remotelibraries remotelibraries;
+	public Services services;
 
 	public bool editorOpen = false;
 
@@ -28,7 +31,7 @@ public partial class EditorUI : Control
 	public override void _Ready()
 	{
 		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
-		remotelibraries = GetNode<Remotelibraries>("/root/Main Scene/Remote Libraries");
+		services = GetNodeOrNull<Services>("/root/Services");
 	}
 
 	//play any ui's opening/closing animation
@@ -63,21 +66,38 @@ public partial class EditorUI : Control
 	public void UpdateVoiceList()
 	{
 
-		VBoxContainer vBox = GetNode<VBoxContainer>("BG/Voices/Background/ScrollContainer/VBoxContainer");
-		foreach (voiceShelf voiceShelf in vBox.GetChildren())
-		{
+		VBoxContainer customVBox = GetNode<VBoxContainer>("BG/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices");
+		VBoxContainer premadeVBox = GetNode<VBoxContainer>("BG/Voices/Background/ScrollContainer/VBoxContainer/PreMade");
+
+		foreach (voiceShelf voiceShelf in customVBox.GetChildren().OfType<voiceShelf>())
 			voiceShelf.QueueFree();
-		}
+		foreach (voiceShelf voiceShelf in premadeVBox.GetChildren().OfType<voiceShelf>())
+			voiceShelf.QueueFree();
+
 		var scene = GD.Load<PackedScene>("res://assets/Scenes/voiceShelf.tscn");
 		foreach (Voice voice in voiceData.voices)
 		{
-			var sceneInstance = scene.Instantiate<voiceShelf>();
-			sceneInstance.Name = voice.Name;
-			sceneInstance.voice = voice;
-			vBox.AddChild(sceneInstance);
+			if (voice.PreviewUrl.Contains("premade"))
+			{
+				var premadeSceneInstance = scene.Instantiate<voiceShelf>();
+				premadeSceneInstance.Name = voice.Name;
+				premadeSceneInstance.voice = voice;
+				premadeVBox.AddChild(premadeSceneInstance);
+				continue;
+			}
+			var customSceneInstance = scene.Instantiate<voiceShelf>();
+			customSceneInstance.Name = voice.Name;
+			customSceneInstance.voice = voice;
+			customVBox.AddChild(customSceneInstance);
+
 		}
 
 
+	}
+
+	public async void UpdateModleList()
+	{
+		await services.chatGPT.GetModles();
 	}
 
 	public VoiceSettings GetVoiceSettings()
@@ -158,7 +178,7 @@ public partial class EditorUI : Control
 	}
 	public void UpdateContext()
 	{
-		remotelibraries.chatGPT.SetContext(GetNode<TextEdit>("AIContext/Pannle/Panel/AIcontext").Text);
+		services.chatGPT.SetContext(GetNode<TextEdit>("AIContext/Pannle/Panel/AIcontext").Text);
 	}
 
 	#endregion
