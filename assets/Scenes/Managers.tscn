@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://assets/Scripts/Managers/VoiceManager.cs" id="4_lckk4"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/OBS.cs" id="4_rt6g3"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/CharacterManager.cs" id="7_fknro"]
-[ext_resource type="Script" path="res://assets/Scenes/ViewManager.cs" id="8_8p151"]
+[ext_resource type="Script" path="res://assets/Scripts/Managers/ViewManager.cs" id="8_8p151"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o5r0u"]
 
