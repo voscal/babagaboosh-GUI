@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ctn1yrv4kb105"]
 
-[ext_resource type="Script" path="res://assets/Scripts/CharacterBox.cs" id="1_lw72u"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/CharacterBox.cs" id="1_lw72u"]
 [ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="2_ju155"]
 [ext_resource type="PackedScene" uid="uid://cxi6grsp81c43" path="res://assets/Scenes/DisplayDummy.tscn" id="3_jcutw"]
 [ext_resource type="Theme" uid="uid://byiv4sk7pdl3g" path="res://mmtheme.tres" id="4_feiat"]

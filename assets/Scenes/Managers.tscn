@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn46jmt6uglv6"]
+[gd_scene load_steps=10 format=3 uid="uid://dn46jmt6uglv6"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Managers/AudioManager.cs" id="1_54art"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/Manager.cs" id="1_n7at2"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/NotificationsManager.cs" id="1_xte7s"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/STT.cs" id="3_q6hsk"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/VoiceManager.cs" id="4_lckk4"]
+[ext_resource type="Script" path="res://assets/Scripts/Managers/OBS.cs" id="4_rt6g3"]
+[ext_resource type="Script" path="res://assets/Scripts/Managers/CharacterManager.cs" id="7_fknro"]
+[ext_resource type="Script" path="res://assets/Scenes/ViewManager.cs" id="8_8p151"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o5r0u"]
 
@@ -34,14 +37,22 @@ bus = &"Recording"
 autoplay = true
 bus = &"Voices"
 
-[node name="Window" type="Node" parent="."]
+[node name="OBS" type="Node" parent="."]
+script = ExtResource("4_rt6g3")
 
 [node name="Group" type="Node" parent="."]
 
-[node name="Data" type="Node" parent="."]
+[node name="File" type="Node" parent="."]
 
 [node name="STT" type="Node" parent="."]
 script = ExtResource("3_q6hsk")
+provider = 2
 
 [node name="Voices" type="Node" parent="."]
 script = ExtResource("4_lckk4")
+
+[node name="Character" type="Node" parent="."]
+script = ExtResource("7_fknro")
+
+[node name="View" type="Node" parent="."]
+script = ExtResource("8_8p151")

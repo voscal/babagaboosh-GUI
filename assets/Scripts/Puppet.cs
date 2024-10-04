@@ -1,8 +1,12 @@
 using Godot;
-using System;
+//using System;
 
 public partial class Puppet : Node2D
 {
+
+
+
+
 	[Export]
 	public float maxHeadHeight;
 
@@ -28,7 +32,7 @@ public partial class Puppet : Node2D
 		GetNode<Panel>("/root/Main Scene/UI/EditorUI/BG/Voices/Background").MouseExited += UIMouseExit;
 	}
 
-	public override void _Process(Double delta)
+	public override void _Process(double delta)
 	{
 		if (audioManager.GetNode<AudioStreamPlayer>("AIVoice").Playing == true)
 		{
@@ -119,7 +123,21 @@ public partial class Puppet : Node2D
 }
 
 
+public enum Style
+{
+	Puppet,
+	Switch,
+	Static
+};
 
+public enum Transition
+{
+	None,
+	Slide,
+	Fade,
+	Pop
+	// Custom (i wish lol, maybe ill do something with this later)
+}
 
 
 
