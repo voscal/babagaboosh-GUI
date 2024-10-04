@@ -1,5 +1,5 @@
 res://default_bus_layout.tres
-res://samples/godot_whisper/audio_transcribe.tscn
-res://assets/Shaders/gridScroll.gdshader
 res://assets/Scenes/Services.tscn
+res://assets/Shaders/gridScroll.gdshader
 res://assets/Scenes/Managers.tscn
+res://samples/godot_whisper/audio_transcribe.tscn

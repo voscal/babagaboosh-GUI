@@ -1,6 +1,6 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1727076247
-default_bus_layout.tres::AudioBusLayout::5089585494889196966::1727053605::0::1::::<><>::
+::res://::1728020536
+default_bus_layout.tres::AudioBusLayout::5089585494889196966::1727951341::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1722332362::0::1::::<><>::
 mmtheme.tres::Theme::4088795760252151154::1726538374::0::1::::<><>::uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf
 README.md::TextFile::-1::1719306748::0::1::::<><>::
@@ -33,7 +33,7 @@ model_downloader.gd::GDScript::-1::1726492756::0::1::::<>Node<>::
 plugin.cfg::TextFile::-1::1726492756::0::1::::<><>::
 whisper_dock.gd::GDScript::-1::1726492756::0::1::::<>EditorPlugin<>::
 whisper_dock.tscn::PackedScene::7799642237106206269::1726492756::0::1::::<><>::res://addons/godot_whisper/model_downloader.gd
-::res://addons/godot_whisper/bin/::1727076240
+::res://addons/godot_whisper/bin/::1728020529
 ::res://addons/godot_whisper/bin/libgodot_whisper.ios.template_release.arm64.framework/::1726492759
 ::res://addons/godot_whisper/bin/libgodot_whisper.ios.template_release.double.arm64.framework/::1726492759
 ::res://addons/godot_whisper/bin/libgodot_whisper.macos.template_release.double.universal.framework/::1726492758
@@ -48,7 +48,7 @@ gglm-tiny.en.bin::WhisperResource::-1::1726492760::0::1::::<><>::
 native_dialogs.gdextension::GDExtension::-1::1718098471::0::1::::<><>::
 plugin.cfg::TextFile::-1::1718098471::0::1::::<><>::
 plugin.gd::GDScript::-1::1718098471::0::1::::<>EditorPlugin<>::
-::res://addons/native_dialogs/bin/::1727076240
+::res://addons/native_dialogs/bin/::1728020529
 ::res://addons/native_dialogs/bin/libnativedialogs.macos.template_debug.framework/::1722332315
 ::res://addons/native_dialogs/bin/libnativedialogs.macos.template_release.framework/::1722332315
 ::res://addons/native_dialogs/icons/::1718098471
@@ -79,15 +79,15 @@ Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3::AudioStreamMP3::4268613182561446501
 [OST] Super Mario Maker - Create_ New Super Mario Bros. U - Ground Theme - NintendoViewer.mp3::AudioStreamMP3::4769110670956928245::1718098471::1718098471::1::::<><>::
 ::res://assets/Resource/::1718098471
 APiTemplate.json::JSON::-1::1718098471::0::1::::<><>::
-::res://assets/Scenes/::1727059285
+::res://assets/Scenes/::1727951436
 characterBox.tscn::PackedScene::6134888734846146144::1726491200::0::1::::<><>::res://assets/Scripts/CharacterBox.cs<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://cxi6grsp81c43::::res://assets/Scenes/DisplayDummy.tscn<>uid://byiv4sk7pdl3g::::res://mmtheme.tres
 data.tscn::PackedScene::4218046465480141158::1726553401::0::1::::<><>::res://assets/VoiceData.cs<>res://assets/Scripts/Managers/SaveManager.cs<>res://assets/Scripts/CharacterData.cs
 DisplayDummy.tscn::PackedScene::6405593656062702526::1719048242::0::1::::<><>::uid://dvlojxdgh3bcy::::res://assets/Sprites/temp char/bottom.png<>uid://bj0owew0wufyl::::res://assets/Sprites/temp char/Top.png
 Dummy.tscn::PackedScene::6795302755860214596::1726492916::0::1::::<><>::res://assets/Scripts/Puppet.cs<>uid://dvlojxdgh3bcy::::res://assets/Sprites/temp char/bottom.png<>uid://bj0owew0wufyl::::res://assets/Sprites/temp char/Top.png<>res://assets/Scripts/Resize.cs
 Main Scene.tscn::PackedScene::2960808446803785342::1726547246::0::1::::<><>::res://assets/Scripts/MasterScript.cs<>res://assets/Scripts/Windowtest.cs<>uid://tg5camoy8ef4::::res://assets/Sprites/Info.png<>uid://drsi7fywnus2::::res://assets/Scenes/UI.tscn<>uid://c32xv48m7eni7::::res://assets/Scenes/Dummy.tscn
-Managers.tscn::PackedScene::8133482933229321893::1727059285::0::1::::<><>::res://assets/Scripts/Managers/AudioManager.cs<>res://assets/Scripts/Managers/Manager.cs<>res://assets/Scripts/Managers/NotificationsManager.cs<>res://assets/Scripts/Managers/STT.cs<>res://assets/Scripts/Managers/VoiceManager.cs
+Managers.tscn::PackedScene::8133482933229321893::1727951436::0::1::::<><>::res://assets/Scripts/Managers/AudioManager.cs<>res://assets/Scripts/Managers/Manager.cs<>res://assets/Scripts/Managers/NotificationsManager.cs<>res://assets/Scripts/Managers/STT.cs<>res://assets/Scripts/Managers/VoiceManager.cs
 resize test.tscn::PackedScene::8824221967828307285::1718444407::0::1::::<><>::res://assets/Scripts/Resize.cs
-Services.tscn::PackedScene::6357472968294599888::1727059285::0::1::::<><>::res://assets/Scripts/Services/Services.cs<>res://assets/Scripts/Services/ChatGD.cs<>res://assets/Scripts/Services/ElevinLabsGD.cs<>res://assets/Scripts/Services/AzuirGD.cs<>res://assets/Scripts/Services/VoskGD.cs<>res://assets/Scripts/Services/WhisperGD.cs<>res://addons/godot_whisper/models/gglm-tiny.en.bin<>res://addons/godot_whisper/audio_stream_to_text.gd<>uid://cuybt83bwegoq::::res://samples/godot_whisper/jfk.wav
+Services.tscn::PackedScene::6357472968294599888::1727951436::0::1::::<><>::res://assets/Scripts/Services/Services.cs<>res://assets/Scripts/Services/ChatGD.cs<>res://assets/Scripts/Services/ElevinLabsGD.cs<>res://assets/Scripts/Services/AzuirGD.cs<>res://assets/Scripts/Services/VoskGD.cs<>res://assets/Scripts/Services/WhisperGD.cs<>res://addons/godot_whisper/models/gglm-tiny.en.bin<>res://addons/godot_whisper/audio_stream_to_text.gd<>uid://cuybt83bwegoq::::res://samples/godot_whisper/jfk.wav
 UI.tscn::PackedScene::246769834545759831::1726492916::0::1::::<><>::res://assets/Scripts/UI/UI.cs<>res://assets/Scripts/UI/CoreUI.cs<>res://assets/Scripts/UI/EditorUI.cs<>res://assets/Shaders/gridScroll.gdshader<>uid://b7vttsxaesumd::::res://assets/Sprites/grid.png<>uid://b51pwfpj452aq::::res://assets/Sprites/Character Button.png<>uid://chcdxiga4i7vj::::res://assets/Sprites/record.png<>uid://b4qt3uh77icwa::::res://assets/Sprites/clapper board.png<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://b04p0lqcj7o6q::::res://assets/Sprites/settings.png<>uid://5atjbnn66ny7::::res://assets/Sprites/replay.png<>res://assets/Scripts/UI/SettingsUI.cs<>uid://c6qu4fxp3w6ni::::res://assets/Scenes/voiceShelf.tscn<>uid://byiv4sk7pdl3g::::res://mmtheme.tres<>uid://dpm21lxchrs1o::::res://assets/Fonts/FlowRounded-Regular.ttf<>uid://bkouiyx3ams1l::::res://assets/Sprites/handle.png<>uid://b0rdwu1lwb7db::::res://assets/Sprites/VoicesButton.png<>uid://bw5vcbak24tix::::res://assets/Sprites/SpritesButton.png<>uid://d2i74kvptfvhf::::res://assets/Sprites/about Button.png<>uid://b4ad3qe62w8kk::::res://assets/sfx/settingOpen.mp3<>uid://djyf884p6vs2c::::res://assets/sfx/settingsClose.mp3<>uid://xse5c3xsv7il::::res://assets/Sprites/Error.png<>uid://c27wtb3iyfyw4::::res://assets/Sprites/voice tweeks.png<>uid://bhb3jegcpwkmg::::res://assets/Sprites/explosion.png<>uid://b120o2nras8hd::::res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3<>uid://b1fn2i6t4dchp::::res://assets/sfx/explosion.ogg<>uid://ixs6b5e4sear::::res://assets/sfx/openbox.ogg<>uid://b87gs5ybiatlt::::res://assets/music/[OST] Super Mario Maker - Create_ New Super Mario Bros. U - Ground Theme - NintendoViewer.mp3<>uid://kk8g07dyk4ew::::res://assets/sfx/closebox.ogg<>uid://5n0roo7vmo41::::res://assets/sfx/openEditor.ogg<>uid://c7s4xc663ntit::::res://assets/sfx/closeEditor.ogg<>res://assets/Scripts/CharacterSelect.cs
 voiceShelf.tscn::PackedScene::6982991990975835726::1726492916::0::1::::<><>::res://assets/Scripts/voiceShelf.cs<>uid://byiv4sk7pdl3g::::res://mmtheme.tres
 ::res://assets/Scenes/notifications/::1726553388
@@ -129,8 +129,8 @@ openbox.ogg::AudioStreamOggVorbis::610139802017172225::1718595701::1719301606::1
 openEditor.ogg::AudioStreamOggVorbis::2134051261695942748::1718447983::1719301606::1::::<><>::
 settingOpen.mp3::AudioStreamMP3::4422130150401979042::1718098471::1718098471::1::::<><>::
 settingsClose.mp3::AudioStreamMP3::7840871004875410840::1718098471::1718098471::1::::<><>::
-::res://assets/Shaders/::1727059296
-gridScroll.gdshader::Shader::-1::1727059296::0::1::::<><>::
+::res://assets/Shaders/::1727952934
+gridScroll.gdshader::Shader::-1::1727952934::0::1::::<><>::
 ::res://assets/Sprites/::1719896131
 about Button.png::CompressedTexture2D::9072871141511961535::1719896131::1719896131::1::::<><>::
 Character Button.png::CompressedTexture2D::4546710143034731292::1718098471::1718098471::1::::<><>::
@@ -160,8 +160,8 @@ WindowButton.png::CompressedTexture2D::7475931112933489483::1718098471::17180984
 bottom.png::CompressedTexture2D::8656803245771050544::1718098471::1718098471::1::::<><>::
 Top.png::CompressedTexture2D::3070619290896700527::1718098471::1718098511::1::::<><>::
 ::res://samples/::1726492760
-::res://samples/godot_whisper/::1727059285
-audio_transcribe.tscn::PackedScene::3647596425742816433::1727059285::0::1::::<><>::uid://cuybt83bwegoq::::res://samples/godot_whisper/jfk.wav<>res://addons/godot_whisper/models/gglm-tiny.en.bin<>res://addons/godot_whisper/audio_stream_to_text.gd
+::res://samples/godot_whisper/::1727951436
+audio_transcribe.tscn::PackedScene::3647596425742816433::1727951436::0::1::::<><>::uid://cuybt83bwegoq::::res://samples/godot_whisper/jfk.wav<>res://addons/godot_whisper/models/gglm-tiny.en.bin<>res://addons/godot_whisper/audio_stream_to_text.gd
 enable_mic.gd::GDScript::-1::1726492760::0::1::::<>CheckBox<>::
 jfk.wav::AudioStreamWAV::6226259729921321764::1726492760::1726492764::1::::<><>::
 mic_transcribe.tscn::PackedScene::7723818659616719491::1727059033::0::1::::<><>::res://samples/godot_whisper/sample_setup.gd<>uid://cuybt83bwegoq::::res://samples/godot_whisper/jfk.wav<>res://samples/godot_whisper/test_display.gd<>res://samples/godot_whisper/StartButton.gd<>res://samples/godot_whisper/enable_mic.gd<>res://addons/godot_whisper/capture_stream_to_text.gd<>res://addons/godot_whisper/models/gglm-tiny.en.bin
