@@ -1,12 +1,12 @@
+TextureRect
+Control
 Node
+Sprite2D
 Camera2D
 SubViewport
 AudioStreamPlayer
 SpeechToText
 AnimationPlayer
-TextureRect
-Control
-Sprite2D
 Window
 HSlider
 OptionButton

@@ -39,15 +39,15 @@ public partial class EditorUI : Control
 	{
 
 		GD.Print("CLICK");
-		TextureButton button = GetNode<TextureButton>($"BG/{nodePath}");
+		TextureButton button = GetNode<TextureButton>($"Toolbar/{nodePath}");
 
 		if (openedUI != null)
 		{
-			GetNode<AnimationPlayer>($"BG/{openedUI}/AnimationPlayer").Play("CloseUI");
+			GetNode<AnimationPlayer>($"Toolbar/{openedUI}/AnimationPlayer").Play("CloseUI");
 		}
 		if (openedUI == nodePath)
 		{
-			GetNode<AnimationPlayer>($"BG/{openedUI}/AnimationPlayer").Play("CloseUI");
+			GetNode<AnimationPlayer>($"Toolbar/{openedUI}/AnimationPlayer").Play("CloseUI");
 			openedUI = null;
 			return;
 		}
@@ -66,8 +66,8 @@ public partial class EditorUI : Control
 	public void UpdateVoiceList()
 	{
 
-		VBoxContainer customVBox = GetNode<VBoxContainer>("BG/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices");
-		VBoxContainer premadeVBox = GetNode<VBoxContainer>("BG/Voices/Background/ScrollContainer/VBoxContainer/PreMade");
+		VBoxContainer customVBox = GetNode<VBoxContainer>("Toolbar/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices");
+		VBoxContainer premadeVBox = GetNode<VBoxContainer>("Toolbar/Voices/Background/ScrollContainer/VBoxContainer/PreMade");
 
 		foreach (voiceShelf voiceShelf in customVBox.GetChildren().OfType<voiceShelf>())
 			voiceShelf.QueueFree();
@@ -104,9 +104,9 @@ public partial class EditorUI : Control
 	{
 		VoiceSettings voiceSettingsNew = new()
 		{
-			Stability = (float)GetNode<Slider>("BG/Voice Config/Background/Panel/Stability").Value,
-			SimilarityBoost = (float)GetNode<Slider>("BG/Voice Config/Background/Panel/Clarity").Value,
-			Style = (float)GetNode<Slider>("BG/Voice Config/Background/Panel/Exaggeration").Value,
+			Stability = (float)GetNode<Slider>("Toolbar/Voice Config/Background/Panel/Stability").Value,
+			SimilarityBoost = (float)GetNode<Slider>("Toolbar/Voice Config/Background/Panel/Clarity").Value,
+			Style = (float)GetNode<Slider>("Toolbar/Voice Config/Background/Panel/Exaggeration").Value,
 
 		};
 		return voiceSettingsNew;
@@ -133,7 +133,7 @@ public partial class EditorUI : Control
 
 		if (openedUI != null)
 		{
-			GetNode<AnimationPlayer>($"BG/{openedUI}/AnimationPlayer").Play("CloseUI");
+			GetNode<AnimationPlayer>($"Toolbar/{openedUI}/AnimationPlayer").Play("CloseUI");
 			openedUI = null;
 		}
 
@@ -150,12 +150,12 @@ public partial class EditorUI : Control
 
 	public void SaveButtonClicked()
 	{
-		GetNode<SaveManager>("/root/Data/SaveData").SaveCharacter();
+		GetNode<SaveData>("/root/Data/SaveData").SaveCharacter();
 
 	}
 	public void SaveButtonClicked(string path)
 	{
-		GetNode<SaveManager>("/root/Data/SaveData").LoadCharacter(path);
+		GetNode<SaveData>("/root/Data/SaveData").LoadCharacterFromUserFolder(path);
 		GetParent().GetNode<AnimationPlayer>("Funnyshit/AnimatedSprite2D/AnimationPlayer").Play("Explosion");
 	}
 	public void ImportHead(string path)
@@ -163,18 +163,18 @@ public partial class EditorUI : Control
 		Image image = Image.LoadFromFile(path);
 		ImageTexture texture = new();
 		texture.SetImage(image);
-		GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Head/Sprite").TextureNormal = texture;
+		GetNode<TextureButton>("/root/Main Window/Puppet/Character/Head/Sprite").TextureNormal = texture;
 	}
 	public void ImportBodyImage(string path)
 	{
 		Image image = Image.LoadFromFile(path);
 		ImageTexture texture = new();
 		texture.SetImage(image);
-		GetNode<TextureButton>("/root/Main Scene/Puppet/Character/Body/Sprite").TextureNormal = texture;
+		GetNode<TextureButton>("/root/Main Window/Puppet/Character/Body/Sprite").TextureNormal = texture;
 	}
 	public void FileSelectedLoad(string path)
 	{
-		GetNode<SaveManager>("/root/Data/SaveData").ImportCharacter(path);
+		GetNode<SaveData>("/root/Data/SaveData").LoadCharacterFromFile(path);
 	}
 	public void UpdateContext()
 	{

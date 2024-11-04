@@ -1,5 +1,10 @@
-[gd_scene format=3 uid="uid://b65cpaecw2en3"]
+[gd_scene load_steps=2 format=3 uid="uid://b65cpaecw2en3"]
+
+[ext_resource type="PackedScene" uid="uid://c32xv48m7eni7" path="res://assets/Scenes/Dummy.tscn" id="1_mi53b"]
 
 [node name="Character" type="SubViewport"]
+transparent_bg = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Dummy" parent="." instance=ExtResource("1_mi53b")]
+
+[node name="Camera" type="Camera2D" parent="."]

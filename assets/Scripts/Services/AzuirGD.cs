@@ -18,13 +18,13 @@ public partial class AzuirGD : Node
 
     MasterScript master;
 
-    SaveManager saveManager;
+    SaveData saveData;
 
     public override void _Ready()
     {
 
-        saveManager = GetNode<SaveManager>("/root/Data/SaveData");
-        speechConfig = SpeechConfig.FromSubscription(saveManager.GetAPIKey("Azuir"), saveManager.GetAPIKey("AZReigon"));
+        saveData = GetNode<SaveData>("/root/Data/SaveData");
+        speechConfig = SpeechConfig.FromSubscription(saveData.GetAPIKey("Azuir"), saveData.GetAPIKey("AZReigon"));
         speechConfig.SpeechRecognitionLanguage = "en-US";
         speechConfig.SetProfanity(ProfanityOption.Raw);
 
@@ -63,7 +63,7 @@ public partial class AzuirGD : Node
                 return true;
             case ResultReason.NoMatch:
                 GD.Print($"NOMATCH: Speech could not be recognized.");
-                GetNode<NotificationsManager>("/root/Managers/Notifications").NewNotification("error", $"[center]AZURE ERROR", $"[center]No speech could not be recognized", 10);
+                GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", $"[center]AZURE ERROR", $"[center]No speech could not be recognized", 10);
                 return false;
 
             case ResultReason.Canceled:

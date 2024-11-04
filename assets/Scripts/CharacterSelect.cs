@@ -6,13 +6,13 @@ public partial class CharacterSelect : Control
 	[Export]
 	AnimationPlayer animationPlayer;
 
-	SaveManager saveManager;
+	SaveData saveData;
 	bool CharactersOpen = false;
 	string openedUI;
 	public override void _Ready()
 	{
-		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
-		RefreshCharactersList(saveManager.LoadAllCharacters());
+		saveData = GetNode<SaveData>("/root/Data/SaveData");
+		RefreshCharactersList(saveData.LoadAllCharacters());
 
 	}
 	public void CharactersPressed()

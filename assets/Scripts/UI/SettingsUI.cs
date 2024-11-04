@@ -17,7 +17,7 @@ public partial class SettingsUI : Control
 	TextEdit Labtext;
 
 	TextEdit regionText;
-	SaveManager saveManager;
+	SaveData saveData;
 
 
 	[Export]
@@ -25,7 +25,7 @@ public partial class SettingsUI : Control
 	public override void _Ready()
 	{
 
-		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
+		saveData = GetNode<SaveData>("/root/Data/SaveData");
 
 		micSelect = GetNode<OptionButton>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList");
 		OutputSelect = GetNode<OptionButton>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList");
@@ -36,10 +36,10 @@ public partial class SettingsUI : Control
 		regionText = GetNode<TextEdit>("SettingsSelect/ScrollContainer/HBoxContainer/API keys/Region Input");
 
 		// api keys
-		ChatGPTtext.Text = saveManager.GetAPIKey("ChatGPT");
-		Azuretext.Text = saveManager.GetAPIKey("Azuir");
-		Labtext.Text = saveManager.GetAPIKey("11labs");
-		regionText.Text = saveManager.GetAPIKey("AZReigon");
+		ChatGPTtext.Text = saveData.GetAPIKey("ChatGPT");
+		Azuretext.Text = saveData.GetAPIKey("Azuir");
+		Labtext.Text = saveData.GetAPIKey("11labs");
+		regionText.Text = saveData.GetAPIKey("AZReigon");
 
 	}
 
@@ -69,7 +69,7 @@ public partial class SettingsUI : Control
 			{ "AZReigon", regionText.Text}
 		};
 
-		saveManager.SaveAPIKeys(data);
+		saveData.SaveAPIKeys(data);
 	}
 
 	void ScrollNextSettings()

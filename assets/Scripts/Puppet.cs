@@ -28,8 +28,8 @@ public partial class Puppet : Node2D
 	{
 		audioManager = GetParent().GetParent().GetNode<AudioManager>("/root/Managers/Audio");
 		headSprite = GetNode<TextureButton>("Head/Sprite");
-		GetNode<Panel>("/root/Main Scene/UI/EditorUI/BG/Voices/Background").MouseEntered += UIMouseEntered;
-		GetNode<Panel>("/root/Main Scene/UI/EditorUI/BG/Voices/Background").MouseExited += UIMouseExit;
+		GetNode<Panel>("/root/Main Window/UI/EditorUI/Toolbar/Voices/Background").MouseEntered += UIMouseEntered;
+		GetNode<Panel>("/root/Main Window/UI/EditorUI/Toolbar/Voices/Background").MouseExited += UIMouseExit;
 	}
 
 	public override void _Process(double delta)
@@ -46,7 +46,7 @@ public partial class Puppet : Node2D
 
 
 
-		if (GetNode<UI>("/root/Main Scene/UI").editorUI.editorOpen == true)
+		if (GetNode<UI>("/root/Main Window/UI").editorUI.editorOpen == true)
 		{
 			CameraControlles();
 
@@ -57,7 +57,7 @@ public partial class Puppet : Node2D
 
 	public void MouseOverDummy(string Part)
 	{
-		if (GetNode<UI>("/root/Main Scene/UI").editorUI.editorOpen == true)
+		if (GetNode<UI>("/root/Main Window/UI").editorUI.editorOpen == true)
 		{
 			GetNode<AnimationPlayer>($"{Part}/AnimationPlayer").Play("Hover");
 			mouseHoverd = true;
@@ -68,7 +68,7 @@ public partial class Puppet : Node2D
 
 	public void MouseExitDummy(string Part)
 	{
-		if (GetNode<UI>("/root/Main Scene/UI").editorUI.editorOpen == true)
+		if (GetNode<UI>("/root/Main Window/UI").editorUI.editorOpen == true)
 		{
 			GetNode<AnimationPlayer>($"{Part}/AnimationPlayer").Play("UnHover");
 			mouseHoverd = false;

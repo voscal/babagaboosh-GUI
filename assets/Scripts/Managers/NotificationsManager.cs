@@ -13,7 +13,7 @@ public partial class NotificationsManager : Node
 			instance.GetNode<RichTextLabel>("Panel/Heading").Text = Heading;
 			instance.GetNode<RichTextLabel>("Panel/Content").Text = message;
 			instance.Set("TimeOut", Timer);
-			GetNode<VBoxContainer>("/root/Main Scene/UI/Notifications/ScrollContainer/VBoxContainer").AddChild(instance);
+			GetNode<VBoxContainer>("/root/Main Window/UI/Notifications/ScrollContainer/VBoxContainer").AddChild(instance);
 		}
 		if (type.ToLower() == "error")
 		{
@@ -22,7 +22,7 @@ public partial class NotificationsManager : Node
 			instance.GetNode<RichTextLabel>("Panel/Heading").Text = Heading;
 			instance.GetNode<RichTextLabel>("Panel/Content").Text = message;
 			instance.Set("TimeOut", Timer);
-			GetNode<VBoxContainer>("/root/Main Scene/UI/Notifications/ScrollContainer/VBoxContainer").AddChild(instance);
+			GetNode<VBoxContainer>("/root/Main Window/UI/Notifications/ScrollContainer/VBoxContainer").AddChild(instance);
 		}
 	}
 

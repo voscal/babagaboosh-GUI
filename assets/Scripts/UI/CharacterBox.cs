@@ -7,7 +7,7 @@ public partial class CharacterBox : Panel
 
 	public void LoadBttnClicked()
 	{
-		GetNode<SaveManager>("/root/Data/SaveData").LoadCharacter(chrName);
+		GetNode<SaveData>("/root/Data/SaveData").LoadCharacterFromUserFolder(chrName);
 	}
 	public void moreBttnclicked()
 	{
@@ -16,12 +16,12 @@ public partial class CharacterBox : Panel
 
 	public void ExportPressed(string path)
 	{
-		GetNode<SaveManager>("/root/Data/SaveData").ExportCharacter(path, chrName);
+		GetNode<SaveData>("/root/Data/SaveData").ExportCharacter(path, chrName);
 	}
 
 
 	public void deletepressed()
 	{
-		GetNode<SaveManager>("/root/Data/SaveData").DeleteCharacter(chrName);
+		GetNode<SaveData>("/root/Data/SaveData").DeleteCharacter(chrName);
 	}
 }

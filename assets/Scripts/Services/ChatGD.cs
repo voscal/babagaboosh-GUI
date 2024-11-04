@@ -11,12 +11,12 @@ public partial class ChatGD : Node
 {
 	OpenAIAPI api;
 	Conversation chat;
-	SaveManager saveManager;
+	SaveData saveData;
 	public override async void _Ready()
 	{
 
-		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
-		api = new OpenAIAPI(saveManager.GetAPIKey("ChatGPT"));
+		saveData = GetNode<SaveData>("/root/Data/SaveData");
+		api = new OpenAIAPI(saveData.GetAPIKey("ChatGPT"));
 		await GetModles();
 	}
 	#region ChatGPT

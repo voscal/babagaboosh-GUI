@@ -11,7 +11,8 @@ public partial class Manager : Node
 	{
 		sTT = GetNode<STT>("STT");
 		character = GetNode<CharacterManager>("Character");
-		view = GetNode<ViewManager>("View");
+		view = GetNode<ViewManager>("/root/Managers/View");
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

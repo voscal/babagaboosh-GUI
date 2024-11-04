@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn46jmt6uglv6"]
+[gd_scene load_steps=11 format=3 uid="uid://dn46jmt6uglv6"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Managers/AudioManager.cs" id="1_54art"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/Manager.cs" id="1_n7at2"]
@@ -7,15 +7,13 @@
 [ext_resource type="Script" path="res://assets/Scripts/Managers/VoiceManager.cs" id="4_lckk4"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/OBS.cs" id="4_rt6g3"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/CharacterManager.cs" id="7_fknro"]
+[ext_resource type="PackedScene" uid="uid://b65cpaecw2en3" path="res://assets/Scenes/character.tscn" id="8_7ke30"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/ViewManager.cs" id="8_8p151"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o5r0u"]
 
 [node name="Managers" type="Node"]
 script = ExtResource("1_n7at2")
-
-[node name="Notification" type="Node" parent="."]
-script = ExtResource("1_xte7s")
 
 [node name="Audio" type="Node" parent="."]
 script = ExtResource("1_54art")
@@ -37,22 +35,26 @@ bus = &"Recording"
 autoplay = true
 bus = &"Voices"
 
-[node name="OBS" type="Node" parent="."]
-script = ExtResource("4_rt6g3")
+[node name="Character" type="Node" parent="."]
+script = ExtResource("7_fknro")
+BaseCharacterScene = ExtResource("8_7ke30")
+
+[node name="File" type="Node" parent="."]
 
 [node name="Group" type="Node" parent="."]
 
-[node name="File" type="Node" parent="."]
+[node name="Notification" type="Node" parent="."]
+script = ExtResource("1_xte7s")
+
+[node name="OBS" type="Node" parent="."]
+script = ExtResource("4_rt6g3")
 
 [node name="STT" type="Node" parent="."]
 script = ExtResource("3_q6hsk")
 provider = 2
 
-[node name="Voices" type="Node" parent="."]
-script = ExtResource("4_lckk4")
-
-[node name="Character" type="Node" parent="."]
-script = ExtResource("7_fknro")
-
 [node name="View" type="Node" parent="."]
 script = ExtResource("8_8p151")
+
+[node name="Voices" type="Node" parent="."]
+script = ExtResource("4_lckk4")

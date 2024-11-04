@@ -1,5 +1,6 @@
 using System;
 using Godot;
+using OpenAI_API.Embedding;
 
 
 public partial class MasterScript : Node
@@ -15,6 +16,8 @@ public partial class MasterScript : Node
 	UI ui;
 	VoiceData voiceData;
 	CharacterData characterData;
+	SaveData saveData;
+
 	public Services services;
 
 	Manager manager;
@@ -25,25 +28,24 @@ public partial class MasterScript : Node
 		GlobalInput = GetNode<GlobalInputCSharp>("/root/GlobalInput/GlobalInputCSharp");
 		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
 		characterData = GetNode<CharacterData>("/root/Data/CharacterData");
+		saveData = GetNode<SaveData>("/root/Data/SaveData");
 		manager = GetNode<Manager>("/root/Managers");
-
 		services = GetNode<Services>("/root/Services");
 		audioManager = GetNode<AudioManager>("/root/Managers/Audio");
 		ui = GetNode<UI>("UI");
 		GD.Print(ui.Name);
 		ui.coreUI.record.Pressed += askAI;
-		SetCharacter();
+
 		await voiceData.GetVoice();
 		ui.editorUI.UpdateVoiceList();
 
+		manager.character.AddCharacter(saveData.LoadCharacterFromFile("res://assets/Template.chr"));
+
+
 	}
 
 
-	public void SetCharacter()
-	{
-		services.chatGPT.SetContext("");
 
-	}
 
 
 	public override void _Process(double delta)

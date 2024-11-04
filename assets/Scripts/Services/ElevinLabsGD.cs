@@ -12,15 +12,15 @@ public partial class ElevinLabsGD : Node
 {
 	public string currentVoice;
 	ElevenLabsClient api;
-	SaveManager saveManager;
+	SaveData saveData;
 	VoiceData voiceData;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
+		saveData = GetNode<SaveData>("/root/Data/SaveData");
 		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
-		api = new ElevenLabsClient(saveManager.GetAPIKey("11labs"));
+		api = new ElevenLabsClient(saveData.GetAPIKey("11labs"));
 	}
 
 	public async Task RenderVoice(string text)
@@ -35,7 +35,7 @@ public partial class ElevinLabsGD : Node
 		try
 		{
 			Voice voice = await api.VoicesEndpoint.GetVoiceAsync(currentVoice, withSettings: true);
-			VoiceSettings voiceSettingsNew = GetNode<UI>("/root/Main Scene/UI").editorUI.GetVoiceSettings();
+			VoiceSettings voiceSettingsNew = GetNode<UI>("/root/Main Window/UI").editorUI.GetVoiceSettings();
 
 			await api.VoicesEndpoint.EditVoiceSettingsAsync(voice, voiceSettingsNew);
 			GD.Print(await api.VoicesEndpoint.GetVoiceSettingsAsync(voice));

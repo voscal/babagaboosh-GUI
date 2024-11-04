@@ -412,7 +412,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BG:position")
+tracks/0/path = NodePath("Toolbar:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -488,7 +488,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BG:position")
+tracks/0/path = NodePath("Toolbar:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -563,7 +563,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BG:position")
+tracks/0/path = NodePath("Toolbar:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1433,7 +1433,7 @@ mouse_filter = 2
 script = ExtResource("2_aalv0")
 AnimationPlayer = NodePath("AnimationPlayer")
 
-[node name="BG" type="Panel" parent="EditorUI"]
+[node name="Toolbar" type="Panel" parent="EditorUI"]
 layout_mode = 0
 offset_left = 651.999
 offset_top = 246.004
@@ -1442,7 +1442,7 @@ offset_bottom = 894.004
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_m438f")
 
-[node name="About" type="TextureButton" parent="EditorUI/BG"]
+[node name="About" type="TextureButton" parent="EditorUI/Toolbar"]
 layout_mode = 0
 offset_left = 11.9999
 offset_top = 81.0
@@ -1453,12 +1453,12 @@ texture_normal = ExtResource("12_0a2vi")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/BG/About"]
+[node name="Background" type="Panel" parent="EditorUI/Toolbar/About"]
 clip_contents = true
 layout_mode = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/About/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/About/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1473,7 +1473,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Panel" type="Panel" parent="EditorUI/BG/About/Background"]
+[node name="Panel" type="Panel" parent="EditorUI/Toolbar/About/Background"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 33.0
@@ -1481,7 +1481,7 @@ offset_right = 388.0
 offset_bottom = 235.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="AIname" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
+[node name="AIname" type="TextEdit" parent="EditorUI/Toolbar/About/Background/Panel"]
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 1
@@ -1498,7 +1498,7 @@ theme = ExtResource("8_voyw1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
 placeholder_text = "Enter AI Name"
 
-[node name="Button" type="Button" parent="EditorUI/BG/About/Background/Panel"]
+[node name="Button" type="Button" parent="EditorUI/Toolbar/About/Background/Panel"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 162.0
@@ -1509,7 +1509,7 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "ADD AI CONTEXT"
 
-[node name="AIabout" type="TextEdit" parent="EditorUI/BG/About/Background/Panel"]
+[node name="AIabout" type="TextEdit" parent="EditorUI/Toolbar/About/Background/Panel"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 60.0
@@ -1520,7 +1520,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bi6qn")
 placeholder_text = "quick description of character to tell people who it is"
 wrap_mode = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/About"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Toolbar/About"]
 visible = false
 position = Vector2(35.5953, 27)
 rotation = 1.57079
@@ -1528,22 +1528,22 @@ scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
 polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/About"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Toolbar/About"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/BG/About"]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/About"]
 stream = ExtResource("22_111gc")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/BG/About"]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/About"]
 stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="Sprites" type="TextureButton" parent="EditorUI/BG"]
+[node name="Sprites" type="TextureButton" parent="EditorUI/Toolbar"]
 layout_mode = 0
 offset_left = 12.9999
 offset_top = 160.0
@@ -1554,12 +1554,12 @@ texture_normal = ExtResource("10_kxevj")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/BG/Sprites"]
+[node name="Background" type="Panel" parent="EditorUI/Toolbar/Sprites"]
 clip_contents = true
 layout_mode = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Sprites/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Sprites/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1574,7 +1574,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="UploadHeadPannle" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+[node name="UploadHeadPannle" type="Panel" parent="EditorUI/Toolbar/Sprites/Background"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 183.0
@@ -1582,13 +1582,13 @@ offset_right = 188.0
 offset_bottom = 228.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="ImportHeadImage" type="NativeFileDialog" parent="EditorUI/BG/Sprites/Background/UploadHeadPannle"]
+[node name="ImportHeadImage" type="NativeFileDialog" parent="EditorUI/Toolbar/Sprites/Background/UploadHeadPannle"]
 title = "Open a File"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.png , *jpg , *.svg , *.webp ; Image (*.png , *jpg , *.svg , *.webp)", "* ; All Files")
 
-[node name="Button" type="Button" parent="EditorUI/BG/Sprites/Background/UploadHeadPannle"]
+[node name="Button" type="Button" parent="EditorUI/Toolbar/Sprites/Background/UploadHeadPannle"]
 layout_mode = 0
 offset_left = 8.99854
 offset_top = 2.99823
@@ -1599,7 +1599,7 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "UPLOAD"
 
-[node name="UploadBodyPannle" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+[node name="UploadBodyPannle" type="Panel" parent="EditorUI/Toolbar/Sprites/Background"]
 layout_mode = 0
 offset_left = 213.998
 offset_top = 182.999
@@ -1607,7 +1607,7 @@ offset_right = 377.998
 offset_bottom = 227.999
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="Button" type="Button" parent="EditorUI/BG/Sprites/Background/UploadBodyPannle"]
+[node name="Button" type="Button" parent="EditorUI/Toolbar/Sprites/Background/UploadBodyPannle"]
 layout_mode = 0
 offset_left = 8.99854
 offset_top = 2.99823
@@ -1618,13 +1618,13 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "UPLOAD"
 
-[node name="ImportBodyImage" type="NativeFileDialog" parent="EditorUI/BG/Sprites/Background/UploadBodyPannle"]
+[node name="ImportBodyImage" type="NativeFileDialog" parent="EditorUI/Toolbar/Sprites/Background/UploadBodyPannle"]
 title = "Open a File"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.png , *jpg , *.svg , *.webp ; Image (*.png , *jpg , *.svg , *.webp)", "* ; All Files")
 
-[node name="Preview3" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+[node name="Preview3" type="Panel" parent="EditorUI/Toolbar/Sprites/Background"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 39.0
@@ -1632,7 +1632,7 @@ offset_right = 188.0
 offset_bottom = 174.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="NameLabal2" type="Label" parent="EditorUI/BG/Sprites/Background"]
+[node name="NameLabal2" type="Label" parent="EditorUI/Toolbar/Sprites/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1649,7 +1649,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Preview4" type="Panel" parent="EditorUI/BG/Sprites/Background"]
+[node name="Preview4" type="Panel" parent="EditorUI/Toolbar/Sprites/Background"]
 layout_mode = 0
 offset_left = 214.0
 offset_top = 39.0009
@@ -1657,7 +1657,7 @@ offset_right = 378.0
 offset_bottom = 174.001
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Sprites/Background/Preview4"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Sprites/Background/Preview4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1674,7 +1674,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Sprites"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Toolbar/Sprites"]
 visible = false
 position = Vector2(35.5953, 27)
 rotation = 1.57079
@@ -1682,22 +1682,22 @@ scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
 polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Sprites"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Toolbar/Sprites"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Sprites"]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Sprites"]
 stream = ExtResource("22_111gc")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Sprites"]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Sprites"]
 stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="Hinges" type="TextureButton" parent="EditorUI/BG"]
+[node name="Hinges" type="TextureButton" parent="EditorUI/Toolbar"]
 layout_mode = 0
 offset_left = 11.998
 offset_top = 236.003
@@ -1708,7 +1708,7 @@ texture_normal = ExtResource("18_qmyss")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/BG/Hinges"]
+[node name="Background" type="Panel" parent="EditorUI/Toolbar/Hinges"]
 visible = false
 layout_mode = 0
 offset_left = -440.0
@@ -1717,7 +1717,7 @@ offset_right = -37.0
 offset_bottom = 286.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
 
-[node name="Name" type="TextEdit" parent="EditorUI/BG/Hinges/Background"]
+[node name="Name" type="TextEdit" parent="EditorUI/Toolbar/Hinges/Background"]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 40.0
@@ -1728,7 +1728,7 @@ theme_override_constants/line_spacing = -3
 text = "Zest mf"
 scroll_smooth = true
 
-[node name="Context" type="TextEdit" parent="EditorUI/BG/Hinges/Background"]
+[node name="Context" type="TextEdit" parent="EditorUI/Toolbar/Hinges/Background"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 105.0
@@ -1738,7 +1738,7 @@ theme = ExtResource("8_voyw1")
 wrap_mode = 1
 scroll_smooth = true
 
-[node name="DesctionLabal" type="Label" parent="EditorUI/BG/Hinges/Background"]
+[node name="DesctionLabal" type="Label" parent="EditorUI/Toolbar/Hinges/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1750,7 +1750,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Hinges/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Hinges/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1762,7 +1762,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Hinges"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Toolbar/Hinges"]
 visible = false
 position = Vector2(34.9974, 27.9993)
 rotation = 1.57079
@@ -1770,17 +1770,17 @@ scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
 polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Hinges"]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Hinges"]
 stream = ExtResource("22_111gc")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Hinges"]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Hinges"]
 stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="Trantions" type="TextureButton" parent="EditorUI/BG"]
+[node name="Trantions" type="TextureButton" parent="EditorUI/Toolbar"]
 layout_mode = 0
 offset_left = 14.9974
 offset_top = 316.003
@@ -1791,7 +1791,7 @@ texture_normal = ExtResource("18_qmyss")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/BG/Trantions"]
+[node name="Background" type="Panel" parent="EditorUI/Toolbar/Trantions"]
 clip_contents = true
 layout_mode = 0
 offset_left = 30.9973
@@ -1800,7 +1800,7 @@ offset_right = 30.9973
 offset_bottom = 30.9999
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Trantions/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Trantions/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1816,7 +1816,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Panel" type="Panel" parent="EditorUI/BG/Trantions/Background"]
+[node name="Panel" type="Panel" parent="EditorUI/Toolbar/Trantions/Background"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 33.0
@@ -1824,7 +1824,7 @@ offset_right = 388.0
 offset_bottom = 235.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="Center camera" type="Button" parent="EditorUI/BG/Trantions/Background/Panel"]
+[node name="Center camera" type="Button" parent="EditorUI/Toolbar/Trantions/Background/Panel"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 162.0
@@ -1835,7 +1835,7 @@ theme_override_fonts/font = ExtResource("5_hrdfa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "RESET CAMERA"
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Trantions"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Toolbar/Trantions"]
 visible = false
 position = Vector2(35.5953, 27)
 rotation = 1.57079
@@ -1843,22 +1843,22 @@ scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
 polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Trantions"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Toolbar/Trantions"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Trantions"]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Trantions"]
 stream = ExtResource("22_111gc")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Trantions"]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Trantions"]
 stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="Camera" type="TextureButton" parent="EditorUI/BG"]
+[node name="Camera" type="TextureButton" parent="EditorUI/Toolbar"]
 layout_mode = 0
 offset_left = 12.9998
 offset_top = 396.0
@@ -1869,7 +1869,7 @@ texture_normal = ExtResource("18_qmyss")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/BG/Camera"]
+[node name="Background" type="Panel" parent="EditorUI/Toolbar/Camera"]
 visible = false
 layout_mode = 0
 offset_left = -440.0
@@ -1878,7 +1878,7 @@ offset_right = -37.0
 offset_bottom = 286.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vpq2r")
 
-[node name="Name" type="TextEdit" parent="EditorUI/BG/Camera/Background"]
+[node name="Name" type="TextEdit" parent="EditorUI/Toolbar/Camera/Background"]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 40.0
@@ -1889,7 +1889,7 @@ theme_override_constants/line_spacing = -3
 text = "Zest mf"
 scroll_smooth = true
 
-[node name="Context" type="TextEdit" parent="EditorUI/BG/Camera/Background"]
+[node name="Context" type="TextEdit" parent="EditorUI/Toolbar/Camera/Background"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 105.0
@@ -1899,7 +1899,7 @@ theme = ExtResource("8_voyw1")
 wrap_mode = 1
 scroll_smooth = true
 
-[node name="DesctionLabal" type="Label" parent="EditorUI/BG/Camera/Background"]
+[node name="DesctionLabal" type="Label" parent="EditorUI/Toolbar/Camera/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1911,7 +1911,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Camera/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Camera/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1923,7 +1923,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Camera"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Toolbar/Camera"]
 visible = false
 position = Vector2(34.9974, 27.9993)
 rotation = 1.57079
@@ -1931,17 +1931,17 @@ scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
 polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Camera"]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Camera"]
 stream = ExtResource("22_111gc")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Camera"]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Camera"]
 stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="Voices" type="TextureButton" parent="EditorUI/BG"]
+[node name="Voices" type="TextureButton" parent="EditorUI/Toolbar"]
 layout_mode = 0
 offset_left = 14.9965
 offset_top = 472.003
@@ -1952,7 +1952,7 @@ texture_normal = ExtResource("10_cfjio")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/BG/Voices"]
+[node name="Background" type="Panel" parent="EditorUI/Toolbar/Voices"]
 clip_contents = true
 layout_mode = 0
 offset_left = 30.9973
@@ -1961,7 +1961,7 @@ offset_right = 30.9973
 offset_bottom = 30.9999
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Voices/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Voices/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1976,7 +1976,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="EditorUI/BG/Voices/Background"]
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorUI/Toolbar/Voices/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1991,36 +1991,36 @@ theme = ExtResource("8_voyw1")
 theme_override_styles/panel = SubResource("StyleBoxFlat_6k774")
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EditorUI/BG/Voices/Background/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorUI/Toolbar/Voices/Background/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="CustomVoices" type="VBoxContainer" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer"]
+[node name="CustomVoices" type="VBoxContainer" parent="EditorUI/Toolbar/Voices/Background/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices"]
+[node name="Label" type="Label" parent="EditorUI/Toolbar/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices"]
 layout_mode = 2
 text = "CUSTOM"
 
-[node name="VoiceShelf3" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices" instance=ExtResource("8_o8ng1")]
+[node name="VoiceShelf3" parent="EditorUI/Toolbar/Voices/Background/ScrollContainer/VBoxContainer/CustomVoices" instance=ExtResource("8_o8ng1")]
 layout_mode = 2
 
-[node name="PreMade" type="VBoxContainer" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer"]
+[node name="PreMade" type="VBoxContainer" parent="EditorUI/Toolbar/Voices/Background/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer/PreMade"]
+[node name="Label" type="Label" parent="EditorUI/Toolbar/Voices/Background/ScrollContainer/VBoxContainer/PreMade"]
 layout_mode = 2
 text = "PRE-MADE"
 
-[node name="VoiceShelf3" parent="EditorUI/BG/Voices/Background/ScrollContainer/VBoxContainer/PreMade" instance=ExtResource("8_o8ng1")]
+[node name="VoiceShelf3" parent="EditorUI/Toolbar/Voices/Background/ScrollContainer/VBoxContainer/PreMade" instance=ExtResource("8_o8ng1")]
 layout_mode = 2
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Voices"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Toolbar/Voices"]
 visible = false
 position = Vector2(34.5953, 27)
 rotation = 1.57079
@@ -2028,22 +2028,22 @@ scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
 polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Voices"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Toolbar/Voices"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Voices"]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Voices"]
 stream = ExtResource("22_111gc")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Voices"]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Voices"]
 stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="Voice Config" type="TextureButton" parent="EditorUI/BG"]
+[node name="Voice Config" type="TextureButton" parent="EditorUI/Toolbar"]
 layout_mode = 0
 offset_left = 12.996
 offset_top = 550.003
@@ -2055,7 +2055,7 @@ texture_normal = ExtResource("19_rmxil")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/BG/Voice Config"]
+[node name="Background" type="Panel" parent="EditorUI/Toolbar/Voice Config"]
 clip_contents = true
 layout_mode = 0
 offset_left = 30.9973
@@ -2064,7 +2064,7 @@ offset_right = 30.9973
 offset_bottom = 30.9999
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="Panel" type="Panel" parent="EditorUI/BG/Voice Config/Background"]
+[node name="Panel" type="Panel" parent="EditorUI/Toolbar/Voice Config/Background"]
 layout_mode = 0
 offset_left = 17.0
 offset_top = 41.0
@@ -2072,7 +2072,7 @@ offset_right = 385.0
 offset_bottom = 232.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rc2sl")
 
-[node name="Stability" type="HSlider" parent="EditorUI/BG/Voice Config/Background/Panel"]
+[node name="Stability" type="HSlider" parent="EditorUI/Toolbar/Voice Config/Background/Panel"]
 texture_filter = 3
 layout_mode = 0
 offset_left = 25.0
@@ -2092,7 +2092,7 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Config/Background/Panel/Stability"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Voice Config/Background/Panel/Stability"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2106,7 +2106,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
-[node name="Clarity" type="HSlider" parent="EditorUI/BG/Voice Config/Background/Panel"]
+[node name="Clarity" type="HSlider" parent="EditorUI/Toolbar/Voice Config/Background/Panel"]
 texture_filter = 3
 layout_mode = 0
 offset_left = 25.0
@@ -2126,7 +2126,7 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Config/Background/Panel/Clarity"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Voice Config/Background/Panel/Clarity"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2140,7 +2140,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
-[node name="Exaggeration" type="HSlider" parent="EditorUI/BG/Voice Config/Background/Panel"]
+[node name="Exaggeration" type="HSlider" parent="EditorUI/Toolbar/Voice Config/Background/Panel"]
 texture_filter = 3
 layout_mode = 0
 offset_left = 25.0
@@ -2160,7 +2160,7 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Config/Background/Panel/Exaggeration"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Voice Config/Background/Panel/Exaggeration"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2176,7 +2176,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Voice Config/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Voice Config/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2191,7 +2191,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Voice Config"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Toolbar/Voice Config"]
 visible = false
 position = Vector2(34.5953, 27)
 rotation = 1.57079
@@ -2199,22 +2199,22 @@ scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
 polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Voice Config"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Toolbar/Voice Config"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Voice Config"]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Voice Config"]
 stream = ExtResource("22_111gc")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Voice Config"]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Voice Config"]
 stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="Chatgpt" type="TextureButton" parent="EditorUI/BG"]
+[node name="Chatgpt" type="TextureButton" parent="EditorUI/Toolbar"]
 layout_mode = 0
 offset_left = 12.9964
 offset_top = 630.0
@@ -2225,7 +2225,7 @@ texture_normal = ExtResource("18_qmyss")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Background" type="Panel" parent="EditorUI/BG/Chatgpt"]
+[node name="Background" type="Panel" parent="EditorUI/Toolbar/Chatgpt"]
 clip_contents = true
 layout_mode = 0
 offset_left = 30.9973
@@ -2234,7 +2234,7 @@ offset_right = 30.9973
 offset_bottom = 30.9999
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Chatgpt/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2250,7 +2250,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Panel" type="Panel" parent="EditorUI/BG/Chatgpt/Background"]
+[node name="Panel" type="Panel" parent="EditorUI/Toolbar/Chatgpt/Background"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 33.0
@@ -2258,7 +2258,7 @@ offset_right = 388.0
 offset_bottom = 235.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hvrf")
 
-[node name="Stability" type="HSlider" parent="EditorUI/BG/Chatgpt/Background/Panel"]
+[node name="Stability" type="HSlider" parent="EditorUI/Toolbar/Chatgpt/Background/Panel"]
 texture_filter = 3
 layout_mode = 0
 offset_left = 25.0
@@ -2278,7 +2278,7 @@ max_value = 2.0
 step = 0.01
 value = 0.5
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background/Panel/Stability"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Chatgpt/Background/Panel/Stability"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2292,7 +2292,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
-[node name="MicList" type="OptionButton" parent="EditorUI/BG/Chatgpt/Background/Panel"]
+[node name="MicList" type="OptionButton" parent="EditorUI/Toolbar/Chatgpt/Background/Panel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -2309,7 +2309,7 @@ allow_reselect = true
 popup/item_0/text = ""
 popup/item_0/id = 0
 
-[node name="NameLabal" type="Label" parent="EditorUI/BG/Chatgpt/Background/Panel/MicList"]
+[node name="NameLabal" type="Label" parent="EditorUI/Toolbar/Chatgpt/Background/Panel/MicList"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2323,7 +2323,7 @@ label_settings = SubResource("LabelSettings_vbys4")
 vertical_alignment = 1
 clip_text = true
 
-[node name="Polygon2D" type="Polygon2D" parent="EditorUI/BG/Chatgpt"]
+[node name="Polygon2D" type="Polygon2D" parent="EditorUI/Toolbar/Chatgpt"]
 visible = false
 position = Vector2(35.5953, 27)
 rotation = 1.57079
@@ -2331,17 +2331,17 @@ scale = Vector2(2.0248, 1)
 color = Color(0.996078, 0.807843, 0, 1)
 polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/BG/Chatgpt"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditorUI/Toolbar/Chatgpt"]
 libraries = {
 "": SubResource("AnimationLibrary_1sw41")
 }
 
-[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Chatgpt"]
+[node name="OpenSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Chatgpt"]
 stream = ExtResource("22_111gc")
 volume_db = -10.045
 bus = &"SFX"
 
-[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/BG/Chatgpt"]
+[node name="CloseSFX" type="AudioStreamPlayer" parent="EditorUI/Toolbar/Chatgpt"]
 stream = ExtResource("23_7yvpi")
 volume_db = -10.045
 bus = &"SFX"
@@ -2477,6 +2477,7 @@ scale = Vector2(3.505, 3.505)
 sprite_frames = SubResource("SpriteFrames_e0hsr")
 animation = &"expload"
 frame = 17
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Funnyshit/AnimatedSprite2D"]
 root_node = NodePath("../..")
@@ -3287,17 +3288,6 @@ bus = &"SFX"
 stream = ExtResource("15_sgklh")
 bus = &"SFX"
 
-[node name="SaveFileDialog" type="NativeFileDialog" parent="."]
-title = "Save your Character"
-access = 2
-filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
-
-[node name="ImportChracter" type="NativeFileDialog" parent="."]
-title = "Open a File"
-file_mode = 0
-access = 2
-filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
-
 [node name="Popup" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -3361,22 +3351,33 @@ libraries = {
 "": SubResource("AnimationLibrary_kqesp")
 }
 
+[node name="ImportChracter" type="NativeFileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
+
+[node name="SaveFileDialog" type="NativeFileDialog" parent="."]
+title = "Save your Character"
+access = 2
+filters = PackedStringArray("*.chr ; Character \'.chr\'", "* ; All Files")
+
 [connection signal="pressed" from="CoreUI/settings" to="SettingsUI" method="SettingPressed"]
 [connection signal="pressed" from="CoreUI/Charcters" to="Character Select" method="CharactersPressed"]
 [connection signal="pressed" from="CoreUI/Edit" to="EditorUI" method="OpenEditorPressed"]
-[connection signal="pressed" from="EditorUI/BG/About" to="EditorUI" method="EditButtonPressed" binds= ["About"]]
-[connection signal="pressed" from="EditorUI/BG/About/Background/Panel/Button" to="EditorUI" method="OpenContextMenu"]
-[connection signal="pressed" from="EditorUI/BG/Sprites" to="EditorUI" method="EditButtonPressed" binds= ["Sprites"]]
-[connection signal="file_selected" from="EditorUI/BG/Sprites/Background/UploadHeadPannle/ImportHeadImage" to="EditorUI" method="ImportHead"]
-[connection signal="pressed" from="EditorUI/BG/Sprites/Background/UploadHeadPannle/Button" to="EditorUI/BG/Sprites/Background/UploadHeadPannle/ImportHeadImage" method="show"]
-[connection signal="pressed" from="EditorUI/BG/Sprites/Background/UploadBodyPannle/Button" to="EditorUI/BG/Sprites/Background/UploadBodyPannle/ImportBodyImage" method="show"]
-[connection signal="file_selected" from="EditorUI/BG/Sprites/Background/UploadBodyPannle/ImportBodyImage" to="EditorUI" method="ImportBodyImage"]
-[connection signal="pressed" from="EditorUI/BG/Trantions" to="EditorUI" method="EditButtonPressed" binds= ["Camera"]]
-[connection signal="pressed" from="EditorUI/BG/Trantions/Background/Panel/Center camera" to="EditorUI" method="CenterCamera"]
-[connection signal="pressed" from="EditorUI/BG/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
-[connection signal="pressed" from="EditorUI/BG/Voice Config" to="EditorUI" method="EditButtonPressed" binds= ["Voice Config"]]
-[connection signal="mouse_entered" from="EditorUI/BG/Voice Config/Background" to="." method="mouseenterlol"]
-[connection signal="pressed" from="EditorUI/BG/Chatgpt" to="EditorUI" method="EditButtonPressed" binds= ["Chatgpt"]]
+[connection signal="pressed" from="EditorUI/Toolbar/About" to="EditorUI" method="EditButtonPressed" binds= ["About"]]
+[connection signal="pressed" from="EditorUI/Toolbar/About/Background/Panel/Button" to="EditorUI" method="OpenContextMenu"]
+[connection signal="pressed" from="EditorUI/Toolbar/Sprites" to="EditorUI" method="EditButtonPressed" binds= ["Sprites"]]
+[connection signal="file_selected" from="EditorUI/Toolbar/Sprites/Background/UploadHeadPannle/ImportHeadImage" to="EditorUI" method="ImportHead"]
+[connection signal="pressed" from="EditorUI/Toolbar/Sprites/Background/UploadHeadPannle/Button" to="EditorUI/Toolbar/Sprites/Background/UploadHeadPannle/ImportHeadImage" method="show"]
+[connection signal="pressed" from="EditorUI/Toolbar/Sprites/Background/UploadBodyPannle/Button" to="EditorUI/Toolbar/Sprites/Background/UploadBodyPannle/ImportBodyImage" method="show"]
+[connection signal="file_selected" from="EditorUI/Toolbar/Sprites/Background/UploadBodyPannle/ImportBodyImage" to="EditorUI" method="ImportBodyImage"]
+[connection signal="pressed" from="EditorUI/Toolbar/Trantions" to="EditorUI" method="EditButtonPressed" binds= ["Camera"]]
+[connection signal="pressed" from="EditorUI/Toolbar/Trantions/Background/Panel/Center camera" to="EditorUI" method="CenterCamera"]
+[connection signal="pressed" from="EditorUI/Toolbar/Voices" to="EditorUI" method="EditButtonPressed" binds= ["Voices"]]
+[connection signal="pressed" from="EditorUI/Toolbar/Voice Config" to="EditorUI" method="EditButtonPressed" binds= ["Voice Config"]]
+[connection signal="mouse_entered" from="EditorUI/Toolbar/Voice Config/Background" to="." method="mouseenterlol"]
+[connection signal="pressed" from="EditorUI/Toolbar/Chatgpt" to="EditorUI" method="EditButtonPressed" binds= ["Chatgpt"]]
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Close" to="EditorUI" method="CloseContextMenu"]
 [connection signal="pressed" from="EditorUI/AIContext/Pannle/Panel/Save" to="EditorUI" method="UpdateContext"]
 [connection signal="pressed" from="Character Select/BackGround/Save_Import/Save" to="EditorUI" method="SaveButtonClicked"]
@@ -3384,5 +3385,5 @@ libraries = {
 [connection signal="pressed" from="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/API keys/SaveKeys" to="SettingsUI" method="SaveKeys"]
 [connection signal="pressed" from="SettingsUI/rightSelect" to="SettingsUI" method="ScrollNextSettings"]
 [connection signal="pressed" from="SettingsUI/leftSelect" to="SettingsUI" method="ScrollPreviousSettings"]
-[connection signal="file_selected" from="SaveFileDialog" to="EditorUI" method="FileSelectedSave"]
 [connection signal="file_selected" from="ImportChracter" to="EditorUI" method="FileSelectedLoad"]
+[connection signal="file_selected" from="SaveFileDialog" to="EditorUI" method="FileSelectedSave"]

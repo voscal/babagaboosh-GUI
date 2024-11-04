@@ -24,14 +24,14 @@ public partial class AudioManager : Node
 	{
 
 
-		ui = GetNode<UI>("/root/Main Scene/UI");
+		ui = GetNode<UI>("/root/Main Window/UI");
 		int idx = AudioServer.GetBusIndex("Recording");
 		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(idx, 0);
 		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(5, 0);
 
-		if (GetNode<SaveManager>("/root/Data/SaveData").DirExists("user://Audio") == false)
+		if (GetNode<SaveData>("/root/Data/SaveData").DirExists("user://Audio") == false)
 		{
-			GetNode<SaveManager>("/root/Data/SaveData").DirCreate("user://Audio");
+			GetNode<SaveData>("/root/Data/SaveData").DirCreate("user://Audio");
 		}
 
 		#region Signals
