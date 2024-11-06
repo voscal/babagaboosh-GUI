@@ -1,7 +1,10 @@
+Line2D
+WorldEnvironment
+Button
 TextureRect
+Sprite2D
 Control
 Node
-Sprite2D
 Camera2D
 SubViewport
 AudioStreamPlayer
@@ -10,5 +13,3 @@ AnimationPlayer
 Window
 HSlider
 OptionButton
-Label
-NativeFileDialog

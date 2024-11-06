@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using ElevenLabs.Models;
@@ -18,7 +19,7 @@ public partial class EditorUI : Control
 	#region Voice Variables
 	VoiceData voiceData;
 	CharacterData characterData;
-
+	Manager manager;
 
 	[Export]
 	AnimationPlayer AnimationPlayer;
@@ -32,6 +33,7 @@ public partial class EditorUI : Control
 	{
 		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
 		services = GetNodeOrNull<Services>("/root/Services");
+		manager = GetNode<Manager>("/root/Managers");
 	}
 
 	//play any ui's opening/closing animation
@@ -180,6 +182,10 @@ public partial class EditorUI : Control
 	{
 		services.chatGPT.SetContext(GetNode<TextEdit>("AIContext/Pannle/Panel/AIcontext").Text);
 	}
+
+
+	// set the focus to any of the active characters
+
 
 	#endregion
 }

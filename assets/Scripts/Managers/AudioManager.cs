@@ -5,7 +5,7 @@ using Godot;
 using NAudio.Wasapi.CoreAudioApi;
 
 
-public partial class AudioManager : Node
+public partial class AudioManager : Manager
 {
 	string[] inputDevices;
 	string[] outputDevices;

@@ -35,11 +35,11 @@ public partial class MasterScript : Node
 		ui = GetNode<UI>("UI");
 		GD.Print(ui.Name);
 		ui.coreUI.record.Pressed += askAI;
-
+		manager.character.AddCharacter(saveData.LoadCharacterFromFile("res://assets/Template.chr"));
+		manager.character.SetFocus(0);
 		await voiceData.GetVoice();
 		ui.editorUI.UpdateVoiceList();
 
-		manager.character.AddCharacter(saveData.LoadCharacterFromFile("res://assets/Template.chr"));
 
 
 	}

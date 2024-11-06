@@ -8,7 +8,7 @@ script = ExtResource("1_5xkac")
 
 [node name="UI" parent="." instance=ExtResource("3_xnwsb")]
 
-[node name="Character View" type="TextureRect" parent="."]
+[node name="CharacterView" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

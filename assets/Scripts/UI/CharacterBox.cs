@@ -7,7 +7,12 @@ public partial class CharacterBox : Panel
 
 	public void LoadBttnClicked()
 	{
-		GetNode<SaveData>("/root/Data/SaveData").LoadCharacterFromUserFolder(chrName);
+
+		var character = GetNode<SaveData>("/root/Data/SaveData").LoadCharacterFromUserFolder(chrName);
+		GetNode<Manager>("/root/Managers").character.UpdateCharacter(GetNode<Manager>("/root/Managers").character.focusedCharacter, character);
+		//GetNode<Manager>("/root/Managers").character.AddCharacter(character);
+		//GetNode<Manager>("/root/Managers").character.SetFocus(character);
+
 	}
 	public void moreBttnclicked()
 	{

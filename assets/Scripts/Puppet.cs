@@ -21,13 +21,13 @@ public partial class Puppet : Node2D
 	Vector2 MouseOffset = new(0, 0);
 
 	private AudioManager audioManager;
-	private TextureButton headSprite;
+	private TextureRect headSprite;
 
 	bool canZoom = true;
 	public override void _Ready()
 	{
 		audioManager = GetParent().GetParent().GetNode<AudioManager>("/root/Managers/Audio");
-		headSprite = GetNode<TextureButton>("Head/Sprite");
+		headSprite = GetNode<TextureRect>("Head/Sprite");
 		GetNode<Panel>("/root/Main Window/UI/EditorUI/Toolbar/Voices/Background").MouseEntered += UIMouseEntered;
 		GetNode<Panel>("/root/Main Window/UI/EditorUI/Toolbar/Voices/Background").MouseExited += UIMouseExit;
 	}

@@ -20,6 +20,8 @@ public partial class Character : Node
 		// Custom (i wish lol, maybe ill do something with this later)
 	}
 
+	public string path;
+
 	public string name;
 	public string description;
 	public string context;
@@ -31,11 +33,11 @@ public partial class Character : Node
 	bool isTalking;
 	public VoiceSettings voiceSettings;
 	public string voiceID;
-	int CharacterIndex; //used to identify chracters with the same name
 	public Vector2 headPosition;
 	public Vector2 headSize;
 	public Vector2 bodyPosition;
 	public Vector2 bodySize;
+
 
 
 	public override void _Ready()
@@ -54,9 +56,5 @@ public partial class Character : Node
 
 	}
 
-	public void SetData(Dictionary JSON)
-	{
-
-	}
 
 }

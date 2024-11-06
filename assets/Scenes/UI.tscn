@@ -481,6 +481,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ResolutionOutline:default_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.241484, 0.203063),
+"update": 0,
+"values": [Color(1, 1, 1, 0.478431), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ukbya"]
 resource_name = "OpenEditor"
@@ -556,6 +568,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ResolutionOutline:default_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.183011, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.478431)]
 }
 
 [sub_resource type="Animation" id="Animation_fjkii"]
@@ -2462,6 +2486,13 @@ bus = &"SFX"
 stream = ExtResource("26_wpbdu")
 volume_db = -10.0
 bus = &"SFX"
+
+[node name="ResolutionOutline" type="Line2D" parent="EditorUI"]
+position = Vector2(323.996, 576.006)
+points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+closed = true
+width = 2.34
+default_color = Color(1, 1, 1, 0.478431)
 
 [node name="Funnyshit" type="Control" parent="."]
 layout_mode = 3

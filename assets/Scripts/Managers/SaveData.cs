@@ -169,8 +169,6 @@ public partial class SaveData : Node
 		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Character Exported", "[center]" + charName + " has been successfully exported!", 6);
 	}
 
-
-
 	public bool DirExists(string path)
 	{
 		var dir = DirAccess.Open(path);
@@ -206,7 +204,6 @@ public partial class SaveData : Node
 
 		return Json.Stringify(data);
 	}
-
 
 	public Character LoadCharacterFromUserFolder(string chrName)
 	{
@@ -285,7 +282,6 @@ public partial class SaveData : Node
 		}
 
 		Dictionary jsonDictionary = (Dictionary)json.Data;
-		//GetNode<CharacterData>("/root/Data/CharacterData").AutoPopulateData(jsonDictionary);
 
 		character.name = (string)jsonDictionary["Name"];
 		character.description = (string)jsonDictionary["Description"];
