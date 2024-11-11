@@ -27,11 +27,13 @@ public partial class CharacterManager : Manager
 		characerScene.GetNode<Node2D>("Dummy/Body").Position = character.bodyPosition;
 		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Size = character.bodySize;
 		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Texture = character.image1;
-
 		ActiveCharacters.Add(character);
 		characerScene.Name = ActiveCharacters.IndexOf(character) + " " + character.name;
 		character.path = $"/root/Managers/View/{characerScene.Name}";
+		character.audioSpectrum = manager.audio.newCharacterBus(character.path);
+
 		manager.view.AddChild(characerScene);
+
 
 	}
 	public void RemoveCharacter(int index)

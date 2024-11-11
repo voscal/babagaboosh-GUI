@@ -11,7 +11,6 @@ public partial class AudioManager : Manager
 	string[] outputDevices;
 	public AudioEffectRecord recordEffect;
 
-	public AudioEffectSpectrumAnalyzerInstance spectrum;
 
 	public AudioStreamWav recording;
 
@@ -25,9 +24,6 @@ public partial class AudioManager : Manager
 
 
 		ui = GetNode<UI>("/root/Main Window/UI");
-		int idx = AudioServer.GetBusIndex("Recording");
-		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(idx, 0);
-		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(5, 0);
 
 		if (GetNode<SaveData>("/root/Data/SaveData").DirExists("user://Audio") == false)
 		{
@@ -212,7 +208,14 @@ public partial class AudioManager : Manager
 		AudioServer.OutputDevice = outputDevices[index];
 	}
 
-
+	public AudioEffectSpectrumAnalyzerInstance newCharacterBus(string characterPath)
+	{
+		AudioServer.AddBus(AudioServer.BusCount);
+		AudioServer.SetBusName(AudioServer.BusCount - 1, characterPath);
+		var spectrumAnalyzer = new AudioEffectSpectrumAnalyzer();
+		AudioServer.AddBusEffect(AudioServer.BusCount - 1, spectrumAnalyzer);
+		return (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(AudioServer.BusCount - 1, 0);
+	}
 
 
 

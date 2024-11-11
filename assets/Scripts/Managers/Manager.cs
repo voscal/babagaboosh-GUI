@@ -7,11 +7,14 @@ public partial class Manager : Node
 	public CharacterManager character;
 	public ViewManager view;
 
+	public AudioManager audio;
+
 	public override void _Ready()
 	{
 		sTT = GetNode<STT>("STT");
 		character = GetNode<CharacterManager>("Character");
 		view = GetNode<ViewManager>("/root/Managers/View");
+		audio = GetNode<AudioManager>("Audio");
 
 	}
 

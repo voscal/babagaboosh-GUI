@@ -31,10 +31,6 @@ stream = SubResource("AudioStreamMicrophone_o5r0u")
 autoplay = true
 bus = &"Recording"
 
-[node name="AIVoice" type="AudioStreamPlayer" parent="Audio"]
-autoplay = true
-bus = &"Voices"
-
 [node name="Character" type="Node" parent="."]
 script = ExtResource("7_fknro")
 BaseCharacterScene = ExtResource("8_7ke30")

@@ -34,14 +34,14 @@ public partial class Puppet : Node2D
 
 	public override void _Process(double delta)
 	{
-		if (audioManager.GetNode<AudioStreamPlayer>("AIVoice").Playing == true)
-		{
-			float magnitude = audioManager.spectrum.GetMagnitudeForFrequencyRange(0, 1000).Length();
+		//if (audioManager.GetNode<AudioStreamPlayer>("AIVoice").Playing == true)
+		//{
+		//	float magnitude = 0;//audioManager.spectrum.GetMagnitudeForFrequencyRange(0, 1000).Length();
 
-			// Calculate the scale factor for head movement based on volume
-			magnitude = Mathf.Clamp(magnitude, 0f, 1f);
-			headSprite.Position = new Vector2(0, Mathf.Lerp(headSprite.Position.Y, magnitude * -300, 0.15f));
-		}
+		// Calculate the scale factor for head movement based on volume
+		//	magnitude = Mathf.Clamp(magnitude, 0f, 1f);
+		//	headSprite.Position = new Vector2(0, Mathf.Lerp(headSprite.Position.Y, magnitude * -300, 0.15f));
+		//}
 
 
 

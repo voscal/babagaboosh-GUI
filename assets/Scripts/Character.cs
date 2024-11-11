@@ -37,7 +37,7 @@ public partial class Character : Node
 	public Vector2 headSize;
 	public Vector2 bodyPosition;
 	public Vector2 bodySize;
-
+	public AudioEffectSpectrumAnalyzerInstance audioSpectrum;
 
 
 	public override void _Ready()

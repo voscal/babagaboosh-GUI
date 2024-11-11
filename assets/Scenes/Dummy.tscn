@@ -8,6 +8,8 @@
 script = ExtResource("1_ndnmw")
 maxHeadHeight = 25.4
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="Head" type="Node2D" parent="."]
 position = Vector2(-96, -149)
 
