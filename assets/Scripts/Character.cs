@@ -2,6 +2,7 @@ using Godot;
 using ElevenLabs.Voices;
 using System.Threading.Tasks;
 using Godot.Collections;
+using OpenAI_API.Chat;
 
 public partial class Character : Node
 {
@@ -25,6 +26,7 @@ public partial class Character : Node
 	public string name;
 	public string description;
 	public string context;
+	public Conversation chat;
 	public Vector2 resolution = new(512, 512);
 	public Style style;
 	public Transition transition;
@@ -40,7 +42,8 @@ public partial class Character : Node
 	public AudioEffectSpectrumAnalyzerInstance audioSpectrum;
 
 
-	public override void _Ready()
+
+	public void StartCharacter()
 	{
 
 	}
@@ -55,6 +58,13 @@ public partial class Character : Node
 	{
 
 	}
+
+	public void GenerateResponse(string text)
+	{
+
+	}
+
+
 
 
 }

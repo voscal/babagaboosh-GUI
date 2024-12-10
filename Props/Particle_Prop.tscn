@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://v0xony5vmy53"]
+
+[ext_resource type="Script" path="res://assets/Scripts/Props/Prop.cs" id="1_eywka"]
+
+[node name="ParticleProp" type="Node2D"]
+script = ExtResource("1_eywka")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]

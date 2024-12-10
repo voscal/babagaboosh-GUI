@@ -10,6 +10,7 @@ public partial class MasterScript : Node
 
 	public GlobalInputCSharp GlobalInput;
 
+	bool isEditing = false;
 
 	Vector2 WindowSize;
 
@@ -50,7 +51,7 @@ public partial class MasterScript : Node
 
 	public override void _Process(double delta)
 	{
-
+		/*
 		if (DisplayServer.WindowIsFocused(0))
 		{
 			GetViewport().TransparentBg = false;
@@ -64,6 +65,9 @@ public partial class MasterScript : Node
 			ui.Visible = false;
 			ui.background.Visible = false;
 		}
+		*/
+
+		GetNode<TextureRect>("CharacterView").Position = (GetWindow().Size / 2) - (GetNode<TextureRect>("CharacterView").Size / 2);
 
 
 
@@ -82,7 +86,7 @@ public partial class MasterScript : Node
 	public async void askAI()
 	{
 		var recording = audioManager.RecordBttnPressed();
-
+		var character = manager.character.ActiveCharacters[manager.character.focusedCharacter];
 		if (recording)
 		{
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
@@ -91,14 +95,15 @@ public partial class MasterScript : Node
 
 		string recordedText = await manager.sTT.GetText();
 		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
-		GD.Print(recordedText);
+		//GD.Print(recordedText);
 		if (recordedText != null)
 		{
-			string aiResponse = await services.chatGPT.SendMessage(recordedText);
+			GD.Print(character.chat);
+			string aiResponse = await services.chatGPT.SendMessage(recordedText, character.chat);
 			GD.Print(aiResponse);
-			await services.elevinLabs.RenderVoice(aiResponse);
+			await services.elevinLabs.RenderVoice(character, aiResponse);
 
-			audioManager.PlayAudio();
+			audioManager.PlayAudio(GetNode<CharacterViewport>(character.path));
 
 		}
 	}

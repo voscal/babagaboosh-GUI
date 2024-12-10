@@ -23,9 +23,9 @@ public partial class ElevinLabsGD : Node
 		api = new ElevenLabsClient(saveData.GetAPIKey("11labs"));
 	}
 
-	public async Task RenderVoice(string text)
+	public async Task RenderVoice(Character character, string text)
 	{
-		if (string.IsNullOrEmpty(currentVoice))
+		if (string.IsNullOrEmpty(character.voiceID))
 		{
 			GD.PrintErr("Please select a voice!");
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("Error", "[center]Voice Error!", "[center]Please select a voice!", 5);
@@ -34,13 +34,12 @@ public partial class ElevinLabsGD : Node
 
 		try
 		{
-			Voice voice = await api.VoicesEndpoint.GetVoiceAsync(currentVoice, withSettings: true);
-			VoiceSettings voiceSettingsNew = GetNode<UI>("/root/Main Window/UI").editorUI.GetVoiceSettings();
+			Voice voice = await api.VoicesEndpoint.GetVoiceAsync(character.voiceID, withSettings: true);
 
-			await api.VoicesEndpoint.EditVoiceSettingsAsync(voice, voiceSettingsNew);
-			GD.Print(await api.VoicesEndpoint.GetVoiceSettingsAsync(voice));
+			await api.VoicesEndpoint.EditVoiceSettingsAsync(voice, character.voiceSettings);
+
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Generating Voice!", "[center]11 labs is now generating the voice!", 3);
-			VoiceClip voiceClip = await api.TextToSpeechEndpoint.TextToSpeechAsync(text, voice, voiceSettings: voiceSettingsNew);
+			VoiceClip voiceClip = await api.TextToSpeechEndpoint.TextToSpeechAsync(text, voice, voiceSettings: character.voiceSettings);
 			await File.WriteAllBytesAsync(ProjectSettings.GlobalizePath("user://Audio/AIresponse.mp3"), voiceClip.ClipData.ToArray());
 			ConvertMp3ToWav(ProjectSettings.GlobalizePath("user://Audio/AIresponse.mp3"), ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
 			GD.Print("Finished result");

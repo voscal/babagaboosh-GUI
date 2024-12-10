@@ -3,6 +3,7 @@ using Godot;
 
 public partial class NotificationsManager : Node
 {
+
 	public void NewNotification(string type, string Heading, string message, float Timer)
 	{
 		GD.Print($"NEW NOTIFICATIONS Type{type}");

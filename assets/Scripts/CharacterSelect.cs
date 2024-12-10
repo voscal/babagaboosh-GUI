@@ -32,7 +32,8 @@ public partial class CharacterSelect : Control
 
 	public void RefreshCharactersList(string[] characters)
 	{
-		GridContainer vBox = GetNode<GridContainer>("BackGround/ScrollContainer/BoxContainer");
+		GridContainer vBox = GetNode<GridContainer>("BackGround/ScrollContainer/VBoxContainer/BoxContainer");
+
 		foreach (CharacterBox characterBox in vBox.GetChildren())
 		{
 			characterBox.QueueFree();

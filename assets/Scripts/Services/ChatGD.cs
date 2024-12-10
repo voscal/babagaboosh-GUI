@@ -10,30 +10,33 @@ using System.Collections.Generic;
 public partial class ChatGD : Node
 {
 	OpenAIAPI api;
-	Conversation chat;
+
 	SaveData saveData;
 	public override async void _Ready()
 	{
-
 		saveData = GetNode<SaveData>("/root/Data/SaveData");
 		api = new OpenAIAPI(saveData.GetAPIKey("ChatGPT"));
 		await GetModles();
 	}
 	#region ChatGPT
-	public void SetContext(string context)
+	public Conversation CreateConversation(Character character)
 	{
-		chat = api.Chat.CreateConversation();
+		var chat = api.Chat.CreateConversation();
 		chat.Model = Model.ChatGPTTurbo;
 		chat.RequestParameters.Temperature = 1;
-		chat.AppendSystemMessage(context);
+		GD.Print(character.context);
+		chat.AppendSystemMessage(character.context);
+		return chat;
+
 	}
 
-	public async Task<string> SendMessage(string input)
+	public async Task<string> SendMessage(string input, Conversation chat)
 	{
 		try
 		{
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Generating Response!", "[center]Chat GPT is now generating the response", 3);
 			chat.AppendUserInput(input);
+			GD.Print("past here");
 			string response = await chat.GetResponseFromChatbotAsync();
 			return response;
 		}
@@ -66,16 +69,12 @@ public partial class ChatGD : Node
 		List<Model> models = await api.Models.GetModelsAsync();
 		foreach (Model modle in models)
 		{
-			GD.Print(modle.ModelID);
+			//GD.Print(modle.ModelID);
 		}
-		GD.Print(models[0].ModelID);
+		//GD.Print(models[0].ModelID);
 		return models;
 	}
 
-	public void ClearConvo()
-	{
-		chat = api.Chat.CreateConversation();
-	}
 	#endregion
 
 

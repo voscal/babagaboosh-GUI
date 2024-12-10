@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn46jmt6uglv6"]
+[gd_scene load_steps=13 format=3 uid="uid://dn46jmt6uglv6"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Managers/AudioManager.cs" id="1_54art"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/Manager.cs" id="1_n7at2"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://assets/Scripts/Managers/STT.cs" id="3_q6hsk"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/VoiceManager.cs" id="4_lckk4"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/OBS.cs" id="4_rt6g3"]
+[ext_resource type="Script" path="res://assets/Scripts/ConversationManager.cs" id="5_bvn5n"]
+[ext_resource type="PackedScene" uid="uid://ct1pcdut3ngfi" path="res://assets/Scenes/CharacterVolume.tscn" id="5_o58m3"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/CharacterManager.cs" id="7_fknro"]
 [ext_resource type="PackedScene" uid="uid://b65cpaecw2en3" path="res://assets/Scenes/character.tscn" id="8_7ke30"]
 [ext_resource type="Script" path="res://assets/Scripts/Managers/ViewManager.cs" id="8_8p151"]
@@ -34,10 +36,12 @@ bus = &"Recording"
 [node name="Character" type="Node" parent="."]
 script = ExtResource("7_fknro")
 BaseCharacterScene = ExtResource("8_7ke30")
+BaseCharacterControlScene = ExtResource("5_o58m3")
 
 [node name="File" type="Node" parent="."]
 
-[node name="Group" type="Node" parent="."]
+[node name="Conversation" type="Node" parent="."]
+script = ExtResource("5_bvn5n")
 
 [node name="Notification" type="Node" parent="."]
 script = ExtResource("1_xte7s")

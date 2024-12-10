@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "FPzhQazh4T8fxfwaS9MR4u8T048Mrb0/xMQ9VFitse+wmJ5aL+CT8VIIMj6yjvzrcRxIul/SUZKSpT73gpMf5A==",
+  "dgSpecHash": "wrJQRIxRVEF+mPLu/+yhFlmC0u1C8PwNElstymR3MWcsBD0BuYlmtOJ3SWdSz5EBSEaFDnAY7CF+lhUkh6XK3w==",
   "success": true,
   "projectFilePath": "D:\\Development\\Godot\\Projects\\babagaboosh-GUI\\Babagaboosh.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thomas\\.nuget\\packages\\azure.core\\1.37.0\\azure.core.1.37.0.nupkg.sha512",
     "C:\\Users\\Thomas\\.nuget\\packages\\elevenlabs-dotnet\\2.1.0\\elevenlabs-dotnet.2.1.0.nupkg.sha512",
-    "C:\\Users\\Thomas\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
-    "C:\\Users\\Thomas\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
-    "C:\\Users\\Thomas\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512",
+    "C:\\Users\\Thomas\\.nuget\\packages\\godot.sourcegenerators\\4.3.0\\godot.sourcegenerators.4.3.0.nupkg.sha512",
+    "C:\\Users\\Thomas\\.nuget\\packages\\godotsharp\\4.3.0\\godotsharp.4.3.0.nupkg.sha512",
+    "C:\\Users\\Thomas\\.nuget\\packages\\godotsharpeditor\\4.3.0\\godotsharpeditor.4.3.0.nupkg.sha512",
     "C:\\Users\\Thomas\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Thomas\\.nuget\\packages\\microsoft.cognitiveservices.speech\\1.35.0\\microsoft.cognitiveservices.speech.1.35.0.nupkg.sha512",
     "C:\\Users\\Thomas\\.nuget\\packages\\microsoft.extensions.configuration\\2.1.0\\microsoft.extensions.configuration.2.1.0.nupkg.sha512",

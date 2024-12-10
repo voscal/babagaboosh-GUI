@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using Godot;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 
 
 public partial class CharacterManager : Manager
@@ -9,38 +12,87 @@ public partial class CharacterManager : Manager
 	public List<Character> ActiveCharacters = new();
 	public int focusedCharacter;
 
+	public UI ui;
+
 	[Export]
 	public PackedScene BaseCharacterScene;
 
+	[Export]
+	public PackedScene BaseCharacterControlScene;
+	public Services services;
 	public override void _Ready()
 	{
+		ui = GetNode<UI>("/root/Main Window/UI");
 		manager = GetNode<Manager>("/root/Managers");
+		services = GetNode<Services>("/root/Services");
 	}
 
 	public void AddCharacter(Character character)
 	{
 		var characerScene = BaseCharacterScene.Instantiate();
 		//create and update a new viewport
-		characerScene.GetNode<Node2D>("Dummy/Head").Position = character.headPosition;
+		characerScene.GetNode<Prop>("Dummy/Head").Position = character.headPosition;
 		characerScene.GetNode<TextureRect>("Dummy/Head/Sprite").Size = character.headSize;
 		characerScene.GetNode<TextureRect>("Dummy/Head/Sprite").Texture = character.image2;
 		characerScene.GetNode<Node2D>("Dummy/Body").Position = character.bodyPosition;
 		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Size = character.bodySize;
 		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Texture = character.image1;
+		character.chat = services.chatGPT.CreateConversation(character);
 		ActiveCharacters.Add(character);
 		characerScene.Name = ActiveCharacters.IndexOf(character) + " " + character.name;
 		character.path = $"/root/Managers/View/{characerScene.Name}";
-		character.audioSpectrum = manager.audio.newCharacterBus(character.path);
+		character.audioSpectrum = manager.audio.NewCharacterBus(character.path);
 
+
+
+		characerScene.GetNode<AudioStreamPlayer>("Dummy/AudioPlayer").Bus = character.path;
 		manager.view.AddChild(characerScene);
+		GD.Print(ActiveCharacters[ActiveCharacters.IndexOf(character)].path);
+		SetFocus(ActiveCharacters.Count - 1);
+
+		var controlScene = BaseCharacterControlScene.Instantiate();
+		controlScene.Set("id", ActiveCharacters.IndexOf(character));
+		controlScene.Name = ActiveCharacters.IndexOf(character) + character.name;
+		controlScene.GetNode<TextureRect>("Profile/TextureRect").Texture = GetNode<SubViewport>(character.path).GetTexture(); ;
+		ui.GetNode<BoxContainer>("Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2").AddChild(controlScene);
+
 
 
 	}
 	public void RemoveCharacter(int index)
 	{
-		var character = manager.character.ActiveCharacters[index];
+		if (ActiveCharacters.Count == 1)
+		{
+			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", "[center]Unable to Remove", "[center]You must have at least one character enabled", 5);
+			return;
+		}
+		var character = ActiveCharacters[index];
+		manager.audio.RemoveCharacterBus(character.path);
 		GetNode<SubViewport>(character.path).QueueFree();
+		ui.GetNode<Panel>($"Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2/{ActiveCharacters.IndexOf(character) + character.name}").QueueFree();
 		ActiveCharacters.RemoveAt(index);
+		foreach (var activeCharacter in ActiveCharacters)
+		{
+			var oldCharacterPath = activeCharacter.path;
+			var oldCharacterindex = (index <= ActiveCharacters.IndexOf(activeCharacter)) ? (ActiveCharacters.IndexOf(activeCharacter) + 1).ToString() : ActiveCharacters.IndexOf(activeCharacter).ToString();
+
+			GetNode<Viewport>(activeCharacter.path).Name = ActiveCharacters.IndexOf(activeCharacter) + " " + activeCharacter.name;
+			activeCharacter.path = $"/root/Managers/View/{ActiveCharacters.IndexOf(activeCharacter) + " " + activeCharacter.name}";
+			manager.audio.UpdateCharacterBus(oldCharacterPath, activeCharacter.path);
+			GD.Print(ActiveCharacters[ActiveCharacters.IndexOf(activeCharacter)].path);
+
+
+			var controlScene = ui.GetNode<CharacterControl>($"Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2/{oldCharacterindex + activeCharacter.name}");
+			controlScene.id = ActiveCharacters.IndexOf(activeCharacter);
+			controlScene.Name = ActiveCharacters.IndexOf(activeCharacter) + activeCharacter.name;
+			controlScene.GetNode<Label>("Id").Text = ActiveCharacters.IndexOf(activeCharacter).ToString();
+
+		}
+
+
+
+
+		SetFocus(0);
 	}
 
 	public void UpdateCharacter(int oldIndex, Character newCharacter)
@@ -58,21 +110,39 @@ public partial class CharacterManager : Manager
 		characerScene.GetNode<Node2D>("Dummy/Body").Position = newCharacter.bodyPosition;
 		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Size = newCharacter.bodySize;
 		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Texture = newCharacter.image1;
-
 		ActiveCharacters[ActiveCharacters.IndexOf(oldCharacter)] = newCharacter;
 		characerScene.Name = ActiveCharacters.IndexOf(newCharacter) + " " + newCharacter.name;
 		newCharacter.path = $"/root/Managers/View/{characerScene.Name}";
+		manager.audio.UpdateCharacterBus(oldCharacter.path, newCharacter.path);
+		characerScene.GetNode<AudioStreamPlayer>("Dummy/AudioPlayer").Bus = newCharacter.path;
+		newCharacter.chat = services.chatGPT.CreateConversation(newCharacter);
+
+
+
+		var controlScene = ui.GetNode<CharacterControl>($"Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2/{ActiveCharacters.IndexOf(oldCharacter) + 1 + oldCharacter.name}");
+		controlScene.id = ActiveCharacters.IndexOf(newCharacter);
+		controlScene.Name = ActiveCharacters.IndexOf(newCharacter) + newCharacter.name;
+		controlScene.GetNode<Label>("Id").Text = ActiveCharacters.IndexOf(newCharacter).ToString();
 
 	}
 
 	public void SetFocus(int index)
 	{
-		GetNode<TextureRect>("/root/Main Window/CharacterView").Texture = GetNode<SubViewport>(manager.character.ActiveCharacters[index].path).GetTexture();
-	}
-	public void SetFocus(Character character)
-	{
+		var character = manager.character.ActiveCharacters[index];
+		focusedCharacter = index;
 		GetNode<TextureRect>("/root/Main Window/CharacterView").Texture = GetNode<SubViewport>(character.path).GetTexture();
+		GetNode<TextureRect>("/root/Main Window/CharacterView").Size = GetNode<SubViewport>(character.path).Size;
+		GetNode<CharacterViewport>(character.path).focused = true;
+
+
 	}
+	public void SetFocus()
+	{
+		SetFocus(manager.character.ActiveCharacters.Count);
+	}
+
+
+
 
 
 

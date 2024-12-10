@@ -21,7 +21,7 @@ public partial class AudioManager : Manager
 
 	public override void _Ready()
 	{
-
+		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(2, 0);
 
 		ui = GetNode<UI>("/root/Main Window/UI");
 
@@ -33,7 +33,7 @@ public partial class AudioManager : Manager
 		#region Signals
 		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").ItemSelected += MicSelected;
 		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").ItemSelected += OutputSelected;
-		ui.GetNode<TextureButton>("CoreUI/Replay").Pressed += PlayAudio;
+
 
 
 		#endregion
@@ -100,10 +100,10 @@ public partial class AudioManager : Manager
 		currentlyRecording = false;
 	}
 
-	public void PlayAudio()
+	public void PlayAudio(CharacterViewport character)
 	{
 		GD.Print("Play");
-		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>("AIVoice");
+		AudioStreamPlayer audioStreamPlayer = character.GetNode<AudioStreamPlayer>("Dummy/AudioPlayer");
 
 		byte[] wavData = File.ReadAllBytes(ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
 
@@ -208,16 +208,28 @@ public partial class AudioManager : Manager
 		AudioServer.OutputDevice = outputDevices[index];
 	}
 
-	public AudioEffectSpectrumAnalyzerInstance newCharacterBus(string characterPath)
+	public AudioEffectSpectrumAnalyzerInstance NewCharacterBus(string characterPath)
 	{
 		AudioServer.AddBus(AudioServer.BusCount);
 		AudioServer.SetBusName(AudioServer.BusCount - 1, characterPath);
 		var spectrumAnalyzer = new AudioEffectSpectrumAnalyzer();
 		AudioServer.AddBusEffect(AudioServer.BusCount - 1, spectrumAnalyzer);
+		AudioServer.SetBusSend(AudioServer.BusCount - 1, "Voices");
+
 		return (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(AudioServer.BusCount - 1, 0);
+
+	}
+
+	public void UpdateCharacterBus(string oldCharacterPath, string newCharacterPath)
+	{
+		AudioServer.SetBusName(AudioServer.GetBusIndex(oldCharacterPath), newCharacterPath);
 	}
 
 
+	public void RemoveCharacterBus(string characterPath)
+	{
+		AudioServer.RemoveBus(AudioServer.GetBusIndex(characterPath));
+	}
 
 
 

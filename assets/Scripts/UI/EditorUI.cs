@@ -180,7 +180,7 @@ public partial class EditorUI : Control
 	}
 	public void UpdateContext()
 	{
-		services.chatGPT.SetContext(GetNode<TextEdit>("AIContext/Pannle/Panel/AIcontext").Text);
+		//services.chatGPT.SetContext(GetNode<TextEdit>("AIContext/Pannle/Panel/AIcontext").Text);
 	}
 
 
