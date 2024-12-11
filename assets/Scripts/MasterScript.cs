@@ -90,22 +90,17 @@ public partial class MasterScript : Node
 		if (recording)
 		{
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
+			manager.conversation.StartConversation();
 			return;
 		}
+		manager.conversation.StopConversation();
+		//string recordedText = await manager.sTT.GetText();
+		//GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
 
-		string recordedText = await manager.sTT.GetText();
-		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
-		//GD.Print(recordedText);
-		if (recordedText != null)
-		{
-			GD.Print(character.chat);
-			string aiResponse = await services.chatGPT.SendMessage(recordedText, character.chat);
-			GD.Print(aiResponse);
-			await services.elevinLabs.RenderVoice(character, aiResponse);
-
-			audioManager.PlayAudio(GetNode<CharacterViewport>(character.path));
-
-		}
+		//if (recordedText != null)
+		//{
+		//	character.GenerateResponse(recordedText, services, manager);
+		//}
 	}
 
 

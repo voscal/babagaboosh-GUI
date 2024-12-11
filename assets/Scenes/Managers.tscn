@@ -43,6 +43,8 @@ BaseCharacterControlScene = ExtResource("5_o58m3")
 [node name="Conversation" type="Node" parent="."]
 script = ExtResource("5_bvn5n")
 
+[node name="AudioTimer" type="Timer" parent="Conversation"]
+
 [node name="Notification" type="Node" parent="."]
 script = ExtResource("1_xte7s")
 
@@ -58,3 +60,5 @@ script = ExtResource("8_8p151")
 
 [node name="Voices" type="Node" parent="."]
 script = ExtResource("4_lckk4")
+
+[connection signal="timeout" from="Conversation/AudioTimer" to="Conversation" method="ClipOver"]

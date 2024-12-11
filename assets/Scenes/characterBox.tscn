@@ -227,6 +227,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "LOAD"
 
 [node name="Add" type="Button" parent="."]
+layout_mode = 0
 offset_left = 131.0
 offset_top = 119.0
 offset_right = 164.0

@@ -3,6 +3,7 @@ using ElevenLabs.Voices;
 using System.Threading.Tasks;
 using Godot.Collections;
 using OpenAI_API.Chat;
+using System.Runtime.CompilerServices;
 
 public partial class Character : Node
 {
@@ -27,6 +28,7 @@ public partial class Character : Node
 	public string description;
 	public string context;
 	public Conversation chat;
+	public Conversation openChat;
 	public Vector2 resolution = new(512, 512);
 	public Style style;
 	public Transition transition;
@@ -57,10 +59,28 @@ public partial class Character : Node
 	public void Talk()
 	{
 
+
 	}
 
-	public void GenerateResponse(string text)
+	public async void GenerateResponse(string text, Services services, Manager manager)
 	{
+
+		string aiResponse = await services.chatGPT.SendMessage(text, chat);
+		GD.Print(aiResponse);
+		await services.elevinLabs.RenderVoice(this, aiResponse);
+		manager.audio.PlayAudio(path);
+		services.chatGPT.UpdateChatHistory(this, aiResponse);
+
+	}
+	public async void GenerateOpenResponse(string text, Services services, Manager manager)
+	{
+
+		string aiResponse = await services.chatGPT.SendMessage(text, openChat);
+		GD.Print(aiResponse);
+		await services.elevinLabs.RenderVoice(this, aiResponse);
+		manager.audio.PlayAudio(path);
+		services.chatGPT.UpdateChatHistory(this, aiResponse);
+
 
 	}
 

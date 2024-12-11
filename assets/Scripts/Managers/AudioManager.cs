@@ -1,6 +1,7 @@
 
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using Godot;
 using NAudio.Wasapi.CoreAudioApi;
 
@@ -10,8 +11,7 @@ public partial class AudioManager : Manager
 	string[] inputDevices;
 	string[] outputDevices;
 	public AudioEffectRecord recordEffect;
-
-
+	Manager manager;
 	public AudioStreamWav recording;
 
 	UI ui;
@@ -22,7 +22,7 @@ public partial class AudioManager : Manager
 	public override void _Ready()
 	{
 		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(2, 0);
-
+		manager = GetNode<Manager>("/root/Managers");
 		ui = GetNode<UI>("/root/Main Window/UI");
 
 		if (GetNode<SaveData>("/root/Data/SaveData").DirExists("user://Audio") == false)
@@ -100,10 +100,10 @@ public partial class AudioManager : Manager
 		currentlyRecording = false;
 	}
 
-	public void PlayAudio(CharacterViewport character)
+	public void PlayAudio(string characterPath)
 	{
 		GD.Print("Play");
-		AudioStreamPlayer audioStreamPlayer = character.GetNode<AudioStreamPlayer>("Dummy/AudioPlayer");
+		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>($"/{characterPath}/Dummy/AudioPlayer");
 
 		byte[] wavData = File.ReadAllBytes(ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
 
@@ -120,6 +120,10 @@ public partial class AudioManager : Manager
 		// Set the stream to the audio player and play
 		audioStreamPlayer.Stream = audioStreamSample;
 		audioStreamPlayer.Play();
+		manager.conversation.audioTimer.WaitTime = audioStreamSample.GetLength();
+		manager.conversation.audioTimer.Start();
+
+
 	}
 
 

@@ -44,7 +44,6 @@ public partial class CharacterManager : Manager
 		character.audioSpectrum = manager.audio.NewCharacterBus(character.path);
 
 
-
 		characerScene.GetNode<AudioStreamPlayer>("Dummy/AudioPlayer").Bus = character.path;
 		manager.view.AddChild(characerScene);
 		GD.Print(ActiveCharacters[ActiveCharacters.IndexOf(character)].path);
@@ -53,7 +52,7 @@ public partial class CharacterManager : Manager
 		var controlScene = BaseCharacterControlScene.Instantiate();
 		controlScene.Set("id", ActiveCharacters.IndexOf(character));
 		controlScene.Name = ActiveCharacters.IndexOf(character) + character.name;
-		controlScene.GetNode<TextureRect>("Profile/TextureRect").Texture = GetNode<SubViewport>(character.path).GetTexture(); ;
+		controlScene.GetNode<TextureRect>("Profile/TextureRect").Texture = GetNode<SubViewport>(character.path).GetTexture();
 		ui.GetNode<BoxContainer>("Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2").AddChild(controlScene);
 
 

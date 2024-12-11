@@ -1,3 +1,4 @@
+Timer
 Button
 ColorRect
 WorldEnvironment
@@ -11,5 +12,3 @@ TextureRect
 PanelContainer
 VBoxContainer
 BoxContainer
-Marker2D
-StaticBody2D

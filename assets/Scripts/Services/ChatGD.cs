@@ -2,18 +2,19 @@ using OpenAI_API;
 using OpenAI_API.Models;
 using OpenAI_API.Chat;
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Godot;
 using System.Collections.Generic;
 
+
 public partial class ChatGD : Node
 {
 	OpenAIAPI api;
-
+	Manager manager;
 	SaveData saveData;
 	public override async void _Ready()
 	{
+		manager = GetNode<Manager>("/root/Managers");
 		saveData = GetNode<SaveData>("/root/Data/SaveData");
 		api = new OpenAIAPI(saveData.GetAPIKey("ChatGPT"));
 		await GetModles();
@@ -26,6 +27,17 @@ public partial class ChatGD : Node
 		chat.RequestParameters.Temperature = 1;
 		GD.Print(character.context);
 		chat.AppendSystemMessage(character.context);
+		return chat;
+
+	}
+
+	public Conversation CreateConversation(string Context)
+	{
+		var chat = api.Chat.CreateConversation();
+		chat.Model = Model.ChatGPTTurbo;
+		chat.RequestParameters.Temperature = 1.3f;
+		GD.Print(Context);
+		chat.AppendSystemMessage(Context);
 		return chat;
 
 	}
@@ -63,6 +75,26 @@ public partial class ChatGD : Node
 		}
 
 	}
+
+	public void UpdateChatHistory(Character character, string text)
+	{
+		ChatMessage chatMessage = new ChatMessage
+		{
+			Role = ChatMessageRole.User,
+			TextContent = $"[{character.name}] {text}"
+
+		};
+
+		foreach (Character activeCharacter in manager.character.ActiveCharacters)
+		{
+			if (character != activeCharacter)
+			{
+				activeCharacter.chat.AppendMessage(chatMessage);
+			}
+		}
+	}
+
+
 
 	public async Task<List<Model>> GetModles()
 	{
