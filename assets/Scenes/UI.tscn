@@ -2642,17 +2642,19 @@ bus = &"SFX"
 
 [node name="SettingsUI" type="Control" parent="." node_paths=PackedStringArray("animationPlayer")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 9
+anchor_bottom = 1.0
 offset_left = -384.0
-offset_bottom = 648.0
+grow_vertical = 2
 script = ExtResource("7_4ndqf")
 animationPlayer = NodePath("AnimationPlayer")
 
 [node name="BackGround" type="Panel" parent="SettingsUI"]
-custom_minimum_size = Vector2(384, 256)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
 offset_right = 384.0
-offset_bottom = 648.0
+grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8oft0")
 
@@ -2673,10 +2675,12 @@ vertical_alignment = 1
 [node name="SettingsSelect" type="PanelContainer" parent="SettingsUI"]
 clip_children = 2
 layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = 70.0
 offset_right = 369.0
-offset_bottom = 633.0
+offset_bottom = -15.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j7knj")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SettingsUI/SettingsSelect"]
@@ -2687,8 +2691,6 @@ horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsUI/SettingsSelect/ScrollContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(0, 563)
 layout_mode = 2
 size_flags_stretch_ratio = 20.0
 
@@ -2957,7 +2959,7 @@ fit_to_longest_item = false
 allow_reselect = true
 
 [node name="SpeechToText" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(353, 356.31)
+custom_minimum_size = Vector2(353, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -3106,7 +3108,7 @@ theme = ExtResource("8_voyw1")
 theme_override_fonts/font = ExtResource("9_f7luj")
 
 [node name="API keys" type="Control" parent="SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(353, 356.31)
+custom_minimum_size = Vector2(353, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 

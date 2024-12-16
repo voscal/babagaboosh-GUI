@@ -17,8 +17,18 @@ script = ExtResource("1_10yok")
 
 [node name="Background" type="ColorRect" parent="IGNOR"]
 z_index = -1000
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0, 1, 0)
 
 [node name="Mouse" type="Node2D" parent="IGNOR"]
 

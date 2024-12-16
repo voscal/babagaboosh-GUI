@@ -24,7 +24,7 @@ public partial class ChatGD : Node
 	{
 		var chat = api.Chat.CreateConversation();
 		chat.Model = Model.ChatGPTTurbo;
-		chat.RequestParameters.Temperature = 1;
+		chat.RequestParameters.Temperature = 1.7f;
 		GD.Print(character.context);
 		chat.AppendSystemMessage(character.context);
 		return chat;

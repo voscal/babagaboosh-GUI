@@ -45,6 +45,7 @@ public partial class CharacterManager : Manager
 
 
 		characerScene.GetNode<AudioStreamPlayer>("Dummy/AudioPlayer").Bus = character.path;
+		characerScene.GetNode<Dummy>("Dummy").audioSpectrum = character.audioSpectrum;
 		manager.view.AddChild(characerScene);
 		GD.Print(ActiveCharacters[ActiveCharacters.IndexOf(character)].path);
 		SetFocus(ActiveCharacters.Count - 1);

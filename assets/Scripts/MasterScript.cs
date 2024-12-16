@@ -75,7 +75,6 @@ public partial class MasterScript : Node
 
 		if (GlobalInput.IsActionJustPressed("Record"))
 		{
-
 			askAI();
 		}
 
@@ -83,14 +82,19 @@ public partial class MasterScript : Node
 
 	}
 
-	public async void askAI()
+	public void askAI()
 	{
+		GD.Print("setp 1");
 		var recording = audioManager.RecordBttnPressed();
+		GD.Print("setp 2");
 		var character = manager.character.ActiveCharacters[manager.character.focusedCharacter];
+		GD.Print("setp 3");
 		if (recording)
 		{
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
+			GD.Print("setp 4");
 			manager.conversation.StartConversation();
+			GD.Print("setp 5");
 			return;
 		}
 		manager.conversation.StopConversation();

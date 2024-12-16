@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c32xv48m7eni7"]
 
-[ext_resource type="Script" path="res://assets/Scripts/Puppet.cs" id="1_ndnmw"]
+[ext_resource type="Script" path="res://assets/Scripts/Dummy.cs" id="1_ndnmw"]
 [ext_resource type="Texture2D" uid="uid://dvlojxdgh3bcy" path="res://assets/Sprites/temp char/bottom.png" id="2_4q6h6"]
 [ext_resource type="Script" path="res://assets/Scripts/Props/Prop.cs" id="2_k6w2p"]
 [ext_resource type="Texture2D" uid="uid://bj0owew0wufyl" path="res://assets/Sprites/temp char/Top.png" id="3_5ii62"]

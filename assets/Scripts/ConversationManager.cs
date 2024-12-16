@@ -15,7 +15,7 @@ public partial class ConversationManager : Node
 
 	string ExplnationOutro = "you are conversing with 2 other people";
 
-
+	int lastSpoke;
 
 
 	public override void _Ready()
@@ -30,8 +30,17 @@ public partial class ConversationManager : Node
 	{
 		if (active && !conversationLock)
 		{
-			var rng = new RandomNumberGenerator();
-			var randomCharacter = rng.RandiRange(0, manager.character.ActiveCharacters.Count - 1);
+			int randomCharacter;
+			while (true)
+			{
+				var rng = new RandomNumberGenerator();
+				randomCharacter = rng.RandiRange(0, manager.character.ActiveCharacters.Count - 1);
+				if (randomCharacter != lastSpoke)
+				{
+					break;
+				}
+			}
+			lastSpoke = randomCharacter;
 			manager.character.ActiveCharacters[randomCharacter].GenerateOpenResponse("Okay what is your response? Try to be as chaotic and bizarre and adult-humor oriented as possible. Again, 3 sentences maximum.", service, manager);
 			conversationLock = true;
 		}
