@@ -27,6 +27,7 @@ config/windows_native_icon="res://favicon.ico"
 general/text_to_speech=true
 driver/output_latency=0
 driver/enable_input=true
+driver/mix_rate=16000
 
 [autoload]
 
@@ -37,6 +38,7 @@ Services="*res://assets/Scenes/Services.tscn"
 
 [display]
 
+window/size/resizable=false
 window/energy_saving/keep_screen_on=false
 window/subwindows/embed_subwindows=false
 window/stretch/aspect="ignore"
@@ -47,7 +49,7 @@ project/assembly_name="Babagaboosh"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/global_input/plugin.cfg", "res://addons/native_dialogs/plugin.cfg")
+enabled=PackedStringArray("res://addons/global_input/plugin.cfg", "res://addons/godot_whisper/plugin.cfg", "res://addons/native_dialogs/plugin.cfg")
 
 [input]
 

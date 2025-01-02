@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://assets/Scripts/Services/AzuirGD.cs" id="3_4rb2f"]
 [ext_resource type="Script" path="res://assets/Scripts/Services/VoskGD.cs" id="4_pgwa6"]
 [ext_resource type="Script" path="res://assets/Scripts/Services/WhisperGD.cs" id="6_q1ewq"]
-[ext_resource type="WhisperResource" path="res://addons/godot_whisper/models/gglm-tiny.en.bin" id="7_ehdlh"]
+[ext_resource type="WhisperResource" path="res://addons/godot_whisper/models/gglm-tiny.en.bin" id="7_m8vtj"]
 [ext_resource type="Script" path="res://addons/godot_whisper/audio_stream_to_text.gd" id="8_wtjtd"]
-[ext_resource type="AudioStream" uid="uid://cuybt83bwegoq" path="res://samples/godot_whisper/jfk.wav" id="9_yj4xt"]
+[ext_resource type="AudioStream" uid="uid://dfcw8e2m8fr1o" path="res://assets/music/ElevenLabs_2024-12-31T02_35_31_Ian Cartwell - Suspense, Mystery and Thriller_pvc_s0_sb0_se100_b_m2.wav" id="9_shrvm"]
 
 [node name="Services" type="Node"]
 script = ExtResource("1_psn1d")
@@ -30,8 +30,9 @@ recordBusName = "Recording"
 [node name="Whisper" type="Node" parent="."]
 script = ExtResource("6_q1ewq")
 
-[node name="AudioStreamToText" type="SpeechToText" parent="Whisper"]
-language_model = ExtResource("7_ehdlh")
+[node name="Model" type="SpeechToText" parent="Whisper"]
+language_model = ExtResource("7_m8vtj")
 script = ExtResource("8_wtjtd")
-audio_stream = ExtResource("9_yj4xt")
-text = " And so my fellow Americans ask not what your country can do for you"
+initial_prompt = "english"
+audio_stream = ExtResource("9_shrvm")
+text = " Uhh, yes, I'm sorry, I'm sorry, I'm sorry"

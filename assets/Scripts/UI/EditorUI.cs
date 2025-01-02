@@ -9,6 +9,7 @@ using Godot;
 
 public partial class EditorUI : Control
 {
+	CanvasLayer uiRoot;
 	string openedUI;
 	public bool menuOpen = false;
 
@@ -23,6 +24,9 @@ public partial class EditorUI : Control
 
 	[Export]
 	AnimationPlayer AnimationPlayer;
+
+	[Export]
+	PackedScene popup;
 
 
 	#endregion
@@ -97,9 +101,9 @@ public partial class EditorUI : Control
 
 	}
 
-	public async void UpdateModleList()
+	public void UpdateModleList()
 	{
-		await services.chatGPT.GetModles();
+		//await services.chatGPT.GetModles();
 	}
 
 	public VoiceSettings GetVoiceSettings()
@@ -184,7 +188,8 @@ public partial class EditorUI : Control
 	}
 
 
-	// set the focus to any of the active characters
+
+
 
 
 	#endregion

@@ -1,113 +1,110 @@
-using OpenAI_API;
-using OpenAI_API.Models;
-using OpenAI_API.Chat;
+using OpenAI;
+using OpenAI.Chat;
 using System;
 using System.Threading.Tasks;
 using Godot;
 using System.Collections.Generic;
-
+using NAudio.Midi;
+using OpenAI.Models;
 
 public partial class ChatGD : Node
 {
-	OpenAIAPI api;
+	ChatClient client;
 	Manager manager;
 	SaveData saveData;
-	public override async void _Ready()
+
+	ChatCompletionOptions options;
+
+	public float temperature = 1f;
+	public int maxTokenCount = 500;
+	public string model = "gpt-3.5-turbo";
+	public override void _Ready()
 	{
 		manager = GetNode<Manager>("/root/Managers");
 		saveData = GetNode<SaveData>("/root/Data/SaveData");
-		api = new OpenAIAPI(saveData.GetAPIKey("ChatGPT"));
-		await GetModles();
+		CreateNewClient();
 	}
+
 	#region ChatGPT
-	public Conversation CreateConversation(Character character)
+
+	public void CreateNewClient()
 	{
-		var chat = api.Chat.CreateConversation();
-		chat.Model = Model.ChatGPTTurbo;
-		chat.RequestParameters.Temperature = 1.7f;
+		client = new(model: model, apiKey: saveData.GetAPIKey("ChatGPT"));
+		options = new()
+		{
+			MaxOutputTokenCount = maxTokenCount,
+			Temperature = temperature,
+		};
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Update GPT", "[center]successfully applied changes to Chatgpt", 3);
+	}
+
+
+	public List<ChatMessage> CreateConversation(Character character)
+	{
+		List<ChatMessage> messages = new()
+		{
+			new SystemChatMessage(character.context)
+		};
 		GD.Print(character.context);
-		chat.AppendSystemMessage(character.context);
-		return chat;
-
+		// Return the chat completion options object
+		return messages;
 	}
 
-	public Conversation CreateConversation(string Context)
+	public List<ChatMessage> CreateConversation(string context)
 	{
-		var chat = api.Chat.CreateConversation();
-		chat.Model = Model.ChatGPTTurbo;
-		chat.RequestParameters.Temperature = 1.3f;
-		GD.Print(Context);
-		chat.AppendSystemMessage(Context);
-		return chat;
-
+		List<ChatMessage> messages = new()
+		{
+			new SystemChatMessage(context)
+		};
+		GD.Print(context);
+		return messages;
 	}
 
-	public async Task<string> SendMessage(string input, Conversation chat)
+	public async Task<string> SendMessage(string input, List<ChatMessage> conversation)
 	{
 		try
 		{
-			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Generating Response!", "[center]Chat GPT is now generating the response", 3);
-			chat.AppendUserInput(input);
-			GD.Print("past here");
-			string response = await chat.GetResponseFromChatbotAsync();
-			return response;
+			GetNode<NotificationsManager>("/root/Managers/Notification")
+				.NewNotification("info", "[center]Generating Response!", "[center]Chat GPT is now generating the response", 3);
+
+			conversation.Add(new UserChatMessage(input));
+			GD.Print("Sending input to ChatGPT...");
+			ChatCompletion completion = await client.CompleteChatAsync(conversation, options);
+			// Await the response from the chatbot
+			conversation.Add(new SystemChatMessage(completion.Content.ToString()));
+			return completion.Content[0].Text;
 		}
 		catch (Exception ex)
 		{
-			if (ex.Message.Contains("invalid_api_key"))
-			{
-				GD.PrintErr("Invalid API key. Please check your API key and try again.");
-				GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", $"[center]ChatGPT ERROR", $"[center]Invalid API key. Please check your API key and try again.", 10);
-				return null;
-			}
-			else if (ex.Message.Contains("insufficient_quota"))
-			{
-				GD.PrintErr("Rate limit exceeded. Please wait and try again later.");
-				GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", $"[center]ChatGPT ERROR", $"[center]Rate limit exceeded. Please wait and try again later.", 10);
-				return null;
-			}
-			else
-			{
-				GD.PrintErr($"General error: {ex.Message}");
-				GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", $"[center]ChatGPT ERROR", $"[center]An error occurred. Please try again.", 10);
-				return null;
-			}
+			HandleException(ex);
+			return null;
 		}
-
 	}
 
 	public void UpdateChatHistory(Character character, string text)
 	{
-		ChatMessage chatMessage = new ChatMessage
-		{
-			Role = ChatMessageRole.User,
-			TextContent = $"[{character.name}] {text}"
-
-		};
-
 		foreach (Character activeCharacter in manager.character.ActiveCharacters)
 		{
 			if (character != activeCharacter)
 			{
-				activeCharacter.chat.AppendMessage(chatMessage);
+				activeCharacter.chat.Add(new UserChatMessage($"[{character.name}] {text}"));
 			}
 		}
 	}
 
-
-
-	public async Task<List<Model>> GetModles()
+	private void HandleException(Exception ex)
 	{
-		List<Model> models = await api.Models.GetModelsAsync();
-		foreach (Model modle in models)
-		{
-			//GD.Print(modle.ModelID);
-		}
-		//GD.Print(models[0].ModelID);
-		return models;
+		string errorMessage = ex.Message.Contains("invalid_api_key") ?
+			"Invalid API key. Please check your API key and try again." :
+			ex.Message.Contains("insufficient_quota") ?
+			"Rate limit exceeded. Please wait and try again later." :
+			"An error occurred. Please try again.";
+
+		GD.PrintErr($"Error: {ex.Message}");
+		GetNode<NotificationsManager>("/root/Managers/Notification")
+			.NewNotification("error", "[center]ChatGPT ERROR", $"[center]{errorMessage}", 10);
 	}
 
+
 	#endregion
-
-
 }

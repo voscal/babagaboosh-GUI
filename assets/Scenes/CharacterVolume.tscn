@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ct1pcdut3ngfi"]
 
-[ext_resource type="Script" path="res://assets/Scenes/CharacterControl.cs" id="1_pkthj"]
+[ext_resource type="Script" path="res://assets/Scripts/CharacterControl.cs" id="1_pkthj"]
 [ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="2_egqun"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qgspp"]

@@ -31,8 +31,8 @@ public partial class AudioManager : Manager
 		}
 
 		#region Signals
-		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").ItemSelected += MicSelected;
-		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").ItemSelected += OutputSelected;
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/MicList").ItemSelected += MicSelected;
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/OutputList").ItemSelected += OutputSelected;
 
 
 
@@ -48,14 +48,14 @@ public partial class AudioManager : Manager
 
 		//settings menu
 		int voiceChannle = AudioServer.GetBusIndex("Voices");
-		AudioServer.SetBusVolumeDb(voiceChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/VoicesLevel").Value);
+		AudioServer.SetBusVolumeDb(voiceChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/VoicesLevel").Value);
 
 
 		int SFXChannle = AudioServer.GetBusIndex("SFX");
-		AudioServer.SetBusVolumeDb(SFXChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/SFX Level").Value);
+		AudioServer.SetBusVolumeDb(SFXChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/SFX Level").Value);
 
 		int BGmusic = AudioServer.GetBusIndex("BGMusic");
-		AudioServer.SetBusVolumeDb(BGmusic, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/MusicLevel").Value);
+		AudioServer.SetBusVolumeDb(BGmusic, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/MusicLevel").Value);
 
 	}
 
@@ -103,7 +103,7 @@ public partial class AudioManager : Manager
 	public void PlayAudio(string characterPath)
 	{
 		GD.Print("Play");
-		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>($"/{characterPath}/Dummy/AudioPlayer");
+		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>($"/{characterPath}/Viewport/Dummy/AudioPlayer");
 
 		byte[] wavData = File.ReadAllBytes(ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
 
@@ -136,10 +136,10 @@ public partial class AudioManager : Manager
 	{
 		inputDevices = AudioServer.GetInputDeviceList();
 
-		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").Clear();
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/MicList").Clear();
 		foreach (string device in inputDevices)
 		{
-			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").AddItem(device);
+			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/MicList").AddItem(device);
 		}
 
 	}
@@ -193,10 +193,10 @@ public partial class AudioManager : Manager
 	{
 		outputDevices = AudioServer.GetOutputDeviceList();
 
-		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").Clear();
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/OutputList").Clear();
 		foreach (string device in outputDevices)
 		{
-			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").AddItem(device);
+			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/OutputList").AddItem(device);
 		}
 
 	}

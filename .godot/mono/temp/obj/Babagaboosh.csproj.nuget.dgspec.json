@@ -77,7 +77,7 @@
             },
             "OpenAI": {
               "target": "Package",
-              "version": "[1.10.0, )"
+              "version": "[2.1.0, )"
             },
             "Vosk": {
               "target": "Package",

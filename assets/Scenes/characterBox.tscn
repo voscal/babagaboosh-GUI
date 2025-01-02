@@ -346,9 +346,9 @@ end_cap_mode = 2
 clip_contents = true
 layout_mode = 0
 offset_left = 8.0
-offset_top = 112.999
+offset_top = 113.0
 offset_right = 164.0
-offset_bottom = 112.999
+offset_bottom = 113.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7nqb")
 
 [node name="Export" type="Button" parent="Panel2"]

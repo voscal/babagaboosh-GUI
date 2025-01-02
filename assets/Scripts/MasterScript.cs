@@ -1,6 +1,6 @@
 using System;
 using Godot;
-using OpenAI_API.Embedding;
+using OpenAI.Embeddings;
 
 
 public partial class MasterScript : Node
@@ -51,23 +51,9 @@ public partial class MasterScript : Node
 
 	public override void _Process(double delta)
 	{
-		/*
-		if (DisplayServer.WindowIsFocused(0))
-		{
-			GetViewport().TransparentBg = false;
-			ui.Visible = true;
-			ui.background.Visible = true;
 
-		}
-		else
-		{
-			GetViewport().TransparentBg = true;
-			ui.Visible = false;
-			ui.background.Visible = false;
-		}
-		*/
 
-		GetNode<TextureRect>("CharacterView").Position = (GetWindow().Size / 2) - (GetNode<TextureRect>("CharacterView").Size / 2);
+		GetNode<Control>("CharacterView").Position = (GetWindow().Size / 2) - (GetNode<Control>("CharacterView").Size / 2);
 
 
 
@@ -82,29 +68,26 @@ public partial class MasterScript : Node
 
 	}
 
-	public void askAI()
+	public async void askAI()
 	{
-		GD.Print("setp 1");
 		var recording = audioManager.RecordBttnPressed();
-		GD.Print("setp 2");
 		var character = manager.character.ActiveCharacters[manager.character.focusedCharacter];
-		GD.Print("setp 3");
 		if (recording)
 		{
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
-			GD.Print("setp 4");
-			manager.conversation.StartConversation();
-			GD.Print("setp 5");
+			//manager.conversation.StartConversation();
 			return;
 		}
-		manager.conversation.StopConversation();
-		//string recordedText = await manager.sTT.GetText();
-		//GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
+		//manager.conversation.StopConversation();
 
-		//if (recordedText != null)
-		//{
-		//	character.GenerateResponse(recordedText, services, manager);
-		//}
+		string recordedText = await manager.sTT.GetText();
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
+
+		if (recordedText != null)
+		{
+			character.GenerateResponse(recordedText, services, manager);
+		}
+
 	}
 
 

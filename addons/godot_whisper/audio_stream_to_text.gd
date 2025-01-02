@@ -16,7 +16,7 @@ func _get_configuration_warnings():
 @export var audio_stream: AudioStreamWAV :
 	set(value):
 		audio_stream = value
-		text = get_text()
+	#	text = get_text()
 	get:
 		return audio_stream
 @export var text: String

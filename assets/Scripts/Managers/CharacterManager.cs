@@ -31,21 +31,21 @@ public partial class CharacterManager : Manager
 	{
 		var characerScene = BaseCharacterScene.Instantiate();
 		//create and update a new viewport
-		characerScene.GetNode<Prop>("Dummy/Head").Position = character.headPosition;
-		characerScene.GetNode<TextureRect>("Dummy/Head/Sprite").Size = character.headSize;
-		characerScene.GetNode<TextureRect>("Dummy/Head/Sprite").Texture = character.image2;
-		characerScene.GetNode<Node2D>("Dummy/Body").Position = character.bodyPosition;
-		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Size = character.bodySize;
-		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Texture = character.image1;
+		characerScene.GetNode<Control>("Viewport/Dummy/Head").Position = character.headPosition;
+		characerScene.GetNode<Control>("Viewport/Dummy/Head").Size = character.headSize;
+		characerScene.GetNode<TextureRect>("Viewport/Dummy/Head/Sprite").Texture = character.image2;
+		characerScene.GetNode<Control>("Viewport/Dummy/Body").Position = character.bodyPosition;
+		characerScene.GetNode<Control>("Viewport/Dummy/Body").Size = character.bodySize;
+		characerScene.GetNode<TextureRect>("Viewport/Dummy/Body/Sprite").Texture = character.image1;
 		character.chat = services.chatGPT.CreateConversation(character);
 		ActiveCharacters.Add(character);
 		characerScene.Name = ActiveCharacters.IndexOf(character) + " " + character.name;
-		character.path = $"/root/Managers/View/{characerScene.Name}";
+		character.path = $"/root/Main Window/CharacterView/{characerScene.Name}";
 		character.audioSpectrum = manager.audio.NewCharacterBus(character.path);
 
 
-		characerScene.GetNode<AudioStreamPlayer>("Dummy/AudioPlayer").Bus = character.path;
-		characerScene.GetNode<Dummy>("Dummy").audioSpectrum = character.audioSpectrum;
+		characerScene.GetNode<AudioStreamPlayer>("Viewport/Dummy/AudioPlayer").Bus = character.path;
+		characerScene.GetNode<Dummy>("Viewport/Dummy").audioSpectrum = character.audioSpectrum;
 		manager.view.AddChild(characerScene);
 		GD.Print(ActiveCharacters[ActiveCharacters.IndexOf(character)].path);
 		SetFocus(ActiveCharacters.Count - 1);
@@ -53,7 +53,7 @@ public partial class CharacterManager : Manager
 		var controlScene = BaseCharacterControlScene.Instantiate();
 		controlScene.Set("id", ActiveCharacters.IndexOf(character));
 		controlScene.Name = ActiveCharacters.IndexOf(character) + character.name;
-		controlScene.GetNode<TextureRect>("Profile/TextureRect").Texture = GetNode<SubViewport>(character.path).GetTexture();
+		controlScene.GetNode<TextureRect>("Profile/TextureRect").Texture = GetNode<SubViewport>(character.path + "/Viewport").GetTexture();
 		ui.GetNode<BoxContainer>("Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2").AddChild(controlScene);
 
 
@@ -67,17 +67,18 @@ public partial class CharacterManager : Manager
 			return;
 		}
 		var character = ActiveCharacters[index];
-		manager.audio.RemoveCharacterBus(character.path);
-		GetNode<SubViewport>(character.path).QueueFree();
+
+		GetNode<SubViewportContainer>(character.path).QueueFree();
 		ui.GetNode<Panel>($"Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2/{ActiveCharacters.IndexOf(character) + character.name}").QueueFree();
 		ActiveCharacters.RemoveAt(index);
+		manager.audio.RemoveCharacterBus(character.path);
 		foreach (var activeCharacter in ActiveCharacters)
 		{
 			var oldCharacterPath = activeCharacter.path;
 			var oldCharacterindex = (index <= ActiveCharacters.IndexOf(activeCharacter)) ? (ActiveCharacters.IndexOf(activeCharacter) + 1).ToString() : ActiveCharacters.IndexOf(activeCharacter).ToString();
 
-			GetNode<Viewport>(activeCharacter.path).Name = ActiveCharacters.IndexOf(activeCharacter) + " " + activeCharacter.name;
-			activeCharacter.path = $"/root/Managers/View/{ActiveCharacters.IndexOf(activeCharacter) + " " + activeCharacter.name}";
+			GetNode<SubViewportContainer>(activeCharacter.path).Name = ActiveCharacters.IndexOf(activeCharacter) + " " + activeCharacter.name;
+			activeCharacter.path = $"/root/Main Window/CharacterView/{ActiveCharacters.IndexOf(activeCharacter) + " " + activeCharacter.name}";
 			manager.audio.UpdateCharacterBus(oldCharacterPath, activeCharacter.path);
 			GD.Print(ActiveCharacters[ActiveCharacters.IndexOf(activeCharacter)].path);
 
@@ -102,19 +103,19 @@ public partial class CharacterManager : Manager
 	}
 	public void UpdateCharacter(Character oldCharacter, Character newCharacter)
 	{
-		var characerScene = GetNode<SubViewport>(oldCharacter.path);
+		var characerScene = GetNode<SubViewportContainer>(oldCharacter.path);
 
-		characerScene.GetNode<Node2D>("Dummy/Head").Position = newCharacter.headPosition;
-		characerScene.GetNode<TextureRect>("Dummy/Head/Sprite").Size = newCharacter.headSize;
-		characerScene.GetNode<TextureRect>("Dummy/Head/Sprite").Texture = newCharacter.image2;
-		characerScene.GetNode<Node2D>("Dummy/Body").Position = newCharacter.bodyPosition;
-		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Size = newCharacter.bodySize;
-		characerScene.GetNode<TextureRect>("Dummy/Body/Sprite").Texture = newCharacter.image1;
+		characerScene.GetNode<Prop>("Viewport/Dummy/Head").Position = newCharacter.headPosition;
+		characerScene.GetNode<Prop>("Viewport/Dummy/Head").Size = newCharacter.headSize;
+		characerScene.GetNode<TextureRect>("Viewport/Dummy/Head/Sprite").Texture = newCharacter.image2;
+		characerScene.GetNode<Prop>("Viewport/Dummy/Body").Position = newCharacter.bodyPosition;
+		characerScene.GetNode<Prop>("Viewport/Dummy/Body").Size = newCharacter.bodySize;
+		characerScene.GetNode<TextureRect>("Viewport/Dummy/Body/Sprite").Texture = newCharacter.image1;
 		ActiveCharacters[ActiveCharacters.IndexOf(oldCharacter)] = newCharacter;
 		characerScene.Name = ActiveCharacters.IndexOf(newCharacter) + " " + newCharacter.name;
-		newCharacter.path = $"/root/Managers/View/{characerScene.Name}";
+		newCharacter.path = $"/root/Main Window/CharacterView/{characerScene.Name}";
 		manager.audio.UpdateCharacterBus(oldCharacter.path, newCharacter.path);
-		characerScene.GetNode<AudioStreamPlayer>("Dummy/AudioPlayer").Bus = newCharacter.path;
+		characerScene.GetNode<AudioStreamPlayer>("Viewport/Dummy/AudioPlayer").Bus = newCharacter.path;
 		newCharacter.chat = services.chatGPT.CreateConversation(newCharacter);
 
 
@@ -128,11 +129,15 @@ public partial class CharacterManager : Manager
 
 	public void SetFocus(int index)
 	{
+		GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).focused = false;
+		GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).ZIndex = 0;
+		GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).MouseFilter = Control.MouseFilterEnum.Ignore;
 		var character = manager.character.ActiveCharacters[index];
 		focusedCharacter = index;
-		GetNode<TextureRect>("/root/Main Window/CharacterView").Texture = GetNode<SubViewport>(character.path).GetTexture();
-		GetNode<TextureRect>("/root/Main Window/CharacterView").Size = GetNode<SubViewport>(character.path).Size;
+		GetNode<Control>("/root/Main Window/CharacterView").Size = GetNode<SubViewportContainer>(character.path).Size;
 		GetNode<CharacterViewport>(character.path).focused = true;
+		GetNode<CharacterViewport>(character.path).ZIndex = 1;
+		GetNode<CharacterViewport>(character.path).MouseFilter = Control.MouseFilterEnum.Stop;
 
 
 	}
@@ -143,8 +148,17 @@ public partial class CharacterManager : Manager
 
 
 
+	public void UpdateChild()
+	{
+		//updates the child nodes
 
 
+	}
+
+	public void EditorOpened()
+	{
+
+	}
 
 
 

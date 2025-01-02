@@ -91,11 +91,12 @@ public partial class ElevinLabsGD : Node
 				GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("Error", "[center]Voices Failed", "[center]Voices failed to load. This may be due to an invalid API key.", 10);
 				return null;
 			}
-
-			foreach (var voice in allVoices)
-			{
-				GD.Print($"{voice.Id} | {voice.Name} | similarity boost: {voice.Settings?.SimilarityBoost} | stability: {voice.Settings?.Stability} | custom: {voice.PreviewUrl}");
-			}
+			/*
+					foreach (var voice in allVoices)
+					{
+						GD.Print($"{voice.Id} | {voice.Name} | similarity boost: {voice.Settings?.SimilarityBoost} | stability: {voice.Settings?.Stability} | custom: {voice.PreviewUrl}");
+					}
+			*/
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("Info", "[center]Voices Loaded", "[center]All voicebanks have successfully loaded", 10);
 			return allVoices.ToArray();
 		}

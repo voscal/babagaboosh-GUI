@@ -1,34 +1,77 @@
-[gd_scene load_steps=5 format=3 uid="uid://c32xv48m7eni7"]
+[gd_scene load_steps=9 format=3 uid="uid://5x5t1hrircmr"]
 
-[ext_resource type="Script" path="res://assets/Scripts/Dummy.cs" id="1_ndnmw"]
+[ext_resource type="Shader" path="res://assets/Shaders/Select.gdshader" id="1_nahv5"]
 [ext_resource type="Texture2D" uid="uid://dvlojxdgh3bcy" path="res://assets/Sprites/temp char/bottom.png" id="2_4q6h6"]
+[ext_resource type="Script" path="res://assets/Scripts/Props/Dummy.cs" id="2_5n62y"]
 [ext_resource type="Script" path="res://assets/Scripts/Props/Prop.cs" id="2_k6w2p"]
 [ext_resource type="Texture2D" uid="uid://bj0owew0wufyl" path="res://assets/Sprites/temp char/Top.png" id="3_5ii62"]
 
-[node name="Dummy" type="Node2D"]
-script = ExtResource("1_ndnmw")
-maxHeadHeight = 25.4
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1y6xa"]
+shader = ExtResource("1_nahv5")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynfr2"]
+shader = ExtResource("1_nahv5")
+shader_parameter/line_color = Vector4(0.996, 0.808, 0, 1)
+shader_parameter/line_thickness = 0.0
+shader_parameter/add_margins = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_csef5"]
+shader = ExtResource("1_nahv5")
+shader_parameter/line_color = Vector4(0.996, 0.808, 0, 1)
+shader_parameter/line_thickness = 0.0
+shader_parameter/add_margins = false
+
+[node name="Dummy" type="Control"]
+material = SubResource("ShaderMaterial_1y6xa")
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("2_5n62y")
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="Head" type="Node2D" parent="."]
-position = Vector2(-96, -149)
+[node name="Head" type="Control" parent="."]
+custom_minimum_size = Vector2(49.92, 60.73)
+anchors_preset = 0
+offset_right = 226.0
+offset_bottom = 116.0
 script = ExtResource("2_k6w2p")
 
 [node name="Sprite" type="TextureRect" parent="Head"]
-offset_right = 283.0
-offset_bottom = 149.0
+material = SubResource("ShaderMaterial_ynfr2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_4q6h6")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="Body" type="Node2D" parent="."]
-position = Vector2(-96, 0)
+[node name="Body" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 116.0
+offset_right = 226.0
+offset_bottom = 228.0
+script = ExtResource("2_k6w2p")
 
 [node name="Sprite" type="TextureRect" parent="Body"]
-offset_right = 283.0
-offset_bottom = 134.0
+material = SubResource("ShaderMaterial_csef5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_5ii62")
 expand_mode = 1
 
-[node name="Extras" type="Node2D" parent="."]
+[connection signal="mouse_entered" from="Head" to="Head" method="MouseIn"]
+[connection signal="mouse_exited" from="Head" to="Head" method="MouseOut"]
+[connection signal="mouse_entered" from="Body" to="Body" method="MouseIn"]
+[connection signal="mouse_exited" from="Body" to="Body" method="MouseOut"]

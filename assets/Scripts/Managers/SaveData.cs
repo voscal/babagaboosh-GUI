@@ -31,6 +31,7 @@ public partial class SaveData : Node
 			}
 			file.StoreString(dataStr);
 		}
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Keys Saved", "[center]successfully saved Keys, please restart the app to apply changes", 5);
 	}
 
 	public string GetAPIKey(string value)

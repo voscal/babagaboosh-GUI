@@ -6,9 +6,10 @@ public partial class NotificationsManager : Node
 
 	public void NewNotification(string type, string Heading, string message, float Timer)
 	{
-		GD.Print($"NEW NOTIFICATIONS Type{type}");
+
 		if (type.ToLower() == "info")
 		{
+			GD.Print(message);
 			PackedScene notification = GD.Load<PackedScene>("res://assets/Scenes/notifications/Info.tscn");
 			var instance = notification.Instantiate();
 			instance.GetNode<RichTextLabel>("Panel/Heading").Text = Heading;
@@ -18,6 +19,7 @@ public partial class NotificationsManager : Node
 		}
 		if (type.ToLower() == "error")
 		{
+			GD.PrintErr(message);
 			PackedScene notification = GD.Load<PackedScene>("res://assets/Scenes/notifications/Error.tscn");
 			var instance = notification.Instantiate();
 			instance.GetNode<RichTextLabel>("Panel/Heading").Text = Heading;

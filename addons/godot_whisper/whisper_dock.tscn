@@ -13,10 +13,9 @@ option_button = NodePath("OptionButton")
 
 [node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 2
-item_count = 11
 selected = 0
+item_count = 11
 popup/item_0/text = "tiny.en"
-popup/item_0/id = 0
 popup/item_1/text = "tiny"
 popup/item_1/id = 1
 popup/item_2/text = "base.en"

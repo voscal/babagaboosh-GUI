@@ -8,16 +8,13 @@ script = ExtResource("1_5xkac")
 
 [node name="UI" parent="." instance=ExtResource("3_xnwsb")]
 
-[node name="CharacterView" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 2
+[node name="CharacterView" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 320.0
+offset_top = 68.0
+offset_right = 832.0
+offset_bottom = 580.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

@@ -30,7 +30,7 @@ public partial class STT : Node
 		switch (provider)
 		{
 			case STTProviders.Whisper:
-				return services.whisper.GetText(Input);
+				return await services.whisper.GetText(Input);
 			case STTProviders.Vosk:
 				return services.vosk.GetText(Input);
 			case STTProviders.Azuir:

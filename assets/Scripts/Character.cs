@@ -2,8 +2,9 @@ using Godot;
 using ElevenLabs.Voices;
 using System.Threading.Tasks;
 using Godot.Collections;
-using OpenAI_API.Chat;
+using OpenAI.Chat;
 using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 
 public partial class Character : Node
 {
@@ -27,8 +28,8 @@ public partial class Character : Node
 	public string name;
 	public string description;
 	public string context;
-	public Conversation chat;
-	public Conversation openChat;
+	public List<ChatMessage> chat;
+	public List<ChatMessage> openChat;
 	public Vector2 resolution = new(512, 512);
 	public Style style;
 	public Transition transition;
@@ -65,21 +66,21 @@ public partial class Character : Node
 	public async void GenerateResponse(string text, Services services, Manager manager)
 	{
 
-		//string aiResponse = await services.chatGPT.SendMessage(text, chat);
-		//GD.Print(aiResponse);
-		//await services.elevinLabs.RenderVoice(this, aiResponse);
+		string aiResponse = await services.chatGPT.SendMessage(text, chat);
+		GD.Print(aiResponse);
+		await services.elevinLabs.RenderVoice(this, aiResponse);
 		manager.audio.PlayAudio(path);
-		//services.chatGPT.UpdateChatHistory(this, aiResponse);
+		services.chatGPT.UpdateChatHistory(this, aiResponse);
 
 	}
 	public async void GenerateOpenResponse(string text, Services services, Manager manager)
 	{
 
-		//string aiResponse = await services.chatGPT.SendMessage(text, openChat);
-		//GD.Print(aiResponse);
-		//await services.elevinLabs.RenderVoice(this, aiResponse);
+		string aiResponse = await services.chatGPT.SendMessage(text, openChat);
+		GD.Print(aiResponse);
+		await services.elevinLabs.RenderVoice(this, aiResponse);
 		manager.audio.PlayAudio(path);
-		//services.chatGPT.UpdateChatHistory(this, aiResponse);
+		services.chatGPT.UpdateChatHistory(this, aiResponse);
 
 
 	}
