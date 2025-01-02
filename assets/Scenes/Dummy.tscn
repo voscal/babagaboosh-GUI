@@ -1,47 +1,92 @@
 [gd_scene load_steps=9 format=3 uid="uid://5x5t1hrircmr"]
 
-[ext_resource type="Shader" path="res://assets/Shaders/Select.gdshader" id="1_nahv5"]
 [ext_resource type="Texture2D" uid="uid://dvlojxdgh3bcy" path="res://assets/Sprites/temp char/bottom.png" id="2_4q6h6"]
 [ext_resource type="Script" path="res://assets/Scripts/Props/Dummy.cs" id="2_5n62y"]
 [ext_resource type="Script" path="res://assets/Scripts/Props/Prop.cs" id="2_k6w2p"]
 [ext_resource type="Texture2D" uid="uid://bj0owew0wufyl" path="res://assets/Sprites/temp char/Top.png" id="3_5ii62"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1y6xa"]
-shader = ExtResource("1_nahv5")
-shader_parameter/line_color = Vector4(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
-shader_parameter/add_margins = true
+[sub_resource type="Shader" id="Shader_iv4tj"]
+code = "shader_type canvas_item;
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynfr2"]
-shader = ExtResource("1_nahv5")
-shader_parameter/line_color = Vector4(0.996, 0.808, 0, 1)
-shader_parameter/line_thickness = 0.0
-shader_parameter/add_margins = false
+uniform vec4 color: source_color = vec4(1.0);
+uniform float direction: hint_range(-1.0, 1.0, 1.0) = -1.0;
+uniform float frequency: hint_range(0.1, 30.0, 0.1) = 15.0; // the number of dotted lines
+uniform float speed: hint_range(0.5, 20, 0.5) = 3.0;     // rotation speed
+uniform float radius: hint_range(0.01, 1.0, 0.01) = 1.0;
+uniform float line_thickness: hint_range(0.0, 0.5, 0.01) = 0.03;
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_csef5"]
-shader = ExtResource("1_nahv5")
-shader_parameter/line_color = Vector4(0.996, 0.808, 0, 1)
+void fragment() {
+  vec4 circle_outline;
+  vec2 pos = UV - vec2(0.5);
+  float circle = step(length(pos), radius);
+  float angle = atan(pos.y, pos.x);
+
+  float wave = 0.5 * sin(direction * frequency * angle + TIME * speed) + 0.5;
+
+  circle *= step(0.5, wave);
+  circle_outline = vec4(color.rgb, circle * color.a);
+   
+  float rect_alpha = 1.0 - step(abs(pos.x), (0.5-line_thickness)) * step(abs(pos.y), (0.5-line_thickness));
+  COLOR =  circle_outline * vec4(1.0, 1.0, 1.0, rect_alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjeyy"]
+shader = SubResource("Shader_iv4tj")
+shader_parameter/color = Color(0.992157, 0.803922, 0.0901961, 1)
+shader_parameter/direction = -1.0
+shader_parameter/frequency = 19.3
+shader_parameter/speed = 3.0
+shader_parameter/radius = 1.0
 shader_parameter/line_thickness = 0.0
-shader_parameter/add_margins = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c16o8"]
+shader = SubResource("Shader_iv4tj")
+shader_parameter/color = Color(0.992157, 0.803922, 0.0901961, 1)
+shader_parameter/direction = -1.0
+shader_parameter/frequency = 19.3
+shader_parameter/speed = 3.0
+shader_parameter/radius = 1.0
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbd2p"]
+shader = SubResource("Shader_iv4tj")
+shader_parameter/color = Color(0.992157, 0.803922, 0.0901961, 1)
+shader_parameter/direction = -1.0
+shader_parameter/frequency = 19.3
+shader_parameter/speed = 3.0
+shader_parameter/radius = 1.0
+shader_parameter/line_thickness = 0.0
 
 [node name="Dummy" type="Control"]
-material = SubResource("ShaderMaterial_1y6xa")
 layout_mode = 3
 anchors_preset = 0
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("2_5n62y")
+
+[node name="Selection" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_mjeyy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Head" type="Control" parent="."]
-custom_minimum_size = Vector2(49.92, 60.73)
 anchors_preset = 0
 offset_right = 226.0
 offset_bottom = 116.0
 script = ExtResource("2_k6w2p")
 
 [node name="Sprite" type="TextureRect" parent="Head"]
-material = SubResource("ShaderMaterial_ynfr2")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,15 +97,29 @@ mouse_filter = 2
 texture = ExtResource("2_4q6h6")
 expand_mode = 1
 
+[node name="Selection" type="ColorRect" parent="Head"]
+material = SubResource("ShaderMaterial_c16o8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
 [node name="Body" type="Control" parent="."]
 anchors_preset = 0
 offset_top = 116.0
 offset_right = 226.0
 offset_bottom = 228.0
 script = ExtResource("2_k6w2p")
+ResizeThreshold = 15.0
 
 [node name="Sprite" type="TextureRect" parent="Body"]
-material = SubResource("ShaderMaterial_csef5")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,6 +129,20 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_5ii62")
 expand_mode = 1
+
+[node name="Selection" type="ColorRect" parent="Body"]
+material = SubResource("ShaderMaterial_tbd2p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [connection signal="mouse_entered" from="Head" to="Head" method="MouseIn"]
 [connection signal="mouse_exited" from="Head" to="Head" method="MouseOut"]

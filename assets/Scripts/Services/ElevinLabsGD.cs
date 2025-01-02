@@ -10,7 +10,7 @@ using System.Linq;
 
 public partial class ElevinLabsGD : Node
 {
-	public string currentVoice;
+
 	ElevenLabsClient api;
 	SaveData saveData;
 	VoiceData voiceData;

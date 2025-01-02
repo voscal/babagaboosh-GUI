@@ -16,7 +16,7 @@ public partial class voiceShelf : Node
 
     public void ButtonPressed()
     {
-        GetNode<MasterScript>("/root/Main Window").services.elevinLabs.currentVoice = voice.Id;
+        GetNode<Manager>("/root/Managers").character.GetFocusedCharacter().voiceID = voice.Id;
 
     }
 

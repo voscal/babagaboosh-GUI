@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading;
 
 public partial class Prop : Control
 {
@@ -12,11 +13,24 @@ public partial class Prop : Control
 		// Custom (i wish lol, maybe ill do something with this later)
 	}
 	UI ui;
-	bool dragged = false;
 	public PackedScene popup;
 	public Image image;
 	public Vector2 scale;
 
+
+
+	// resizing / dragging variables
+	Vector2 start;
+	Vector2 initialPosition;
+	bool isMoving = false;
+	bool isResizing = false;
+	bool resizeX = false;
+	bool resizeY = false;
+	Vector2 initialSize;
+	[Export]
+	float GrabThreshold = 20;
+	[Export]
+	float ResizeThreshold = 5;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -46,20 +60,22 @@ public partial class Prop : Control
 
 	private void MouseIn()
 	{
-		GD.Print("IN " + GetParent().GetParent().GetParent().Name);
+		if (ui.editorUI.editorOpen == true)
+		{
+			var tw = CreateTween();
+			tw.TweenProperty(GetNode<ColorRect>("Selection").GetMaterial(), "shader_parameter/line_thickness", 0.03, 0.2);
+		}
 	}
 
 	private void MouseOut()
 	{
-
+		if (ui.editorUI.editorOpen == true)
+		{
+			var tw = CreateTween();
+			tw.TweenProperty(GetNode<ColorRect>("Selection").GetMaterial(), "shader_parameter/line_thickness", 0, 0.2);
+		}
 	}
 
-
-	void SetShaderOutline(float amount)
-	{
-
-
-	}
 
 
 
@@ -68,49 +84,148 @@ public partial class Prop : Control
 
 	public override void _GuiInput(InputEvent input)
 	{
-		if (input is InputEventMouseButton)
+
+		if (input is InputEventMouse)
 		{
-			InputEventMouseButton mouseInput = (InputEventMouseButton)input;
+			InputEventMouse mouseInput = (InputEventMouse)input;
 
-			// Context menu
-			if (mouseInput.ButtonIndex == MouseButton.Right && mouseInput.Pressed)
+			if (ui.editorUI.editorOpen == true)
 			{
-				GD.Print($"Right-clicked on {Name}");
-
-				// Close existing popups
-				foreach (Control popupInstance in GetTree().GetNodesInGroup("Popup"))
+				// Context menu
+				if (Input.IsActionJustPressed("RightMouseDown"))
 				{
-					popupInstance.GetNode<AnimationPlayer>("AnimationPlayer").Play("Close");
+					GD.Print($"Right-clicked on {Name}");
+
+					// Close existing popups
+					foreach (Control popupInstance in GetTree().GetNodesInGroup("Popup"))
+					{
+						popupInstance.GetNode<AnimationPlayer>("AnimationPlayer").Play("Close");
+					}
+
+					// Get the mouse position relative to this Control
+
+					// Create and position the popup
+					Vector2 mousePos = GetWindow().GetViewport().GetMousePosition();
+
+					var instance = (Control)ResourceLoader.Load<PackedScene>("res://assets/Scenes/popup.tscn").Instantiate();
+					instance.Position = new Vector2(mousePos.X + 35, mousePos.Y - 25);
+					instance.GetNode<Label>("Background/NameLabal").Text = Name;
+
+					GetNode<UI>("/root/Main Window/UI").AddChild(instance);
 				}
 
-				// Get the mouse position relative to this Control
 
-				// Create and position the popup
-				Vector2 mousePos = GetWindow().GetViewport().GetMousePosition();
+				//Decide if we want to drag or resize prop
+				if (Input.IsActionJustPressed("LeftMouseDown"))
+				{
+					var rect = GetGlobalRect();
+					var localMousePos = GetLocalMousePosition(); // Adjusted to account for viewport transformations
 
-				var instance = (Control)ResourceLoader.Load<PackedScene>("res://assets/Scenes/popup.tscn").Instantiate();
-				instance.Position = new Vector2(mousePos.X + 35, mousePos.Y - 25);
-				instance.GetNode<Label>("Background/NameLabal").Text = Name;
 
-				GetNode<UI>("/root/Main Window/UI").AddChild(instance);
+
+
+					if (Mathf.Abs(localMousePos.X - rect.Size.X) < ResizeThreshold)
+					{
+
+						start.X = localMousePos.X;
+						initialSize.X = GetSize().X;
+						resizeX = true;
+						isResizing = true;
+					}
+
+					if (Mathf.Abs(localMousePos.Y - rect.Size.Y) < ResizeThreshold)
+					{
+
+						start.Y = localMousePos.Y;
+						initialSize.Y = GetSize().Y;
+						resizeY = true;
+						isResizing = true;
+					}
+
+					if (localMousePos.X < ResizeThreshold && localMousePos.X > -ResizeThreshold)
+					{
+
+						start.X = localMousePos.X;
+						initialPosition.X = GlobalPosition.X;
+						initialSize.X = GetSize().X;
+						isResizing = true;
+						resizeX = true;
+					}
+
+					if (localMousePos.Y < ResizeThreshold && localMousePos.Y > -ResizeThreshold)
+					{
+
+						start.Y = localMousePos.Y;
+						initialPosition.Y = GlobalPosition.Y;
+						initialSize.Y = GetSize().Y;
+						isResizing = true;
+						resizeY = true;
+					}
+					if (!isResizing)
+					{
+
+						start = localMousePos;
+						initialPosition = GlobalPosition;
+						isMoving = true;
+					}
+				}
+
 			}
 
-
-			// Start dragging
-			if (mouseInput.ButtonIndex == MouseButton.Left && mouseInput.Pressed && !_isDragging)
+			// Move or resize
+			if (Input.IsActionPressed("LeftMouseDown"))
 			{
-				_dragOffset = mouseInput.GlobalPosition - Position; // Calculate the initial offset
-				_isDragging = true;
+				var localMousePos = GetLocalMousePosition(); // Ensure local mouse position for resizing/moving
+
+				if (isMoving)
+				{
+
+					SetPosition(initialPosition + GetGlobalMousePosition());
+				}
+
+				if (isResizing)
+				{
+
+					var newWidth = GetSize().X;
+					var newHeight = GetSize().Y;
+
+					if (resizeX)
+					{
+						newWidth = initialSize.X + (localMousePos.X - start.X);
+					}
+
+					if (resizeY)
+					{
+						newHeight = initialSize.Y + (localMousePos.Y - start.Y);
+					}
+
+					if (initialPosition.X != 0)
+					{
+						newWidth = initialSize.X + (start.X - localMousePos.X);
+						SetPosition(new Vector2(initialPosition.X - (newWidth - initialSize.X), GetPosition().Y));
+					}
+
+					if (initialPosition.Y != 0)
+					{
+						newHeight = initialSize.Y + (start.Y - localMousePos.Y);
+						SetPosition(new Vector2(GetPosition().X, initialPosition.Y - (newHeight - initialSize.Y)));
+					}
+
+					SetSize(new Vector2(newWidth, newHeight));
+				}
 			}
 
-			// Stop dragging
-			if (mouseInput.ButtonIndex == MouseButton.Left && !mouseInput.Pressed && _isDragging)
+			if (Input.IsActionJustReleased("LeftMouseDown"))
 			{
-				_isDragging = false;
+				isMoving = false;
+				initialPosition = Vector2.Zero;
+				resizeX = false;
+				resizeY = false;
+				isResizing = false;
 			}
-
 
 		}
 	}
 
 }
+

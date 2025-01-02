@@ -27,4 +27,6 @@ public partial class CharacterControl : Panel
 	{
 		GetNode<Manager>("/root/Managers").character.RemoveCharacter(id);
 	}
+
+
 }

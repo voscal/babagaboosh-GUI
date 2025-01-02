@@ -6,6 +6,7 @@
 [node name="SubViewportContainer" type="SubViewportContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("1_10yok")
 
 [node name="Viewport" type="SubViewport" parent="."]

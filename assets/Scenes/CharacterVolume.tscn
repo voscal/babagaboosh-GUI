@@ -34,7 +34,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 63.0
 offset_top = 1.0
-offset_right = 389.0
+offset_right = 326.0
 offset_bottom = 17.0
 scale = Vector2(0.795, 0.795)
 min_value = -80.0
@@ -44,7 +44,7 @@ max_value = 24.0
 layout_mode = 0
 offset_left = 63.0
 offset_top = 16.0
-offset_right = 322.0
+offset_right = 272.0
 offset_bottom = 27.0
 value = 54.35
 show_percentage = false
@@ -66,8 +66,8 @@ expand_mode = 1
 
 [node name="Remove" type="Button" parent="."]
 layout_mode = 0
-offset_left = 330.0
-offset_right = 368.0
+offset_left = 282.0
+offset_right = 320.0
 offset_bottom = 31.0
 text = "DEL"
 

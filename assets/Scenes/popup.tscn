@@ -177,15 +177,12 @@ script = ExtResource("1_pecxe")
 
 [node name="Background" type="Panel" parent="."]
 clip_contents = true
-layout_mode = 0
-offset_left = 31.0
-offset_top = -26.0
-offset_right = 248.0
-offset_bottom = 108.0
+offset_top = -28.0
+offset_right = 217.0
+offset_bottom = 106.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vwguv")
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-layout_mode = 2
 offset_left = 17.045
 offset_top = 25.16
 offset_right = 200.75

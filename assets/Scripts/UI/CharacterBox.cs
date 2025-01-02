@@ -23,7 +23,7 @@ public partial class CharacterBox : Panel
 
 	public void moreBttnclicked()
 	{
-		GetParent().GetParent().GetParent().GetParent<CharacterSelect>().MoreButtonPressed(Name);
+		GetParent().GetParent().GetParent().GetParent().GetParent<CharacterSelect>().MoreButtonPressed(Name);
 	}
 
 	public void ExportPressed(string path)

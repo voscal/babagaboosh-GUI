@@ -53,3 +53,4 @@ res://addons/global_input/autoloads/global_input_csharp/GlobalInputCSharp.cs
 res://assets/Scripts/Services/VoskGD.cs
 res://addons/global_input/examples/csharp_example/World.cs
 res://assets/Scripts/CharacterView.cs
+res://assets/Scenes/voiceShelf.tscn

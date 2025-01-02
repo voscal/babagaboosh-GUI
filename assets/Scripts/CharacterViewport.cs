@@ -15,6 +15,7 @@ public partial class CharacterViewport : SubViewportContainer
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+
 	}
 
 
@@ -22,13 +23,13 @@ public partial class CharacterViewport : SubViewportContainer
 	{
 		foreach (SubViewport viewport in GetChildren())
 		{
-			if (@event is InputEventMouseButton mouseEvent)
+			if (@event is InputEventMouse mouseEvent)
 			{
 				// Transform the mouse position into the SubViewport's local space
-				var transformedMouseEvent = (InputEventMouseButton)mouseEvent.Duplicate();
+				var transformedMouseEvent = (InputEventMouse)mouseEvent.Duplicate();
 				transformedMouseEvent.Position = GetGlobalTransformWithCanvas().AffineInverse() * mouseEvent.Position;
 
-				GD.Print($"Transformed Position: {transformedMouseEvent.Position}");
+				//GD.Print($"Transformed Position: {transformedMouseEvent.Position}");
 
 				// Forward to the SubViewport, letting it process the input
 				viewport._UnhandledInput(transformedMouseEvent);
@@ -39,6 +40,11 @@ public partial class CharacterViewport : SubViewportContainer
 				viewport._UnhandledInput(@event);
 			}
 		}
+	}
+
+	public void set_name(string name)
+	{
+		Name = name;
 	}
 
 }

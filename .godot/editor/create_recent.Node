@@ -1,7 +1,10 @@
+CollisionShape2D
+RigidBody2D
+ColorRect
+Container
 Camera2D
 Control
 SubViewportContainer
-ColorRect
 AudioStreamPlayer
 TextureRect
 Button
@@ -10,6 +13,3 @@ PanelContainer
 Line2D
 VBoxContainer
 AnimationPlayer
-RayCast2D
-Sprite2D
-Node

@@ -16,7 +16,7 @@ public partial class MasterScript : Node
 
 	UI ui;
 	VoiceData voiceData;
-	CharacterData characterData;
+
 	SaveData saveData;
 
 	public Services services;
@@ -28,13 +28,12 @@ public partial class MasterScript : Node
 	{
 		GlobalInput = GetNode<GlobalInputCSharp>("/root/GlobalInput/GlobalInputCSharp");
 		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
-		characterData = GetNode<CharacterData>("/root/Data/CharacterData");
 		saveData = GetNode<SaveData>("/root/Data/SaveData");
 		manager = GetNode<Manager>("/root/Managers");
 		services = GetNode<Services>("/root/Services");
 		audioManager = GetNode<AudioManager>("/root/Managers/Audio");
 		ui = GetNode<UI>("UI");
-		GD.Print(ui.Name);
+
 		ui.coreUI.record.Pressed += askAI;
 		manager.character.AddCharacter(saveData.LoadCharacterFromFile("res://assets/Template.chr"));
 		manager.character.SetFocus(0);

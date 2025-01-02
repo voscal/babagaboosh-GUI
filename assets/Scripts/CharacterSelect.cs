@@ -61,7 +61,7 @@ public partial class CharacterSelect : Control
 		{
 			try
 			{
-				GetNode<AnimationPlayer>($"BackGround/ScrollContainer/BoxContainer/{openedUI}/AnimationPlayer").Play("close");
+				GetNode<AnimationPlayer>($"BackGround/ScrollContainer/VBoxContainer/BoxContainer/{openedUI}/AnimationPlayer").Play("close");
 			}
 			catch
 			{
@@ -71,12 +71,12 @@ public partial class CharacterSelect : Control
 		}
 		if (openedUI == nodePath)
 		{
-			GetNode<AnimationPlayer>($"BackGround/ScrollContainer/BoxContainer/{openedUI}/AnimationPlayer").Play("close");
+			GetNode<AnimationPlayer>($"BackGround/ScrollContainer/VBoxContainer/BoxContainer/{openedUI}/AnimationPlayer").Play("close");
 			openedUI = null;
 			return;
 		}
 
-		GetNode<AnimationPlayer>($"BackGround/ScrollContainer/BoxContainer/{nodePath}/AnimationPlayer").Play("open");
+		GetNode<AnimationPlayer>($"BackGround/ScrollContainer/VBoxContainer/BoxContainer/{nodePath}/AnimationPlayer").Play("open");
 
 		openedUI = nodePath;
 

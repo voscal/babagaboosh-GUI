@@ -1,5 +1,5 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1735792512
+::res://::1735815831
 AIresponse.wav::AudioStreamWAV::4478901970020527777::1735536817::1735536817::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::5089585494889196966::1735792508::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1722332362::0::1::::<><>::
@@ -46,11 +46,7 @@ whisper_dock.tscn::PackedScene::7799642237106206269::1735537504::0::1::::<><>::r
 ::res://addons/godot_whisper/bin/libgodot_whisper.macos.template_release.universal.framework/::1726492759
 ::res://addons/godot_whisper/bin/libgodot_whisper.macos.template_release.universal.framework/_CodeSignature/::1726492759
 ::res://addons/godot_whisper/bin/libgodot_whisper.macos.template_release.universal.framework/Resources/::1726492759
-::res://addons/godot_whisper/models/::1735549445
-gglm-base.bin::WhisperResource::-1::1735536859::0::1::::<><>::
-gglm-large-v1.bin::WhisperResource::-1::1735537946::0::1::::<><>::
-gglm-tiny.en.bin::WhisperResource::-1::1735536694::0::1::::<><>::
-model.bin::WhisperResource::-1::1735549322::0::1::::<><>::
+::res://addons/godot_whisper/models/::1735798097
 ::res://addons/native_dialogs/::1722332379
 native_dialogs.gdextension::GDExtension::-1::1718098471::0::1::::<><>::
 plugin.cfg::TextFile::-1::1718098471::0::1::::<><>::
@@ -87,62 +83,60 @@ Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3::AudioStreamMP3::4268613182561446501
 ElevenLabs_2024-12-31T02_35_31_Ian Cartwell - Suspense, Mystery and Thriller_pvc_s0_sb0_se100_b_m2.wav::AudioStreamWAV::7515729982209969470::1735612584::1735612585::1::::<><>::
 ::res://assets/Resource/::1718098471
 APiTemplate.json::JSON::-1::1718098471::0::1::::<><>::
-::res://assets/Scenes/::1735792993
-character.tscn::PackedScene::4624354396288558814::1735792886::0::1::::<><>::res://assets/Scripts/CharacterViewport.cs<>uid://5x5t1hrircmr::::res://assets/Scenes/Dummy.tscn
-characterBox.tscn::PackedScene::6134888734846146144::1735792798::0::1::::<><>::res://assets/Scripts/UI/CharacterBox.cs<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://cxi6grsp81c43::::res://assets/Scenes/DisplayDummy.tscn<>uid://byiv4sk7pdl3g::::res://mmtheme.tres
-CharacterView.cs::CSharpScript::-1::1735733317::0::1::::<>SubViewportContainer<>::
-CharacterVolume.tscn::PackedScene::6161017733961025618::1735792798::0::1::::<><>::res://assets/Scripts/CharacterControl.cs<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf
-data.tscn::PackedScene::4218046465480141158::1735792797::0::1::::<><>::res://assets/VoiceData.cs<>res://assets/Scripts/CharacterData.cs<>res://assets/Scripts/Managers/SaveData.cs
+::res://assets/Scenes/::1735827220
+character.tscn::PackedScene::4624354396288558814::1735824879::0::1::::<><>::res://assets/Scripts/CharacterViewport.cs<>uid://5x5t1hrircmr::::res://assets/Scenes/Dummy.tscn
+characterBox.tscn::PackedScene::6134888734846146144::1735827220::0::1::::<><>::res://assets/Scripts/UI/CharacterBox.cs<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://cxi6grsp81c43::::res://assets/Scenes/DisplayDummy.tscn<>uid://byiv4sk7pdl3g::::res://mmtheme.tres
+CharacterVolume.tscn::PackedScene::6161017733961025618::1735827220::0::1::::<><>::res://assets/Scripts/CharacterControl.cs<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf
+data.tscn::PackedScene::4218046465480141158::1735827220::0::1::::<><>::res://assets/VoiceData.cs<>res://assets/Scripts/Managers/SaveData.cs
 DisplayDummy.tscn::PackedScene::6405593656062702526::1735709267::0::1::::<><>::uid://dvlojxdgh3bcy::::res://assets/Sprites/temp char/bottom.png<>uid://bj0owew0wufyl::::res://assets/Sprites/temp char/Top.png
-Dummy.tscn::PackedScene::2155002814556031769::1735792798::0::1::::<><>::res://assets/Shaders/Select.gdshader<>uid://dvlojxdgh3bcy::::res://assets/Sprites/temp char/bottom.png<>res://assets/Scripts/Props/Dummy.cs<>res://assets/Scripts/Props/Prop.cs<>uid://bj0owew0wufyl::::res://assets/Sprites/temp char/Top.png
-Main Scene.tscn::PackedScene::2960808446803785342::1735793073::0::1::::<><>::res://assets/Scripts/MasterScript.cs<>res://assets/Scenes/CharacterView.cs<>uid://drsi7fywnus2::::res://assets/Scenes/UI.tscn
-Managers.tscn::PackedScene::8133482933229321893::1735792797::0::1::::<><>::res://assets/Scripts/Managers/AudioManager.cs<>res://assets/Scripts/Managers/Manager.cs<>res://assets/Scripts/Managers/NotificationsManager.cs<>res://assets/Scripts/Managers/STT.cs<>res://assets/Scripts/Managers/OBS.cs<>res://assets/Scripts/ConversationManager.cs<>uid://ct1pcdut3ngfi::::res://assets/Scenes/CharacterVolume.tscn<>res://assets/Scripts/Managers/CharacterManager.cs<>uid://b65cpaecw2en3::::res://assets/Scenes/character.tscn
-popup.tscn::PackedScene::2195918901304651425::1735792798::0::1::::<><>::uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>res://assets/Scripts/Popup.cs
+Dummy.tscn::PackedScene::2155002814556031769::1735827220::0::1::::<><>::uid://dvlojxdgh3bcy::::res://assets/Sprites/temp char/bottom.png<>res://assets/Scripts/Props/Dummy.cs<>res://assets/Scripts/Props/Prop.cs<>uid://bj0owew0wufyl::::res://assets/Sprites/temp char/Top.png
+Main Scene.tscn::PackedScene::2960808446803785342::1735806428::0::1::::<><>::res://assets/Scripts/MasterScript.cs<>uid://drsi7fywnus2::::res://assets/Scenes/UI.tscn
+Managers.tscn::PackedScene::8133482933229321893::1735794583::0::1::::<><>::res://assets/Scripts/Managers/AudioManager.cs<>res://assets/Scripts/Managers/Manager.cs<>res://assets/Scripts/Managers/NotificationsManager.cs<>res://assets/Scripts/Managers/STT.cs<>res://assets/Scripts/Managers/OBS.cs<>res://assets/Scripts/ConversationManager.cs<>uid://ct1pcdut3ngfi::::res://assets/Scenes/CharacterVolume.tscn<>res://assets/Scripts/Managers/CharacterManager.cs<>uid://b65cpaecw2en3::::res://assets/Scenes/character.tscn
+popup.tscn::PackedScene::2195918901304651425::1735827220::0::1::::<><>::uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>res://assets/Scripts/Popup.cs
 resize test.tscn::PackedScene::8824221967828307285::1728036296::0::1::::<><>::res://assets/Scripts/Resize.cs
 Services.tscn::PackedScene::6357472968294599888::1735717444::0::1::::<><>::res://assets/Scripts/Services/Services.cs<>res://assets/Scripts/Services/ChatGD.cs<>res://assets/Scripts/Services/ElevinLabsGD.cs<>res://assets/Scripts/Services/AzuirGD.cs<>res://assets/Scripts/Services/VoskGD.cs<>res://assets/Scripts/Services/WhisperGD.cs<>res://addons/godot_whisper/models/gglm-tiny.en.bin<>res://addons/godot_whisper/audio_stream_to_text.gd<>uid://dfcw8e2m8fr1o::::res://assets/music/ElevenLabs_2024-12-31T02_35_31_Ian Cartwell - Suspense, Mystery and Thriller_pvc_s0_sb0_se100_b_m2.wav
-UI.tscn::PackedScene::246769834545759831::1735792796::0::1::::<><>::res://assets/Scripts/UI/UI.cs<>res://assets/Scripts/UI/CoreUI.cs<>res://assets/Scripts/UI/EditorUI.cs<>res://assets/Shaders/gridScroll.gdshader<>uid://b7vttsxaesumd::::res://assets/Sprites/grid.png<>uid://b51pwfpj452aq::::res://assets/Sprites/Character Button.png<>uid://chcdxiga4i7vj::::res://assets/Sprites/record.png<>uid://b4qt3uh77icwa::::res://assets/Sprites/clapper board.png<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://b04p0lqcj7o6q::::res://assets/Sprites/settings.png<>uid://5atjbnn66ny7::::res://assets/Sprites/replay.png<>res://assets/Scripts/UI/SettingsUI.cs<>uid://c6qu4fxp3w6ni::::res://assets/Scenes/voiceShelf.tscn<>uid://byiv4sk7pdl3g::::res://mmtheme.tres<>uid://dpm21lxchrs1o::::res://assets/Fonts/FlowRounded-Regular.ttf<>uid://bkouiyx3ams1l::::res://assets/Sprites/handle.png<>uid://b0rdwu1lwb7db::::res://assets/Sprites/VoicesButton.png<>uid://bw5vcbak24tix::::res://assets/Sprites/SpritesButton.png<>uid://d2i74kvptfvhf::::res://assets/Sprites/about Button.png<>uid://b4ad3qe62w8kk::::res://assets/sfx/settingOpen.mp3<>uid://djyf884p6vs2c::::res://assets/sfx/settingsClose.mp3<>uid://xse5c3xsv7il::::res://assets/Sprites/Error.png<>uid://c27wtb3iyfyw4::::res://assets/Sprites/voice tweeks.png<>uid://bhb3jegcpwkmg::::res://assets/Sprites/explosion.png<>uid://b120o2nras8hd::::res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3<>uid://b1fn2i6t4dchp::::res://assets/sfx/explosion.ogg<>uid://ixs6b5e4sear::::res://assets/sfx/openbox.ogg<>uid://kk8g07dyk4ew::::res://assets/sfx/closebox.ogg<>uid://5n0roo7vmo41::::res://assets/sfx/openEditor.ogg<>uid://c7s4xc663ntit::::res://assets/sfx/closeEditor.ogg<>res://assets/Scripts/CharacterSelect.cs<>uid://b5u0af83hksmn::::res://assets/Sprites/arrow.png<>uid://6jyp01qvli70::::res://assets/Scenes/popup.tscn
-voiceShelf.tscn::PackedScene::6982991990975835726::1733747966::0::1::::<><>::res://assets/Scripts/voiceShelf.cs<>uid://byiv4sk7pdl3g::::res://mmtheme.tres
+UI.tscn::PackedScene::246769834545759831::1735827220::0::1::::<><>::res://assets/Scripts/UI/UI.cs<>res://assets/Scripts/UI/CoreUI.cs<>res://assets/Scripts/UI/EditorUI.cs<>res://assets/Shaders/gridScroll.gdshader<>uid://b7vttsxaesumd::::res://assets/Sprites/grid.png<>uid://b51pwfpj452aq::::res://assets/Sprites/Character Button.png<>uid://chcdxiga4i7vj::::res://assets/Sprites/record.png<>uid://b4qt3uh77icwa::::res://assets/Sprites/clapper board.png<>uid://bgctst1v10cf8::::res://assets/Fonts/Electrolize-Regular.ttf<>uid://b04p0lqcj7o6q::::res://assets/Sprites/settings.png<>uid://5atjbnn66ny7::::res://assets/Sprites/replay.png<>res://assets/Scripts/UI/SettingsUI.cs<>uid://c6qu4fxp3w6ni::::res://assets/Scenes/voiceShelf.tscn<>uid://byiv4sk7pdl3g::::res://mmtheme.tres<>uid://dpm21lxchrs1o::::res://assets/Fonts/FlowRounded-Regular.ttf<>uid://bkouiyx3ams1l::::res://assets/Sprites/handle.png<>uid://b0rdwu1lwb7db::::res://assets/Sprites/VoicesButton.png<>uid://d2i74kvptfvhf::::res://assets/Sprites/about Button.png<>uid://b4ad3qe62w8kk::::res://assets/sfx/settingOpen.mp3<>uid://djyf884p6vs2c::::res://assets/sfx/settingsClose.mp3<>uid://xse5c3xsv7il::::res://assets/Sprites/Error.png<>uid://c27wtb3iyfyw4::::res://assets/Sprites/voice tweeks.png<>uid://bhb3jegcpwkmg::::res://assets/Sprites/explosion.png<>uid://b120o2nras8hd::::res://assets/music/Bach-Cello-Suite-No.-1-G-Major-PM-Music.mp3<>uid://b1fn2i6t4dchp::::res://assets/sfx/explosion.ogg<>uid://ixs6b5e4sear::::res://assets/sfx/openbox.ogg<>uid://kk8g07dyk4ew::::res://assets/sfx/closebox.ogg<>uid://5n0roo7vmo41::::res://assets/sfx/openEditor.ogg<>uid://c7s4xc663ntit::::res://assets/sfx/closeEditor.ogg<>res://assets/Scripts/CharacterSelect.cs<>uid://b5u0af83hksmn::::res://assets/Sprites/arrow.png<>uid://6jyp01qvli70::::res://assets/Scenes/popup.tscn
+voiceShelf.tscn::PackedScene::6982991990975835726::1735827220::0::1::::<><>::res://assets/Scripts/voiceShelf.cs<>uid://byiv4sk7pdl3g::::res://mmtheme.tres
 ::res://assets/Scenes/notifications/::1726553388
 Error.tscn::PackedScene::2916524491608335165::1726553388::0::1::::<><>::uid://dhvdoc00pbgio::::res://assets/Sprites/Cross.png<>res://assets/Notification.cs<>uid://ce3sa7s200hyt::::res://assets/Sprites/exit.png
 Info.tscn::PackedScene::3182065030215047907::1726553388::0::1::::<><>::res://assets/Notification.cs<>uid://tg5camoy8ef4::::res://assets/Sprites/Info.png<>uid://ce3sa7s200hyt::::res://assets/Sprites/exit.png
-::res://assets/Scripts/::1735792512
-Character.cs::CSharpScript::-1::1735309251::0::1::::<>Node<>::
-CharacterControl.cs::CSharpScript::-1::1733827937::0::1::::<>Panel<>::
-CharacterData.cs::CSharpScript::-1::1728043438::0::1::::<>Node<>::
-CharacterSelect.cs::CSharpScript::-1::1733816660::0::1::::<>Control<>::
-CharacterViewport.cs::CSharpScript::-1::1735714893::0::1::::<>SubViewport<>::
+::res://assets/Scripts/::1735825745
+Character.cs::CSharpScript::-1::1735824592::0::1::::<>Node<>::
+CharacterControl.cs::CSharpScript::-1::1735809658::0::1::::<>Panel<>::
+CharacterSelect.cs::CSharpScript::-1::1735806805::0::1::::<>Control<>::
+CharacterViewport.cs::CSharpScript::-1::1735822592::0::1::::<>SubViewportContainer<>::
 ConversationManager.cs::CSharpScript::-1::1734082598::0::1::::<>Node<>::
-MasterScript.cs::CSharpScript::-1::1735733658::0::1::::<>Node<>::
+MasterScript.cs::CSharpScript::-1::1735822250::0::1::::<>Node<>::
 Popup.cs::CSharpScript::-1::1735628467::0::1::::<>Control<>::
 Resize.cs::CSharpScript::-1::1730623325::0::1::::<>TextureButton<>::
 SettingsButton.cs::CSharpScript::-1::1734350247::0::1::::<>Button<>::
 View.cs::CSharpScript::-1::1735714025::0::1::::<>Control<>::
-voiceShelf.cs::CSharpScript::-1::1735792512::0::1::::<>Node<>::
+voiceShelf.cs::CSharpScript::-1::1735825745::0::1::::<>Node<>::
 ::res://assets/Scripts/Managers/::1735537646
-AudioManager.cs::CSharpScript::-1::1735301836::0::1::::<>Node<>::
-CharacterManager.cs::CSharpScript::-1::1735733654::0::1::::<>Node<>::
+AudioManager.cs::CSharpScript::-1::1735793769::0::1::::<>Node<>::
+CharacterManager.cs::CSharpScript::-1::1735825576::0::1::::<>Node<>::
 Manager.cs::CSharpScript::-1::1735731864::0::1::::<>Node<>::
 NotificationsManager.cs::CSharpScript::-1::1735365870::0::1::::<>Node<>::
 OBS.cs::CSharpScript::-1::1728038739::0::1::::<>Node<>::
-SaveData.cs::CSharpScript::-1::1735367248::0::1::::<>Node<>::
+SaveData.cs::CSharpScript::-1::1735827094::0::1::::<>Node<>::
 STT.cs::CSharpScript::-1::1735536244::0::1::::<>Node<>::
 ::res://assets/Scripts/Props/::1735731448
 Dummy.cs::CSharpScript::-1::1734255841::0::1::::<>Control<>::
 Head.cs::CSharpScript::-1::1732338135::0::1::::<>Control<>::
-Prop.cs::CSharpScript::-1::1735792746::0::1::::<>Control<>::
+Prop.cs::CSharpScript::-1::1735822077::0::1::::<>Control<>::
 ::res://assets/Scripts/Props/Addons/::1732338512
 AudioReactive.cs::CSharpScript::-1::1733714061::0::1::::<>Node<>::
 ::res://assets/Scripts/Services/::1726914020
 AzuirGD.cs::CSharpScript::-1::1730630813::0::1::::<>Node<>::
 ChatGD.cs::CSharpScript::-1::1735367449::0::1::::<>Node<>::
-ElevinLabsGD.cs::CSharpScript::-1::1735365960::0::1::::<>Node<>::
+ElevinLabsGD.cs::CSharpScript::-1::1735825401::0::1::::<>Node<>::
 Services.cs::CSharpScript::-1::1727058614::0::1::::<>Node<>::
 VoskGD.cs::CSharpScript::-1::1726574246::0::1::::<>Node<>::
 WhisperGD.cs::CSharpScript::-1::1735536574::0::1::::<>Node<>::
 ::res://assets/Scripts/UI/::1728038739
-CharacterBox.cs::CSharpScript::-1::1733825346::0::1::::<>Panel<>::
+CharacterBox.cs::CSharpScript::-1::1735806680::0::1::::<>Panel<>::
 CoreUI.cs::CSharpScript::-1::1718098471::0::1::::<>Control<>::
-EditorUI.cs::CSharpScript::-1::1735698850::0::1::::<>Control<>::
+EditorUI.cs::CSharpScript::-1::1735826750::0::1::::<>Control<>::
 SettingsUI.cs::CSharpScript::-1::1735534056::0::1::::<>Control<>::
 UI.cs::CSharpScript::-1::1718675228::0::1::::<>CanvasLayer<>::
 ::res://assets/sfx/::1719301606
@@ -153,15 +147,16 @@ openbox.ogg::AudioStreamOggVorbis::610139802017172225::1718595701::1719301606::1
 openEditor.ogg::AudioStreamOggVorbis::2134051261695942748::1718447983::1719301606::1::::<><>::
 settingOpen.mp3::AudioStreamMP3::4422130150401979042::1718098471::1718098471::1::::<><>::
 settingsClose.mp3::AudioStreamMP3::7840871004875410840::1718098471::1718098471::1::::<><>::
-::res://assets/Shaders/::1735792993
-gridScroll.gdshader::Shader::-1::1735793073::0::1::::<><>::
-Select.gdshader::Shader::-1::1735793073::0::1::::<><>::
-::res://assets/Sprites/::1735370064
+::res://assets/Shaders/::1735827220
+gridScroll.gdshader::Shader::-1::1735827220::0::1::::<><>::
+Select.gdshader::Shader::-1::1735827220::0::1::::<><>::
+::res://assets/Sprites/::1735827796
 about Button.png::CompressedTexture2D::9072871141511961535::1719896131::1719896131::1::::<><>::
 arrow.png::CompressedTexture2D::4534891787611686637::1735370064::1735370064::1::::<><>::
 Character Button.png::CompressedTexture2D::4546710143034731292::1718098471::1718098471::1::::<><>::
 Character Button.svg::CompressedTexture2D::7689903868983402983::1718098471::1718098471::1::::<><>::
 clapper board.png::CompressedTexture2D::4456131881130544116::1718098471::1718098471::1::::<><>::
+Conversation Button.png::CompressedTexture2D::3498092183246404163::1735827796::1735827797::1::::<><>::
 Cross.png::CompressedTexture2D::7694143186296540942::1718098471::1718098471::1::::<><>::
 Error.png::CompressedTexture2D::1651798794407188931::1718098471::1718098471::1::::<><>::
 exit.png::CompressedTexture2D::5112493934736642199::1718098471::1718098471::1::::<><>::

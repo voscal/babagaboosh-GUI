@@ -61,6 +61,7 @@ public partial class CharacterManager : Manager
 	}
 	public void RemoveCharacter(int index)
 	{
+		GD.Print($"Removing character at index {index}. Active characters count: {ActiveCharacters.Count}");
 		if (ActiveCharacters.Count == 1)
 		{
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", "[center]Unable to Remove", "[center]You must have at least one character enabled", 5);
@@ -68,32 +69,45 @@ public partial class CharacterManager : Manager
 		}
 		var character = ActiveCharacters[index];
 
-		GetNode<SubViewportContainer>(character.path).QueueFree();
-		ui.GetNode<Panel>($"Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2/{ActiveCharacters.IndexOf(character) + character.name}").QueueFree();
+		//we rename and them .QueueFree() due to godot not being able to .QueueFree() it in time for the rename :( skill issue
+		GetNode<SubViewportContainer>(character.path).Name = "REMOVE";
+		GetNode<SubViewportContainer>("/root/Main Window/CharacterView/REMOVE").QueueFree();
+		ui.GetNode<Panel>($"Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2/{ActiveCharacters.IndexOf(character) + character.name}").Name = "REMOVE";
+		ui.GetNode<Panel>($"Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2/REMOVE").QueueFree();
 		ActiveCharacters.RemoveAt(index);
 		manager.audio.RemoveCharacterBus(character.path);
 		foreach (var activeCharacter in ActiveCharacters)
 		{
+
 			var oldCharacterPath = activeCharacter.path;
 			var oldCharacterindex = (index <= ActiveCharacters.IndexOf(activeCharacter)) ? (ActiveCharacters.IndexOf(activeCharacter) + 1).ToString() : ActiveCharacters.IndexOf(activeCharacter).ToString();
+			var newCharacterIndex = ActiveCharacters.IndexOf(activeCharacter);
 
-			GetNode<SubViewportContainer>(activeCharacter.path).Name = ActiveCharacters.IndexOf(activeCharacter) + " " + activeCharacter.name;
-			activeCharacter.path = $"/root/Main Window/CharacterView/{ActiveCharacters.IndexOf(activeCharacter) + " " + activeCharacter.name}";
+
+			GetNode<CharacterViewport>(activeCharacter.path).CallDeferred("set_name", newCharacterIndex + " " + activeCharacter.name);
+			activeCharacter.path = $"/root/Main Window/CharacterView/{newCharacterIndex} {activeCharacter.name}";
 			manager.audio.UpdateCharacterBus(oldCharacterPath, activeCharacter.path);
-			GD.Print(ActiveCharacters[ActiveCharacters.IndexOf(activeCharacter)].path);
+			GD.Print(ActiveCharacters[newCharacterIndex].path);
 
 
 			var controlScene = ui.GetNode<CharacterControl>($"Character Select/BackGround/ScrollContainer/VBoxContainer/Volume/BoxContainer2/{oldCharacterindex + activeCharacter.name}");
-			controlScene.id = ActiveCharacters.IndexOf(activeCharacter);
-			controlScene.Name = ActiveCharacters.IndexOf(activeCharacter) + activeCharacter.name;
-			controlScene.GetNode<Label>("Id").Text = ActiveCharacters.IndexOf(activeCharacter).ToString();
+			controlScene.id = newCharacterIndex;
+			controlScene.Name = newCharacterIndex + activeCharacter.name;
+			controlScene.GetNode<Label>("Id").Text = newCharacterIndex.ToString();
 
 		}
 
 
 
+		CallDeferred("SetFocus", 0);
 
-		SetFocus(0);
+	}
+
+	void CallDeferredName(Node node, String name)
+	{
+		GD.Print("UPDATENAME" + name);
+		node.Name = name;
+
 	}
 
 	public void UpdateCharacter(int oldIndex, Character newCharacter)
@@ -124,21 +138,25 @@ public partial class CharacterManager : Manager
 		controlScene.id = ActiveCharacters.IndexOf(newCharacter);
 		controlScene.Name = ActiveCharacters.IndexOf(newCharacter) + newCharacter.name;
 		controlScene.GetNode<Label>("Id").Text = ActiveCharacters.IndexOf(newCharacter).ToString();
-
+		SetFocus(ActiveCharacters.IndexOf(newCharacter));
 	}
 
 	public void SetFocus(int index)
 	{
-		GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).focused = false;
-		GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).ZIndex = 0;
-		GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).MouseFilter = Control.MouseFilterEnum.Ignore;
+		GD.Print("HOCUS FOCUS");
+		if (focusedCharacter < ActiveCharacters.Count)
+		{
+			GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).focused = false;
+			GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).ZIndex = 0;
+			GetNode<CharacterViewport>(manager.character.ActiveCharacters[focusedCharacter].path).MouseFilter = Control.MouseFilterEnum.Ignore;
+		}
 		var character = manager.character.ActiveCharacters[index];
 		focusedCharacter = index;
 		GetNode<Control>("/root/Main Window/CharacterView").Size = GetNode<SubViewportContainer>(character.path).Size;
 		GetNode<CharacterViewport>(character.path).focused = true;
 		GetNode<CharacterViewport>(character.path).ZIndex = 1;
 		GetNode<CharacterViewport>(character.path).MouseFilter = Control.MouseFilterEnum.Stop;
-
+		ui.editorUI.UpdateEditor(character);
 
 	}
 	public void SetFocus()
@@ -159,6 +177,12 @@ public partial class CharacterManager : Manager
 	{
 
 	}
+
+	public Character GetFocusedCharacter()
+	{
+		return ActiveCharacters[focusedCharacter];
+	}
+
 
 
 

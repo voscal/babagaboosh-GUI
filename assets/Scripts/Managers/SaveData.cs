@@ -81,16 +81,16 @@ public partial class SaveData : Node
 
 	#region Character Loading
 
-	public void SaveCharacter()
+	public void SaveCharacter(Character character)
 	{
-		if (ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text == string.Empty)
+		if (ui.GetNode<TextEdit>("EditorUI/Toolbar/About/Background/Panel/AIname").Text == string.Empty)
 		{
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("Error", "[center]Error", "[center]Please give your character a name", 5);
 			return;
 		}
 
 
-		string characterName = ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text;
+		string characterName = ui.GetNode<TextEdit>("EditorUI/Toolbar/About/Background/Panel/AIname").Text;
 		string characterPath = $"user://Characters/{characterName}.chr";
 
 		// Ensure the directory exists
@@ -112,19 +112,19 @@ public partial class SaveData : Node
 		}
 
 		zipPacker.StartFile("HeadSpr.png");
-		zipPacker.WriteFile(GetNode<TextureButton>("/root/Main Window/Puppet/Character/Head/Sprite").TextureNormal.GetImage().SavePngToBuffer());
+		zipPacker.WriteFile(character.image2.GetImage().SavePngToBuffer());
 		zipPacker.CloseFile();
 
 		zipPacker.StartFile("BodySpr.png");
-		zipPacker.WriteFile(GetNode<TextureButton>("/root/Main Window/Puppet/Character/Body/Sprite").TextureNormal.GetImage().SavePngToBuffer());
+		zipPacker.WriteFile(character.image1.GetImage().SavePngToBuffer());
 		zipPacker.CloseFile();
 
 		zipPacker.StartFile("Data.json");
-		zipPacker.WriteFile(Encoding.UTF8.GetBytes(CreateCharacterJSON()));
+		zipPacker.WriteFile(Encoding.UTF8.GetBytes(CreateCharacterJSON(character)));
 		zipPacker.CloseFile();
 
 		zipPacker.Close();
-		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Character Saved", "[center]" + ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text + " has successfully saved!", 6);
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Character Saved", "[center]" + ui.GetNode<TextEdit>("EditorUI/Toolbar/About/Background/Panel/AIname").Text + " has successfully saved!", 6);
 		ui.GetNode<CharacterSelect>("Character Select").RefreshCharactersList(LoadAllCharacters());
 
 	}
@@ -185,22 +185,21 @@ public partial class SaveData : Node
 		}
 	}
 
-	public string CreateCharacterJSON()
+	public string CreateCharacterJSON(Character character)
 	{
 		Dictionary data = new()
 		{
-			{ "Name", ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIname").Text },
-			{ "Description", ui.GetNode<TextEdit>("EditorUI/BG/About/Background/Panel/AIabout").Text },
+			{ "Name", ui.GetNode<TextEdit>("EditorUI/Toolbar/About/Background/Panel/AIname").Text },
+			{ "Description", ui.GetNode<TextEdit>("EditorUI/Toolbar/About/Background/Panel/AIabout").Text },
 			{ "AIContext", ui.GetNode<TextEdit>("EditorUI/AIContext/Pannle/Panel/AIcontext").Text },
-			{ "HeadPosition", GetNode<Node2D>("/root/Main Window/Puppet/Character/Head").Position },
-			{ "HeadSize", GetNode<TextureButton>("/root/Main Window/Puppet/Character/Head/Sprite").Size },
-			{ "BodyPosition", GetNode<Node2D>("/root/Main Window/Puppet/Character/Body").Position },
-			{ "BodySize", GetNode<TextureButton>("/root/Main Window/Puppet/Character/Body/Sprite").Size },
-			{ "VoiceID", GetNode<MasterScript>("/root/Main Window").services.elevinLabs.currentVoice },
+			{ "HeadPosition", character.headPosition },
+			{ "HeadSize", character.headSize },
+			{ "BodyPosition", character.bodyPosition },
+			{ "BodySize", character.bodySize },
+			{ "VoiceID", character.voiceID },
 			{ "Stability", ui.editorUI.GetVoiceSettings().Stability },
 			{ "Clarity", ui.editorUI.GetVoiceSettings().SimilarityBoost },
 			{ "Exaggeration", ui.editorUI.GetVoiceSettings().Style },
-			{ "temperature", "" }
 		};
 
 		return Json.Stringify(data);
