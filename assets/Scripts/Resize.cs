@@ -22,12 +22,12 @@ public partial class Resize : TextureButton
 	public override void _Ready()
 	{
 		SetProcessInput(true);
-		camera = GetParent().GetParent().GetNode<Camera2D>("Camera");
+		camera = GetParent().GetParent().GetParent().GetNode<Camera2D>("Camera");
 	}
 
 	public override void _GuiInput(InputEvent @event)
 	{
-		if (@event is InputEventMouseButton mouseEvent && GetNode<UI>("/root/Main Scene/UI").editorUI.editorOpen == true)
+		if (@event is InputEventMouseButton mouseEvent && GetNode<UI>("/root/Main Window/UI").editorUI.editorOpen == true)
 		{
 			Vector2 globalMousePos = camera.GetGlobalMousePosition();
 
@@ -164,7 +164,7 @@ public partial class Resize : TextureButton
 	private void UpdateCursor(Vector2 mousePos)
 	{
 		ResizeDirection direction = GetResizeDirection(mousePos);
-		if (GetNode<UI>("/root/Main Scene/UI").editorUI.editorOpen == false)
+		if (GetNode<UI>("/root/Main Window/UI").editorUI.editorOpen == false)
 		{
 			MouseDefaultCursorShape = CursorShape.Arrow;
 			return;

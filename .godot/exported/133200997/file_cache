@@ -1,18 +1,29 @@
-res://assets/Scenes/data.tscn::1c87c247b1c83398362f321faa2c8ef6::1722332316::res://.godot/exported/133200997/export-c82576174aa2bcc1543c1c168e31e9f3-data.scn
-res://assets/Scenes/Dummy.tscn::54a90efde8e0ed6f0a605d9a579ae43f::1719048297::res://.godot/exported/133200997/export-649bf7040f382a62856dc50640ae7d95-Dummy.scn
-res://assets/Scenes/Main Scene.tscn::ca0b91d70e434f7e7dbeefe123f65855::1722332316::res://.godot/exported/133200997/export-9d4f95fd9dbedaa016238220b2d4a4cc-Main Scene.scn
-res://assets/Scenes/UI.tscn::a86cf82477c8a74796d02a45f5f326b7::1722332317::res://.godot/exported/133200997/export-a940384861cde9d6ed81d1bf1fe9c52a-UI.scn
-res://assets/Scenes/voiceShelf.tscn::758ef5b9991e24c0252039843427cbdb::1718676251::res://.godot/exported/133200997/export-3d0470128048ec82e7b5a610fce0215c-voiceShelf.scn
-res://assets/Scripts/Libraries/Remotelibraries.tscn::772390359731fb6f97762891b3973345::1722332316::res://.godot/exported/133200997/export-ab7a16ac33f7d0a30a4e2bcb2b48ed87-Remotelibraries.scn
-res://default_bus_layout.tres::27d75f53c631ffc9a236e1064bc0c3aa::1722332010::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
-res://mmtheme.tres::9beda48056670a2e77d95d4bedab9923::1722323969::res://.godot/exported/133200997/export-a07dfec0f83b154888a8e16cfe945c48-mmtheme.res
+res://assets/Scenes/data.tscn::f863d27d3c67f3324aefa7e0525fb6e6::1735905397::res://.godot/exported/133200997/export-c82576174aa2bcc1543c1c168e31e9f3-data.scn
+res://assets/Scenes/Dummy.tscn::bdfdbc1fe606c0876bcb175bc07790ae::1735905397::res://.godot/exported/133200997/export-649bf7040f382a62856dc50640ae7d95-Dummy.scn
+res://assets/Scenes/Main Scene.tscn::063246ea7064166b1fd8d822ef6c92db::1735806428::res://.godot/exported/133200997/export-9d4f95fd9dbedaa016238220b2d4a4cc-Main Scene.scn
+res://assets/Scenes/UI.tscn::0cca60b5ba8d0de545f25f3cd41ba993::1735905396::res://.godot/exported/133200997/export-a940384861cde9d6ed81d1bf1fe9c52a-UI.scn
+res://assets/Scenes/voiceShelf.tscn::471f09a1d0cc58796a77fa6397ff525b::1735905397::res://.godot/exported/133200997/export-3d0470128048ec82e7b5a610fce0215c-voiceShelf.scn
+res://default_bus_layout.tres::f4586bbfefb5d9ced8f174ba5da436f6::1735903750::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
+res://mmtheme.tres::35473c37863da1db0e3815fb232e3d92::1735903874::res://.godot/exported/133200997/export-a07dfec0f83b154888a8e16cfe945c48-mmtheme.res
 res://addons/global_input/autoloads/global_input_csharp/GlobalInputCSharp.tscn::f4cdb13bc33ebd7fd338dce314ea1a1a::1718098471::res://.godot/exported/133200997/export-c6b8854e0deede07c31d12de865dd86e-GlobalInputCSharp.scn
 res://addons/global_input/autoloads/global_input_gdscript/GlobalInputGDScript.tscn::064d933e8ddbe9130b459473d17d496f::1718098471::res://.godot/exported/133200997/export-635e2e0cdafd0321e1ea6a0971c962f8-GlobalInputGDScript.scn
 res://addons/global_input/examples/csharp_example/World.tscn::4566a444a9a862f4a60d9264a98d71ab::1718098471::res://.godot/exported/133200997/export-3d1719856a3b5b1279e48b647f558f0d-World.scn
 res://addons/global_input/examples/gd_example/World.tscn::5c50038a886581acb6ce8b4cf6431d6d::1718098471::res://.godot/exported/133200997/export-51017b6cf6fd70ed4c08c5c014ed7183-World.scn
-res://assets/Scenes/resize test.tscn::7b91e75e3a1ddd8b400a7c7c73fd421a::1718444407::res://.godot/exported/133200997/export-2391e5f6135aa89346f597bccd4ec72e-resize test.scn
-res://assets/Scenes/notifications/Error.tscn::af03e5eaa4b94359cb5723446814175e::1718444407::res://.godot/exported/133200997/export-8836de9628eeecc3ac4c000c0bb3aaf3-Error.scn
-res://assets/Scenes/notifications/Info.tscn::3d587c831c289842ca733ea8ea40ec5b::1718444407::res://.godot/exported/133200997/export-47156f27cb6d405b4c108d1fe6169bbd-Info.scn
-res://assets/Scenes/Managers.tscn::826ebada88463f765b59a7ed2f386357::1722332316::res://.godot/exported/133200997/export-1d34b8df98ee019d4b15e665be4231e3-Managers.scn
-res://assets/Scenes/characterBox.tscn::17eeebdf04aeee6c9147be9939d9c63a::1722332317::res://.godot/exported/133200997/export-3d1cc52510a9f397bf844968182626ef-characterBox.scn
-res://assets/Scenes/DisplayDummy.tscn::9f1fd7465b0acfb78b1e1c77c300762e::1719048242::res://.godot/exported/133200997/export-41a93b626d84c9d68545813728b99d06-DisplayDummy.scn
+res://assets/Scenes/resize test.tscn::7b91e75e3a1ddd8b400a7c7c73fd421a::1728036296::res://.godot/exported/133200997/export-2391e5f6135aa89346f597bccd4ec72e-resize test.scn
+res://assets/Scenes/notifications/Error.tscn::e89fbe1895c990031d56b15e7d2e9f36::1726553388::res://.godot/exported/133200997/export-8836de9628eeecc3ac4c000c0bb3aaf3-Error.scn
+res://assets/Scenes/notifications/Info.tscn::04927240f4c30a2bb1be2c3dae45817e::1726553388::res://.godot/exported/133200997/export-47156f27cb6d405b4c108d1fe6169bbd-Info.scn
+res://assets/Scenes/Managers.tscn::9bfe273252e1965da1de8d6167c64666::1735905397::res://.godot/exported/133200997/export-1d34b8df98ee019d4b15e665be4231e3-Managers.scn
+res://assets/Scenes/characterBox.tscn::ac32317f0002a17382b419cee0243394::1735905397::res://.godot/exported/133200997/export-3d1cc52510a9f397bf844968182626ef-characterBox.scn
+res://assets/Scenes/DisplayDummy.tscn::9f1fd7465b0acfb78b1e1c77c300762e::1735709267::res://.godot/exported/133200997/export-41a93b626d84c9d68545813728b99d06-DisplayDummy.scn
+res://addons/godot_whisper/whisper_dock.tscn::7453b575fb177d9f4f75c76bbb53c380::1735537504::res://.godot/exported/133200997/export-7ce37f94aef1d76527be22dd9b3d8164-whisper_dock.scn
+res://assets/Scenes/character.tscn::c903457a25776569be0de00205ed0b40::1735824879::res://.godot/exported/133200997/export-981498572a47bb9f357a1b136ec3a985-character.scn
+res://assets/Scenes/CharacterVolume.tscn::4c3a9334e277ad6013f642faeb8de47a::1735905397::res://.godot/exported/133200997/export-e198c546976add0c8406ca6b0272185a-CharacterVolume.scn
+res://assets/Scenes/ConversationBox.tscn::e416cfcb9e8060d9882a9ef90ce08629::1735905397::res://.godot/exported/133200997/export-5e22352fa54c18dcc29451ea66d79cf1-ConversationBox.scn
+res://assets/Scenes/popup.tscn::fdd5f311d8430eeb528e4d128bb81666::1735905397::res://.godot/exported/133200997/export-3455aa765cdb18ec6dd2e6e32d217c68-popup.scn
+res://assets/Scenes/Services.tscn::db24d0df4a1e95fdfa47542c2ecf96c4::1735717444::res://.godot/exported/133200997/export-df308b95d2536052e4b51c99167be319-Services.scn
+res://Props/Image_Prop.tscn::22bb80f98541e22d232a2b6f14112b08::1735537504::res://.godot/exported/133200997/export-919b5361bdc92162c6d9ba40879c6aaa-Image_Prop.scn
+res://Props/Particle_Prop.tscn::c29e8c1814b5505cc14e90c0a7385854::1735537504::res://.godot/exported/133200997/export-fb4cfb266dc73021d6d0725b0be4e92e-Particle_Prop.scn
+res://samples/godot_whisper/audio_transcribe.tscn::e89c9d9c410b3a98aaa2ba864b5d67fc::1728037644::res://.godot/exported/133200997/export-5072fea330016cc41d9d26e1e85f4d5c-audio_transcribe.scn
+res://samples/godot_whisper/mic_transcribe.tscn::d2ec81fd3be833e25720bc8325794a07::1727059033::res://.godot/exported/133200997/export-052abb61a19960ed93e0af38ac702c52-mic_transcribe.scn
+res://samples/godot_whisper/sample_bus_layout.tres::0cd744e2f90f9dc11887c4fb2cbe9bf5::1726492760::res://.godot/exported/133200997/export-e13e112fabde89810a3ffa9a87765921-sample_bus_layout.res
+res://view.tscn::02e85a11ec8cfd0e483932a0039a63ff::1735537504::res://.godot/exported/133200997/export-995024bab9dafa35b48a97ad2b25f855-view.scn

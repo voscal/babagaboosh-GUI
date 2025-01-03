@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://xxwll3fvn5dw"]
+
+[ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="1_dvsk3"]
+[ext_resource type="Script" path="res://assets/Scripts/ConversationBox.cs" id="1_i0k1j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr7k8"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_q8vl1"]
+font = ExtResource("1_dvsk3")
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Button"]
+custom_minimum_size = Vector2(0, 38.395)
+offset_right = 344.0
+offset_bottom = 38.395
+theme_override_styles/normal = SubResource("StyleBoxFlat_pr7k8")
+script = ExtResource("1_i0k1j")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = -86.0
+offset_bottom = -8.395
+grow_horizontal = 2
+grow_vertical = 2
+text = "TOPIC"
+label_settings = SubResource("LabelSettings_q8vl1")
+vertical_alignment = 1
+text_overrun_behavior = 4
+max_lines_visible = 1
+
+[node name="Edit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 3.0
+offset_right = 292.0
+offset_bottom = 35.0
+text = "E"
+
+[node name="Remove" type="Button" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 3.0
+offset_right = 327.0
+offset_bottom = 35.0
+text = "D"
+
+[connection signal="pressed" from="." to="." method="pressed"]
+[connection signal="pressed" from="Edit" to="." method="Edit"]
+[connection signal="pressed" from="Remove" to="." method="Remove"]

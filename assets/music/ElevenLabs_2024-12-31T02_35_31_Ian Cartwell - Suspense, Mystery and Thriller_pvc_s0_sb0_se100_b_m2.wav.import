@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfcw8e2m8fr1o"
+path="res://.godot/imported/ElevenLabs_2024-12-31T02_35_31_Ian Cartwell - Suspense, Mystery and Thriller_pvc_s0_sb0_se100_b_m2.wav-feeb4ceebbf7d78d401f9c2d97d52b5e.sample"
+
+[deps]
+
+source_file="res://assets/music/ElevenLabs_2024-12-31T02_35_31_Ian Cartwell - Suspense, Mystery and Thriller_pvc_s0_sb0_se100_b_m2.wav"
+dest_files=["res://.godot/imported/ElevenLabs_2024-12-31T02_35_31_Ian Cartwell - Suspense, Mystery and Thriller_pvc_s0_sb0_se100_b_m2.wav-feeb4ceebbf7d78d401f9c2d97d52b5e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://ceroy2knhwul7"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://ceroy2knhwul7"]
 
 [sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_g8l11"]
 resource_name = "SpectrumAnalyzer"
@@ -6,18 +6,7 @@ resource_name = "SpectrumAnalyzer"
 [sub_resource type="AudioEffectRecord" id="AudioEffectRecord_av0qs"]
 resource_name = "Record"
 
-[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_450np"]
-resource_name = "SpectrumAnalyzer"
-fft_size = 1
-
-[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_edbjt"]
-resource_name = "HighPassFilter"
-
-[sub_resource type="AudioEffectHighShelfFilter" id="AudioEffectHighShelfFilter_sttvq"]
-resource_name = "HighShelfFilter"
-cutoff_hz = 50.0
-
-[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_bcjn6"]
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_kfs43"]
 resource_name = "SpectrumAnalyzer"
 
 [resource]
@@ -54,19 +43,7 @@ bus/5/name = &"Voices"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = 0.464998
+bus/5/volume_db = -80.0
 bus/5/send = &"Master"
-bus/5/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_450np")
+bus/5/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_kfs43")
 bus/5/effect/0/enabled = true
-bus/5/effect/1/effect = SubResource("AudioEffectHighPassFilter_edbjt")
-bus/5/effect/1/enabled = false
-bus/5/effect/2/effect = SubResource("AudioEffectHighShelfFilter_sttvq")
-bus/5/effect/2/enabled = false
-bus/6/name = &"Character1"
-bus/6/solo = false
-bus/6/mute = false
-bus/6/bypass_fx = false
-bus/6/volume_db = 0.0
-bus/6/send = &"Voices"
-bus/6/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_bcjn6")
-bus/6/effect/0/enabled = false

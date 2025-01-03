@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://b65cpaecw2en3"]
+
+[ext_resource type="Script" path="res://assets/Scripts/CharacterViewport.cs" id="1_10yok"]
+[ext_resource type="PackedScene" uid="uid://5x5t1hrircmr" path="res://assets/Scenes/Dummy.tscn" id="2_3mcwk"]
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_10yok")
+
+[node name="Viewport" type="SubViewport" parent="."]
+handle_input_locally = false
+physics_object_picking = true
+physics_object_picking_sort = true
+physics_object_picking_first_only = true
+canvas_cull_mask = 4294967293
+render_target_update_mode = 4
+
+[node name="IGNOR" type="Node2D" parent="Viewport"]
+
+[node name="Background" type="ColorRect" parent="Viewport/IGNOR"]
+visibility_layer = 2
+z_index = -1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0.615686, 0.984314, 1)
+
+[node name="Camera" type="Camera2D" parent="Viewport"]
+editor_draw_limits = true
+
+[node name="Dummy" parent="Viewport" instance=ExtResource("2_3mcwk")]

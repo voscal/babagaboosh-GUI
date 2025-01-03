@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0tc2wknkhfwx"]
+
+[ext_resource type="Script" path="res://assets/Scripts/Props/Prop.cs" id="1_hu8si"]
+
+[node name="ImageProp" type="Node2D"]
+script = ExtResource("1_hu8si")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1

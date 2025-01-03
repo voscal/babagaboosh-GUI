@@ -1,0 +1,262 @@
+[gd_scene load_steps=10 format=3 uid="uid://6jyp01qvli70"]
+
+[ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="1_7l7f1"]
+[ext_resource type="Script" path="res://assets/Scripts/Popup.cs" id="1_pecxe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwguv"]
+bg_color = Color(0.996078, 0.807843, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.996078, 0.807843, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb2lm"]
+bg_color = Color(0.931906, 0.755163, 0, 1)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbys4"]
+font = ExtResource("1_7l7f1")
+font_size = 19
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_qvrtl"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(0.133972, 0.133972),
+"update": 0,
+"values": [Vector2(217, 134), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(0.120742, 0.129408),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(-6, 25)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.466667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dq4fc"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(0.133972, 1),
+"update": 0,
+"values": [Vector2(28, 20), Vector2(217, 134)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(0.129408, 1),
+"update": 0,
+"values": [Vector2(-14, 15), Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_c1rvw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(217, 134)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, -26)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3viv4"]
+_data = {
+"Close": SubResource("Animation_qvrtl"),
+"Open": SubResource("Animation_dq4fc"),
+"RESET": SubResource("Animation_c1rvw")
+}
+
+[node name="Popup" type="Control" groups=["Popup"]]
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 31.0
+offset_top = -25.0
+offset_right = 247.0
+offset_bottom = 108.0
+mouse_filter = 2
+script = ExtResource("1_pecxe")
+
+[node name="Background" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_top = -28.0
+offset_right = 217.0
+offset_bottom = 106.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vwguv")
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_left = 17.045
+offset_top = 25.16
+offset_right = 200.75
+offset_bottom = 27.16
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 31.0
+offset_right = 60.0
+offset_bottom = 62.0
+
+[node name="Button" type="Button" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(184.42, 14.045)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_7l7f1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fb2lm")
+text = "- Change Image"
+alignment = 0
+
+[node name="Button2" type="Button" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(184.42, 14.045)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_7l7f1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fb2lm")
+text = "- Reset Size"
+alignment = 0
+
+[node name="Button3" type="Button" parent="Background/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(184.42, 14.045)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_7l7f1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fb2lm")
+text = "- Reset Image"
+alignment = 0
+
+[node name="NameLabal" type="Label" parent="Background"]
+layout_mode = 2
+offset_left = 16.0002
+offset_top = 0.999767
+offset_right = 223.0
+offset_bottom = 24.9998
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dummy"
+label_settings = SubResource("LabelSettings_vbys4")
+vertical_alignment = 1
+clip_text = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-79.5952, 29)
+rotation = 3.14159
+scale = Vector2(2.0248, 1)
+color = Color(0.996078, 0.807843, 0, 1)
+polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14.5975, -24, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3viv4")
+}
+
+[node name="ImportHeadImage" type="NativeFileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png , *jpg , *.svg , *.webp ; Image (*.png , *jpg , *.svg , *.webp)", "* ; All Files")
+
+[connection signal="pressed" from="Background/VBoxContainer/Button" to="ImportHeadImage" method="show"]
+[connection signal="pressed" from="Background/VBoxContainer/Button2" to="." method="ResetSizing"]
+[connection signal="file_selected" from="ImportHeadImage" to="." method="ImageSelected"]

@@ -1,5 +1,6 @@
 using System;
 using Godot;
+using OpenAI.Embeddings;
 
 
 public partial class MasterScript : Node
@@ -9,12 +10,15 @@ public partial class MasterScript : Node
 
 	public GlobalInputCSharp GlobalInput;
 
+	bool isEditing = false;
 
 	Vector2 WindowSize;
 
 	UI ui;
 	VoiceData voiceData;
-	CharacterData characterData;
+
+	SaveData saveData;
+
 	public Services services;
 
 	Manager manager;
@@ -24,44 +28,31 @@ public partial class MasterScript : Node
 	{
 		GlobalInput = GetNode<GlobalInputCSharp>("/root/GlobalInput/GlobalInputCSharp");
 		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
-		characterData = GetNode<CharacterData>("/root/Data/CharacterData");
+		saveData = GetNode<SaveData>("/root/Data/SaveData");
 		manager = GetNode<Manager>("/root/Managers");
-
 		services = GetNode<Services>("/root/Services");
 		audioManager = GetNode<AudioManager>("/root/Managers/Audio");
 		ui = GetNode<UI>("UI");
-		GD.Print(ui.Name);
+
 		ui.coreUI.record.Pressed += askAI;
-		SetCharacter();
+		manager.character.AddCharacter(saveData.LoadCharacterFromFile("res://assets/Template.chr"));
+		manager.character.SetFocus(0);
 		await voiceData.GetVoice();
 		ui.editorUI.UpdateVoiceList();
 
+
+
 	}
 
 
-	public void SetCharacter()
-	{
-		services.chatGPT.SetContext("");
 
-	}
 
 
 	public override void _Process(double delta)
 	{
 
-		if (DisplayServer.WindowIsFocused(0))
-		{
-			GetViewport().TransparentBg = false;
-			ui.Visible = true;
-			ui.background.Visible = true;
 
-		}
-		else
-		{
-			GetViewport().TransparentBg = true;
-			ui.Visible = false;
-			ui.background.Visible = false;
-		}
+		GetNode<Control>("CharacterView").Position = (GetWindow().Size / 2) - (GetNode<Control>("CharacterView").Size / 2);
 
 
 
@@ -69,7 +60,6 @@ public partial class MasterScript : Node
 
 		if (GlobalInput.IsActionJustPressed("Record"))
 		{
-
 			askAI();
 		}
 
@@ -77,28 +67,10 @@ public partial class MasterScript : Node
 
 	}
 
-	public async void askAI()
+	public void askAI()
 	{
-		var recording = audioManager.RecordBttnPressed();
+		manager.conversation.AskAI();
 
-		if (recording)
-		{
-			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
-			return;
-		}
-
-		string recordedText = await manager.sTT.GetText();
-		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
-		GD.Print(recordedText);
-		if (recordedText != null)
-		{
-			string aiResponse = await services.chatGPT.SendMessage(recordedText);
-			GD.Print(aiResponse);
-			await services.elevinLabs.RenderVoice(aiResponse);
-
-			audioManager.PlayAudio();
-
-		}
 	}
 
 

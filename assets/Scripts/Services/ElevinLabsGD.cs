@@ -10,22 +10,22 @@ using System.Linq;
 
 public partial class ElevinLabsGD : Node
 {
-	public string currentVoice;
+
 	ElevenLabsClient api;
-	SaveManager saveManager;
+	SaveData saveData;
 	VoiceData voiceData;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		saveManager = GetNode<SaveManager>("/root/Data/SaveData");
+		saveData = GetNode<SaveData>("/root/Data/SaveData");
 		voiceData = GetNode<VoiceData>("/root/Data/VoiceData");
-		api = new ElevenLabsClient(saveManager.GetAPIKey("11labs"));
+		api = new ElevenLabsClient(saveData.GetAPIKey("11labs"));
 	}
 
-	public async Task RenderVoice(string text)
+	public async Task RenderVoice(Character character, string text)
 	{
-		if (string.IsNullOrEmpty(currentVoice))
+		if (string.IsNullOrEmpty(character.voiceID))
 		{
 			GD.PrintErr("Please select a voice!");
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("Error", "[center]Voice Error!", "[center]Please select a voice!", 5);
@@ -34,13 +34,12 @@ public partial class ElevinLabsGD : Node
 
 		try
 		{
-			Voice voice = await api.VoicesEndpoint.GetVoiceAsync(currentVoice, withSettings: true);
-			VoiceSettings voiceSettingsNew = GetNode<UI>("/root/Main Scene/UI").editorUI.GetVoiceSettings();
+			Voice voice = await api.VoicesEndpoint.GetVoiceAsync(character.voiceID, withSettings: true);
 
-			await api.VoicesEndpoint.EditVoiceSettingsAsync(voice, voiceSettingsNew);
-			GD.Print(await api.VoicesEndpoint.GetVoiceSettingsAsync(voice));
+			await api.VoicesEndpoint.EditVoiceSettingsAsync(voice, character.voiceSettings);
+
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Generating Voice!", "[center]11 labs is now generating the voice!", 3);
-			VoiceClip voiceClip = await api.TextToSpeechEndpoint.TextToSpeechAsync(text, voice, voiceSettings: voiceSettingsNew);
+			VoiceClip voiceClip = await api.TextToSpeechEndpoint.TextToSpeechAsync(text, voice, voiceSettings: character.voiceSettings);
 			await File.WriteAllBytesAsync(ProjectSettings.GlobalizePath("user://Audio/AIresponse.mp3"), voiceClip.ClipData.ToArray());
 			ConvertMp3ToWav(ProjectSettings.GlobalizePath("user://Audio/AIresponse.mp3"), ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
 			GD.Print("Finished result");
@@ -92,11 +91,12 @@ public partial class ElevinLabsGD : Node
 				GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("Error", "[center]Voices Failed", "[center]Voices failed to load. This may be due to an invalid API key.", 10);
 				return null;
 			}
-
-			foreach (var voice in allVoices)
-			{
-				GD.Print($"{voice.Id} | {voice.Name} | similarity boost: {voice.Settings?.SimilarityBoost} | stability: {voice.Settings?.Stability} | custom: {voice.PreviewUrl}");
-			}
+			/*
+					foreach (var voice in allVoices)
+					{
+						GD.Print($"{voice.Id} | {voice.Name} | similarity boost: {voice.Settings?.SimilarityBoost} | stability: {voice.Settings?.Stability} | custom: {voice.PreviewUrl}");
+					}
+			*/
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("Info", "[center]Voices Loaded", "[center]All voicebanks have successfully loaded", 10);
 			return allVoices.ToArray();
 		}

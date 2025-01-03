@@ -2,5 +2,6 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)vosk\0.3.38\build\Vosk.targets" Condition="Exists('$(NuGetPackageRoot)vosk\0.3.38\build\Vosk.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.text.json\6.0.10\buildTransitive\netcoreapp3.1\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\6.0.10\buildTransitive\netcoreapp3.1\System.Text.Json.targets')" />
   </ImportGroup>
 </Project>

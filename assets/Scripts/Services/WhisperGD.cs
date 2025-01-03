@@ -1,6 +1,7 @@
-using Godot;
-using System;
 using System.IO;
+using System.Threading.Tasks;
+using Godot;
+
 
 public partial class WhisperGD : Node
 {
@@ -14,14 +15,30 @@ public partial class WhisperGD : Node
 	{
 	}
 
-	public string GetText(string input)
+	public async Task<string> GetText(string input)
 	{
-		GDScript MyGDScript = GD.Load<GDScript>("res://addons/godot_whisper/audio_stream_to_text.gd");
-		GodotObject myGDScriptNode = (GodotObject)MyGDScript.New(); // This is a GodotObject.
 
-		//var stream = GetChild<GDScript>(0);
-		//myGDScriptNode.Set("audio_stream", ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
-		return (string)myGDScriptNode.Call("get_text");
+		GD.Print((string)GetNode<Node>("Model")._Get("text"));
+
+
+
+		byte[] wavData = File.ReadAllBytes(ProjectSettings.GlobalizePath(input));
+
+
+		AudioStreamWav audioStreamSample = new AudioStreamWav()
+		{
+			Format = AudioStreamWav.FormatEnum.Format16Bits,
+			MixRate = 44100, // Adjust this based on your WAV file's sample rate
+			Stereo = false, // Adjust this based on your WAV file's channel count
+			Data = wavData
+		};
+
+		// Set the stream to the audio player and play
+		GetNode<Node>("Model")._Set("audio_stream", audioStreamSample);
+
+		//GetNode<Node>("Model").Call("get_text");
+
+		return "test";
 
 	}
 }

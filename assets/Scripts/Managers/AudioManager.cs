@@ -1,18 +1,17 @@
 
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using Godot;
 using NAudio.Wasapi.CoreAudioApi;
 
 
-public partial class AudioManager : Node
+public partial class AudioManager : Manager
 {
 	string[] inputDevices;
 	string[] outputDevices;
 	public AudioEffectRecord recordEffect;
-
-	public AudioEffectSpectrumAnalyzerInstance spectrum;
-
+	Manager manager;
 	public AudioStreamWav recording;
 
 	UI ui;
@@ -22,22 +21,19 @@ public partial class AudioManager : Node
 
 	public override void _Ready()
 	{
+		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(2, 0);
+		manager = GetNode<Manager>("/root/Managers");
+		ui = GetNode<UI>("/root/Main Window/UI");
 
-
-		ui = GetNode<UI>("/root/Main Scene/UI");
-		int idx = AudioServer.GetBusIndex("Recording");
-		recordEffect = (AudioEffectRecord)AudioServer.GetBusEffect(idx, 0);
-		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(5, 0);
-
-		if (GetNode<SaveManager>("/root/Data/SaveData").DirExists("user://Audio") == false)
+		if (GetNode<SaveData>("/root/Data/SaveData").DirExists("user://Audio") == false)
 		{
-			GetNode<SaveManager>("/root/Data/SaveData").DirCreate("user://Audio");
+			GetNode<SaveData>("/root/Data/SaveData").DirCreate("user://Audio");
 		}
 
 		#region Signals
-		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").ItemSelected += MicSelected;
-		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").ItemSelected += OutputSelected;
-		ui.GetNode<TextureButton>("CoreUI/Replay").Pressed += PlayAudio;
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/MicList").ItemSelected += MicSelected;
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/OutputList").ItemSelected += OutputSelected;
+
 
 
 		#endregion
@@ -52,14 +48,14 @@ public partial class AudioManager : Node
 
 		//settings menu
 		int voiceChannle = AudioServer.GetBusIndex("Voices");
-		AudioServer.SetBusVolumeDb(voiceChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/VoicesLevel").Value);
+		AudioServer.SetBusVolumeDb(voiceChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/VoicesLevel").Value);
 
 
 		int SFXChannle = AudioServer.GetBusIndex("SFX");
-		AudioServer.SetBusVolumeDb(SFXChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/SFX Level").Value);
+		AudioServer.SetBusVolumeDb(SFXChannle, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/SFX Level").Value);
 
 		int BGmusic = AudioServer.GetBusIndex("BGMusic");
-		AudioServer.SetBusVolumeDb(BGmusic, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/HBoxContainer/Audio/MusicLevel").Value);
+		AudioServer.SetBusVolumeDb(BGmusic, (float)ui.settingsUI.GetNode<Slider>("SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/MusicLevel").Value);
 
 	}
 
@@ -104,10 +100,10 @@ public partial class AudioManager : Node
 		currentlyRecording = false;
 	}
 
-	public void PlayAudio()
+	public void PlayAudio(string characterPath)
 	{
 		GD.Print("Play");
-		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>("AIVoice");
+		AudioStreamPlayer audioStreamPlayer = GetNode<AudioStreamPlayer>($"/{characterPath}/Viewport/Dummy/AudioPlayer");
 
 		byte[] wavData = File.ReadAllBytes(ProjectSettings.GlobalizePath("user://Audio/AIresponse.wav"));
 
@@ -115,8 +111,8 @@ public partial class AudioManager : Node
 		AudioStreamWav audioStreamSample = new AudioStreamWav()
 		{
 			Format = AudioStreamWav.FormatEnum.Format16Bits,
-			MixRate = 44100, // Adjust this based on your WAV file's sample rate
-			Stereo = false, // Adjust this based on your WAV file's channel count
+			MixRate = 44100,
+			Stereo = false,
 			Data = wavData
 		};
 
@@ -124,6 +120,10 @@ public partial class AudioManager : Node
 		// Set the stream to the audio player and play
 		audioStreamPlayer.Stream = audioStreamSample;
 		audioStreamPlayer.Play();
+		manager.conversation.audioTimer.WaitTime = audioStreamSample.GetLength();
+		manager.conversation.audioTimer.Start();
+
+
 	}
 
 
@@ -136,10 +136,10 @@ public partial class AudioManager : Node
 	{
 		inputDevices = AudioServer.GetInputDeviceList();
 
-		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").Clear();
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/MicList").Clear();
 		foreach (string device in inputDevices)
 		{
-			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/MicList").AddItem(device);
+			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/MicList").AddItem(device);
 		}
 
 	}
@@ -193,10 +193,10 @@ public partial class AudioManager : Node
 	{
 		outputDevices = AudioServer.GetOutputDeviceList();
 
-		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").Clear();
+		ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/OutputList").Clear();
 		foreach (string device in outputDevices)
 		{
-			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/HBoxContainer/Audio/OutputList").AddItem(device);
+			ui.GetNode<OptionButton>("SettingsUI/SettingsSelect/ScrollContainer/GridContainer/Audio/Panel/OutputList").AddItem(device);
 		}
 
 	}
@@ -212,9 +212,28 @@ public partial class AudioManager : Node
 		AudioServer.OutputDevice = outputDevices[index];
 	}
 
+	public AudioEffectSpectrumAnalyzerInstance NewCharacterBus(string characterPath)
+	{
+		AudioServer.AddBus(AudioServer.BusCount);
+		AudioServer.SetBusName(AudioServer.BusCount - 1, characterPath);
+		var spectrumAnalyzer = new AudioEffectSpectrumAnalyzer();
+		AudioServer.AddBusEffect(AudioServer.BusCount - 1, spectrumAnalyzer);
+		AudioServer.SetBusSend(AudioServer.BusCount - 1, "Voices");
+
+		return (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(AudioServer.BusCount - 1, 0);
+
+	}
+
+	public void UpdateCharacterBus(string oldCharacterPath, string newCharacterPath)
+	{
+		AudioServer.SetBusName(AudioServer.GetBusIndex(oldCharacterPath), newCharacterPath);
+	}
 
 
-
+	public void RemoveCharacterBus(string characterPath)
+	{
+		AudioServer.RemoveBus(AudioServer.GetBusIndex(characterPath));
+	}
 
 
 

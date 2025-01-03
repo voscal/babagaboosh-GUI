@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ctn1yrv4kb105"]
 
-[ext_resource type="Script" path="res://assets/Scripts/CharacterBox.cs" id="1_lw72u"]
+[ext_resource type="Script" path="res://assets/Scripts/UI/CharacterBox.cs" id="1_lw72u"]
 [ext_resource type="FontFile" uid="uid://bgctst1v10cf8" path="res://assets/Fonts/Electrolize-Regular.ttf" id="2_ju155"]
 [ext_resource type="PackedScene" uid="uid://cxi6grsp81c43" path="res://assets/Scenes/DisplayDummy.tscn" id="3_jcutw"]
 [ext_resource type="Theme" uid="uid://byiv4sk7pdl3g" path="res://mmtheme.tres" id="4_feiat"]
@@ -27,16 +27,16 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="Curve" id="Curve_xb3tf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.17847, 0), 0.0, 0.0, 0, 0, Vector2(0.498896, 1), 0.0, 0.0, 0, 0, Vector2(0.770538, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy6ph"]
 bg_color = Color(0.760784, 0.760784, 0.760784, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
-
-[sub_resource type="Curve" id="Curve_xb3tf"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.17847, 0), 0.0, 0.0, 0, 0, Vector2(0.498584, 1), 0.0, 0.0, 0, 0, Vector2(0.770538, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7nqb"]
 bg_color = Color(0.968627, 0.784314, 0, 1)
@@ -219,12 +219,42 @@ script = ExtResource("1_lw72u")
 layout_mode = 0
 offset_left = 48.0
 offset_top = 119.0
-offset_right = 164.0
+offset_right = 124.0
 offset_bottom = 151.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_ju155")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
 text = "LOAD"
+
+[node name="Add" type="Button" parent="."]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 119.0
+offset_right = 164.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ju155")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jm7e")
+
+[node name="Line2D" type="Line2D" parent="Add"]
+position = Vector2(14, 17)
+scale = Vector2(1.04243, 1.04243)
+points = PackedVector2Array(9.59301, -0.959305, -4.871, -0.959)
+width = 2.52
+width_curve = SubResource("Curve_xb3tf")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="Add"]
+position = Vector2(6.5, 17)
+scale = Vector2(1.04243, 1.04243)
+points = PackedVector2Array(9.593, 6.573, 9.569, -8.148)
+width = 2.52
+width_curve = SubResource("Curve_xb3tf")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="Panel" type="Panel" parent="."]
 clip_contents = true
@@ -254,7 +284,6 @@ visible = false
 position = Vector2(86, 60)
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
-visible = false
 layout_mode = 2
 offset_right = 156.0
 offset_bottom = 105.0
@@ -349,6 +378,7 @@ libraries = {
 title = "Export Character"
 
 [connection signal="pressed" from="Load" to="." method="LoadBttnClicked"]
+[connection signal="pressed" from="Add" to="." method="AddBttnclicked"]
 [connection signal="pressed" from="More" to="." method="moreBttnclicked"]
 [connection signal="pressed" from="Panel2/Export" to="ExportFileDialog" method="show"]
 [connection signal="pressed" from="Panel2/Delete" to="." method="deletepressed"]
