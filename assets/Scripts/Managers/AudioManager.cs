@@ -111,8 +111,8 @@ public partial class AudioManager : Manager
 		AudioStreamWav audioStreamSample = new AudioStreamWav()
 		{
 			Format = AudioStreamWav.FormatEnum.Format16Bits,
-			MixRate = 44100, // Adjust this based on your WAV file's sample rate
-			Stereo = false, // Adjust this based on your WAV file's channel count
+			MixRate = 44100,
+			Stereo = false,
 			Data = wavData
 		};
 

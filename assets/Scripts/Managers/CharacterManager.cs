@@ -59,12 +59,17 @@ public partial class CharacterManager : Manager
 
 
 	}
-	public void RemoveCharacter(int index)
+	public async void RemoveCharacter(int index)
 	{
 		GD.Print($"Removing character at index {index}. Active characters count: {ActiveCharacters.Count}");
 		if (ActiveCharacters.Count == 1)
 		{
 			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", "[center]Unable to Remove", "[center]You must have at least one character enabled", 5);
+			return;
+		}
+		if (manager.conversation.isGroupConversation == true && ActiveCharacters.Count == 2)
+		{
+			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", "[center]Unable to Remove", "[center]You must have at least two characters for a conversation", 5);
 			return;
 		}
 		var character = ActiveCharacters[index];
@@ -99,7 +104,7 @@ public partial class CharacterManager : Manager
 
 
 
-		CallDeferred("SetFocus", 0);
+		SetFocus();
 
 	}
 
@@ -161,7 +166,7 @@ public partial class CharacterManager : Manager
 	}
 	public void SetFocus()
 	{
-		SetFocus(manager.character.ActiveCharacters.Count);
+		SetFocus(manager.character.ActiveCharacters.Count - 1);
 	}
 
 
@@ -182,6 +187,7 @@ public partial class CharacterManager : Manager
 	{
 		return ActiveCharacters[focusedCharacter];
 	}
+
 
 
 

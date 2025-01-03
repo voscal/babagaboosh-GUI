@@ -31,6 +31,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 63.0
 offset_top = 1.0
@@ -41,6 +42,7 @@ min_value = -80.0
 max_value = 24.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 63.0
 offset_top = 16.0

@@ -3,7 +3,7 @@ using System;
 
 public partial class Popup : Control
 {
-	// Called when the node enters the scene tree for the first time.
+	public string pathToProp;
 	public override void _Ready()
 	{
 		GetNode<AnimationPlayer>("AnimationPlayer").Play("Open");
@@ -18,8 +18,15 @@ public partial class Popup : Control
 		QueueFree();
 	}
 
+	void ImageSelected(string imgPath)
+	{
+		GetNode<Prop>(pathToProp).changeImage(imgPath);
+	}
 
-
+	void ResetSizing()
+	{
+		GetNode<Prop>(pathToProp).ResetSizing();
+	}
 
 	public override void _Input(InputEvent input)
 	{

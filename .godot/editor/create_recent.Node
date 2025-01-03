@@ -1,3 +1,9 @@
+NativeFileDialog
+Button
+CheckButton
+Label
+AnimationPlayer
+Panel
 CollisionShape2D
 RigidBody2D
 ColorRect
@@ -7,9 +13,3 @@ Control
 SubViewportContainer
 AudioStreamPlayer
 TextureRect
-Button
-Panel
-PanelContainer
-Line2D
-VBoxContainer
-AnimationPlayer

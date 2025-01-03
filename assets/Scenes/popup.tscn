@@ -177,12 +177,14 @@ script = ExtResource("1_pecxe")
 
 [node name="Background" type="Panel" parent="."]
 clip_contents = true
+layout_mode = 0
 offset_top = -28.0
 offset_right = 217.0
 offset_bottom = 106.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vwguv")
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 0
 offset_left = 17.045
 offset_top = 25.16
 offset_right = 200.75
@@ -215,6 +217,7 @@ text = "- Reset Size"
 alignment = 0
 
 [node name="Button3" type="Button" parent="Background/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(184.42, 14.045)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -247,3 +250,13 @@ polygon = PackedVector2Array(-39.5101, -6.40247, -39.5101, 9.59753, -39.5101, 14
 libraries = {
 "": SubResource("AnimationLibrary_3viv4")
 }
+
+[node name="ImportHeadImage" type="NativeFileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png , *jpg , *.svg , *.webp ; Image (*.png , *jpg , *.svg , *.webp)", "* ; All Files")
+
+[connection signal="pressed" from="Background/VBoxContainer/Button" to="ImportHeadImage" method="show"]
+[connection signal="pressed" from="Background/VBoxContainer/Button2" to="." method="ResetSizing"]
+[connection signal="file_selected" from="ImportHeadImage" to="." method="ImageSelected"]

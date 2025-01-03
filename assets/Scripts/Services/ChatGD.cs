@@ -87,8 +87,18 @@ public partial class ChatGD : Node
 		{
 			if (character != activeCharacter)
 			{
-				activeCharacter.chat.Add(new UserChatMessage($"[{character.name}] {text}"));
+				activeCharacter.openChat.Add(new UserChatMessage($"[{character.name}] {text}"));
 			}
+		}
+	}
+
+	public void UpdateChatHistory(string name, string text)
+	{
+		foreach (Character activeCharacter in manager.character.ActiveCharacters)
+		{
+
+			activeCharacter.openChat.Add(new UserChatMessage($"[{name}] {text}"));
+
 		}
 	}
 

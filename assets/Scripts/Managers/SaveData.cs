@@ -1,12 +1,17 @@
 using Godot;
 using Godot.Collections;
+using System.Linq;
 using System.Text;
-using ElevenLabs.Voices;
+using System.Text.RegularExpressions;
+
+
+
 public partial class SaveData : Node
 {
 	string path = "user://data.json";
 	string KeysPath = "user://APIKEYS.json";
 	string CharactersPath = "user://Characters/";
+	string ConversationPath = "user://Conversations/";
 
 
 
@@ -78,6 +83,142 @@ public partial class SaveData : Node
 	}
 
 	#endregion
+
+	public void SaveConversation()
+	{
+		var ConvoEditor = ui.GetNode<Control>("Conversation Menu/Conversation Maker");
+
+		string name = ConvoEditor.GetNode<TextEdit>("Pannle/Panel/Name").Text;
+		string startPrompt = ConvoEditor.GetNode<TextEdit>("Pannle/Panel/Starting Prompt").Text;
+		string endPrompt = ConvoEditor.GetNode<TextEdit>("Pannle/Panel/Ending Propmt").Text;
+		string uniquPath = $"{ConversationPath}{name}.txt";
+
+		if (!DirExists(ConversationPath))
+		{
+			GD.Print("Creating directory: " + ConversationPath);
+			DirCreate(ConversationPath);
+		}
+		GD.Print("Saving Conversation to path: " + uniquPath);
+
+		using (FileAccess file = FileAccess.Open(uniquPath, FileAccess.ModeFlags.Write))
+		{
+			file.StoreLine($"/NAME/{name}/NAME/\n/STARTPROMPT/{startPrompt}/STARTPROMPT/\n/ENDPROMPT/{endPrompt}/ENDPROMPT/");
+		}
+
+		ConvoEditor.GetNode<TextEdit>("Pannle/Panel/Name").Text = "";
+		ConvoEditor.GetNode<TextEdit>("Pannle/Panel/Starting Prompt").Text = "";
+		ConvoEditor.GetNode<TextEdit>("Pannle/Panel/Ending Propmt").Text = "";
+		GD.Print("Saved");
+
+
+	}
+	public void RemoveConversation(string name)
+	{
+		string newConversationPath = $"{ConversationPath}{name}.txt";
+
+		if (!FileExists(newConversationPath))
+		{
+			GD.PrintErr("Character file does not exist: " + newConversationPath);
+			return;
+		}
+
+		var dir = DirAccess.Open(ConversationPath);
+		if (dir == null)
+		{
+			GD.PrintErr("Failed to open directory: user://Characters/");
+			return;
+		}
+
+		Error error = dir.Remove(newConversationPath);
+		if (error != Error.Ok)
+		{
+			GD.PrintErr("Failed to delete character file: " + newConversationPath + " Error: " + error.ToString());
+			return;
+		}
+
+		GD.Print("Successfully deleted character: " + name);
+		ui.GetNode<CharacterSelect>("Character Select").RefreshCharactersList(LoadAllCharacters());
+	}
+
+
+	public Dictionary<string, string>[] LoadAllConversations()
+	{
+		// Ensure the directory exists
+		if (!DirExists(ConversationPath))
+		{
+			GD.Print("Creating directory: " + ConversationPath);
+			DirCreate(ConversationPath);
+			return new Dictionary<string, string>[0]; // Return an empty array if no files exist
+		}
+
+		// Get all files in the directory
+		var conversations = new Array<Dictionary<string, string>>();
+		using (var dir = DirAccess.Open(ConversationPath))
+		{
+			if (dir == null)
+			{
+				GD.PrintErr("Failed to open directory: " + ConversationPath);
+				return new Dictionary<string, string>[0];
+			}
+
+			dir.ListDirBegin();
+			string fileName;
+			while ((fileName = dir.GetNext()) != "")
+			{
+				if (dir.CurrentIsDir())
+					continue; // Skip subdirectories
+
+				string filePath = ConversationPath + "/" + fileName;
+
+				// Read and parse the file
+				if (FileAccess.FileExists(filePath))
+				{
+					string fileContent = FileAccess.Open(filePath, FileAccess.ModeFlags.Read).GetAsText();
+					var parsedData = ParseFileContent(fileContent);
+					conversations.Add(parsedData);
+				}
+			}
+			dir.ListDirEnd();
+		}
+
+		return conversations.ToArray();
+	}
+
+	private Godot.Collections.Dictionary<string, string> ParseFileContent(string content)
+	{
+		GD.Print("File Content:\n" + content); // Debug: Print raw file content
+
+		var result = new Godot.Collections.Dictionary<string, string>();
+
+		// Use Singleline option to handle multiline content
+		var regex = new Regex(
+			@"/NAME/(?<name>.*?)/NAME/|/STARTPROMPT/(?<startPrompt>.*?)/STARTPROMPT/|/ENDPROMPT/(?<endPrompt>.*?)/ENDPROMPT/",
+			RegexOptions.Singleline
+		);
+
+		foreach (Match match in regex.Matches(content))
+		{
+			if (match.Groups["name"].Success)
+			{
+				result["name"] = match.Groups["name"].Value.Trim();
+				GD.Print("Name Captured: " + result["name"]); // Debug
+			}
+			if (match.Groups["startPrompt"].Success)
+			{
+				result["start_prompt"] = match.Groups["startPrompt"].Value.Trim();
+				GD.Print("Start Prompt Captured: " + result["start_prompt"]); // Debug
+			}
+			if (match.Groups["endPrompt"].Success)
+			{
+				result["end_prompt"] = match.Groups["endPrompt"].Value.Trim();
+				GD.Print("End Prompt Captured: " + result["end_prompt"]); // Debug
+			}
+		}
+
+		return result;
+	}
+
+
 
 	#region Character Loading
 

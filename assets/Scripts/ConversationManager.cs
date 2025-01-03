@@ -6,14 +6,18 @@ public partial class ConversationManager : Node
 	Manager manager;
 	Services service;
 	bool active = false;
+	public bool isGroupConversation = false;
 	bool speakingLock;
 	public bool conversationLock;
 
 	public Timer audioTimer;
 
-	string ExplnationIntro = "your in a debait about the best 3 video games";
+	bool userBuffer;
+	bool userRecording;
 
-	string ExplnationOutro = "you are conversing with 2 other people";
+	public string ExplnationIntro = "your in a debait about the best 3 video games";
+
+	public string ExplnationOutro = "you are conversing with 2 other people";
 
 	int lastSpoke;
 
@@ -41,35 +45,101 @@ public partial class ConversationManager : Node
 				}
 			}
 			lastSpoke = randomCharacter;
-			manager.character.ActiveCharacters[randomCharacter].GenerateOpenResponse("Okay what is your response? Try to be as chaotic and bizarre and adult-humor oriented as possible. Again, 3 sentences maximum.", service, manager);
 			conversationLock = true;
+			manager.character.ActiveCharacters[randomCharacter].GenerateOpenResponse("Okay what is your response? remeber to keep it between 20 - 30 words", service, manager);
+
 		}
 	}
 
-	public void StartConversation()
+	public void ReadyConversation()
 	{
 		foreach (Character character in manager.character.ActiveCharacters)
 		{
-			character.openChat = service.chatGPT.CreateConversation($"{ExplnationIntro}\n{character.context}\n{ExplnationOutro}");
+			character.openChat = service.chatGPT.CreateConversation($"{ExplnationIntro}\n{character.context}\nMessages that you receive from the other people in the conversation will always begin with their title, to help you distinguish who has said what. For example a message from someone named Victoria will begin with \"[VICTORIA]\", while a message from someone named Tony will begin with [TONY]. You should NOT begin your message with this, just answer normally.\n{ExplnationOutro}\nOkay, let the story begin!");
 		}
 		GD.Print("LET THE CONVO BEGIN");
-		active = true;
-
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Context", "[center]The Context has been set", 6);
 	}
 
 	public void StopConversation()
 	{
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ending", "[center]Has Stopped", 6);
 		active = false;
 	}
 
-	public void ResetConversation()
+	public void StartConversation()
 	{
-
+		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Starting", "[center]the conversation will now begin", 6);
+		active = true;
 	}
+
 
 	void ClipOver()
 	{
 		conversationLock = false;
+	}
+
+	public async void AskAI()
+	{
+
+
+
+		if (isGroupConversation == true)
+		{
+			active = false;
+			var recording = manager.audio.RecordBttnPressed();
+
+			if (recording)
+			{
+				GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
+				return;
+			}
+			string recordedText = await manager.sTT.GetText();
+			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
+			userRecording = false;
+			if (recordedText != null)
+			{
+				conversationLock = true;
+
+				var focusedCharacter = manager.character.ActiveCharacters[manager.character.focusedCharacter];
+				service.chatGPT.UpdateChatHistory("HOST", recordedText);
+
+				conversationLock = true;
+				focusedCharacter.GenerateOpenResponse("Okay what is your response? remeber to keep it between 20 - 30 words", service, manager);
+
+			}
+			active = true;
+		}
+		else
+		{
+
+			if (conversationLock && !userRecording)
+			{
+				GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("error", "[center]Recording", "[center]an ai is still talking, please wait for it to finnish", 6);
+				return;
+			}
+
+			conversationLock = true;
+			userRecording = true;
+			var recording = manager.audio.RecordBttnPressed();
+
+			if (recording)
+			{
+				GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
+				return;
+			}
+			string recordedText = await manager.sTT.GetText();
+			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
+			userRecording = false;
+			if (recordedText != null)
+			{
+				var character = manager.character.ActiveCharacters[manager.character.focusedCharacter];
+				await character.GenerateResponse(recordedText, service, manager);
+				return;
+			}
+			conversationLock = false;
+
+		}
 	}
 
 

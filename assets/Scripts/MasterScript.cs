@@ -67,25 +67,9 @@ public partial class MasterScript : Node
 
 	}
 
-	public async void askAI()
+	public void askAI()
 	{
-		var recording = audioManager.RecordBttnPressed();
-		var character = manager.character.ActiveCharacters[manager.character.focusedCharacter];
-		if (recording)
-		{
-			GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Recording", "[center]Now Recording Voice clip", 6);
-			//manager.conversation.StartConversation();
-			return;
-		}
-		//manager.conversation.StopConversation();
-
-		string recordedText = await manager.sTT.GetText();
-		GetNode<NotificationsManager>("/root/Managers/Notification").NewNotification("info", "[center]Ended Recording", "[center]Stoped Recording Voice clip", 6);
-
-		if (recordedText != null)
-		{
-			character.GenerateResponse(recordedText, services, manager);
-		}
+		manager.conversation.AskAI();
 
 	}
 

@@ -49,5 +49,6 @@ script = ExtResource("4_rt6g3")
 
 [node name="STT" type="Node" parent="."]
 script = ExtResource("3_q6hsk")
+provider = 2
 
 [connection signal="timeout" from="Conversation/AudioTimer" to="Conversation" method="ClipOver"]

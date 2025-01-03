@@ -76,6 +76,26 @@ public partial class Prop : Control
 		}
 	}
 
+	public void changeImage(string imagePath)
+	{
+		Image image = Image.LoadFromFile(imagePath);
+		ImageTexture texture = new();
+		texture.SetImage(image);
+		GetNode<TextureRect>("Sprite").Texture = texture;
+		if (Name == "Head")
+		{
+			GetNode<Manager>("/root/Managers").character.ActiveCharacters[GetNode<Manager>("/root/Managers").character.ActiveCharacters.IndexOf(GetNode<Manager>("/root/Managers").character.GetFocusedCharacter())].image2 = texture;
+		}
+		else if (Name == "Body")
+		{
+			GetNode<Manager>("/root/Managers").character.ActiveCharacters[GetNode<Manager>("/root/Managers").character.ActiveCharacters.IndexOf(GetNode<Manager>("/root/Managers").character.GetFocusedCharacter())].image1 = texture;
+		}
+	}
+
+	public void ResetSizing()
+	{
+		Size = new Vector2(50, 50);
+	}
 
 
 
@@ -107,8 +127,9 @@ public partial class Prop : Control
 					// Create and position the popup
 					Vector2 mousePos = GetWindow().GetViewport().GetMousePosition();
 
-					var instance = (Control)ResourceLoader.Load<PackedScene>("res://assets/Scenes/popup.tscn").Instantiate();
+					var instance = (Popup)ResourceLoader.Load<PackedScene>("res://assets/Scenes/popup.tscn").Instantiate();
 					instance.Position = new Vector2(mousePos.X + 35, mousePos.Y - 25);
+					instance.pathToProp = GetPath().ToString();
 					instance.GetNode<Label>("Background/NameLabal").Text = Name;
 
 					GetNode<UI>("/root/Main Window/UI").AddChild(instance);
@@ -179,8 +200,7 @@ public partial class Prop : Control
 
 				if (isMoving)
 				{
-
-					SetPosition(initialPosition + GetGlobalMousePosition());
+					SetPosition(GetGlobalMousePosition());
 				}
 
 				if (isResizing)

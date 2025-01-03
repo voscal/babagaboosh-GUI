@@ -63,7 +63,7 @@ public partial class Character : Node
 
 	}
 
-	public async void GenerateResponse(string text, Services services, Manager manager)
+	public async Task GenerateResponse(string text, Services services, Manager manager)
 	{
 
 		string aiResponse = await services.chatGPT.SendMessage(text, chat);
@@ -75,7 +75,7 @@ public partial class Character : Node
 	}
 	public async void GenerateOpenResponse(string text, Services services, Manager manager)
 	{
-
+		GD.Print($"responding to {openChat[openChat.Count - 1].Content[0].Text}");
 		string aiResponse = await services.chatGPT.SendMessage(text, openChat);
 		GD.Print(aiResponse);
 		await services.elevinLabs.RenderVoice(this, aiResponse);
